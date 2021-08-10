@@ -19,6 +19,12 @@
  # 2. NPM 전역 설치
  # 시스템 레벨에서 사용할 자바스크립트 라이브러리를 설치할 때 사용
  # 라이브러리가 설치되고 나면 이제 명령어 실행 창에 해당 라이브러리 이름을 입력했을 때 명령어를 인식
+
+ # .ts 파일을 .js 파일로 변환시 해당 디렉토리로 접근하여 아래 명령어 실행
+ tsc index.ts 
+
+ # webpack, gulp 등
+
 ```
 
 ## 장점
@@ -29,6 +35,7 @@
 ## Reference
 - [공식문서](https://www.typescriptlang.org/)
 - [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
+- [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 
 ## 개발 환경
 
