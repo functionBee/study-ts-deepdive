@@ -1,5 +1,7 @@
 // user Data
 var url = 'https://jsonplaceholder.typicode.com/users/1';
+// 예제 코드의 단순화를 위해서 
+// var url = 'https://jsonplaceholder.typicode.com/users/ -> var url = 'https://jsonplaceholder.typicode.com/users/1
 
 // dom
 var username = document.querySelector('#userName');
@@ -18,8 +20,8 @@ var user = {};
 
 /**
  * @typedef {object} User
- * @property {String} name
- * @property {String} email
+ * @property {string} name
+ * @property {string} email
  * @property {Address} address
  */
 
@@ -32,8 +34,10 @@ function fetchUser(){
     return axios.get(url);
 }
 
+// console.log(fetchUser());
+
 fetchUser().then(function(response){
-    response.address.ci; 
+    response.address.cit;
     // 타입스크립트 장점1. 
     //addrss. 입력시 vscode의 경우 자동완성을 통해 property를 사전에 확인할수 있음
 });
