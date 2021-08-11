@@ -1,16 +1,20 @@
 # 타입스크립트 입문 - 기초부터 실전까지
+
 : 자바스크립트로 제작된 COVID-19 세계 현황판을 타입스크립트로 변환
 
 ## 정의
+
 타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(컴파일;Compile)해주어야 한다.
 
 ## 컴파일(compile) : ts 파일을 js 파일로 변환하는 작업
+
 ```
  #node 버전 확인
- node -v 
+ node -v
 
  # NPM을 통한 타입스크립트 전역 설치
  npm i typescript -g
+ yarn add typescript -g
 
  # (참고)
  # 1. NPM(Node Package Manager)
@@ -21,39 +25,43 @@
  # 라이브러리가 설치되고 나면 이제 명령어 실행 창에 해당 라이브러리 이름을 입력했을 때 명령어를 인식
 
  # .ts 파일을 .js 파일로 변환시 해당 디렉토리로 접근하여 아래 명령어 실행
- tsc index.ts 
+ tsc index.ts
 
  # webpack, gulp 등
 
 ```
 
 ## 장점
+
 1. JS를 이용하여 에러 사전방지
 2. 코드 가이드 및 자동완성(개발 생산성 향상)
 
-
 ## Reference
-- [공식문서](https://www.typescriptlang.org/)
-- [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
-- [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
-- [타입스크립트 Playground](https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA)
-- [바벨](https://babeljs.io/)
-- [let & const](https://joshua1988.github.io/es6-online-book/const-let.html)
+
+-   [공식문서](https://www.typescriptlang.org/)
+-   [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
+-   [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+-   [타입스크립트 Playground](https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA)
+-   [바벨](https://babeljs.io/)
+-   [let & const](https://joshua1988.github.io/es6-online-book/const-let.html)
 
 ## 개발 환경
 
-- [Chrome](https://www.google.com/intl/ko/chrome/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Node.js LTS 버전(v10.x 이상)](https://nodejs.org/ko/)
-- [Git](https://git-scm.com/downloads)
+-   [Chrome](https://www.google.com/intl/ko/chrome/)
+-   [Visual Studio Code](https://code.visualstudio.com/)
+-   [Node.js LTS 버전(v10.x 이상)](https://nodejs.org/ko/)
+-   [Git](https://git-scm.com/downloads)
 
 ## VSCode 플러그인 목록
-- 문법 검사 : ESLint, [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
-- 기타
-  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
+
+-   문법 검사 : ESLint, [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
+-   기타
+    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
 
 ## 3. 타입 스크립트 변수타입
+
 타입 스크립트의 변수 타입에는 아래와 같이 12가지가 있다.
+
 1. Boolean
 
 2. Number
@@ -65,15 +73,12 @@
 8. Any
 9. Void
 10. Null
-11. Undefined 
+11. Undefined
 12. Never
-
 
 ---
 
-
 > 강의
-인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의 리포지토리입니다.
+> 인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의 리포지토리입니다.
 
 [![typescript-beginner](https://joshua1988.github.io/images/posts/web/inflearn/typescript-beginner-kor.png)](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner)
-
