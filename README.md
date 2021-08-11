@@ -71,7 +71,6 @@ let show:boolean = true;
 ```
 // TS 숫자 선언
 let num: number = 10;
-
 ```
 3. String
 ```
@@ -113,6 +112,34 @@ let address: [string, number] = ['mapo', 100];
 10. Null
 11. Undefined
 12. Never
+
+## 4. 타입스크립트의 함수 타입
+1. 함수의 파라미터에 타입을 정의하는 방식
+```
+function Sum (a:number, b:number){
+    return a + b
+}
+```
+2. 함수의 반환 값에 타입을 정의하는 방식
+
+```
+function Add(): number{
+    return 10;
+}
+```
+3. 함수의 타입을 정의하는 방식
+```
+function Total (a:number, b:number):number{
+    return a + b
+}
+```
+4. 함수의 옵셔널 파라미너 
+```
+function log(a: string, b?: string, c?: string){
+    // 특정 파라미터의 선택적 사용을 위해서 ? 선언
+}
+log('hello ts', 'abc')
+```
 
 ---
 
