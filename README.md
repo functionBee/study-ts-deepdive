@@ -140,7 +140,8 @@ function log(a: string, b?: string, c?: string){
 }
 log('hello ts', 'abc')
 ```
-## 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+## :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
 
 
 ---
