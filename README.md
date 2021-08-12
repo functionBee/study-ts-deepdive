@@ -58,7 +58,7 @@
 -   기타
     -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
 
-## 3. 타입 스크립트 변수타입
+## 타입 스크립트 변수타입
 
 타입 스크립트의 변수 타입에는 아래와 같이 12가지가 있다.
 
@@ -113,7 +113,7 @@ let address: [string, number] = ['mapo', 100];
 11. Undefined
 12. Never
 
-## 4. 타입스크립트의 함수 타입
+## 타입스크립트의 함수 타입
 1. 함수의 파라미터에 타입을 정의하는 방식
 ```
 function Sum (a:number, b:number){
@@ -140,6 +140,8 @@ function log(a: string, b?: string, c?: string){
 }
 log('hello ts', 'abc')
 ```
+## 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+
 
 ---
 
