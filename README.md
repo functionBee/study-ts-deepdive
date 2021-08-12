@@ -58,6 +58,12 @@
 -   기타
     -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
 
+---
+
+## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+## :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
+
+---
 ## 타입 스크립트 변수타입
 
 타입 스크립트의 변수 타입에는 아래와 같이 12가지가 있다.
@@ -140,9 +146,6 @@ function log(a: string, b?: string, c?: string){
 }
 log('hello ts', 'abc')
 ```
-## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
-## :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
-
 
 ---
 
