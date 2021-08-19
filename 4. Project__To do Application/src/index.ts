@@ -1,9 +1,9 @@
 // any -> object 
 // 변수에 구체적인 타입을 선언하는 것을 권장
-let todoItems: object[];
+let todoItems: { id: number; title: string; done: boolean }[];
 
 // api
-function fetchTodoItems(): object[] {
+function fetchTodoItems(): { id: number; title: string; done: boolean }[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -19,7 +19,7 @@ function fetchTodos(): object[] {
 }
 
 // return 값이 없는 함수
-function addTodo(todo: object): void {
+function addTodo(todo: { id: number; title: string; done: boolean }): void {
   //: void 반환값이 없음을 의미
   todoItems.push(todo);
 }
@@ -28,7 +28,7 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index: number, todo: object): void {
+function completeTodo(index: number, todo: { id: number; title: string; done: boolean }): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
@@ -47,9 +47,21 @@ function showCompleted(): object[] {
   // })
 }
 
-// TODO: 아래 함수의 내용을 채워보세요. 아래 함수는 `addTodo()` 함수를 이용하여 2개의 새 할 일을 추가하는 함수입니다.
+// Done: 아래 함수는 `addTodo()` 함수를 이용하여 2개의 새 할 일을 추가하는 함수입니다.
 function addTwoTodoItems(): void {
-  // addTodo() 함수를 두 번 호출하여 todoItems에 새 할 일이 2개 추가되어야 합니다.
+  // addTodo() 함수를 두 번 호출하여 todoItems에 새 할 일이 2개 추가
+  const item1 = {
+    id: 4,
+    title: 'item 4',
+    done: false
+  };
+
+  addTodo(item1);
+  addTodo({
+    id: 5,
+    title: 'item 5',
+    done: true,
+  })
 }
 
 // NOTE: 유틸 함수
