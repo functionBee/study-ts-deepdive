@@ -260,7 +260,7 @@ function getTodo(todo: Todo){
 **타입과 인터페이스의 차이점**
 : 타입의 확장 가능 여부
 > 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
-참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
+- 참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
 
 ## 연산자를 이용한 타입 정의
 1. 유티온 타입 (Union Type) : | 
@@ -328,6 +328,45 @@ function askSomeone(someone: Developer & Person ){
 }
 
 askSomeone({ name : 'developer', skill: 'web dev', age: 333});
+```
+## 이넘(Enums)
+: 특정 값들의 집합을 의미하는 자료형
+> 타입스크립트에서는 문자형 이넘과 숫자형 이넘을 지원
+
+1. 숫자형 이넘
+```
+enum Shoes{
+    Nike,
+    Addidas,
+}
+
+var myShoes =  Shoes.Addidas;
+console.log(myShoes); //1
+```
+2. 문자형 이넘
+```
+enum Shoes {
+    Nike = '나이키',
+    Addidas = '아디다스',
+}
+
+var myShoes =  Shoes.Addidas;
+console.log(myShoes); //아디다스
+```
+3. 이넘의 활용 사례
+```
+function askQuestion(answer: string){
+    if( answer === Answer.Yes){
+        console.log('정답입니다.');
+    }else{
+        console.log('오답입니다.');
+        
+    }
+}
+// console.log(askQuestion('yes'));
+// console.log(askQuestion('y'));
+
+console.log(Answer.Yes); // Y
 ```
 ---
 ## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
