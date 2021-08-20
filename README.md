@@ -61,11 +61,6 @@
 
 ---
 
-## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
-
-## :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
-
----
 ## 타입 스크립트 변수타입
 
 타입 스크립트의 변수 타입에는 아래와 같이 12가지가 있다.
@@ -262,8 +257,8 @@ function getTodo(todo: Todo){
 }
 ```
 
-** 타입과 인터페이스의 차이점 **
-- 타입의 확장 가능 여부
+**타입과 인터페이스의 차이점**
+: 타입의 확장 가능 여부
 > 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
 참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
 
@@ -334,6 +329,11 @@ function askSomeone(someone: Developer & Person ){
 
 askSomeone({ name : 'developer', skill: 'web dev', age: 333});
 ```
+---
+## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+
+## :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
+
 
 ---
 
