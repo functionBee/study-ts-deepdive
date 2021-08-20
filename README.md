@@ -226,6 +226,50 @@ var hola: Developer = {
 }
 ```
 
+## 타입별칭(Type Aliases)
+타입별칭 : 특정 타입이나 인터페이스를 참조할 수 잇는 타입변수
+> 새로운 타입 값을 하나 생성한느 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다. 
+
+```
+// string 타입을 사용할 때
+const name: string = 'bee';
+
+
+// 타입 별칭을 사용할 때
+type User = string;
+const name: User = 'bee';
+
+
+// interface 레벨의 복잡한 타입에도 별칭 부여 가능
+type Developer = {
+  name : string,
+  skill : string,
+}
+
+// 타입별칭에 제네릭 사용
+type User<W> = {
+  name : W
+}
+
+// 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
+type greeting = string;
+var str: greeting = 'hello';
+
+
+type Todo = {id: string; title: string; done: boolean};
+function getTodo(todo: Todo){
+
+}
+```
+
+** 타입과 인터페이스의 차이점 **
+- 타입의 확장 가능 여부
+> 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
+참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
+
+
+
+
 ---
 
 > 관련 강의
