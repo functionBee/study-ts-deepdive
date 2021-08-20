@@ -267,8 +267,73 @@ function getTodo(todo: Todo){
 > 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
 참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
 
+## 연산자를 이용한 타입 정의
+1. 유티온 타입 (Union Type) : | 
+or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+```
+function logMessage(value : string | number ){
+    console.log(value);
+}
 
+logMessage('hello');
+logMessage(10);
+```
+2. 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
+```
+function logMessage(value : string | number ){
+    if( typeof value === 'number'){
+        value.toLocaleString();
+    }
+    if( typeof value === 'string'){
+        value.toString();
+    }
+    throw new TypeError('value muste be string or number');
+}
+```
+3. 유니온 타입의 속성
+```
+interface Developer {
+    name: string;
+    skill : string;
+}
 
+interface Person {
+    name: string;
+    age: number;    
+}
+
+function askSomeone(someone: Developer | Person ){
+    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
+    someone.name;
+}
+```
+4. 인터섹션 타입(Intersection type) : &  
+```
+function askSomeone(someone: Developer & Person ){
+    someone.age;
+    someone.skill;
+    someone.name;
+}
+```
+5. 유니온 타입과 인터섹션 타입의 차이점
+```
+// 타입의 선택지가 있음
+function askSomeone(someone: Developer | Person ){
+    someone.name;
+}
+
+askSomeone({ name : 'developer', skill: 'web dev'});
+askSomeone({ name : 'bee', age: 333 });
+
+// 새로운 타입을 생성
+function askSomeone(someone: Developer & Person ){
+    someone.age;
+    someone.skill;
+    someone.name;
+}
+
+askSomeone({ name : 'developer', skill: 'web dev', age: 333});
+```
 
 ---
 
