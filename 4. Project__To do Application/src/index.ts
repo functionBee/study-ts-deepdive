@@ -1,9 +1,17 @@
 // any -> object 
 // 변수에 구체적인 타입을 선언하는 것을 권장
-let todoItems: { id: number; title: string; done: boolean }[];
+
+interface Todo {
+  id: number; 
+  title: string; 
+  done: boolean; 
+}
+
+let todoItems: Todo[];
+
 
 // api
-function fetchTodoItems(): { id: number; title: string; done: boolean }[] {
+function fetchTodoItems(): Todo[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -19,7 +27,7 @@ function fetchTodos(): object[] {
 }
 
 // return 값이 없는 함수
-function addTodo(todo: { id: number; title: string; done: boolean }): void {
+function addTodo(todo: Todo): void {
   //: void 반환값이 없음을 의미
   todoItems.push(todo);
 }
@@ -28,7 +36,7 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index: number, todo: { id: number; title: string; done: boolean }): void {
+function completeTodo(index: number, todo: Todo): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }

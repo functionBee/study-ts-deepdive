@@ -154,6 +154,30 @@ function log(a: string, b?: string, c?: string){
 log('hello ts', 'abc')
 ```
 
+## 인터페이스 (Interface)
+인터페이스는 상호 간에 정의한 약속 혹은 규칙으로 아래 범주 4개에 대해 약속을 정의하는 것이 가능
+
+- 객체의 스펙(속성과 속성의 타입)
+- 함수의 파라미터
+- 함수의 스펙(파라미터, 반환 타입 등)
+- 배열과 객체를 접근하는 방식
+- 클래스
+
+1. 변수에 인터페이스 활용
+```
+var seho: User = {
+  age: 33,
+  name: "seho",
+};
+```
+2. 함수에 인터페이스 활용
+```
+function getUser(user: User){
+  console.log(user);
+}
+
+```
+
 ---
 
 > 관련 강의
