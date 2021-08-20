@@ -175,7 +175,55 @@ var seho: User = {
 function getUser(user: User){
   console.log(user);
 }
+```
+3. 함수의 스펙(구조)에 인터페이스를 활용
+```
+interface Sumfunction{
+  // 인자 타입              // 반환 타입 
+  (a : number, b: number) : number;
+}
 
+let sum : Sumfunction;
+sum = function(a: number, b: number):number{
+  return a + b ;
+}
+```
+4. 인덱싱 방식을 정의하는 인터페이스
+```
+interface StringArra{
+  [index: number]: string;
+}
+
+var arr = ['a', 'b', 'c'];
+arr[0] // 'a'
+```
+5. 딕셔너리 패턴
+```
+interface StringRegexDictionary{
+  [key : string]: RegExp;
+}
+
+var obj: StringRegexDictionary = {
+  cssFile: /\.css$/,
+  jsFile: /\.js$/,
+}
+```
+6. 인터페이스 확장
+```
+interface Person{
+  name : string;
+  age: number;
+}
+
+interface Developer extends Person{
+  language: string;
+}
+
+var hola: Developer = {
+  name : 'bee',
+  age : 300,
+  language: 'ts'
+}
 ```
 
 ---
