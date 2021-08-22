@@ -45,6 +45,7 @@
 -   [바벨](https://babeljs.io/)
 -   [let & const](https://joshua1988.github.io/es6-online-book/const-let.html)
 -   [Array filter Api;Array.prototype.filter()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+-   [자바스크립트 프로토타입과 상속](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
 ## 개발 환경
 
@@ -368,6 +369,9 @@ function askQuestion(answer: string){
 
 console.log(Answer.Yes); // Y
 ```
+
+## 클래스
+
 ---
 ## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
 
