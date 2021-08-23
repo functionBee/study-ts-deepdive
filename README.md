@@ -372,6 +372,21 @@ console.log(Answer.Yes); // Y
 ```
 
 ## 클래스
+```
+class Person{
+    private name : string;
+    public age : number;
+    readonly log: string;
+
+    constructor(name: string, age: number){
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+## 
+
 
 ---
 ## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
