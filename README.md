@@ -385,8 +385,18 @@ class Person{
 }
 ```
 
-## 
+## 제네릭(Generics)
+재사용성이 높은 컴포넌트를 만들때 자주 활용되는 특징
+- 한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는 데 사용
 
+```
+function logText<T>(text: T): T{
+    console.log(text);
+    return text;
+}
+
+logText<string>('hi');
+```
 
 ---
 ## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
