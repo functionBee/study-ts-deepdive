@@ -398,6 +398,76 @@ function logText<T>(text: T): T{
 logText<string>('hi');
 ```
 
+1. 기존 타입 정의 방식과 제네릭의 차이점 - 함수 중복 선언의 단점
+
+```
+// 기존 함수의 경우 여러 타입을 받을 수 있음
+// function logText(text){
+//     console.log(text);
+//     return text;
+// }
+
+// logText(10);
+// logText('hi');
+// logText(true);
+
+
+// 타입
+function logText(text: string){
+    console.log(text);
+    // text.split('').reverse().joing('');
+    return text;
+}
+
+
+function logNumber(num: number){
+    console.log(num);
+    return num;
+}
+
+console.log(logText('a'));
+console.log(logNumber(10));
+```
+> 단순히 타입을 다르게 받기 위해서 중복된 코드를 계속해서 생산하는 것은 코드의 가독성 및 전체 코드가 비대해지므로 유지보수하기가 어려움
+
+2. 기본 타입 정의 방식과 제네릭의 차이점 -  유니온 타입을 이용한 선언 방식의 문제점
+
+```
+function logText(text: string | number){
+    console.log(text);
+    // text.
+
+    // 문제1.
+    // string 과 number의 교집합
+    // 공통으로 작성가능한 api 에 대해서만 자동 완성(preview)을 제공
+    return text;
+}
+const a = logText('a');
+a.split('');
+// 문제2. 
+// 정확하게 a 변수가 string 이라는 타입의 추론이 불가능하여 오류가 발생
+```
+
+3. 제네릭의 장점과 타입추론에서의 이점
+
+```
+function logText<T>(text: T):T { // 인자와 반환값이 동일하도록 제네릭을 이용
+    console.log(text);
+    return text;
+}
+
+const str = logText<string>('a');
+str.split('');
+
+// 장점1. 
+// 타입의 구성이 용이
+
+const login = logText<boolean>(true);
+// 장점2. 
+// login 변수가 boolean 타입임을 추론 가능
+```
+
+4. 
 ---
 ## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
 
@@ -406,5 +476,5 @@ logText<string>('hi');
 
 ---
 
-> 관련 강의
+## 관련 강의
 > 인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의.
