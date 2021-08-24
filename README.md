@@ -490,6 +490,32 @@ const object: Dropdown<string> = { value: 'sw', selected :  false };
 ```
 
 6. 제네릭의 타입 제한
+```
+// 정의된 타입이 아닌 경우
+function logTextLength<T>(text: T[]): T[] {
+    text.forEach(function(text){
+        console.log(text);
+    })
+    return text;
+}
+
+logTextLength<string>(['hi', 'abc']);
+
+// 정의된 타입 이용할 경우
+interface LengthType{
+    length: number;
+}
+
+function textLength<T extends LengthType>(text: T):T{
+    text.length;
+    return text;
+}
+
+textLength('a');
+// textLength(10);
+textLength({length : 10});
+```
+
 
 
 ---
