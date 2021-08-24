@@ -534,7 +534,17 @@ function getShoppingOption<T extends keyof ShoppingItem>(itemOption: T):T {
 getShoppingOption('name')
 ```
 
+## Promise를 이용한 API 함수 타입 정의
+```
+function fetchItems(): Promise<string[]>{
+    var items:string[] = ['a', 'b', 'c'];
+    return new Promise(function(resolve){
+        resolve(items);
+    });
+}
 
+fetchItems();
+```
 
 ---
 ### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
