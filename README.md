@@ -514,6 +514,24 @@ function textLength<T extends LengthType>(text: T):T{
 textLength('a');
 // textLength(10);
 textLength({length : 10});
+
+
+// keyof
+// 제네릭의 타입의 범위를 협소 시킴
+interface ShoppingItem{
+    name : string,
+    price : number,
+    stock: number,
+}
+
+// extedns?  기존에 정의되어 있는 인터페이스 혹은 타입의 확장할 때 쓰는 키워드
+function getShoppingOption<T extends keyof ShoppingItem>(itemOption: T):T {
+    return itemOption;
+}
+
+// getShoppingOption(10);
+// getShoppingOption<string>('a');
+getShoppingOption('name')
 ```
 
 
