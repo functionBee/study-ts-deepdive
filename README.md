@@ -538,9 +538,11 @@ getShoppingOption('name')
 
 ---
 ### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
-> 경로 : LearnTypeScript\3. introduction to TS\4. Project__To do Application
+> 경로 : LearnTypeScript\4. Project__To do Application
 
 ### :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
+> 경로 : LearnTypeScript\5. Project__AddressBook
+
 
 ---
 
