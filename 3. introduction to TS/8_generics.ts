@@ -67,4 +67,6 @@ interface Dropdown<T>{
 
 const object: Dropdown<string> = { value: 'sw', selected :  false };
 
+// 제네릭의 타입 제한
+
 

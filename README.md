@@ -465,7 +465,7 @@ const login = logText<boolean>(true);
 // login 변수가 boolean 타입임을 추론 가능
 ```
 
-4. 제네릭 실전 예제
+4. 제네릭 실전 예제 - 제네릭을 이용한 타입 정의
 > - 파일1. : LearnTypeScript\3. introduction to TS\dropdown-generic.html
 > - 파일2. : LearnTypeScript\3. introduction to TS\dropdown-generic.ts
 
@@ -489,13 +489,14 @@ interface Dropdown<T>{
 const object: Dropdown<string> = { value: 'sw', selected :  false };
 ```
 
-6. 
+6. 제네릭의 타입 제한
+
 
 ---
-## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+> 경로 : LearnTypeScript\3. introduction to TS\4. Project__To do Application
 
-## :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
-
+### :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
 
 ---
 
