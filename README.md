@@ -436,7 +436,6 @@ console.log(logNumber(10));
 function logText(text: string | number){
     console.log(text);
     // text.
-
     // 문제1.
     // string 과 number의 교집합
     // 공통으로 작성가능한 api 에 대해서만 자동 완성(preview)을 제공
@@ -467,7 +466,10 @@ const login = logText<boolean>(true);
 // login 변수가 boolean 타입임을 추론 가능
 ```
 
-4. 
+4. 제네릭 실전 예제
+> 파일1. : LearnTypeScript\3. introduction to TS\dropdown-generic.html
+> 파일2. : LearnTypeScript\3. introduction to TS\dropdown-generic.ts
+
 ---
 ## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
 
