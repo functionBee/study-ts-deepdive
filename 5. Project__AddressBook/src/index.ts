@@ -11,8 +11,8 @@ interface Contact {
 }
 
 // api
-function fetchContacts(): Promise {
-  const contacts = [
+function fetchContacts(): Promise<Contact[]> {
+  const contacts: Contact[] = [
     {
       name: 'Tony',
       address: 'Malibu',
