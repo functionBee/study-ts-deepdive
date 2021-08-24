@@ -52,6 +52,19 @@ const login = logText<boolean>(true);
 // login 변수가 boolean 타입임을 추론 가능
 
 
+// interface Dropdown{
+//     value: string;
+//     selected : boolean;
+// }
 
+// const object: Dropdown = { value: 'sw', selected :  false };
+
+// 인터페이스에 제네릭을 선언하는 방법
+interface Dropdown<T>{
+    value: T;
+    selected : boolean;
+}
+
+const object: Dropdown<string> = { value: 'sw', selected :  false };
 
 

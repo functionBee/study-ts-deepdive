@@ -266,7 +266,7 @@ function getTodo(todo: Todo){
 
 ## 연산자를 이용한 타입 정의
 1. 유티온 타입 (Union Type) : | 
-or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+- or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
 ```
 function logMessage(value : string | number ){
     console.log(value);
@@ -437,8 +437,7 @@ function logText(text: string | number){
     console.log(text);
     // text.
     // 문제1.
-    // string 과 number의 교집합
-    // 공통으로 작성가능한 api 에 대해서만 자동 완성(preview)을 제공
+    // string 과 number의 교집합(공통)으로 작성가능한 api 에 대해서만 자동 완성(preview)을 제공
     return text;
 }
 const a = logText('a');
@@ -467,8 +466,30 @@ const login = logText<boolean>(true);
 ```
 
 4. 제네릭 실전 예제
-> 파일1. : LearnTypeScript\3. introduction to TS\dropdown-generic.html
-> 파일2. : LearnTypeScript\3. introduction to TS\dropdown-generic.ts
+> - 파일1. : LearnTypeScript\3. introduction to TS\dropdown-generic.html
+> - 파일2. : LearnTypeScript\3. introduction to TS\dropdown-generic.ts
+
+5. 인터페이스에 제네릭을 선언하는 방법
+
+```
+interface Dropdown{
+    value: string;
+    selected : boolean;
+}
+
+const object: Dropdown = { value: 'sw', selected :  false };
+
+// 인터페이스에 제네릭을 선언하는 방법
+// : 제네릭을 사용하여 value의 타입의 변경 가능하게 변경
+interface Dropdown<T>{
+    value: T;
+    selected : boolean;
+}
+
+const object: Dropdown<string> = { value: 'sw', selected :  false };
+```
+
+6. 
 
 ---
 ## :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
