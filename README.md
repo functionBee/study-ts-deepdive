@@ -553,8 +553,45 @@ fetchItems();
 1. 타입 추론의 기본
 ```
 let x = 3;
+
+// 인터페이스에서 타입을 받아서 내부적으로 사용할 수 있는 제네릭 문법 정의
+interface Dropdown<T>{
+    value: T;
+    title: string;
+}
+
+var shoppingItem: Dropdown<string> = {
+    value: 'abc',
+    title: 'hello'
+}
 ```
 x에 대한 타입을 따로 지정하지 않더라도 일단 x가 number 타입임을 간주할 수 있는데 이렇게 변수를 선언하거나 초기화 할 때 타입을 추론할 수 있다. 그 외에도 변수, 속성, 인자의 기본 값등을 설정할 때 타입 추론이 발생한다.
+
+2. 복잡한 구조에서의 타입 추론 방식
+```
+interface Dropdown<T>{
+    value: T;
+    title: string;
+}
+
+interface DetailedDropdown<K> extends Dropdown<K> {
+    description: string;
+    tag: K;
+
+    // extends Dropdown<K>를 통해
+    // 암묵적으로
+    // value,
+    // title,
+    // 들어옴
+}
+
+var detailedItem: DetailedDropdown<string> = {
+    title: 'abc',
+    description: 'ab',
+    value: 'a',
+    tag: 'b'
+}
+```
 
 
 
