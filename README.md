@@ -547,6 +547,18 @@ function fetchItems(): Promise<string[]>{
 fetchItems();
 ```
 
+## 타입 추론(Type reference)
+: 타입스크립트가 어떻게 타입을 추론하는지에 대한 동작을 의미
+
+1. 타입 추론의 기본
+```
+let x = 3;
+```
+x에 대한 타입을 따로 지정하지 않더라도 일단 x가 number 타입임을 간주할 수 있는데 이렇게 변수를 선언하거나 초기화 할 때 타입을 추론할 수 있다. 그 외에도 변수, 속성, 인자의 기본 값등을 설정할 때 타입 추론이 발생한다.
+
+
+
+
 ---
 ### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
 > 경로 : LearnTypeScript\4. Project__To do Application
