@@ -595,7 +595,7 @@ var detailedItem: DetailedDropdown<string> = {
 ```
 
 3. 문맥상의 타이핑(Contextual Typing)
-표현식을 이용하여 가장 근접한 타입을 추론하는 것을 [Best Common Type](https://www.typescriptlang.org/docs/handbook/type-inference.html)이라고 지칭한다.
+> 표현식을 이용하여 가장 근접한 타입을 추론하는 것을 [Best Common Type](https://www.typescriptlang.org/docs/handbook/type-inference.html)이라고 지칭한다.
 ```
 var arr = [1, 2, true, '3'];
 // var arr:(string | number | boolean)
