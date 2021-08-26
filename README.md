@@ -48,6 +48,7 @@
 -   [자바스크립트 프로토타입과 상속](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 -   [자바스크립트 객체](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object)
 -   [MDN Array map() API](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+-   [문맥을 이용한 타입추론 방식](https://joshua1988.github.io/ts/guide/type-inference.html#%EB%AC%B8%EB%A7%A5%EC%83%81%EC%9D%98-%ED%83%80%EC%9D%B4%ED%95%91-contextual-typing)
 
 ## 개발 환경
 
@@ -565,7 +566,7 @@ var shoppingItem: Dropdown<string> = {
     title: 'hello'
 }
 ```
-x에 대한 타입을 따로 지정하지 않더라도 일단 x가 number 타입임을 간주할 수 있는데 이렇게 변수를 선언하거나 초기화 할 때 타입을 추론할 수 있다. 그 외에도 변수, 속성, 인자의 기본 값등을 설정할 때 타입 추론이 발생한다.
+> x에 대한 타입을 따로 지정하지 않더라도 일단 x가 number 타입임을 간주할 수 있는데 이렇게 변수를 선언하거나 초기화 할 때 타입을 추론할 수 있다. 그 외에도 변수, 속성, 인자의 기본 값등을 설정할 때 타입 추론이 발생한다.
 
 2. 복잡한 구조에서의 타입 추론 방식
 ```
@@ -593,7 +594,12 @@ var detailedItem: DetailedDropdown<string> = {
 }
 ```
 
-
+3. 문맥상의 타이핑(Contextual Typing)
+표현식을 이용하여 가장 근접한 타입을 추론하는 것을 [Best Common Type](https://www.typescriptlang.org/docs/handbook/type-inference.html)이라고 지칭한다.
+```
+var arr = [1, 2, true, '3'];
+// var arr:(string | number | boolean)
+```
 
 
 ---

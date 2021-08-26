@@ -44,3 +44,7 @@ var detailedItem: DetailedDropdown<string> = {
     value: 'a',
     tag: 'b'
 }
+
+// Best Common Type 추론 방식
+var arr = [1, 2, true, '3'];
+
