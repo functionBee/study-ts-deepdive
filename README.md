@@ -3,6 +3,14 @@
 : 자바스크립트로 제작된 COVID-19 세계 현황판을 타입스크립트로 변환
 
 ## [이펙티브 타입스크립트](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study)
+
+| 주차          |    기간       | 상세     | 상태         |
+| :---:        |    :----:   |          :--- |    :----:   |
+| 1주차         | 2022.08.03 ~ 2022.08.09 |  1장 타입스크립트 알아보기<br>2장 타입스크립트의 타입 시스템   |  [![In Progress](https://img.shields.io/badge/In_Progress-#E86554)](https://)  |
+| 2주차         | 2022.08.10 ~ 2022.08.16 |  3장 타입 추론<br>4장 타입 설계    |  [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)  |
+| 3주차         | 2022.08.17 ~ 2022.08.23 |  5장 any 다루기<br>6장 타입 선언과 @types    |  [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)   |
+| 4주차         | 2022.08.24 ~ 2022.08.31 |  7장 코드를 작성하고 실행하기<br>8장 타입스크립트로 마이그레이션하기    |  [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)   |
+
 ## 정의
 
 타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(컴파일;Compile)해주어야 한다.
