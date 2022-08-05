@@ -2,7 +2,7 @@
 
 : 자바스크립트로 제작된 COVID-19 세계 현황판을 타입스크립트로 변환
 
-## [이펙티브 타입스크립트](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study)
+## [이펙티브 타입스크립트](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
 | 주차          |    기간       | 상세     | 상태         |
 | :---:        |    :----:   |          :--- |    :----:   |
