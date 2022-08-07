@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 const states = [
     { name: 'Alabama', capitol: 'Montgomery' },
     { name: 'Alaska', capitol: 'Juneau' },
