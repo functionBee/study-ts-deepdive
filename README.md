@@ -85,16 +85,26 @@
 
 1. Boolean
 
-```
-// TS 진값위
-let show:boolean = true;
+```javascript
+// TS 진위 값
+let isSaved: boolean = false;
+
+isSaved = true;
+
+console.log(typeof isSaved); //boolean
 ```
 
 2. Number
 
-```
+```javascript
 // TS 숫자 선언
 let num: number = 10;
+let decimal: number = 100; // 10진수 리터럴
+let hex: number = 0xf00d; // 16진수 리터럴
+let binnary: number = 0b1010; // 2진수 리터럴
+let octal: number = 0o744; // 8진수 리터럴
+let notANumber: number = NaN;
+let underscoreNum: number = 1_000_000_000;
 ```
 
 3. String
