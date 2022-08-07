@@ -1,3 +1,6 @@
+![book: effective typescript](https://github.com/danvk/effective-typescript/raw/master/cover.png)
+<br>
+
 ## Effective TypeScript
 
 이펙티브 타입스크립트: 동작 원리의 이해와 구체적인 조언 62가지<br>
