@@ -1,15 +1,15 @@
 # 타입스크립트 입문 - 기초부터 실전까지
 
-: 자바스크립트로 제작된 COVID-19 세계 현황판을 타입스크립트로 변환
+: 이펙티브 타입스크립트 책을 포함하여 타입스크립트 관련 내용 정리
 
 ## [이펙티브 타입스크립트](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
-| 주차          |    기간       | 상세     | 상태         |
-| :---:        |    :----:   |          :--- |    :----:   |
-| 1주차         | 2022.08.03 ~ 2022.08.09 |  1장 타입스크립트 알아보기<br>2장 타입스크립트의 타입 시스템   |  [![In Progress](https://img.shields.io/badge/In_Progress-#E86554)](https://)  |
-| 2주차         | 2022.08.10 ~ 2022.08.16 |  3장 타입 추론<br>4장 타입 설계    |  [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)  |
-| 3주차         | 2022.08.17 ~ 2022.08.23 |  5장 any 다루기<br>6장 타입 선언과 @types    |  [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)   |
-| 4주차         | 2022.08.24 ~ 2022.08.31 |  7장 코드를 작성하고 실행하기<br>8장 타입스크립트로 마이그레이션하기    |  [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)   |
+| 주차  |          기간           | 상세                                                                |                                     상태                                     |
+| :---: | :---------------------: | :------------------------------------------------------------------ | :--------------------------------------------------------------------------: |
+| 1주차 | 2022.08.03 ~ 2022.08.09 | 1장 타입스크립트 알아보기<br>2장 타입스크립트의 타입 시스템         | [![In Progress](https://img.shields.io/badge/In_Progress-#E86554)](https://) |
+| 2주차 | 2022.08.10 ~ 2022.08.16 | 3장 타입 추론<br>4장 타입 설계                                      |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
+| 3주차 | 2022.08.17 ~ 2022.08.23 | 5장 any 다루기<br>6장 타입 선언과 @types                            |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
+| 4주차 | 2022.08.24 ~ 2022.08.31 | 7장 코드를 작성하고 실행하기<br>8장 타입스크립트로 마이그레이션하기 |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
 
 ## 정의
 
@@ -84,21 +84,28 @@
 타입 스크립트의 변수 타입에는 아래와 같이 12가지가 있다.
 
 1. Boolean
+
 ```
-// TS 진값위 
+// TS 진값위
 let show:boolean = true;
 ```
+
 2. Number
+
 ```
 // TS 숫자 선언
 let num: number = 10;
 ```
+
 3. String
+
 ```
 // TS 문자열 선언
 const str: string = 'hello';
 ```
+
 4. Object
+
 ```
 // TS 객체
 let obj: object = {};
@@ -108,44 +115,54 @@ let person: object = {
      age : 100
 };
 
-// 구체적인 객체 표현 
+// 구체적인 객체 표현
 let person: {name : string, age: number } = {
     name : 'bee',
     age : 100,
 }
 ```
+
 5. Array
+
 ```
 // TS 배열 선언
 let arr: Array<number> = [1, 2, 3] // 배열 선언방식 1
 let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk']
 let items: number [] = [3, 4, 5] // 배열 선언방식 2
 ```
+
 6. Tuple
+
 ```
 // TS 튜플
 // 모든 인덱스에 타입을 정하는 배열
 let address: [string, number] = ['mapo', 100];
 ```
+
 7. Enum
 8. Any
+
 ```
 string, number등의 모든 타입을 통칭
 
 let todoItems: any;
 ```
+
 9. Void
 10. Null
 11. Undefined
 12. Never
 
 ## 타입스크립트의 함수 타입
+
 1. 함수의 파라미터에 타입을 정의하는 방식
+
 ```
 function Sum (a:number, b:number){
     return a + b
 }
 ```
+
 2. 함수의 반환 값에 타입을 정의하는 방식
 
 ```
@@ -153,13 +170,17 @@ function Add(): number{
     return 10;
 }
 ```
+
 3. 함수의 타입을 정의하는 방식
+
 ```
 function Total (a:number, b:number):number{
     return a + b
 }
 ```
-4. 함수의 옵셔널 파라미너 
+
+4. 함수의 옵셔널 파라미너
+
 ```
 function log(a: string, b?: string, c?: string){
     // 특정 파라미터의 선택적 사용을 위해서 ? 선언
@@ -168,31 +189,37 @@ log('hello ts', 'abc')
 ```
 
 ## 인터페이스 (Interface)
+
 인터페이스는 상호 간에 정의한 약속 혹은 규칙으로 아래 범주 4개에 대해 약속을 정의하는 것이 가능
 
-- 객체의 스펙(속성과 속성의 타입)
-- 함수의 파라미터
-- 함수의 스펙(파라미터, 반환 타입 등)
-- 배열과 객체를 접근하는 방식
-- 클래스
+-   객체의 스펙(속성과 속성의 타입)
+-   함수의 파라미터
+-   함수의 스펙(파라미터, 반환 타입 등)
+-   배열과 객체를 접근하는 방식
+-   클래스
 
 1. 변수에 인터페이스 활용
+
 ```
 var seho: User = {
   age: 33,
   name: "seho",
 };
 ```
+
 2. 함수에 인터페이스 활용
+
 ```
 function getUser(user: User){
   console.log(user);
 }
 ```
+
 3. 함수의 스펙(구조)에 인터페이스를 활용
+
 ```
 interface Sumfunction{
-  // 인자 타입              // 반환 타입 
+  // 인자 타입              // 반환 타입
   (a : number, b: number) : number;
 }
 
@@ -201,7 +228,9 @@ sum = function(a: number, b: number):number{
   return a + b ;
 }
 ```
+
 4. 인덱싱 방식을 정의하는 인터페이스
+
 ```
 interface StringArra{
   [index: number]: string;
@@ -210,7 +239,9 @@ interface StringArra{
 var arr = ['a', 'b', 'c'];
 arr[0] // 'a'
 ```
+
 5. 딕셔너리 패턴
+
 ```
 interface StringRegexDictionary{
   [key : string]: RegExp;
@@ -221,7 +252,9 @@ var obj: StringRegexDictionary = {
   jsFile: /\.js$/,
 }
 ```
+
 6. 인터페이스 확장
+
 ```
 interface Person{
   name : string;
@@ -240,8 +273,10 @@ var hola: Developer = {
 ```
 
 ## 타입별칭(Type Aliases)
+
 타입별칭 : 특정 타입이나 인터페이스를 참조할 수 잇는 타입변수
-> 새로운 타입 값을 하나 생성한느 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다. 
+
+> 새로운 타입 값을 하나 생성한느 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.
 
 ```
 // string 타입을 사용할 때
@@ -277,12 +312,17 @@ function getTodo(todo: Todo){
 
 **타입과 인터페이스의 차이점**
 : 타입의 확장 가능 여부
+
 > 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
-- 참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
+
+-   참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
 
 ## 연산자를 이용한 타입 정의
-1. 유티온 타입 (Union Type) : | 
-- or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+
+1. 유티온 타입 (Union Type) : |
+
+-   or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+
 ```
 function logMessage(value : string | number ){
     console.log(value);
@@ -291,7 +331,9 @@ function logMessage(value : string | number ){
 logMessage('hello');
 logMessage(10);
 ```
+
 2. 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
+
 ```
 function logMessage(value : string | number ){
     if( typeof value === 'number'){
@@ -303,7 +345,9 @@ function logMessage(value : string | number ){
     throw new TypeError('value muste be string or number');
 }
 ```
+
 3. 유니온 타입의 속성
+
 ```
 interface Developer {
     name: string;
@@ -312,7 +356,7 @@ interface Developer {
 
 interface Person {
     name: string;
-    age: number;    
+    age: number;
 }
 
 function askSomeone(someone: Developer | Person ){
@@ -320,7 +364,9 @@ function askSomeone(someone: Developer | Person ){
     someone.name;
 }
 ```
-4. 인터섹션 타입(Intersection type) : &  
+
+4. 인터섹션 타입(Intersection type) : &
+
 ```
 function askSomeone(someone: Developer & Person ){
     someone.age;
@@ -328,7 +374,9 @@ function askSomeone(someone: Developer & Person ){
     someone.name;
 }
 ```
+
 5. 유니온 타입과 인터섹션 타입의 차이점
+
 ```
 // 타입의 선택지가 있음
 function askSomeone(someone: Developer | Person ){
@@ -347,11 +395,15 @@ function askSomeone(someone: Developer & Person ){
 
 askSomeone({ name : 'developer', skill: 'web dev', age: 333});
 ```
+
 ## 이넘(Enums)
+
 : 특정 값들의 집합을 의미하는 자료형
+
 > 타입스크립트에서는 문자형 이넘과 숫자형 이넘을 지원
 
 1. 숫자형 이넘
+
 ```
 enum Shoes{
     Nike,
@@ -361,7 +413,9 @@ enum Shoes{
 var myShoes =  Shoes.Addidas;
 console.log(myShoes); //1
 ```
+
 2. 문자형 이넘
+
 ```
 enum Shoes {
     Nike = '나이키',
@@ -371,14 +425,16 @@ enum Shoes {
 var myShoes =  Shoes.Addidas;
 console.log(myShoes); //아디다스
 ```
+
 3. 이넘의 활용 사례
+
 ```
 function askQuestion(answer: string){
     if( answer === Answer.Yes){
         console.log('정답입니다.');
     }else{
         console.log('오답입니다.');
-        
+
     }
 }
 // console.log(askQuestion('yes'));
@@ -388,6 +444,7 @@ console.log(Answer.Yes); // Y
 ```
 
 ## 클래스
+
 ```
 class Person{
     private name : string;
@@ -402,8 +459,10 @@ class Person{
 ```
 
 ## 제네릭(Generics)
+
 재사용성이 높은 컴포넌트를 만들때 자주 활용되는 특징
-- 한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는 데 사용
+
+-   한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는 데 사용
 
 ```
 function logText<T>(text: T): T{
@@ -444,9 +503,10 @@ function logNumber(num: number){
 console.log(logText('a'));
 console.log(logNumber(10));
 ```
+
 > 단순히 타입을 다르게 받기 위해서 중복된 코드를 계속해서 생산하는 것은 코드의 가독성 및 전체 코드가 비대해지므로 유지보수하기가 어려움
 
-2. 기본 타입 정의 방식과 제네릭의 차이점 -  유니온 타입을 이용한 선언 방식의 문제점
+2. 기본 타입 정의 방식과 제네릭의 차이점 - 유니온 타입을 이용한 선언 방식의 문제점
 
 ```
 function logText(text: string | number){
@@ -458,7 +518,7 @@ function logText(text: string | number){
 }
 const a = logText('a');
 a.split('');
-// 문제2. 
+// 문제2.
 // 정확하게 a 변수가 string 이라는 타입의 추론이 불가능하여 오류가 발생
 ```
 
@@ -473,17 +533,18 @@ function logText<T>(text: T):T { // 인자와 반환값이 동일하도록 제�
 const str = logText<string>('a');
 str.split('');
 
-// 장점1. 
+// 장점1.
 // 타입의 구성이 용이
 
 const login = logText<boolean>(true);
-// 장점2. 
+// 장점2.
 // login 변수가 boolean 타입임을 추론 가능
 ```
 
 4. 제네릭 실전 예제 - 제네릭을 이용한 타입 정의
-> - 파일1. : LearnTypeScript\3. introduction to TS\dropdown-generic.html
-> - 파일2. : LearnTypeScript\3. introduction to TS\dropdown-generic.ts
+
+    > - 파일1. : LearnTypeScript\3. introduction to TS\dropdown-generic.html
+    > - 파일2. : LearnTypeScript\3. introduction to TS\dropdown-generic.ts
 
 5. 인터페이스에 제네릭을 선언하는 방법
 
@@ -506,6 +567,7 @@ const object: Dropdown<string> = { value: 'sw', selected :  false };
 ```
 
 6. 제네릭의 타입 제한
+
 ```
 // 정의된 타입이 아닌 경우
 function logTextLength<T>(text: T[]): T[] {
@@ -551,6 +613,7 @@ getShoppingOption('name')
 ```
 
 ## Promise를 이용한 API 함수 타입 정의
+
 ```
 function fetchItems(): Promise<string[]>{
     var items:string[] = ['a', 'b', 'c'];
@@ -563,9 +626,11 @@ fetchItems();
 ```
 
 ## 타입 추론(Type reference)
+
 : 타입스크립트가 어떻게 타입을 추론하는지에 대한 동작을 의미
 
 1. 타입 추론의 기본
+
 ```
 let x = 3;
 
@@ -580,9 +645,11 @@ var shoppingItem: Dropdown<string> = {
     title: 'hello'
 }
 ```
+
 > x에 대한 타입을 따로 지정하지 않더라도 일단 x가 number 타입임을 간주할 수 있는데 이렇게 변수를 선언하거나 초기화 할 때 타입을 추론할 수 있다. 그 외에도 변수, 속성, 인자의 기본 값등을 설정할 때 타입 추론이 발생한다.
 
 2. 복잡한 구조에서의 타입 추론 방식
+
 ```
 interface Dropdown<T>{
     value: T;
@@ -609,23 +676,26 @@ var detailedItem: DetailedDropdown<string> = {
 ```
 
 3. 문맥상의 타이핑(Contextual Typing)
-> 표현식을 이용하여 가장 근접한 타입을 추론하는 것을 [Best Common Type](https://www.typescriptlang.org/docs/handbook/type-inference.html)이라고 지칭한다.
+    > 표현식을 이용하여 가장 근접한 타입을 추론하는 것을 [Best Common Type](https://www.typescriptlang.org/docs/handbook/type-inference.html)이라고 지칭한다.
+
 ```
 var arr = [1, 2, true, '3'];
 // var arr:(string | number | boolean)
 ```
 
-
 ---
+
 ### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
-> 경로 : LearnTypeScript\4. Project__To do Application
+
+> 경로 : LearnTypeScript\4. Project\_\_To do Application
 
 ### :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
-> 경로 : LearnTypeScript\5. Project__AddressBook
 
+> 경로 : LearnTypeScript\5. Project\_\_AddressBook
 
 ---
 
 ## 관련 강의 및 도서
-- [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
-- 인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의
+
+-   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
+-   인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의
