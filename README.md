@@ -17,7 +17,7 @@
 
 ## 컴파일(compile) : ts 파일을 js 파일로 변환하는 작업
 
-```
+```bash
  #node 버전 확인
  node -v
 
@@ -109,9 +109,14 @@ let underscoreNum: number = 1_000_000_000;
 
 3. String
 
-```
+```javascript
 // TS 문자열 선언
-const str: string = 'hello';
+let userName: string = 'bee';
+
+// Template String(ES6)
+let language: string = 'spanish';
+let sentence: string = `(${language}) hola, ${userName}.`;
+console.log(sentence); // (spanish) hola, bee.
 ```
 
 4. Object
