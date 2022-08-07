@@ -1,18 +1,13 @@
-![book: effective typescript](https://github.com/danvk/effective-typescript/raw/master/cover.png)
-<br>
+
+<img src="https://github.com/danvk/effective-typescript/raw/master/cover.png" alt="book: effective typescript" width="240" height="auto">
 
 ## Effective TypeScript
 
 이펙티브 타입스크립트: 동작 원리의 이해와 구체적인 조언 62가지<br>
 [코드 샘플 레파지토리(repo)](https://github.com/danvk/effective-typescript)
 
----
+<br>
 
-## Reference
-
--   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
-
----
 
 ## Chapter 01: 타입스크립트 알아보기(Getting to Know TypeScript)
 
@@ -37,3 +32,14 @@
 -   📝 Item 16: Prefer Arrays, Tuples, and ArrayLike to number Index Signatures
 -   📝 Item 17: Use readonly to Avoid Errors Associated with Mutation
 -   📝 Item 18: Use Mapped Types to Keep Values in Sync
+
+<br>
+
+---
+
+## Reference
+
+-   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
+
+---
+<br>
