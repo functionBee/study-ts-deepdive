@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 let isSaved = false;
 isSaved = true;
-console.log(typeof isSaved); // boolean
+console.log(typeof isSaved); //boolean
