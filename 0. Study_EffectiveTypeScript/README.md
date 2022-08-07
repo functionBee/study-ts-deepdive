@@ -1,13 +1,11 @@
-
 <img src="https://github.com/danvk/effective-typescript/raw/master/cover.png" alt="book: effective typescript" width="240" height="auto">
 
-## Effective TypeScript
+# Effective TypeScript
 
 이펙티브 타입스크립트: 동작 원리의 이해와 구체적인 조언 62가지<br>
 [코드 샘플 레파지토리(repo)](https://github.com/danvk/effective-typescript)
 
 <br>
-
 
 ## Chapter 01: 타입스크립트 알아보기(Getting to Know TypeScript)
 
@@ -42,4 +40,5 @@
 -   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
 
 ---
+
 <br>
