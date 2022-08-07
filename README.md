@@ -9,6 +9,8 @@
 | 3주차 | 2022.08.17 ~ 2022.08.23 | 5장 any 다루기<br>6장 타입 선언과 @types                            |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
 | 4주차 | 2022.08.24 ~ 2022.08.31 | 7장 코드를 작성하고 실행하기<br>8장 타입스크립트로 마이그레이션하기 |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
 
+<br>
+
 # 타입스크립트 입문 - 기초부터 실전까지
 
 : 타입스크립트 관련 내용 정리
