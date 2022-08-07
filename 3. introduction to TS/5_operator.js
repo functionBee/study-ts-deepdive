@@ -1,3 +1,4 @@
+"use strict";
 // function logMessage(value : any){
 //     console.log(value);
 // }

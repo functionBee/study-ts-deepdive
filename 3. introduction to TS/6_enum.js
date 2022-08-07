@@ -1,3 +1,4 @@
+"use strict";
 // 숫자형 이넘
 // enum Shoes {
 //     Nike,
@@ -5,7 +6,6 @@
 // }
 // var myShoes =  Shoes.Addidas;
 // console.log(myShoes); //1
-
 // 문자형 이넘
 var Shoes;
 (function (Shoes) {
@@ -14,7 +14,6 @@ var Shoes;
 })(Shoes || (Shoes = {}));
 var myShoes = Shoes.Addidas;
 console.log(myShoes); //아디다스
-
 var Answer;
 (function (Answer) {
     Answer["Yes"] = "Y";
@@ -30,4 +29,4 @@ function askQuestion(answer) {
 }
 // console.log(askQuestion('yes'));
 // console.log(askQuestion('y'));
-console.log(Answer.Yes);
+console.log(Answer.Yes); // Y

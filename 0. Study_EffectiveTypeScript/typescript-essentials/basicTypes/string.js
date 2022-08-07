@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 // String
 let userName = 'bee';
 // Template String

@@ -49,6 +49,7 @@
 
 -   [공식문서](https://www.typescriptlang.org/)
 -   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
+-   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
 -   [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
 -   [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 -   [타입스크립트 Playground](https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA)
@@ -164,9 +165,29 @@ let todoItems: any;
 ```
 
 9. Void
+
 10. Null
 11. Undefined
+
 12. Never
+
+13. Symbol
+
+```javascript
+// TS
+// 타입일 경우 (소문자) symbol 지정 가능
+// 함수일 경우 (대문자) Symbol
+console.log(Symbol('foo') === Symbol('foo')); // false
+
+const symbol = Symbol();
+
+const obj = {
+    [symbol]: 'value',
+};
+
+// obj['symbol']; // 문자열을 통해 접근 X
+obj[symbol];
+```
 
 ## 타입스크립트의 함수 타입
 
@@ -703,10 +724,6 @@ var arr = [1, 2, true, '3'];
 ### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
 
 > 경로 : LearnTypeScript\4. Project\_\_To do Application
-
-### :unicorn: 두 번째 프로젝트 - 전화번호부 애플리케이션
-
-> 경로 : LearnTypeScript\5. Project\_\_AddressBook
 
 ---
 

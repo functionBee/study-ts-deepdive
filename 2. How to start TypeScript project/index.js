@@ -1,3 +1,4 @@
+"use strict";
 // ������(compile) : ts ������ js ���Ϸ� ��ȯ�ϴ� �۾�
 // npm i typescript -g
 // tsc index.ts
