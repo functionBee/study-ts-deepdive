@@ -141,7 +141,7 @@ obj[symbol];
 ```
 
 
-4. Object
+7. Object
 
 ```
 // TS 객체
@@ -159,7 +159,7 @@ let person: {name : string, age: number } = {
 }
 ```
 
-5. Array
+8. Array
 
 ```
 // TS 배열 선언
@@ -168,7 +168,7 @@ let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk']
 let items: number [] = [3, 4, 5] // 배열 선언방식 2
 ```
 
-6. Tuple
+9. Tuple
 
 ```javascript
 // TS 튜플
@@ -184,47 +184,46 @@ const [first, second]  = person;
 > destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당 하는 것<br>
 > : 배열과 같은 이터러블 또는 객체 리터럴에서 필요한 값만 추출하여 변수에 할당할 때 유용
 
-1. Enum
-2. Any
+10. Any
 
-```
+- 모든 타입을 할당 받을 수 있는 타입
+
+```javascript
 string, number등의 모든 타입을 통칭
 
 let todoItems: any;
 ```
 
-9. Void
-
-12. Never
-
-
-13. unknown
+1.  unknown
 
 - Typescript 3.0 버전 부터 지원
-- any보다 Type-safe한 타입
-    
+- `any`보다 Type-safe한 타입
+    + `any`를 제외한 다른 타입으로 선언된 변수에 할당 될 수 없음
+- `unknown`타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수 없다.
+    + 단, Type Guard 와 함께라면 가능하다.
+  
 ```javascript
 
-declare const maybe: unknown;
+let variable: unknown
 
-const aNumber: number = maybe;
+variable.foo.bar // Error: Object is of type 'unknown'.(2571)
+variable[0] // Error
+variable.trigger() // Error
+variable() // Error
+new variable() // Error
 
-if(maybe === true){
-    // maybe; // boolean Type 
-    const aBoolean: booelan = maybe;
+let variable: unknown
+declare function isFunction(x: unknown): x is Function
 
-    // const aString: string = maybe;
+if (isFunction(variable)) {
+  variable() // OK
 }
-
-
-if( typeof maybe  === 'string' ){
-    // maybe // string Type
-    const aString: string = maybe;
-
-// const aString: string = maybe;
-}  
-
 ```
+
+1.  Enum
+2.  Void
+3.  Never
+
 
 ## 타입스크립트의 함수 타입
 
