@@ -16,10 +16,9 @@
 
 ## 정의
 
-타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(트렌스파일;Transoile)해주어야 한다.
+타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(트렌스파일;Transpile)해주어야 한다.
 
 > **트랜스파일(transpile)**<br>
-> 일종의 신조어로 translate + compile 조합어로<br>
 > : 소스코드를 동일한 동작을 하는 다른 형태의 소스코드(다른 버전, 다른 언어 등)로 변환하는 행위<br>
 > (단, 결과물이 여전히 컴파일 되어야 하는 소스코드)
 
@@ -72,6 +71,8 @@
 -   [VSCode Language Server Extension 가이드](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
 -   [Language Server](https://langserver.org/)
 -   [Language Server Protocol](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
+-   [ETC:transpile 과 compile의 비교](https://ideveloper2.tistory.com/166)
+-   [Transpiler vs Compiler](https://howtodoinjava.com/typescript/transpiler-vs-compiler/#:~:text=Transpilers%2C%20or%20source%2Dto%2D,converts%20Typescript%20code%20to%20JavaScript.)
 
 ---
 
@@ -166,10 +167,14 @@ let items: number [] = [3, 4, 5] // 배열 선언방식 2
 
 6. Tuple
 
-```
+```javascript
 // TS 튜플
 // 모든 인덱스에 타입을 정하는 배열
 let address: [string, number] = ['mapo', 100];
+
+// 객체 디스트럭처링 할당
+const [first, second]  = person;
+
 ```
 
 7. Enum
