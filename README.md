@@ -196,9 +196,30 @@ let todoItems: any;
 
 
 13. unknown
+
+- Typescript 3.0 버전 부터 지원
+- any보다 Type-safe한 타입
     
 ```javascript
 
+declare const maybe: unknown;
+
+const aNumber: number = maybe;
+
+if(maybe === true){
+    // maybe; // boolean Type 
+    const aBoolean: booelan = maybe;
+
+    // const aString: string = maybe;
+}
+
+
+if( typeof maybe  === 'string' ){
+    // maybe // string Type
+    const aString: string = maybe;
+
+// const aString: string = maybe;
+}  
 
 ```
 
