@@ -73,6 +73,9 @@
 -   [Language Server Protocol](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
 -   [ETC:transpile 과 compile의 비교](https://ideveloper2.tistory.com/166)
 -   [Transpiler vs Compiler](https://howtodoinjava.com/typescript/transpiler-vs-compiler/#:~:text=Transpilers%2C%20or%20source%2Dto%2D,converts%20Typescript%20code%20to%20JavaScript.)
+-   [Documentation- Typescript 3.0](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html)
+-   [The unknown Type in Typescript](https://mariusschulz.com/blog/the-unknown-type-in-typescript)
+-   [unknown Type](https://jbee.io/typescript/TS-9-unknown/)
 
 ---
 
