@@ -17,7 +17,12 @@
 
 ## 정의
 
-타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(컴파일;Compile)해주어야 한다.
+타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(트렌스파일;Transoile)해주어야 한다.
+
+> **트랜스파일(transpile)**<br>
+> 일종의 신조어로 translate + compile 조합어로<br>
+> : 소스코드를 동일한 동작을 하는 다른 형태의 소스코드(다른 버전, 다른 언어 등)로 변환하는 행위<br>
+> (단, 결과물이 여전히 컴파일 되어야 하는 소스코드)
 
 ## 컴파일(compile) : ts 파일을 js 파일로 변환하는 작업
 
@@ -69,24 +74,11 @@
 -   [Language Server](https://langserver.org/)
 -   [Language Server Protocol](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
 
-## 개발 환경
-
--   [Chrome](https://www.google.com/intl/ko/chrome/)
--   [Visual Studio Code](https://code.visualstudio.com/)
--   [Node.js LTS 버전(v10.x 이상)](https://nodejs.org/ko/)
--   [Git](https://git-scm.com/downloads)
-
-## VSCode 플러그인 목록
-
--   문법 검사 : ESLint, [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
--   기타
-    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
-
 ---
 
 ## 타입 스크립트 변수타입
 
-타입 스크립트의 변수 타입에는 아래와 같이 12가지가 있다.
+> **원시타입(primitive type)**
 
 1. Boolean
 
@@ -123,6 +115,28 @@ let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
 ```
+
+4. Null
+5. Undefined
+
+6. Symbol
+
+```javascript
+// TS
+// 타입일 경우 (소문자) symbol 지정 가능
+// 함수일 경우 (대문자) Symbol
+console.log(Symbol('foo') === Symbol('foo')); // false
+
+const symbol = Symbol();
+
+const obj = {
+    [symbol]: 'value',
+};
+
+// obj['symbol']; // 문자열을 통해 접근 X
+obj[symbol];
+```
+
 
 4. Object
 
@@ -170,28 +184,8 @@ let todoItems: any;
 
 9. Void
 
-10. Null
-11. Undefined
-
 12. Never
 
-13. Symbol
-
-```javascript
-// TS
-// 타입일 경우 (소문자) symbol 지정 가능
-// 함수일 경우 (대문자) Symbol
-console.log(Symbol('foo') === Symbol('foo')); // false
-
-const symbol = Symbol();
-
-const obj = {
-    [symbol]: 'value',
-};
-
-// obj['symbol']; // 문자열을 통해 접근 X
-obj[symbol];
-```
 
 ## 타입스크립트의 함수 타입
 
@@ -735,3 +729,19 @@ var arr = [1, 2, true, '3'];
 
 -   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
 -   인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의
+
+
+## 개발 환경
+
+-   [Chrome](https://www.google.com/intl/ko/chrome/)
+-   [Visual Studio Code](https://code.visualstudio.com/)
+-   [Node.js LTS 버전(v10.x 이상)](https://nodejs.org/ko/)
+-   [Git](https://git-scm.com/downloads)
+
+## VSCode 플러그인 목록
+
+-   문법 검사 : ESLint, [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
+-   기타
+    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
+
+---
