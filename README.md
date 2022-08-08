@@ -184,7 +184,21 @@ const [first, second]  = person;
 > destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당 하는 것<br>
 > : 배열과 같은 이터러블 또는 객체 리터럴에서 필요한 값만 추출하여 변수에 할당할 때 유용
 
-10. Any
+```javascript
+// 예쩨 36-2
+// 예제 발췌: 이웅모 , (2021) 모던 자바스크립트 Deep Dive -자바스크립트 기본 동작과 원리, 위키북스
+const array = [1,2,3]
+
+// ES6 배열 디스트럭처링 할당
+// 변수 numOne, numTwo, numTree을 선언하고 
+// 배열 array를 디스트럭처링하여 할당
+// 이때 할당 기준은 배열의 인덱스다.
+const [numOne, numTwo, numTree] = array;
+
+console.log(numOne, numTwo, numTree); // 1, 2, 3
+```
+
+1.  Any
 
 - 모든 타입을 할당 받을 수 있는 타입
 
