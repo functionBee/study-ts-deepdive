@@ -172,13 +172,16 @@ let items: number [] = [3, 4, 5] // 배열 선언방식 2
 // 모든 인덱스에 타입을 정하는 배열
 let address: [string, number] = ['mapo', 100];
 
-// 객체 디스트럭처링 할당
+// 디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)
 const [first, second]  = person;
 
 ```
+> **디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)**<br>
+> : 구조화된 배열과 같은 이터러블 또는 객체를 destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당 하는 것<br>
+> 배열과 같은 이터러블 또는 객체 리터럴에서 필요한 값만 추출하여 변수에 할당할 때 유용
 
-7. Enum
-8. Any
+1. Enum
+2. Any
 
 ```
 string, number등의 모든 타입을 통칭
@@ -190,6 +193,13 @@ let todoItems: any;
 
 12. Never
 
+
+13. unknown
+    
+```javascript
+
+
+```
 
 ## 타입스크립트의 함수 타입
 
