@@ -194,7 +194,7 @@ string, number등의 모든 타입을 통칭
 let todoItems: any;
 ```
 
-1.  unknown
+11.  unknown
 
 - Typescript 3.0 버전 부터 지원
 - `any`보다 Type-safe한 타입
@@ -220,9 +220,9 @@ if (isFunction(variable)) {
 }
 ```
 
-1.  Enum
-2.  Void
-3.  Never
+12.  Enum
+13.  Void
+14.  Never
 
 
 ## 타입스크립트의 함수 타입
