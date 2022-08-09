@@ -30,11 +30,15 @@ type Twelve = 12;
 
 
 ## 📝 Item 8: 타입 공간과 값 공간의 심벌 구분하기(Know How to Tell Whether a Symbol Is in the Type Space or Value Space)
+
+
 ## 📝 Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
 
 ## 📝 Item 10: 객체 래퍼 타입 피하기(Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt))
 
+
 ## 📝 Item 11: 잉여 속성 체크의 한계 인지하기(Recognize the Limits of Excess Property Checking)
+
 ## 📝 Item 12: 함수 표현식에 타입 적용하기(Apply Types to Entire Function Expressions When Possible)
 
 ## 📝 Item 13: 타입과 인터페이스의 차이점 알기(Know the Differences Between type and interface)
