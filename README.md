@@ -53,7 +53,7 @@ var isUpdated: boolean = true; // Boolean variable
 |                            |            **TypeScript**             |           **JavaScript**            |
 | -------------------------- | :-----------------------------------: | :---------------------------------: |
 | Highlighted the errors     | Static Types (set during development) | Dynamic Types (resolved at runtime) |
-|                            |         Compiled(Transpiled)          |             Interpreted             |
+|                            |       Compiled(Transpiled)<br>        |             Interpreted             |
 | Support optional parameter |                   O                   |                  X                  |
 
 <br>
