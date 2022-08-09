@@ -201,7 +201,7 @@ const [numOne, numTwo, numTree] = array;
 console.log(numOne, numTwo, numTree); // 1, 2, 3
 ```
 
-1.  Any
+10.  Any
 
 - 모든 타입을 할당 받을 수 있는 타입
 
@@ -237,7 +237,7 @@ if (isFunction(variable)) {
 }
 ```
 
-1.   Enum
+12.   Enum
 : 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 
 |                         |   |
@@ -250,8 +250,8 @@ if (isFunction(variable)) {
 
 ```
 
-1.   Void
-2.   Never
+13.   Void
+14.   Never
 
 
 ## 타입스크립트의 함수 타입
