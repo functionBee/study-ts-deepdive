@@ -4,7 +4,7 @@
 
 ## 📝 Item 7: 타입이 값들의 집합이라고 생각하기(Think of Types as Sets of Values)
 
-**Data Type : Never**
+Data Type : **Never**
 
 ```javascript
 
@@ -24,8 +24,7 @@ type Twelve = 12;
 
 ```
 
-> Reference : <br>
-> [타입스크립트 타입 never에 대해 자세히 알아보자](https://yceffort.kr/2022/03/understanding-typescript-never)
+(참고) [타입스크립트 타입 never에 대해 자세히 알아보자](https://yceffort.kr/2022/03/understanding-typescript-never)
 
 
 ## 📝 Item 8: 타입 공간과 값 공간의 심벌 구분하기(Know How to Tell Whether a Symbol Is in the Type Space or Value Space)
