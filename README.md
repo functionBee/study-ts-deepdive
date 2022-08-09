@@ -1,6 +1,6 @@
 # 타입스크립트(TypeScript)
 
-타입스크립트는 자바스크립트로 컴파일되는, 자바스크립트의 타입이 있는 상위집합(superset)s입니다.<br>
+타입스크립트는 자바스크립트로 컴파일되는, 자바스크립트의 타입이 있는 상위집합(superset)입니다.<br>
 
 <br>
 
@@ -34,6 +34,8 @@
 
 ```
 
+<br>
+
 ## 타입 표기(Type annotation)
 
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
@@ -44,10 +46,15 @@ var name: string = 'bee'; // string variable
 var isUpdated: boolean = true; // Boolean variable
 ```
 
-## 장점
+<br>
 
-1. JS를 이용하여 에러 사전방지
-2. 코드 가이드 및 자동완성(개발 생산성 향상)
+## TS와 JS 차이점(Difference between TypeScript and JavaScript)
+
+|                            |            **TypeScript**             |           **JavaScript**            |
+| -------------------------- | :-----------------------------------: | :---------------------------------: |
+| Highlighted the errors     | Static Types (set during development) | Dynamic Types (resolved at runtime) |
+|                            |         Compiled(Transpiled)          |             Interpreted             |
+| Support optional parameter |                   O                   |                  X                  |
 
 <br>
 
@@ -780,6 +787,8 @@ var arr = [1, 2, true, '3'];
 -   [유니언 열거형과 열거형 멤버타입](https://typescript-kr.github.io/pages/enums.html#%EC%9C%A0%EB%8B%88%EC%96%B8-%EC%97%B4%EA%B1%B0%ED%98%95%EA%B3%BC-%EC%97%B4%EA%B1%B0%ED%98%95-%EB%A9%A4%EB%B2%84-%ED%83%80%EC%9E%85-union-enums-and-enum-member-types)
 -   [enum vs const enum](https://jbee.io/typescript/TS-8-enum-vs-const-enum/)
 -   [자바스크립트 개발자를 위한 타입 스크립트](https://ahnheejong.gitbook.io/ts-for-jsdev/03-basic-grammar/enums)
+-   [Difference between TypeScript and JavaScript](https://www.geeksforgeeks.org/difference-between-typescript-and-javascript/#:~:text=TypeScript%20is%20known%20as%20an,Interfaces%20but%20JavaScript%20does%20not.)
+-   [Difference between TypeScript and JavaScript](https://www.javatpoint.com/javascript-vs-typescript)
 
 ## 관련 강의 및 도서
 
