@@ -6,7 +6,6 @@
 
 **Data Type : Never**
 
-
 ```javascript
 
 const x: never = 12;
@@ -25,9 +24,9 @@ type Twelve = 12;
 
 ```
 
+> Reference : <br>
+> [타입스크립트 타입 never에 대해 자세히 알아보자](https://yceffort.kr/2022/03/understanding-typescript-never)
 
-- [타입스크립트 타입 never에 대해 자세히 알아보자](https://yceffort.kr/2022/03/understanding-typescript-never)
-- 
 
 ## 📝 Item 8: 타입 공간과 값 공간의 심벌 구분하기(Know How to Tell Whether a Symbol Is in the Type Space or Value Space)
 ## 📝 Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
