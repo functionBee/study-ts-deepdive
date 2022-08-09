@@ -1,7 +1,8 @@
 # 타입스크립트(TypeScript)
 
-Typed Superset of JavaScript<br>
-Transpiled Language
+타입스크립트는 자바스크립트로 컴파일되는, 자바스크립트의 타입이 있는 상위집합(superset)s입니다.<br>
+
+<br>
 
 ## [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
@@ -9,15 +10,16 @@ Transpiled Language
 
 <br>
 
-## 타입 스크립트 환경 세팅
+## 타입 스크립트 실행 환경 설치
 
 ```bash
+
  #node 버전 확인
  node -v
 
  # NPM을 통한 타입스크립트 전역 설치
  npm i typescript -g
- yarn add typescript -g
+ # yarn add typescript -g
 
  # (참고)
  # 1. NPM(Node Package Manager)
@@ -27,11 +29,19 @@ Transpiled Language
  # 시스템 레벨에서 사용할 자바스크립트 라이브러리를 설치할 때 사용
  # 라이브러리가 설치되고 나면 이제 명령어 실행 창에 해당 라이브러리 이름을 입력했을 때 명령어를 인식
 
- # .ts 파일을 .js 파일로 변환시 해당 디렉토리로 접근하여 아래 명령어 실행
+ # .ts 파일을 .js 파일로 변환시 해당 디렉토리로 접근하여 아래 명령어를 통해 컴파일
  tsc index.ts
 
- # webpack, gulp 등
+```
 
+## 타입 표기(Type annotation)
+
+타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
+
+```javascript
+var age: number = 1; // number variable
+var name: string = 'bee'; // string variable
+var isUpdated: boolean = true; // Boolean variable
 ```
 
 ## 장점
@@ -746,6 +756,7 @@ var arr = [1, 2, true, '3'];
 
 -   [공식문서](https://www.typescriptlang.org/)
 -   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
+-   [MDN : TypeScript](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_TypeScript)
 -   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
 -   [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
 -   [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
