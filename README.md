@@ -1,16 +1,11 @@
 # 타입스크립트(TypeScript)
 
-이펙티브 타입스크립트 도서를 포함핳여 타입 스크립트 관련 내용 정리
-
-<br>
+Typed Superset of JavaScript<br>
+Transpiled Language
 
 ## [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
-타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(트렌스파일;Transpile)해주어야 한다.
-
-**트랜스파일(transpile)**<br>
-: 소스코드를 동일한 동작을 하는 다른 형태의 소스코드(다른 버전, 다른 언어 등)로 변환하는 행위<br>
-(단, 결과물이 여전히 컴파일 되어야 하는 소스코드)
+: 이펙티브 타입스크립트 도서를 포함핳여 타입 스크립트 관련 내용 상세 정리
 
 <br>
 
