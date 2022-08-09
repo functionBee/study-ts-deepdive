@@ -3,7 +3,8 @@
 # Effective TypeScript
 
 이펙티브 타입스크립트: 동작 원리의 이해와 구체적인 조언 62가지<br>
-[코드 샘플 레파지토리(repo)](https://github.com/danvk/effective-typescript)
+[코드 샘플 레파지토리(repo)](https://github.com/danvk/effective-typescript)<br>
+<u>이펙티브 타입스크립트 책을 읽고 예제코드도 실행해보면서 타입스크립트를 학습</u>
 
 <br>
 
@@ -33,14 +34,19 @@
 
 <br>
 
----
-
 ## Reference
 
 -   [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
 -   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
 -   [자바스크립트 개발자를 위한 타입스립트, 안희종](https://ahnheejong.gitbook.io/ts-for-jsdev/)
 
----
-
 <br>
+
+## Study Schedule
+
+| 주차  |          기간           | 상세                                                                |                                     상태                                     |
+| :---: | :---------------------: | :------------------------------------------------------------------ | :--------------------------------------------------------------------------: |
+| 1주차 | 2022.08.03 ~ 2022.08.09 | 1장 타입스크립트 알아보기<br>2장 타입스크립트의 타입 시스템         | [![In Progress](https://img.shields.io/badge/In_Progress-#E86554)](https://) |
+| 2주차 | 2022.08.10 ~ 2022.08.16 | 3장 타입 추론<br>4장 타입 설계                                      |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
+| 3주차 | 2022.08.17 ~ 2022.08.23 | 5장 any 다루기<br>6장 타입 선언과 @types                            |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
+| 4주차 | 2022.08.24 ~ 2022.08.31 | 7장 코드를 작성하고 실행하기<br>8장 타입스크립트로 마이그레이션하기 |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |

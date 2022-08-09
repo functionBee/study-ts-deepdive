@@ -1,26 +1,18 @@
-# [이펙티브 타입스크립트](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
+# 타입스크립트(TypeScript)
 
-: 이펙티브 타입스크립트 책을 읽고 예제코드도 실행해보면서 타입스크립트를 학습
+이펙티브 타입스크립트 도서를 포함핳여 타입 스크립트 관련 내용 정리
 
-| 주차  |          기간           | 상세                                                                |                                     상태                                     |
-| :---: | :---------------------: | :------------------------------------------------------------------ | :--------------------------------------------------------------------------: |
-| 1주차 | 2022.08.03 ~ 2022.08.09 | 1장 타입스크립트 알아보기<br>2장 타입스크립트의 타입 시스템         | [![In Progress](https://img.shields.io/badge/In_Progress-#E86554)](https://) |
-| 2주차 | 2022.08.10 ~ 2022.08.16 | 3장 타입 추론<br>4장 타입 설계                                      |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
-| 3주차 | 2022.08.17 ~ 2022.08.23 | 5장 any 다루기<br>6장 타입 선언과 @types                            |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
-| 4주차 | 2022.08.24 ~ 2022.08.31 | 7장 코드를 작성하고 실행하기<br>8장 타입스크립트로 마이그레이션하기 |     [![Next UP](https://img.shields.io/badge/Next_UP-#6509A9)](https://)     |
+<br>
 
----
-# 타입스크립트
-
-: 타입스크립트 관련 내용 정리
-
-## 정의
+## [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
 타입스크립트는 자바스크립트의 확장된 언어로 타입스크립트는 자바스크립트와 다른게 브라우저에서 실행하기 위해 파일을 한번 변환(트렌스파일;Transpile)해주어야 한다.
 
-> **트랜스파일(transpile)**<br>
-> : 소스코드를 동일한 동작을 하는 다른 형태의 소스코드(다른 버전, 다른 언어 등)로 변환하는 행위<br>
-> (단, 결과물이 여전히 컴파일 되어야 하는 소스코드)
+**트랜스파일(transpile)**<br>
+: 소스코드를 동일한 동작을 하는 다른 형태의 소스코드(다른 버전, 다른 언어 등)로 변환하는 행위<br>
+(단, 결과물이 여전히 컴파일 되어야 하는 소스코드)
+
+<br>
 
 ## 타입 스크립트 환경 세팅
 
@@ -52,37 +44,9 @@
 1. JS를 이용하여 에러 사전방지
 2. 코드 가이드 및 자동완성(개발 생산성 향상)
 
-## Reference
+<br>
 
--   [공식문서](https://www.typescriptlang.org/)
--   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
--   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
--   [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
--   [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
--   [타입스크립트 Playground](https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA)
--   [바벨](https://babeljs.io/)
--   [let & const](https://joshua1988.github.io/es6-online-book/const-let.html)
--   [Array filter Api;Array.prototype.filter()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
--   [자바스크립트 프로토타입과 상속](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
--   [자바스크립트 객체](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object)
--   [MDN Array map() API](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
--   [문맥을 이용한 타입추론 방식](https://joshua1988.github.io/ts/guide/type-inference.html#%EB%AC%B8%EB%A7%A5%EC%83%81%EC%9D%98-%ED%83%80%EC%9D%B4%ED%95%91-contextual-typing)
--   [VSCode 타입스크립트 소개 문서](https://code.visualstudio.com/docs/languages/typescript#_code-suggestions)
--   [VSCode Language Server Extension 가이드](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
--   [Language Server](https://langserver.org/)
--   [Language Server Protocol](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
--   [ETC:transpile 과 compile의 비교](https://ideveloper2.tistory.com/166)
--   [Transpiler vs Compiler](https://howtodoinjava.com/typescript/transpiler-vs-compiler/#:~:text=Transpilers%2C%20or%20source%2Dto%2D,converts%20Typescript%20code%20to%20JavaScript.)
--   [Documentation- Typescript 3.0](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html)
--   [The unknown Type in Typescript](https://mariusschulz.com/blog/the-unknown-type-in-typescript)
--   [unknown Type](https://jbee.io/typescript/TS-9-unknown/)
--   [유니언 열거형과 열거형 멤버타입](https://typescript-kr.github.io/pages/enums.html#%EC%9C%A0%EB%8B%88%EC%96%B8-%EC%97%B4%EA%B1%B0%ED%98%95%EA%B3%BC-%EC%97%B4%EA%B1%B0%ED%98%95-%EB%A9%A4%EB%B2%84-%ED%83%80%EC%9E%85-union-enums-and-enum-member-types)
--   [enum vs const enum](https://jbee.io/typescript/TS-8-enum-vs-const-enum/)
--   [자바스크립트 개발자를 위한 타입 스크립트](https://ahnheejong.gitbook.io/ts-for-jsdev/03-basic-grammar/enums)
-
----
-
-## 타입 스크립트 변수타입
+## 타입 스크립트 변수 타입
 
 > **원시타입(primitive type)**
 
@@ -143,7 +107,6 @@ const obj = {
 obj[symbol];
 ```
 
-
 7. Object
 
 ```
@@ -179,9 +142,9 @@ let items: number [] = [3, 4, 5] // 배열 선언방식 2
 let address: [string, number] = ['mapo', 100];
 
 // 디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)
-const [first, second]  = person;
-
+const [first, second] = person;
 ```
+
 > **디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)**<br>
 > : 구조화된 배열과 같은 이터러블 또는 객체를<br>
 > destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당 하는 것<br>
@@ -190,10 +153,10 @@ const [first, second]  = person;
 ```javascript
 // 예쩨 36-2
 // 예제 발췌: 이웅모 , (2021) 모던 자바스크립트 Deep Dive -자바스크립트 기본 동작과 원리, 위키북스
-const array = [1,2,3]
+const array = [1, 2, 3];
 
 // ES6 배열 디스트럭처링 할당
-// 변수 numOne, numTwo, numTree을 선언하고 
+// 변수 numOne, numTwo, numTree을 선언하고
 // 배열 array를 디스트럭처링하여 할당
 // 이때 할당 기준은 배열의 인덱스다.
 const [numOne, numTwo, numTree] = array;
@@ -201,9 +164,9 @@ const [numOne, numTwo, numTree] = array;
 console.log(numOne, numTwo, numTree); // 1, 2, 3
 ```
 
-10.  Any
+10. Any
 
-- 모든 타입을 할당 받을 수 있는 타입
+-   모든 타입을 할당 받을 수 있는 타입
 
 ```javascript
 string, number등의 모든 타입을 통칭
@@ -211,14 +174,14 @@ string, number등의 모든 타입을 통칭
 let todoItems: any;
 ```
 
-11.  unknown
+11. unknown
 
-- Typescript 3.0 버전 부터 지원
-- `any`보다 Type-safe한 타입
-    + `any`를 제외한 다른 타입으로 선언된 변수에 할당 될 수 없음
-- `unknown`타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수 없다.
-    + 단, Type Guard 와 함께라면 가능하다.
-  
+-   Typescript 3.0 버전 부터 지원
+-   `any`보다 Type-safe한 타입
+    -   `any`를 제외한 다른 타입으로 선언된 변수에 할당 될 수 없음
+-   `unknown`타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수 없다.
+    -   단, Type Guard 와 함께라면 가능하다.
+
 ```javascript
 
 let variable: unknown
@@ -237,22 +200,20 @@ if (isFunction(variable)) {
 }
 ```
 
-12.   Enum
-: 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
+12. Enum
+    : 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 
-|                         |   |
-| :---------------------: | :-- | 
-| 숫자 열거형(Numeric Enum)  | |
-| 문자열 열거형(String Enum) | |
+|                            |     |
+| :------------------------: | :-- |
+| 숫자 열거형(Numeric Enum)  |     |
+| 문자열 열거형(String Enum) |     |
 
 ```javascript
 
-
 ```
 
-13.   Void
-14.   Never
-
+13. Void
+14. Never
 
 ## 타입스크립트의 함수 타입
 
@@ -786,17 +747,38 @@ var arr = [1, 2, true, '3'];
 
 ---
 
-### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+## Reference
 
-> 경로 : LearnTypeScript\4. Project\_\_To do Application
-
----
+-   [공식문서](https://www.typescriptlang.org/)
+-   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
+-   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
+-   [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
+-   [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+-   [타입스크립트 Playground](https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA)
+-   [바벨](https://babeljs.io/)
+-   [let & const](https://joshua1988.github.io/es6-online-book/const-let.html)
+-   [Array filter Api;Array.prototype.filter()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+-   [자바스크립트 프로토타입과 상속](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+-   [자바스크립트 객체](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object)
+-   [MDN Array map() API](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+-   [문맥을 이용한 타입추론 방식](https://joshua1988.github.io/ts/guide/type-inference.html#%EB%AC%B8%EB%A7%A5%EC%83%81%EC%9D%98-%ED%83%80%EC%9D%B4%ED%95%91-contextual-typing)
+-   [VSCode 타입스크립트 소개 문서](https://code.visualstudio.com/docs/languages/typescript#_code-suggestions)
+-   [VSCode Language Server Extension 가이드](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
+-   [Language Server](https://langserver.org/)
+-   [Language Server Protocol](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
+-   [ETC:transpile 과 compile의 비교](https://ideveloper2.tistory.com/166)
+-   [Transpiler vs Compiler](https://howtodoinjava.com/typescript/transpiler-vs-compiler/#:~:text=Transpilers%2C%20or%20source%2Dto%2D,converts%20Typescript%20code%20to%20JavaScript.)
+-   [Documentation- Typescript 3.0](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html)
+-   [The unknown Type in Typescript](https://mariusschulz.com/blog/the-unknown-type-in-typescript)
+-   [unknown Type](https://jbee.io/typescript/TS-9-unknown/)
+-   [유니언 열거형과 열거형 멤버타입](https://typescript-kr.github.io/pages/enums.html#%EC%9C%A0%EB%8B%88%EC%96%B8-%EC%97%B4%EA%B1%B0%ED%98%95%EA%B3%BC-%EC%97%B4%EA%B1%B0%ED%98%95-%EB%A9%A4%EB%B2%84-%ED%83%80%EC%9E%85-union-enums-and-enum-member-types)
+-   [enum vs const enum](https://jbee.io/typescript/TS-8-enum-vs-const-enum/)
+-   [자바스크립트 개발자를 위한 타입 스크립트](https://ahnheejong.gitbook.io/ts-for-jsdev/03-basic-grammar/enums)
 
 ## 관련 강의 및 도서
 
 -   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
 -   인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의
-
 
 ## 개발 환경
 
@@ -810,5 +792,11 @@ var arr = [1, 2, true, '3'];
 -   문법 검사 : ESLint, [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
 -   기타
     -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
+
+---
+
+### :unicorn: 첫 번째 프로젝트 - 할 일 관리 애플리케이션
+
+> 경로 : LearnTypeScript\4. Project\_\_To do Application
 
 ---
