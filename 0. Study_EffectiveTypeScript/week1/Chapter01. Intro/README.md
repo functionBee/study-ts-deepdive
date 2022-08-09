@@ -13,16 +13,16 @@ ES6의 새로운 기능을 기존의 자바스크립트 엔진(현재의 브라�
  <img src="https://poiemaweb.com/img/typescript-superset.png" alt="typescirpt superset" width="300" height="auto">
 </center>
 
-### 개발 환경 구축
+### Getting Started
 
 TypeScript 파일(.ts)은 브라우저에서 동작하지 않으므로 트랜스파일러(transpiler) 이용해 자바스크립트 파일로 변환해야 한다. 
 
-### Compile vs Transpile
+### Difference Between Transpiler and Compiler
 
-|               | Description |
-| :-----------: | :----------- |
-| 컴파일          |        |
-| 트렌스파일       |        |
+|               | Description | Example |
+| :-----------: | :----------- |:----------- |
+| 컴파일러(Compiler)          |        |   |
+| 트렌스파일러(Transpiler)       |  프로그래밍 언어의 소스 코드를 비슷한 수준의 추상화를 가진 동일하거나 다른 프로그래밍 언어로 변환하는 도구  | typescript transpiler, Babel transpiler |
 
 
 ## 📝 Item 2: TS 설정 이해하기(Know Which TypeScript Options You’re Using)
