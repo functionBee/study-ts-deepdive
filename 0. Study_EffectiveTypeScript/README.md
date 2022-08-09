@@ -37,7 +37,9 @@
 
 ## Reference
 
+-   [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
 -   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
+-   [자바스크립트 개발자를 위한 타입스립트, 안희종](https://ahnheejong.gitbook.io/ts-for-jsdev/)
 
 ---
 
