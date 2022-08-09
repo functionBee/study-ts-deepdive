@@ -76,6 +76,9 @@
 -   [Documentation- Typescript 3.0](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html)
 -   [The unknown Type in Typescript](https://mariusschulz.com/blog/the-unknown-type-in-typescript)
 -   [unknown Type](https://jbee.io/typescript/TS-9-unknown/)
+-   [유니언 열거형과 열거형 멤버타입](https://typescript-kr.github.io/pages/enums.html#%EC%9C%A0%EB%8B%88%EC%96%B8-%EC%97%B4%EA%B1%B0%ED%98%95%EA%B3%BC-%EC%97%B4%EA%B1%B0%ED%98%95-%EB%A9%A4%EB%B2%84-%ED%83%80%EC%9E%85-union-enums-and-enum-member-types)
+-   [enum vs const enum](https://jbee.io/typescript/TS-8-enum-vs-const-enum/)
+-   [자바스크립트 개발자를 위한 타입 스크립트](https://ahnheejong.gitbook.io/ts-for-jsdev/03-basic-grammar/enums)
 
 ---
 
@@ -234,9 +237,21 @@ if (isFunction(variable)) {
 }
 ```
 
-12.  Enum
-13.  Void
-14.  Never
+1.   Enum
+: 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
+
+|                         |   |
+| :---------------------: | :-- | 
+| 숫자 열거형(Numeric Enum)  | |
+| 문자열 열거형(String Enum) | |
+
+```javascript
+
+
+```
+
+1.   Void
+2.   Never
 
 
 ## 타입스크립트의 함수 타입
