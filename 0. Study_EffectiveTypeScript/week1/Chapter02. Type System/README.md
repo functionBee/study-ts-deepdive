@@ -24,7 +24,9 @@ type Twelve = 12;
 
 ```
 
-(참고) [타입스크립트 타입 never에 대해 자세히 알아보자](https://yceffort.kr/2022/03/understanding-typescript-never)
+(참고) 
+- [타입스크립트 타입 never에 대해 자세히 알아보자](https://yceffort.kr/2022/03/understanding-typescript-never)
+- [never type](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
 
 
 ## 📝 Item 8: 타입 공간과 값 공간의 심벌 구분하기(Know How to Tell Whether a Symbol Is in the Type Space or Value Space)
