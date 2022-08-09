@@ -2,7 +2,7 @@
 
 ## 📝 Item 1: TS와 JS의 관계 이해하기(Understand the Relationship Between TypeScript and JavaScript)
 
-타입스크립트는 자바스크립트로 컴파일되는, 자바스크립트의 타입이 있는 상위집합(Superset)
+> **타입스크립트는 자바스크립트로 컴파일되는, 자바스크립트의 타입이 있는 상위집합(Superset)**<br>
 > TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 
 TypeScript는 ES5의 Superset이므로 기존의 자바스크립트(ES5) 문법을 그대로 사용할 수 있다. <br>
@@ -21,7 +21,7 @@ TypeScript 파일(.ts)은 브라우저에서 동작하지 않으므로 트랜스
 
 |               | Description | Example |
 | :-----------: | :----------- |:----------- |
-| 컴파일러(Compiler)          |        |   |
+| 컴파일러(Compiler)          |   한 프로그래밍 언어로 작성된 컴퓨터 코드를 다른 프로그래밍 언어로 번역하는 컴퓨터 프로그램     |   |
 | 트렌스파일러(Transpiler)       |  프로그래밍 언어의 소스 코드를 비슷한 수준의 추상화를 가진 동일하거나 다른 프로그래밍 언어로 변환하는 도구  | typescript transpiler, Babel transpiler |
 
 
@@ -39,3 +39,6 @@ TypeScript 파일(.ts)은 브라우저에서 동작하지 않으므로 트랜스
 ## Rerence
 
 - [타입스크립트의 소개와 개발 환경 구축](https://poiemaweb.com/typescript-introduction)
+- [Difference Between a Transpiler and a Compiler](https://hashnode.com/post/difference-between-a-transpiler-and-a-compiler-cky6w1y1y022383s18a81g7by)
+- [Compiling vs Transpiling](https://dev.to/kealanparr/compiling-vs-transpiling-3h9i)
+- [Difference Between Transpiler and Compiler](https://www.geeksforgeeks.org/difference-between-transpiler-and-compiler/)
