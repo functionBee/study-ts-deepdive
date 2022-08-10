@@ -234,6 +234,26 @@ console.log(nVar===null)              //true
 | null을 숫자로 변환하면 0이 됩니다                 | undefined를 숫자로 변환하면 NaN이 됩니다 |
 | undefined as a JSON (JavaScript Object Notation)  | a valid value in JSON.                   |
 
+
+유니온 유형에만 사용되며 독립적인 형태로는 사용되지 않습니다
+
+```javascript
+
+let name1: string;
+//console.log(name1); // used before being assigned
+name1 = 'Bee';
+console.log(name); // Bee
+//name = null; // not assignable
+
+let name2: string | null | undefined;
+console.log(name2); // undefined
+name2 = 'Lee';
+console.log(name2); // Lee
+name2 = null;
+console.log(name2); // null
+
+```
+
 <br>
 
 6. Symbol(Less Common Primitives)
@@ -389,6 +409,7 @@ if (isFunction(variable)) {
 <br>
 
 12.  Enum
+
 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 Enums allow a developer to define a set of named constants
 
@@ -440,6 +461,7 @@ console.log(Weekdays["1"])           //Tuesday
 <br>
 
 13.  Void
+
 값을 반환하지 않는 함수의 return type을 지정할 때 사용
 
 ```javascript
@@ -466,6 +488,7 @@ const f3: voidFunc = function () {
 <br>
 
 14.  Never
+
 발생하지 않는 경우에 대한 타입
 
 ```javascript
