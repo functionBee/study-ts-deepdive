@@ -4,11 +4,6 @@
 마이크로소프트가 쓰고 관리하는 오픈 소스 언어<br>
 TypeScript는 JavaScript로 변환되며 JavaScript가 실행하는 모든 환경에서 실행 가능<br>
 
-```
-🤭 OOPS 
-번역하기가 애매한 경우 그냥 영문으로 내용 기재..😳
-```
-
 <br>
 
 ## [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
@@ -271,8 +266,8 @@ sym1 === sym2; // false, symbols are unique
 
 7. Object
 
-```
-// TS 객체
+```javascript
+
 let obj: object = {};
 
 let person: object = {
@@ -285,11 +280,53 @@ let person: {name : string, age: number } = {
     name : 'bee',
     age : 100,
 }
+
+// The parameter's type annotation is an object type
+function printCoord(pt: { x: number; y: number }) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+printCoord({ x: 3, y: 7 });
+
+
+```
+
+**Optional Properties**
+  
+```javascript
+
+function printName(obj: { first: string; last?: string }) {
+    // ...
+}
+
+// Both OK
+printName({ first: "Bob" });
+printName({ first: "Alice", last: "Alisson" });
+
+```
+
+JavaScript에서 존재하지 않는 속성에 액세스하면 런타임 오류가 아니라 `undefined` 값을 얻을 수 있다.<br>
+따라서 Optional Property를 읽을 때는 `undefined` 확인해야 한다
+
+```javascript
+function printName(obj: { first: string; last?: string }) {
+    // Error - might crash if 'obj.last' wasn't provided!
+    console.log(obj.last.toUpperCase());
+    Object is possibly 'undefined'.
+    
+    if (obj.last !== undefined) {
+        // OK
+        console.log(obj.last.toUpperCase());
+    }
+    
+    // A safe alternative using modern JavaScript syntax:
+    console.log(obj.last?.toUpperCase());
+}
 ```
 
 <br>
 
-8. Array
+1. Array
 
 ```
 // TS 배열 선언
