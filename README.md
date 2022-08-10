@@ -77,9 +77,11 @@ $ tsc --version
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
 
 ```javascript
-let age: number = 1; // number variable
-let name: string = 'bee'; // string variable
-let isUpdated: boolean = true; // Boolean variable
+
+let  [Indentifier] : [type-annotation]  = value ;
+var  [Indentifier] : [type-annotation]  = value ;
+const [Indentifier] : [type-annotation]  = value ; 
+
 ```
 
 <br>
@@ -165,7 +167,7 @@ console.log(typeof(dataNull))  //object
 - [`null` 변수가 `object`는 자바스크립트 버그](https://2ality.com/2013/10/typeof-null.html)
 
 
-1. Undefined
+5. Undefined
 
 ```javascript
 
@@ -225,7 +227,7 @@ console.log(nVar===null)              //true
 | undefined as a JSON (JavaScript Object Notation)  | a valid value in JSON.                   |
 
 
-1. Symbol
+6. Symbol
 
 ```javascript
 // 타입일 경우 (소문자) symbol 지정 가능
