@@ -100,20 +100,21 @@ const [Indentifier] : [type-annotation]  = value ;
 
 |                | Type      | JS | Description                                                                                                                                                                                                                      |
 |----------------|-----------|----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Primitive Type | number    | O  | 숫자(정수와 실수, Infinity, NaN)                                                                                                                                                                                                     |
+| Primitive Types | number    | O  | 숫자(정수와 실수, Infinity, NaN)                                                                                                                                                                                                     |
 |                | string    | O  | 문자열                                                                                                                                                                                                                             |
 |                | boolean   | O  | 진위여부(true, false)                                                                                                                                                                                                              |
 |                | null      | O  | 값이 없음을 것을 명시                                                                                                                                                                                                                 |
 |                | undefined | O  | 값을 할당하지 않은 변수의 초기값                                                                                                                                                                                                         |
 |                | symbol    | O  | 유하고 수정 불가능한 데이터 타입, 주로 객체 프로퍼티들의 식별자로 사용(ES6에서 추가)                                                                                                                                                               |
-| Object Type    | object    | O  | 객체형(참조형)                                                                                                                                                                                                                    |
+|                | bigint    | O  | 모든 크기의 정수를 보유                                                                                                                                                               |
+|                | any       |    | 타입 추론(type inference)할 수 없거나 타입 체크가 필요없는 변수에 사용<br>var 키워드로 선언한 변수와 같이 어떤 타입의 값이라도 할당 가능 일반적으로 함수에서 반환값이 없을 경우 사용                                                |
+|                | unknown   |    | 모든 타입의 값이 할당<br>unknown 타입으로 선언된 변수는 any 를 제외한 다른 타입으로 선언된 변수에 할당될 수 없음<br>unknown 타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수도 없음 |
+|                | void      |    | 일반적으로 함수에서 반환값이 없을 경우 사용                                                                                                                                                                                      |
+|                | never     |    | 결코 발생하지 않는 값                                                                                                                                                                           |
+| Non-primitive Types | object    | O  | 객체형(참조형)                                                                                                                                                                                                                    |
 |                | array     |    | 배열                                                                                                                                                                                                                             |
 |                | tuple     |    | 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현                                                                                                                                                                              |
 |                | enum      |    | 열거형. 숫자값 집합에 이름을 지정한 것                                                                                                                                                                                           |
-|                | void      |    | 일반적으로 함수에서 반환값이 없을 경우 사용                                                                                                                                                                                      |
-|                | unknown   |    | 모든 타입의 값이 할당<br>unknown 타입으로 선언된 변수는 any 를 제외한 다른 타입으로 선언된 변수에 할당될 수 없음<br>unknown 타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수도 없음 |
-|                | any       |    | 타입 추론(type inference)할 수 없거나 타입 체크가 필요없는 변수에 사용<br>var 키워드로 선언한 변수와 같이 어떤 타입의 값이라도 할당 가능 일반적으로 함수에서 반환값이 없을 경우 사용                                                |
-|                | never     |    | 결코 발생하지 않는 값                                                                                                                                                                           |
 
 <br>
 
@@ -1053,6 +1054,7 @@ var arr = [1, 2, true, '3'];
 -   [TypeScript - 정적 타이핑](https://poiemaweb.com/typescript-typing)
 -   [Null Vs Undefined in TypeScript](https://www.tektutorialshub.com/typescript/null-undefined-in-typescript/)
 -   [Typescript Enum All you need to know](https://www.tektutorialshub.com/typescript/typescript-enum/#where-to-use-enum)
+-   [Typescript from beginner to Strong Typing Part-1](https://tkssharma.com/typescript-from-beginner-to-strong-typing-part-1/)
 
 ## 관련 강의 및 도서
 
