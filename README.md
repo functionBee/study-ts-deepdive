@@ -107,7 +107,7 @@ const [Indentifier] : [type-annotation]  = value ;
 |                | undefined | O  | 값을 할당하지 않은 변수의 초기값                                                                                                                                                                                                         |
 |                | symbol    | O  | 유하고 수정 불가능한 데이터 타입, 주로 객체 프로퍼티들의 식별자로 사용(ES6에서 추가)                                                                                                                                                               |
 |                | bigint    | O  | 모든 크기의 정수를 보유                                                                                                                                                               |
-|                | any       |    | 타입 추론(type inference)할 수 없거나 타입 체크가 필요없는 변수에 사용<br>var 키워드로 선언한 변수와 같이 어떤 타입의 값이라도 할당 가능 일반적으로 함수에서 반환값이 없을 경우 사용                                                |
+|                | any       |    | 타입 추론(type inference)할 수 없거나 타입 체크가 필요없는 변수에 사용<br>어떤 타입의 값이라도 할당 가능<br>**any 타입 사용은 지양**                                                |
 |                | unknown   |    | 모든 타입의 값이 할당<br>unknown 타입으로 선언된 변수는 any 를 제외한 다른 타입으로 선언된 변수에 할당될 수 없음<br>unknown 타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수도 없음 |
 |                | void      |    | 일반적으로 함수에서 반환값이 없을 경우 사용                                                                                                                                                                                      |
 |                | never     |    | 결코 발생하지 않는 값                                                                                                                                                                           |
@@ -361,7 +361,7 @@ let todoItems: any;
 
 <br>
 
-1.  unknown
+11.  unknown
 
 
 ```javascript
@@ -388,7 +388,7 @@ if (isFunction(variable)) {
 
 <br>
 
-1.  Enum
+12.  Enum
 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 Enums allow a developer to define a set of named constants
 
