@@ -1,15 +1,13 @@
-```
-🤭 OOPS <br>
-번역이 애매한 경우 그냥 영문으로 기재😳
-```
-
-<br>
-
 # 타입스크립트(TypeScript)
 
 자바스크립트의 상위 집합(A superset of JavaScript)<br>
 마이크로소프트가 쓰고 관리하는 오픈 소스 언어<br>
 TypeScript는 JavaScript로 변환되며 JavaScript가 실행하는 모든 환경에서 실행 가능<br>
+
+```
+🤭 OOPS 
+번역하기가 애매한 경우 그냥 영문으로 내용 기재..😳
+```
 
 <br>
 
