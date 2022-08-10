@@ -115,21 +115,10 @@ let isUpdated: boolean = true; // Boolean variable
 
 <br>
 
-1. Boolean
+1. Number
 
 ```javascript
-// TS 진위 값
-let isSaved: boolean = false;
 
-isSaved = true;
-
-console.log(typeof isSaved); //boolean
-```
-
-2. Number
-
-```javascript
-// TS 숫자 선언
 let num: number = 10;
 let decimal: number = 100; // 10진수 리터럴
 let hex: number = 0xf00d; // 16진수 리터럴
@@ -137,27 +126,49 @@ let binnary: number = 0b1010; // 2진수 리터럴
 let octal: number = 0o744; // 8진수 리터럴
 let notANumber: number = NaN;
 let underscoreNum: number = 1_000_000_000;
+
 ```
 
-3. String
+2. String
 
 ```javascript
-// TS 문자열 선언
+
 let userName: string = 'bee';
 
 // Template String(ES6)
 let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
+
+```
+
+3. Boolean
+
+```javascript
+
+let isSaved: boolean = false;
+isSaved = true;
+
+console.log(typeof isSaved); //boolean
+
 ```
 
 4. Null
 5. Undefined
 
-6. Symbol
+
+> 기본적으로 null과 undefined는 모든 타입들의 서브타입이라고 할 수 있습니다. 즉 다른 타입으로 지정된 변수에도 null과 undefined를 할당할 수 있습니다.
+> --strictNullChecks flag를 사용하게 되면 null과 undefined는 void타입의 변수에만 할당할 수 있습니다. TypeScript에서는 해당 flag사용을 권장하고 있습니다.
+> [Basic Types, jBee](https://jbee.io/typescript/TS-1-Basic-Types/)
+
+**null 과 undefined 차이점**
+null 과 undefined 모두 값이 없음(no value)을 의미한다는 점에서 동일하나 미묘한 차이가 있다.
+
+
+
+1. Symbol
 
 ```javascript
-// TS
 // 타입일 경우 (소문자) symbol 지정 가능
 // 함수일 경우 (대문자) Symbol
 console.log(Symbol('foo') === Symbol('foo')); // false
@@ -842,11 +853,12 @@ var arr = [1, 2, true, '3'];
 -   [자바스크립트 개발자를 위한 타입 스크립트](https://ahnheejong.gitbook.io/ts-for-jsdev/03-basic-grammar/enums)
 -   [Difference between TypeScript and JavaScript](https://www.geeksforgeeks.org/difference-between-typescript-and-javascript/#:~:text=TypeScript%20is%20known%20as%20an,Interfaces%20but%20JavaScript%20does%20not.)
 -   [Difference between TypeScript and JavaScript](https://www.javatpoint.com/javascript-vs-typescript)
+-   [TypeScript - 정적 타이핑](https://poiemaweb.com/typescript-typing)
 
 ## 관련 강의 및 도서
 
--   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
--   인프런의 [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의
+-   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134) 도서
+-   [타입스크립트 입문 - 기초부터 실전까지](https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299&utm_source=blog&utm_medium=githubio&utm_campaign=captianpangyo&utm_term=banner) 온라인 강의
 
 ## 개발 환경
 
@@ -854,12 +866,6 @@ var arr = [1, 2, true, '3'];
 -   [Visual Studio Code](https://code.visualstudio.com/)
 -   [Node.js LTS 버전(v10.x 이상)](https://nodejs.org/ko/)
 -   [Git](https://git-scm.com/downloads)
-
-## VSCode 플러그인 목록
-
--   문법 검사 : ESLint, [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
--   기타
-    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) 등
 
 ---
 
