@@ -1,7 +1,13 @@
-// 타입 표기(Type annotation)
-let  [Indentifier] : [type]  = [value] ;
-var  [Indentifier] : [type]  = [value] ;
-const [Indentifier] : [type]  = [value]; 
+// // Type annotation
+// let  [Indentifier] : [type]  = [value] ;
+// var  [Indentifier] : [type]  = [value] ;
+// const [Indentifier] : [type]  = [value]; 
+
+// 함수의 파라미터 그리고 리턴값에는 타입 annotation과 값이 필요합니다
+var user: string = 'Bee'
+function identity(user: string): string {
+    return user
+}
 
 
 
