@@ -1,3 +1,10 @@
+```
+🤭 OOPS <br>
+번역이 애매한 경우 그냥 영문으로 기재😳
+```
+
+<br>
+
 # 타입스크립트(TypeScript)
 
 자바스크립트의 상위 집합(A superset of JavaScript)<br>
@@ -48,7 +55,7 @@ $ tsc --version
 
 ```json
 
-// tsconfig.json
+# tsconfig.json
 
 {
   "compilerOptions": {
