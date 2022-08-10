@@ -43,7 +43,8 @@ $ tsc --version
 
 ```
 
-> compiler option 중 outDir를 이용하여 트래스 파일링된 파일들을 디른 디렉토리(dist)에서 관리 가능
+> compiler option을 이용하여<br>
+> 디른 디렉토리(dist)에서 트래스 파일링된 파일들을 관리 가능
 
 ```json
 
