@@ -157,11 +157,20 @@ console.log(typeof isSaved); //boolean
 
 ```javascript
 
+let dataNull:null=null  //dataNull is a variable of type null
+console.log(typeof(dataNull))  //object 
+
 ```
 
-5. Undefined
+- [`null` 변수가 `object`는 자바스크립트 버그](https://2ality.com/2013/10/typeof-null.html)
+
+
+1. Undefined
 
 ```javascript
+
+let dataUndefined:undefined   //dataUndefined is a variable of type undefined
+console.log(typeof(dataUndefined))   //undefined
 
 ```
 
@@ -171,6 +180,40 @@ console.log(typeof isSaved); //boolean
 
 **null 과 undefined 차이점**<br>
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
+
+```javascript
+
+// 타입 스크립트에서 null과 undefined 모두 falsy value  
+let a=undefined
+let b=null
+
+if (!a) console.log('false')        //false
+if (!b) console.log('false')        //false
+
+console.log(true && null)   //null
+console.log(true || null)   //true
+console.log(true && undefined)   //undefined
+console.log(true || undefined)   //true
+
+```
+
+typeof 연산자를 사용하여 object를 반환할 때 `null`이 아닌 `undefined`를 검사할 수 있습니다.
+
+```javascript
+
+let nVar:any;
+console.log(nVar)                     //undefined
+console.log(typeof nVar)              //undefined
+console.log(nVar==undefined)          //true   
+console.log(nVar===undefined)         //true
+ 
+nVar=null;
+console.log(nVar)                     //null
+console.log(typeof nVar)              //object     //Do not use typeof for null
+console.log(nVar==null)               //true
+console.log(nVar===null)              //true
+ 
+```
 
 |                        null                       |                 undefined                |
 |:-------------------------------------------------:|:----------------------------------------:|
