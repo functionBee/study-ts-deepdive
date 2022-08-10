@@ -165,9 +165,9 @@ console.log(typeof isSaved); //boolean
 
 ```
 
-> 기본적으로 null과 undefined는 모든 타입들의 서브타입이라고 할 수 있습니다. 즉 다른 타입으로 지정된 변수에도 null과 undefined를 할당할 수 있습니다.
-> --strictNullChecks flag를 사용하게 되면 null과 undefined는 void타입의 변수에만 할당할 수 있습니다. TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
-> [Basic Types, jBee](https://jbee.io/typescript/TS-1-Basic-Types/)
+> 기본적으로 `null`과 `undefined`는 모든 타입들의 서브타입이라고 할 수 있습니다. 즉 다른 타입으로 지정된 변수에도 `null`과 `undefined`를 할당할 수 있습니다.<br>
+> `--strictNullChecks` flag를 사용하게 되면 `null`과 `undefined`는 `void 타입`의 변수에만 할당할 수 있습니다. TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
+> (참고) [Basic Types, jBee](https://jbee.io/typescript/TS-1-Basic-Types/)
 
 **null 과 undefined 차이점**<br>
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
