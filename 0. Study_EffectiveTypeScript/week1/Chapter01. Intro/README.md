@@ -2,8 +2,8 @@
 
 ## 📝 Item 1: TS와 JS의 관계 이해하기(Understand the Relationship Between TypeScript and JavaScript)
 
-> **타입스크립트는 자바스크립트로 컴파일되는, 자바스크립트의 타입이 있는 상위집합(Superset)**<br>
-> TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+자바스크립트의 상위 집합(A superset of JavaScript)
+-  
 
 TypeScript는 ES5의 Superset이므로 기존의 자바스크립트(ES5) 문법을 그대로 사용할 수 있다. <br>
 또한, ES6의 새로운 기능들을 사용하기 위해 Babel과 같은 별도 트랜스파일러(Transpiler)를 사용하지 않아도 <br>

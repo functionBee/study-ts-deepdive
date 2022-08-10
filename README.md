@@ -1,12 +1,14 @@
 # 타입스크립트(TypeScript)
 
-타입스크립트는 자바스크립트로 컴파일되는, 자바스크립트의 타입이 있는 상위집합(superset)입니다.<br>
+자바스크립트의 상위 집합(A superset of JavaScript)<br>
+마이크로소프트가 쓰고 관리하는 오픈 소스 언어<br>
+TypeScript는 JavaScript로 변환되며 JavaScript가 실행하는 모든 환경에서 실행 가능<br>
 
 <br>
 
 ## [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
-: 이펙티브 타입스크립트 도서를 포함핳여 타입 스크립트 관련 내용 상세 정리
+: 이펙티브 타입스크립트 도서를 포함허여 타입 스크립트 관련 내용 상세 정리
 
 <br>
 
@@ -14,23 +16,56 @@
 
 ```bash
 
- #node 버전 확인
- node -v
+#node 버전 확인
+$  node -v
 
- # NPM을 통한 타입스크립트 전역 설치
- npm i typescript -g
- # yarn add typescript -g
+# NPM을 통한 타입스크립트 전역 설치
+$ npm i typescript -g
+# yarn add typescript -g
+ 
+# devDependencies 목록에 추가시
+$ npm install typescript --save-dev
+# yarn add typescript -D
 
- # (참고)
- # 1. NPM(Node Package Manager)
- # 명령어로 자바스크립트 라이브러리를 설치하고 관리할 수 있는 패키지 매니저
+# (참고)
+# 1. NPM(Node Package Manager)
+# 명령어로 자바스크립트 라이브러리를 설치하고 관리할 수 있는 패키지 매니저
 
- # 2. NPM 전역 설치
- # 시스템 레벨에서 사용할 자바스크립트 라이브러리를 설치할 때 사용
- # 라이브러리가 설치되고 나면 이제 명령어 실행 창에 해당 라이브러리 이름을 입력했을 때 명령어를 인식
+# 2. NPM 전역 설치
+# 시스템 레벨에서 사용할 자바스크립트 라이브러리를 설치할 때 사용
+# 라이브러리가 설치되고 나면 이제 명령어 실행 창에 해당 라이브러리 이름을 입력했을 때 명령어를 인식
 
- # .ts 파일을 .js 파일로 변환시 해당 디렉토리로 접근하여 아래 명령어를 통해 컴파일
- tsc index.ts
+# .ts 파일을 .js 파일로 변환시 해당 디렉토리로 접근하여 아래 명령어를 통해 컴파일
+tsc index.ts
+
+# 버전 확인
+$ tsc --version
+
+```
+
+> compiler option 중 outDir를 이용하여 트래스 파일링된 파일들을 디른 디렉토리(dist)에서 관리 가능
+
+```json
+
+// tsconfig.json
+
+{
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
+
+```
+
+```bash
+.
+├── dist
+│   └── fileName.js
+├── package.json
+├── package-lock.json
+├── src
+│   └── fileName.ts
+└── tsconfig.json
 
 ```
 
@@ -41,9 +76,9 @@
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
 
 ```javascript
-var age: number = 1; // number variable
-var name: string = 'bee'; // string variable
-var isUpdated: boolean = true; // Boolean variable
+let age: number = 1; // number variable
+let name: string = 'bee'; // string variable
+let isUpdated: boolean = true; // Boolean variable
 ```
 
 <br>
@@ -53,14 +88,31 @@ var isUpdated: boolean = true; // Boolean variable
 |                            |            **TypeScript**             |           **JavaScript**            |
 | -------------------------- | :-----------------------------------: | :---------------------------------: |
 | Highlighted the errors     | Static Types (set during development) | Dynamic Types (resolved at runtime) |
-|                            |       Compiled(Transpiled)<br>        |             Interpreted             |
+|                            |       Compiled(Transpiled)            |             Interpreted             |
 | Support optional parameter |                   O                   |                  X                  |
 
 <br>
 
-## 타입 스크립트 변수 타입
+## 데이터 타입(Data Types)
 
-> **원시타입(primitive type)**
+|                | Type      | JS | Description                                                                                                                                                                                                                      |
+|----------------|-----------|----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Primitive Type | number    | O  | 숫자(정수와 실수, Infinity, NaN)                                                                                                                                                                                                     |
+|                | string    | O  | 문자열                                                                                                                                                                                                                             |
+|                | boolean   | O  | 진위여부(true, false)                                                                                                                                                                                                              |
+|                | null      | O  | 값이 없음을 것을 명시                                                                                                                                                                                                                 |
+|                | undefined | O  | 값을 할당하지 않은 변수의 초기값                                                                                                                                                                                                         |
+|                | symbol    | O  | 유하고 수정 불가능한 데이터 타입, 주로 객체 프로퍼티들의 식별자로 사용(ES6에서 추가)                                                                                                                                                               |
+| Object Type    | object    | O  | 객체형(참조형)                                                                                                                                                                                                                    |
+|                | array     |    | 배열                                                                                                                                                                                                                             |
+|                | tuple     |    | 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현                                                                                                                                                                              |
+|                | enum      |    | 열거형. 숫자값 집합에 이름을 지정한 것                                                                                                                                                                                           |
+|                | void      |    | 일반적으로 함수에서 반환값이 없을 경우 사용                                                                                                                                                                                      |
+|                | unknown   |    | 모든 타입의 값이 할당<br>unknown 타입으로 선언된 변수는 any 를 제외한 다른 타입으로 선언된 변수에 할당될 수 없음<br>unknown 타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수도 없음 |
+|                | any       |    | 타입 추론(type inference)할 수 없거나 타입 체크가 필요없는 변수에 사용<br>var 키워드로 선언한 변수와 같이 어떤 타입의 값이라도 할당 가능 일반적으로 함수에서 반환값이 없을 경우 사용                                                |
+|                | never     |    | 결코 발생하지 않는 값                                                                                                                                                                           |
+
+<br>
 
 1. Boolean
 
