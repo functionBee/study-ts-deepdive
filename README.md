@@ -131,6 +131,8 @@ let underscoreNum: number = 1_000_000_000;
 
 ```
 
+<br>
+
 2. String
 
 ```javascript
@@ -144,6 +146,8 @@ console.log(sentence); // (spanish) hola, bee.
 
 ```
 
+<br>
+
 3. Boolean
 
 ```javascript
@@ -155,6 +159,8 @@ console.log(typeof isSaved); //boolean
 
 ```
 
+<br>
+
 4. Null
 
 ```javascript
@@ -164,8 +170,9 @@ console.log(typeof(dataNull))  //object
 
 ```
 
-- [`null` 변수가 `object`는 자바스크립트 버그](https://2ality.com/2013/10/typeof-null.html)
+> [`null` 변수가 `object`는 자바스크립트 버그](https://2ality.com/2013/10/typeof-null.html)
 
+<br>
 
 5. Undefined
 
@@ -226,8 +233,10 @@ console.log(nVar===null)              //true
 | null을 숫자로 변환하면 0이 됩니다                 | undefined를 숫자로 변환하면 NaN이 됩니다 |
 | undefined as a JSON (JavaScript Object Notation)  | a valid value in JSON.                   |
 
+<br>
 
-6. Symbol
+6. Symbol(Less Common Primitives)
+
 
 ```javascript
 // 타입일 경우 (소문자) symbol 지정 가능
@@ -242,7 +251,18 @@ const obj = {
 
 // obj['symbol']; // 문자열을 통해 접근 X
 obj[symbol];
+
 ```
+
+```javascript
+
+let sym1 = Symbol("key");
+let sym2 = Symbol("key");
+sym1 === sym2; // false, symbols are unique
+
+```
+
+<br>
 
 7. Object
 
@@ -262,6 +282,8 @@ let person: {name : string, age: number } = {
 }
 ```
 
+<br>
+
 8. Array
 
 ```
@@ -270,6 +292,8 @@ let arr: Array<number> = [1, 2, 3] // 배열 선언방식 1
 let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk']
 let items: number [] = [3, 4, 5] // 배열 선언방식 2
 ```
+
+<br>
 
 9. Tuple
 
@@ -301,6 +325,8 @@ const [numOne, numTwo, numTree] = array;
 console.log(numOne, numTwo, numTree); // 1, 2, 3
 ```
 
+<br>
+
 10. Any
 
 -   모든 타입을 할당 받을 수 있는 타입
@@ -310,6 +336,8 @@ string, number등의 모든 타입을 통칭
 
 let todoItems: any;
 ```
+
+<br>
 
 11. unknown
 
@@ -337,6 +365,8 @@ if (isFunction(variable)) {
 }
 ```
 
+<br>
+
 12. Enum
     : 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 
@@ -349,8 +379,20 @@ if (isFunction(variable)) {
 
 ```
 
+<br>
+
 13. Void
-14. Never
+
+
+<br>
+
+14. 
+
+<br>
+
+15. Never
+
+<br>
 
 ## 타입스크립트의 함수 타입
 
