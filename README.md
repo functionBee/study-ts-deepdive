@@ -326,10 +326,9 @@ function printName(obj: { first: string; last?: string }) {
 
 <br>
 
-1. Array
+8. Array
 
-```
-// TS 배열 선언
+```javascript
 let arr: Array<number> = [1, 2, 3] // 배열 선언방식 1
 let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk']
 let items: number [] = [3, 4, 5] // 배열 선언방식 2
@@ -340,7 +339,6 @@ let items: number [] = [3, 4, 5] // 배열 선언방식 2
 9. Tuple
 
 ```javascript
-// TS 튜플
 // 모든 인덱스에 타입을 정하는 배열
 let address: [string, number] = ['mapo', 100];
 
@@ -348,46 +346,22 @@ let address: [string, number] = ['mapo', 100];
 const [first, second] = person;
 ```
 
-> **디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)**<br>
-> : 구조화된 배열과 같은 이터러블 또는 객체를<br>
-> destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당 하는 것<br>
-> : 배열과 같은 이터러블 또는 객체 리터럴에서 필요한 값만 추출하여 변수에 할당할 때 유용
-
-```javascript
-// 예쩨 36-2
-// 예제 발췌: 이웅모 , (2021) 모던 자바스크립트 Deep Dive -자바스크립트 기본 동작과 원리, 위키북스
-const array = [1, 2, 3];
-
-// ES6 배열 디스트럭처링 할당
-// 변수 numOne, numTwo, numTree을 선언하고
-// 배열 array를 디스트럭처링하여 할당
-// 이때 할당 기준은 배열의 인덱스다.
-const [numOne, numTwo, numTree] = array;
-
-console.log(numOne, numTwo, numTree); // 1, 2, 3
-```
-
 <br>
 
-10. Any
+10. any
 
 -   모든 타입을 할당 받을 수 있는 타입
+-   string, number등의 모든 타입을 통칭
 
 ```javascript
-string, number등의 모든 타입을 통칭
 
 let todoItems: any;
 ```
 
 <br>
 
-11. unknown
+1.  unknown
 
--   Typescript 3.0 버전 부터 지원
--   `any`보다 Type-safe한 타입
-    -   `any`를 제외한 다른 타입으로 선언된 변수에 할당 될 수 없음
--   `unknown`타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수 없다.
-    -   단, Type Guard 와 함께라면 가능하다.
 
 ```javascript
 
@@ -406,33 +380,111 @@ if (isFunction(variable)) {
   variable() // OK
 }
 ```
+-   Typescript 3.0 버전 부터 지원
+-   `any`보다 Type-safe한 타입
+-   `any`를 제외한 다른 타입으로 선언된 변수에 할당 될 수 없음
+-   `unknown`타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수 없다. (단, Type Guard 와 함께라면 가능하다.)
 
 <br>
 
-12. Enum
-    : 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
+1.  Enum
+명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
+Enums allow a developer to define a set of named constants
 
-|                            |     |
-| :------------------------: | :-- |
-| 숫자 열거형(Numeric Enum)  |     |
-| 문자열 열거형(String Enum) |     |
+```javascript
+ 
+enum Weekdays {
+  Monday = 1,
+  Tuesday = 2,
+  Wednesday = 3,
+  Thursday = 4,
+  Friday = 5,
+  Saturday = 6,
+  Sunday = 7
+}
+ 
+console.log(Weekdays.Monday)         //1  
+console.log(Weekdays["Monday"])      //1  
+console.log(Weekdays["1"])           //Monday
+ 
+let holiday=Weekdays.Sunday;
+console.log(holiday);                //7
+ 
+console.log(typeof Weekdays)         //object
+console.log(typeof holiday)          //number
+ 
+```
+
+값을 생략하면 typescript는 0부터 시작하는 값으로 초기화
 
 ```javascript
 
+enum Weekdays {
+  Monday,          //Initialized with zero
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday
+}
+ 
+console.log(Weekdays.Monday)         //0  
+console.log(Weekdays["Monday"])      //0  
+console.log(Weekdays["1"])           //Tuesday
+ 
+```
+
+
+<br>
+
+13.  Void
+값을 반환하지 않는 함수의 return type을 지정할 때 사용
+
+```javascript
+
+// The inferred return type is void
+function noop() {
+  return;
+}
+
+// Return type void
+type voidFunc = () => void;
+ 
+const f1: voidFunc = () => {
+  return true;
+};
+ 
+const f2: voidFunc = () => true;
+ 
+const f3: voidFunc = function () {
+  return true;
+};
 ```
 
 <br>
 
-13. Void
+14.  Never
+발생하지 않는 경우에 대한 타입
 
+```javascript
 
-<br>
+// Function returning never must have unreachable end point
+function error(message: string): never {
+  throw new Error(message)
+}
 
-14. 
+// Inferred return type is never
+function fail() {
+  return error('Something failed')
+}
 
-<br>
+// Function returning never must have unreachable end point
+function infiniteLoop(): never {
+  while (true) {}
+}
 
-15. Never
+```
 
 <br>
 
@@ -1000,6 +1052,7 @@ var arr = [1, 2, true, '3'];
 -   [Difference between TypeScript and JavaScript](https://www.javatpoint.com/javascript-vs-typescript)
 -   [TypeScript - 정적 타이핑](https://poiemaweb.com/typescript-typing)
 -   [Null Vs Undefined in TypeScript](https://www.tektutorialshub.com/typescript/null-undefined-in-typescript/)
+-   [Typescript Enum All you need to know](https://www.tektutorialshub.com/typescript/typescript-enum/#where-to-use-enum)
 
 ## 관련 강의 및 도서
 
