@@ -138,7 +138,7 @@ function identity(user: string): string {
 
 타입스크립트는 소문자 형태의 기본형(예: string) 과 래퍼 객체(wrapper obejct) 타입(예: String)을 별도로 모델링합니다.
 
-```javasript
+```javascript
 
 // 10-2
 // string을 String으로입력하는 실수를 하더라도 처음에는 잘 동작하는 것 처럼 보임 ㅜㅜ
@@ -153,7 +153,7 @@ getStringLen(new String("hello"));  // OK
 
 <br>
 
-```javasript
+```javascript
 
 // 10-3
 // string을 매개변수로 받는 메서드에 String 객체를 전달할 경우
@@ -171,12 +171,12 @@ function isGreeting(phrase: String) {
 
 ```
 
-> **Effective Typescript**<br>
-> Item 10 : Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt)
-
 string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 없습니다.<br>
 타입스크립트는 기본형 타입을 래퍼 객체에 할당하는 것을 허용합니다. <br>
 그러나 레퍼 객체에 할당하는 구문은 오해하기 쉽고, 굳이 그렇게 할 필요가 없습니다.
+
+> **Effective Typescript**<br>
+> Item 10 : Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt)
 
 
 <br>
@@ -298,6 +298,8 @@ console.log(name2); // Lee
 name2 = null;
 console.log(name2); // null
 ```
+
+[(영상): 더글락스 크록포드, null을 사용하지 말아야할 이유](https://www.youtube.com/watch?v=PSGEjv3Tqo0&feature=youtu.be&t=9m21s)
 
 <br>
 
@@ -520,7 +522,7 @@ const f3: voidFunc = function () {
 
 <br>
 
-1.  never
+14.  never
 
 발생하지 않는 경우에 대한 타입
 
