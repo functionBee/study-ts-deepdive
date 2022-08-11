@@ -54,24 +54,32 @@ console.log(typeof dataNull); //object
 let dataUndefined: undefined; //dataUndefined is a variable of type undefined
 console.log(typeof dataUndefined); //undefined
 
+let name1: string;
+//console.log(name1); // used before being assigned
+name1 = 'Bee';
+console.log(name); // Bee
+//name = null; // not assignable
+
+let name2: string | null | undefined;
+console.log(name2); // undefined
+name2 = 'Lee';
+console.log(name2); // Lee
+name2 = null;
+console.log(name2); // null
+
 // symbol
-/ 타입일 경우 (소문자) symbol 지정 가능
+// 타입일 경우 (소문자) symbol 지정 가능
 // 함수일 경우 (대문자) Symbol
-console.log(Symbol('foo') === Symbol('foo')); // false
-
-const symbol = Symbol();
-
-const obj = {
-    [symbol]: 'value',
-};
-
-// obj['symbol']; // 문자열을 통해 접근 X
-obj[symbol];
-
 let sym1 = Symbol('key');
 let sym2 = Symbol('key');
-sym1 === sym2; // false, symbols are unique
+console.log(sym1 === sym2); // false, symbols are unique
+console.log(Symbol('key') === Symbol('foo')); // false
 
+const sym = Symbol();
+const obj = {
+    [sym]: 'value',
+};
+console.log(obj[symbol]); // 문자열을 통해 접근 X
 
 // object
 let obj: object = {};
@@ -81,6 +89,19 @@ let person: object = {
     name: 'bee',
     age: 100,
 };
+
+// 구체적인 객체 표현
+let person: { name: string; age: number } = {
+    name: 'bee',
+    age: 100,
+};
+
+// The parameter's type annotation is an object type
+function printCoord(pt: { x: number; y: number }) {
+    console.log("The coordinate's x value is " + pt.x);
+    console.log("The coordinate's y value is " + pt.y);
+}
+printCoord({ x: 3, y: 7 });
 
 // array
 let arr: Array<number> = [1, 2, 3]; // 배열 선언방식 1
@@ -94,40 +115,26 @@ let address: [string, number] = ['mapo', 100];
 // 디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)
 const [first, second] = person;
 
-// 구체적인 객체 표현
-let person: { name: string, age: number } = {
-    name: 'bee',
-    age: 100,
-};
-
-// The parameter's type annotation is an object type
-function printCoord(pt: { x: number, y: number }) {
-    console.log("The coordinate's x value is " + pt.x);
-    console.log("The coordinate's y value is " + pt.y);
-}
-printCoord({ x: 3, y: 7 });
-
 // any
 let todoItems: any;
 
 // unknown
-let variable: unknown
+let variable: unknown;
 
-variable.foo.bar // Error: Object is of type 'unknown'.(2571)
-variable[0] // Error
-variable.trigger() // Error
-variable() // Error
-new variable() // Error
+variable.foo.bar; // Error: Object is of type 'unknown'.(2571)
+variable[0]; // Error
+variable.trigger(); // Error
+variable(); // Error
+new variable(); // Error
 
-let variable: unknown
-declare function isFunction(x: unknown): x is Function
+let variable: unknown;
+declare function isFunction(x: unknown): x is Function;
 
 if (isFunction(variable)) {
-  variable() // OK
+    variable(); // OK
 }
 
 // enum
-
 enum Weekdays {
     Monday = 1,
     Tuesday = 2,
@@ -135,23 +142,22 @@ enum Weekdays {
     Thursday = 4,
     Friday = 5,
     Saturday = 6,
-    Sunday = 7
+    Sunday = 7,
 }
 
-console.log(Weekdays.Monday)         //1
-console.log(Weekdays["Monday"])      //1
-console.log(Weekdays["1"])           //Monday
+console.log(Weekdays.Monday); //1
+console.log(Weekdays['Monday']); //1
+console.log(Weekdays['1']); //Monday
 
-let holiday=Weekdays.Sunday;
-console.log(holiday);                //7
+let holiday = Weekdays.Sunday;
+console.log(holiday); //7
 
-console.log(typeof Weekdays)         //object
-console.log(typeof holiday)          //number
-
+console.log(typeof Weekdays); //object
+console.log(typeof holiday); //number
 
 // void
 // The inferred return type is void
-function noop() {
+function loop() {
     return;
 }
 
