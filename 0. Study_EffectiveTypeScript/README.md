@@ -22,7 +22,7 @@
 -   📝 Item 7: 타입이 값들의 집합이라고 생각하기
 -   📝 Item 8: 타입 공간과 값 공간의 심벌 구분하기
 -   📝 Item 9: 타입 단언보다는 타입 선언을 사용하기
--   📝 Item 10: 객체 래퍼 타입 피하기
+-   📝 Item 10: 객체 래퍼 타입 피하기(Effective Typescript : item10 Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt))
 -   📝 Item 11: 잉여 속성 체크의 한계 인지하기
 -   📝 Item 12: 함수 표현식에 타입 적용하기
 -   📝 Item 13: 타입과 인터페이스의 차이점 알기
