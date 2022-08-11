@@ -2,7 +2,7 @@
 
 자바스크립트의 상위 집합(A superset of JavaScript)<br>
 마이크로소프트가 쓰고 관리하는 오픈 소스 언어<br>
-TypeScript는 JavaScript로 변환되며 JavaScript가 실행하는 모든 환경에서 실행 가능<br>
+TypeScript는 트렌스 파일러(tsc) JavaScript로 변환되며 JavaScript가 실행하는 모든 환경에서 실행 가능<br>
 
 <br>
 
@@ -84,11 +84,11 @@ const [Indentifier]: [type] = [value];
 
 const sum: (a: number, b: number) => number = (a, b) => a + b;
 const obj: {
-    lat: number;
-    lon: number;
+    name: string;
+    age: number;
 } = {
-    lat: 37.5,
-    lon: 127.5,
+    name: 'bee',
+    age: 3,
 };
 
 function sum(a: number, b: number) {
@@ -135,9 +135,54 @@ function identity(user: string): string {
 |                     | tuple     |     | 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현                                                                                                                                                                                    |
 |                     | enum      |     | 열거형. 숫자값 집합에 이름을 지정한 것                                                                                                                                                                                                 |
 
+
+> **Effective Typescript**<br>
+> Item 10: 객체 래퍼 타입 피하기<br>
+> (Item 10 : Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt))
+
+타입스크립트는 소문자 형태의 기본형(예: string) 과 래퍼 객체(wrapper obejct) 타입(예: String)을 별도로 모델링합니다.
+
+```javasript
+
+// 10-2
+// string을 String으로입력하는 실수를 하더라도 처음에는 잘 동작하는 것 처럼 보임 ㅜㅜ
+function getStringLen(foo: String) {
+  return foo.length;
+}
+
+getStringLen("hello");  // OK
+getStringLen(new String("hello"));  // OK
+
+```
+
 <br>
 
-1. Number
+```javasript
+
+// 10-3
+// string을 매개변수로 받는 메서드에 String 객체를 전달할 경우
+function isGreeting(phrase: String) {
+    return [
+        'hello',
+        'good day'
+    ].includes(phrase);
+    // ~~~~~~
+    // Argument of type 'String' is not assignable to parameter
+    // of type 'string'.
+    // 'string' is a primitive, but 'String' is a wrapper object;
+    // prefer using 'string' when possible
+}
+
+```
+
+string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 없습니다.<br>
+타입스크립트는 기본형 타입을 래퍼 객체에 할당하는 것을 허용합니다. <br>
+그러나 레퍼 객체에 할당하는 구문은 오해하기 쉽고, 굳이 그렇게 할 필요가 없습니다.
+
+
+<br>
+
+1. number
 
 ```javascript
 let num: number = 10;
@@ -151,7 +196,7 @@ let underscoreNum: number = 1_000_000_000;
 
 <br>
 
-2. String
+2. string
 
 ```javascript
 let userName: string = 'bee';
@@ -164,7 +209,7 @@ console.log(sentence); // (spanish) hola, bee.
 
 <br>
 
-3. Boolean
+1. boolean
 
 ```javascript
 let isSaved: boolean = false;
@@ -175,7 +220,7 @@ console.log(typeof isSaved); //boolean
 
 <br>
 
-4. Null
+4. null
 
 ```javascript
 let dataNull: null = null; //dataNull is a variable of type null
@@ -186,7 +231,7 @@ console.log(typeof dataNull); //object
 
 <br>
 
-5. Undefined
+5. undefined
 
 ```javascript
 let dataUndefined: undefined; //dataUndefined is a variable of type undefined
@@ -257,7 +302,7 @@ console.log(name2); // null
 
 <br>
 
-6. Symbol(Less Common Primitives)
+6. symbol(Less Common Primitives as bigint)
 
 ```javascript
 // 타입일 경우 (소문자) symbol 지정 가능
@@ -282,7 +327,7 @@ sym1 === sym2; // false, symbols are unique
 
 <br>
 
-7. Object
+7. object
 
 ```javascript
 let obj: object = {};
@@ -339,7 +384,7 @@ function printName(obj: { first: string; last?: string }) {
 
 <br>
 
-8. Array
+8. array
 
 ```javascript
 let arr: Array<number> = [1, 2, 3]; // 배열 선언방식 1
@@ -349,7 +394,7 @@ let items: number[] = [3, 4, 5]; // 배열 선언방식 2
 
 <br>
 
-9. Tuple
+9. tuple
 
 ```javascript
 // 모든 인덱스에 타입을 정하는 배열
@@ -450,7 +495,7 @@ console.log(Weekdays["1"])           //Tuesday
 
 <br>
 
-13. Void
+13. void
 
 값을 반환하지 않는 함수의 return type을 지정할 때 사용
 
@@ -476,7 +521,7 @@ const f3: voidFunc = function () {
 
 <br>
 
-14. Never
+1.  never
 
 발생하지 않는 경우에 대한 타입
 
