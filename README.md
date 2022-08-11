@@ -136,10 +136,6 @@ function identity(user: string): string {
 |                     | enum      |     | 열거형. 숫자값 집합에 이름을 지정한 것                                                                                                                                                                                                 |
 
 
-> **Effective Typescript**<br>
-> Item 10: 객체 래퍼 타입 피하기<br>
-> (Item 10 : Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt))
-
 타입스크립트는 소문자 형태의 기본형(예: string) 과 래퍼 객체(wrapper obejct) 타입(예: String)을 별도로 모델링합니다.
 
 ```javasript
@@ -174,6 +170,9 @@ function isGreeting(phrase: String) {
 }
 
 ```
+
+> **Effective Typescript**<br>
+> Item 10 : Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt)
 
 string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 없습니다.<br>
 타입스크립트는 기본형 타입을 래퍼 객체에 할당하는 것을 허용합니다. <br>
