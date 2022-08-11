@@ -22,7 +22,7 @@ $  node -v
 # NPM을 통한 타입스크립트 전역 설치
 $ npm i typescript -g
 # yarn add typescript -g
- 
+
 # devDependencies 목록에 추가시
 $ npm install typescript --save-dev
 # yarn add typescript -D
@@ -78,9 +78,28 @@ $ tsc --version
 
 ```javascript
 
-let  [Indentifier] : [type-annotation]  = value ;
-var  [Indentifier] : [type-annotation]  = value ;
-const [Indentifier] : [type-annotation]  = value ; 
+llet [Indentifier]: [type] = [value];
+var [Indentifier]: [type] = [value];
+const [Indentifier]: [type] = [value];
+
+const sum: (a: number, b: number) => number = (a, b) => a + b;
+const obj: {
+    lat: number;
+    lon: number;
+} = {
+    lat: 37.5,
+    lon: 127.5,
+};
+
+function sum(a: number, b: number) {
+    return a + b;
+}
+
+// 함수의 파라미터 그리고 리턴값에는 타입 annotation과 값이 필요합니다
+var user: string = 'Bee';
+function identity(user: string): string {
+    return user;
+}
 
 ```
 
@@ -91,37 +110,36 @@ const [Indentifier] : [type-annotation]  = value ;
 |                            |            **TypeScript**             |           **JavaScript**            |
 | -------------------------- | :-----------------------------------: | :---------------------------------: |
 | Highlighted the errors     | Static Types (set during development) | Dynamic Types (resolved at runtime) |
-|                            |       Compiled(Transpiled)            |             Interpreted             |
+|                            |         Compiled(Transpiled)          |             Interpreted             |
 | Support optional parameter |                   O                   |                  X                  |
 
 <br>
 
 ## 데이터 타입(Data Types)
 
-|                | Type      | JS | Description                                                                                                                                                                                                                      |
-|----------------|-----------|----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Primitive Types | number    | O  | 숫자(정수와 실수, Infinity, NaN)                                                                                                                                                                                                     |
-|                | string    | O  | 문자열                                                                                                                                                                                                                             |
-|                | boolean   | O  | 진위여부(true, false)                                                                                                                                                                                                              |
-|                | null      | O  | 값이 없음을 것을 명시                                                                                                                                                                                                                 |
-|                | undefined | O  | 값을 할당하지 않은 변수의 초기값                                                                                                                                                                                                         |
-|                | symbol    | O  | 유하고 수정 불가능한 데이터 타입, 주로 객체 프로퍼티들의 식별자로 사용(ES6에서 추가)                                                                                                                                                               |
-|                | bigint    | O  | 모든 크기의 정수를 보유                                                                                                                                                               |
-|                | any       |    | 타입 추론(type inference)할 수 없거나 타입 체크가 필요없는 변수에 사용<br>어떤 타입의 값이라도 할당 가능<br>**any 타입 사용은 지양**                                                |
-|                | unknown   |    | 모든 타입의 값이 할당<br>unknown 타입으로 선언된 변수는 any 를 제외한 다른 타입으로 선언된 변수에 할당될 수 없음<br>unknown 타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수도 없음 |
-|                | void      |    | 일반적으로 함수에서 반환값이 없을 경우 사용                                                                                                                                                                                      |
-|                | never     |    | 결코 발생하지 않는 값                                                                                                                                                                           |
-| Non-primitive Types | object    | O  | 객체형(참조형)                                                                                                                                                                                                                    |
-|                | array     |    | 배열                                                                                                                                                                                                                             |
-|                | tuple     |    | 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현                                                                                                                                                                              |
-|                | enum      |    | 열거형. 숫자값 집합에 이름을 지정한 것                                                                                                                                                                                           |
+|                     | Type      | JS  | Description                                                                                                                                                                                                                            |
+| ------------------- | --------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Primitive Types     | number    | O   | 숫자(정수와 실수, Infinity, NaN)                                                                                                                                                                                                       |
+|                     | string    | O   | 문자열                                                                                                                                                                                                                                 |
+|                     | boolean   | O   | 진위여부(true, false)                                                                                                                                                                                                                  |
+|                     | null      | O   | 값이 없음을 것을 명시                                                                                                                                                                                                                  |
+|                     | undefined | O   | 값을 할당하지 않은 변수의 초기값                                                                                                                                                                                                       |
+|                     | symbol    | O   | 유하고 수정 불가능한 데이터 타입, 주로 객체 프로퍼티들의 식별자로 사용(ES6에서 추가)                                                                                                                                                   |
+|                     | bigint    | O   | 모든 크기의 정수를 보유                                                                                                                                                                                                                |
+|                     | any       |     | 타입 추론(type inference)할 수 없거나 타입 체크가 필요없는 변수에 사용<br>어떤 타입의 값이라도 할당 가능<br>**any 타입 사용은 지양**                                                                                                   |
+|                     | unknown   |     | 모든 타입의 값이 할당<br>unknown 타입으로 선언된 변수는 any 를 제외한 다른 타입으로 선언된 변수에 할당될 수 없음<br>unknown 타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수도 없음 |
+|                     | void      |     | 일반적으로 함수에서 반환값이 없을 경우 사용                                                                                                                                                                                            |
+|                     | never     |     | 결코 발생하지 않는 값                                                                                                                                                                                                                  |
+| Non-primitive Types | object    | O   | 객체형(참조형)                                                                                                                                                                                                                         |
+|                     | array     |     | 배열                                                                                                                                                                                                                                   |
+|                     | tuple     |     | 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현                                                                                                                                                                                    |
+|                     | enum      |     | 열거형. 숫자값 집합에 이름을 지정한 것                                                                                                                                                                                                 |
 
 <br>
 
 1. Number
 
 ```javascript
-
 let num: number = 10;
 let decimal: number = 100; // 10진수 리터럴
 let hex: number = 0xf00d; // 16진수 리터럴
@@ -129,7 +147,6 @@ let binnary: number = 0b1010; // 2진수 리터럴
 let octal: number = 0o744; // 8진수 리터럴
 let notANumber: number = NaN;
 let underscoreNum: number = 1_000_000_000;
-
 ```
 
 <br>
@@ -137,14 +154,12 @@ let underscoreNum: number = 1_000_000_000;
 2. String
 
 ```javascript
-
 let userName: string = 'bee';
 
 // Template String(ES6)
 let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
-
 ```
 
 <br>
@@ -152,12 +167,10 @@ console.log(sentence); // (spanish) hola, bee.
 3. Boolean
 
 ```javascript
-
 let isSaved: boolean = false;
 isSaved = true;
 
 console.log(typeof isSaved); //boolean
-
 ```
 
 <br>
@@ -165,10 +178,8 @@ console.log(typeof isSaved); //boolean
 4. Null
 
 ```javascript
-
-let dataNull:null=null  //dataNull is a variable of type null
-console.log(typeof(dataNull))  //object 
-
+let dataNull: null = null; //dataNull is a variable of type null
+console.log(typeof dataNull); //object
 ```
 
 > [`null` 변수가 `object`는 자바스크립트 버그](https://2ality.com/2013/10/typeof-null.html)
@@ -178,67 +189,58 @@ console.log(typeof(dataNull))  //object
 5. Undefined
 
 ```javascript
-
-let dataUndefined:undefined   //dataUndefined is a variable of type undefined
-console.log(typeof(dataUndefined))   //undefined
-
+let dataUndefined: undefined; //dataUndefined is a variable of type undefined
+console.log(typeof dataUndefined); //undefined
 ```
 
-> 기본적으로 `null`과 `undefined`는 모든 타입들의 서브타입이라고 할 수 있습니다. 즉 다른 타입으로 지정된 변수에도 `null`과 `undefined`를 할당할 수 있습니다.<br>
-> `--strictNullChecks` flag를 사용하게 되면 `null`과 `undefined`는 `void 타입`의 변수에만 할당할 수 있습니다. TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
+> 기본적으로 `null`과 `undefined`는 모든 타입들의 서브타입이라고 할 수 있습니다. 즉 다른 타입으로 지정된 변수에도 `null`과 `undefined`를 할당할 수 있습니다.<br> > `--strictNullChecks` flag를 사용하게 되면 `null`과 `undefined`는 `void 타입`의 변수에만 할당할 수 있습니다. TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
 > (참고) [Basic Types, jBee](https://jbee.io/typescript/TS-1-Basic-Types/)
 
 **null 과 undefined 차이점**<br>
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
 
 ```javascript
+// 타입 스크립트에서 null과 undefined 모두 falsy value
+let a = undefined;
+let b = null;
 
-// 타입 스크립트에서 null과 undefined 모두 falsy value  
-let a=undefined
-let b=null
+if (!a) console.log('false'); //false
+if (!b) console.log('false'); //false
 
-if (!a) console.log('false')        //false
-if (!b) console.log('false')        //false
-
-console.log(true && null)   //null
-console.log(true || null)   //true
-console.log(true && undefined)   //undefined
-console.log(true || undefined)   //true
-
+console.log(true && null); //null
+console.log(true || null); //true
+console.log(true && undefined); //undefined
+console.log(true || undefined); //true
 ```
 
 typeof 연산자를 사용하여 object를 반환할 때 `null`이 아닌 `undefined`를 검사할 수 있습니다.
 
 ```javascript
+let nVar: any;
+console.log(nVar); //undefined
+console.log(typeof nVar); //undefined
+console.log(nVar == undefined); //true
+console.log(nVar === undefined); //true
 
-let nVar:any;
-console.log(nVar)                     //undefined
-console.log(typeof nVar)              //undefined
-console.log(nVar==undefined)          //true   
-console.log(nVar===undefined)         //true
- 
-nVar=null;
-console.log(nVar)                     //null
-console.log(typeof nVar)              //object     //Do not use typeof for null
-console.log(nVar==null)               //true
-console.log(nVar===null)              //true
- 
+nVar = null;
+console.log(nVar); //null
+console.log(typeof nVar); //object     //Do not use typeof for null
+console.log(nVar == null); //true
+console.log(nVar === null); //true
 ```
 
-|                        null                       |                 undefined                |
-|:-------------------------------------------------:|:----------------------------------------:|
-| intentional absence of a value                    | unintentional absence of a value         |
-| 명시적(explicit)                                  | 암묵적(implicit)                         |
-| 변수에 Null을 할당해야 합니다.                    | 할당되지 않은 변수의 기본값은 undefined  |
-| The typeof null is an object. (and not type null) | Typeof undefined is undefined type       |
-| null을 숫자로 변환하면 0이 됩니다                 | undefined를 숫자로 변환하면 NaN이 됩니다 |
-| undefined as a JSON (JavaScript Object Notation)  | a valid value in JSON.                   |
-
+|                       null                        |                undefined                 |
+| :-----------------------------------------------: | :--------------------------------------: |
+|          intentional absence of a value           |     unintentional absence of a value     |
+|                 명시적(explicit)                  |             암묵적(implicit)             |
+|          변수에 Null을 할당해야 합니다.           | 할당되지 않은 변수의 기본값은 undefined  |
+| The typeof null is an object. (and not type null) |    Typeof undefined is undefined type    |
+|         null을 숫자로 변환하면 0이 됩니다         | undefined를 숫자로 변환하면 NaN이 됩니다 |
+| undefined as a JSON (JavaScript Object Notation)  |          a valid value in JSON.          |
 
 유니온 유형에만 사용되며 독립적인 형태로는 사용되지 않습니다
 
 ```javascript
-
 let name1: string;
 //console.log(name1); // used before being assigned
 name1 = 'Bee';
@@ -251,13 +253,11 @@ name2 = 'Lee';
 console.log(name2); // Lee
 name2 = null;
 console.log(name2); // null
-
 ```
 
 <br>
 
 6. Symbol(Less Common Primitives)
-
 
 ```javascript
 // 타입일 경우 (소문자) symbol 지정 가능
@@ -272,15 +272,12 @@ const obj = {
 
 // obj['symbol']; // 문자열을 통해 접근 X
 obj[symbol];
-
 ```
 
 ```javascript
-
-let sym1 = Symbol("key");
-let sym2 = Symbol("key");
+let sym1 = Symbol('key');
+let sym2 = Symbol('key');
 sym1 === sym2; // false, symbols are unique
-
 ```
 
 <br>
@@ -288,42 +285,37 @@ sym1 === sym2; // false, symbols are unique
 7. Object
 
 ```javascript
-
 let obj: object = {};
 
 let person: object = {
-     name : 'bee',
-     age : 100
+    name: 'bee',
+    age: 100,
 };
 
 // 구체적인 객체 표현
-let person: {name : string, age: number } = {
-    name : 'bee',
-    age : 100,
-}
+let person: { name: string, age: number } = {
+    name: 'bee',
+    age: 100,
+};
 
 // The parameter's type annotation is an object type
-function printCoord(pt: { x: number; y: number }) {
-  console.log("The coordinate's x value is " + pt.x);
-  console.log("The coordinate's y value is " + pt.y);
+function printCoord(pt: { x: number, y: number }) {
+    console.log("The coordinate's x value is " + pt.x);
+    console.log("The coordinate's y value is " + pt.y);
 }
 printCoord({ x: 3, y: 7 });
-
-
 ```
 
 **Optional Properties**
-  
-```javascript
 
-function printName(obj: { first: string; last?: string }) {
+```javascript
+function printName(obj: { first: string, last?: string }) {
     // ...
 }
 
 // Both OK
-printName({ first: "Bob" });
-printName({ first: "Alice", last: "Alisson" });
-
+printName({ first: 'Bob' });
+printName({ first: 'Alice', last: 'Alisson' });
 ```
 
 JavaScript에서 존재하지 않는 속성에 액세스하면 런타임 오류가 아니라 `undefined` 값을 얻을 수 있다.<br>
@@ -334,12 +326,12 @@ function printName(obj: { first: string; last?: string }) {
     // Error - might crash if 'obj.last' wasn't provided!
     console.log(obj.last.toUpperCase());
     Object is possibly 'undefined'.
-    
+
     if (obj.last !== undefined) {
         // OK
         console.log(obj.last.toUpperCase());
     }
-    
+
     // A safe alternative using modern JavaScript syntax:
     console.log(obj.last?.toUpperCase());
 }
@@ -350,9 +342,9 @@ function printName(obj: { first: string; last?: string }) {
 8. Array
 
 ```javascript
-let arr: Array<number> = [1, 2, 3] // 배열 선언방식 1
-let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk']
-let items: number [] = [3, 4, 5] // 배열 선언방식 2
+let arr: Array<number> = [1, 2, 3]; // 배열 선언방식 1
+let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk'];
+let items: number[] = [3, 4, 5]; // 배열 선언방식 2
 ```
 
 <br>
@@ -375,14 +367,12 @@ const [first, second] = person;
 -   string, number등의 모든 타입을 통칭
 
 ```javascript
-
 let todoItems: any;
 ```
 
 <br>
 
-11.  unknown
-
+11. unknown
 
 ```javascript
 
@@ -401,6 +391,7 @@ if (isFunction(variable)) {
   variable() // OK
 }
 ```
+
 -   Typescript 3.0 버전 부터 지원
 -   `any`보다 Type-safe한 타입
 -   `any`를 제외한 다른 타입으로 선언된 변수에 할당 될 수 없음
@@ -408,13 +399,13 @@ if (isFunction(variable)) {
 
 <br>
 
-12.  Enum
+12. Enum
 
 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 Enums allow a developer to define a set of named constants
 
 ```javascript
- 
+
 enum Weekdays {
   Monday = 1,
   Tuesday = 2,
@@ -424,17 +415,17 @@ enum Weekdays {
   Saturday = 6,
   Sunday = 7
 }
- 
-console.log(Weekdays.Monday)         //1  
-console.log(Weekdays["Monday"])      //1  
+
+console.log(Weekdays.Monday)         //1
+console.log(Weekdays["Monday"])      //1
 console.log(Weekdays["1"])           //Monday
- 
+
 let holiday=Weekdays.Sunday;
 console.log(holiday);                //7
- 
+
 console.log(typeof Weekdays)         //object
 console.log(typeof holiday)          //number
- 
+
 ```
 
 값을 생략하면 typescript는 0부터 시작하는 값으로 초기화
@@ -450,64 +441,60 @@ enum Weekdays {
   Saturday,
   Sunday
 }
- 
-console.log(Weekdays.Monday)         //0  
-console.log(Weekdays["Monday"])      //0  
-console.log(Weekdays["1"])           //Tuesday
- 
-```
 
+console.log(Weekdays.Monday)         //0
+console.log(Weekdays["Monday"])      //0
+console.log(Weekdays["1"])           //Tuesday
+
+```
 
 <br>
 
-13.  Void
+13. Void
 
 값을 반환하지 않는 함수의 return type을 지정할 때 사용
 
 ```javascript
-
 // The inferred return type is void
 function noop() {
-  return;
+    return;
 }
 
 // Return type void
 type voidFunc = () => void;
- 
+
 const f1: voidFunc = () => {
-  return true;
+    return true;
 };
- 
+
 const f2: voidFunc = () => true;
- 
+
 const f3: voidFunc = function () {
-  return true;
+    return true;
 };
 ```
 
 <br>
 
-14.  Never
+14. Never
 
 발생하지 않는 경우에 대한 타입
 
 ```javascript
-
 // Function returning never must have unreachable end point
 function error(message: string): never {
-  throw new Error(message)
+    throw new Error(message);
 }
 
 // Inferred return type is never
 function fail() {
-  return error('Something failed')
+    return error('Something failed');
 }
 
 // Function returning never must have unreachable end point
 function infiniteLoop(): never {
-  while (true) {}
+    while (true) {}
 }
-
 ```
 
 <br>
