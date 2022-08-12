@@ -596,11 +596,11 @@ function getTodo(todo: Todo){
 
 ## 연산자를 이용한 타입 정의
 
-1. 유티온 타입 (Union Type) : |
+1. 유티온 타입 (Union Type) :  `|`
 
--   or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+-   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
 
-```
+```javascript
 function logMessage(value : string | number ){
     console.log(value);
 }
@@ -609,23 +609,9 @@ logMessage('hello');
 logMessage(10);
 ```
 
-2. 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
-
-```
-function logMessage(value : string | number ){
-    if( typeof value === 'number'){
-        value.toLocaleString();
-    }
-    if( typeof value === 'string'){
-        value.toString();
-    }
-    throw new TypeError('value muste be string or number');
-}
-```
-
 3. 유니온 타입의 속성
 
-```
+```javascript
 interface Developer {
     name: string;
     skill : string;
@@ -642,9 +628,10 @@ function askSomeone(someone: Developer | Person ){
 }
 ```
 
-4. 인터섹션 타입(Intersection type) : &
 
-```
+4. 인터섹션 타입(Intersection type) : `&`
+
+```javascript
 function askSomeone(someone: Developer & Person ){
     someone.age;
     someone.skill;
@@ -654,7 +641,7 @@ function askSomeone(someone: Developer & Person ){
 
 5. 유니온 타입과 인터섹션 타입의 차이점
 
-```
+```javascript
 // 타입의 선택지가 있음
 function askSomeone(someone: Developer | Person ){
     someone.name;
@@ -672,6 +659,21 @@ function askSomeone(someone: Developer & Person ){
 
 askSomeone({ name : 'developer', skill: 'web dev', age: 333});
 ```
+
+## 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
+
+```javascript
+function logMessage(value : string | number ){
+    if( typeof value === 'number'){
+        value.toLocaleString();
+    }
+    if( typeof value === 'string'){
+        value.toString();
+    }
+    throw new TypeError('value muste be string or number');
+}
+```
+
 
 ## 인터페이스 (Interface)
 
