@@ -1,9 +1,8 @@
-// 타입 선언
+// ** 타입 선언 **
+// 1. 변수의 타입 선언
 let [Indentifier]: [type] = [value];
 var [Indentifier]: [type] = [value];
 const [Indentifier]: [type] = [value];
-
-const sum: (a: number, b: number) => number = (a, b) => a + b;
 const obj: {
     lat: number;
     lon: number;
@@ -12,18 +11,23 @@ const obj: {
     lon: 127.5,
 };
 
+// 2. 함수의 타입 선언
+// 2-1. 함수의 기본적인 타입 선언
 function sum(a: number, b: number) {
     return a + b;
 }
-
-// 함수의 파라미터 그리고 리턴값에는 타입 annotation과 값이 필요합니다
+// 함수의 파라미터 그리고 리턴값에는 타입 annotation이 필요합니다
 var user: string = 'Bee';
 function identity(user: string): string {
     return user;
 }
 
-// Data Types
-// number
+// 2-1. 화살표 함수의 타입 선언
+const sum: (a: number, b: number) => number = (a, b) => a + b;
+
+
+// ** Data Types ** 
+// 1. number
 let num: number = 10;
 let decimal: number = 100; // 10진수 리터럴
 let hex: number = 0xf00d; // 16진수 리터럴
@@ -32,7 +36,7 @@ let octal: number = 0o744; // 8진수 리터럴
 let notANumber: number = NaN;
 let underscoreNum: number = 1_000_000_000;
 
-// string
+// 2. string
 let userName: string = 'bee';
 
 // Template String(ES6)
@@ -40,17 +44,17 @@ let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
 
-// boolean
+// 3. boolean
 let isSaved: boolean = false;
 isSaved = true;
 
 console.log(typeof isSaved); //boolean
 
-// null
+// 4. null
 let dataNull: null = null; //dataNull is a variable of type null
 console.log(typeof dataNull); //object
 
-// undefined
+// 5. undefined
 let dataUndefined: undefined; //dataUndefined is a variable of type undefined
 console.log(typeof dataUndefined); //undefined
 
@@ -67,7 +71,7 @@ console.log(name2); // Lee
 name2 = null;
 console.log(name2); // null
 
-// symbol
+// 6. symbol
 // 타입일 경우 (소문자) symbol 지정 가능
 // 함수일 경우 (대문자) Symbol
 let sym1 = Symbol('key');
@@ -81,7 +85,7 @@ const obj = {
 };
 console.log(obj[symbol]); // 문자열을 통해 접근 X
 
-// object
+// 7. object
 let obj: object = {};
 
 // 구체적인 객체 표현
@@ -103,22 +107,22 @@ function printCoord(pt: { x: number; y: number }) {
 }
 printCoord({ x: 3, y: 7 });
 
-// array
+// 8. array
 let arr: Array<number> = [1, 2, 3]; // 배열 선언방식 1
 let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk'];
 let items: number[] = [3, 4, 5]; // 배열 선언방식 2
 
-// tuple
+// 9. tuple
 // 모든 인덱스에 타입을 정하는 배열
 let address: [string, number] = ['mapo', 100];
 
 // 디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)
 const [first, second] = person;
 
-// any
+// 10. any
 let todoItems: any;
 
-// unknown
+// 11. unknown
 let variable: unknown;
 
 variable.foo.bar; // Error: Object is of type 'unknown'.(2571)
@@ -134,7 +138,7 @@ if (isFunction(variable)) {
     variable(); // OK
 }
 
-// enum
+// 12. enum
 enum Weekdays {
     Monday = 1,
     Tuesday = 2,
@@ -155,7 +159,7 @@ console.log(holiday); //7
 console.log(typeof Weekdays); //object
 console.log(typeof holiday); //number
 
-// void
+// 13. void
 // The inferred return type is void
 function loop() {
     return;
@@ -174,7 +178,7 @@ const f3: voidFunc = function () {
     return true;
 };
 
-// never
+// 14. never
 // Function returning never must have unreachable end point
 function error(message: string): never {
     throw new Error(message);
@@ -189,3 +193,83 @@ function fail() {
 function infiniteLoop(): never {
     while (true) {}
 }
+
+
+// ** 연산자를 이용한 타입 **
+// 1. 유니온 타입(union type)
+
+// https://poiemaweb.com/typescript-alias
+// 유니온 타입으로 타입 지정
+type Union = string | null;
+
+// 문자열 유니온 타입으로 타입 지정
+type Name = 'Lee' | 'Kim';
+
+// 숫자 리터럴 유니온 타입으로 타입 지정
+type Num = 1 | 2 | 3 | 4 | 5;
+
+// 객체 리터럴 유니온 타입으로 타입 지정
+type Obj = {a: 1} | {b: 2};
+
+// 함수 유니온 타입으로 타입 지정
+type Func = (() => string) | (() => void);
+
+type Custom = number | string | undefined;
+
+// If undefined was not an allowed type,
+// this would not be assignable.
+//let c: Custom = undefined;
+
+let c: Custom;
+console.log(c); // undefined
+
+c = 1;
+console.log(c); // 1
+c = 'x';
+console.log(c); // x
+//c = true; // not assignable
+//c = null; // not assignable
+
+// 인터페이스 유니온 타입으로 타입 지정
+type Shape = Square | Rectangle | Circle;
+
+// https://radlohead.gitbook.io/typescript-deep-dive/type-system#union-type
+function formatCommandline(command: string[] | string){
+    let line = '';
+    if( typeof command === 'strig'){
+        line = command.trim();
+    }else{
+        line = command.join('').trim()
+    }
+    
+    // do stuff width line: string
+}
+
+// https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions
+
+
+// https://yamoo9.gitbook.io/typescript/types/function-union-void#union
+function first(o) {
+    return o[0];
+}
+
+function nth(o, n) {
+    return o[n];
+}
+
+function last(o) {
+    return o[o.length - 1];
+}
+
+const numbers:any[] = [
+    'one',
+    'double',
+    3,
+    () => console.log('라스트 넘버')
+];
+
+const messages:string = `사건의 핵심 '시그니처'를 파악하라`;
+
+console.log(first(messages));
+console.log(nth(numbers, 2));
+console.log(last(numbers)());

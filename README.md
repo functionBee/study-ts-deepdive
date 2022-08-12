@@ -78,28 +78,31 @@ $ tsc --version
 
 ```javascript
 
-llet [Indentifier]: [type] = [value];
+// 1. 변수의 타입 선언
+let [Indentifier]: [type] = [value];
 var [Indentifier]: [type] = [value];
 const [Indentifier]: [type] = [value];
-
-const sum: (a: number, b: number) => number = (a, b) => a + b;
 const obj: {
-    name: string;
-    age: number;
+    lat: number;
+    lon: number;
 } = {
-    name: 'bee',
-    age: 3,
+    lat: 37.5,
+    lon: 127.5,
 };
 
+// 2. 함수의 타입 선언
+// 2-1. 함수의 기본적인 타입 선언
 function sum(a: number, b: number) {
     return a + b;
 }
-
-// 함수의 파라미터 그리고 리턴값에는 타입 annotation과 값이 필요합니다
+// 함수의 파라미터 그리고 리턴값에는 타입 annotation이 필요합니다
 var user: string = 'Bee';
 function identity(user: string): string {
     return user;
 }
+
+// 2-1. 화살표 함수의 타입 선언
+const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 ```
 
@@ -556,51 +559,17 @@ function infiniteLoop(): never {
 
 <br>
 
-## 타입별칭(Type Aliases)
-
-: 특정 타입이나 인터페이스를 참조할 수 잇는 타입변수
-
-> 새로운 타입 값을 하나 생성하는 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.
-
-```javascript
-// string 타입을 사용할 때
-const name: string = 'bee';
-
-
-// 타입 별칭을 사용할 때
-type User = string;
-const name: User = 'bee';
-
-
-// interface 레벨의 복잡한 타입에도 별칭 부여 가능
-type Developer = {
-  name : string,
-  skill : string,
-}
-
-// 타입별칭에 제네릭 사용
-type User<W> = {
-  name : W
-}
-
-// 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
-type greeting = string;
-var str: greeting = 'hello';
-
-
-type Todo = {id: string; title: string; done: boolean};
-function getTodo(todo: Todo){
-
-}
-```
-
-## 연산자를 이용한 타입 정의
+## 연산자를 이용한 타입
 
 1. 유티온 타입 (Union Type) :  `|`
 
 -   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
 
 ```javascript
+// 형태 예제
+// Dog와 Cat 클래스가 정의된다고 가정하면, Pet 유형을 다음과 같이 정의할 경우.
+type Pet = cat | dog;
+
 function logMessage(value : string | number ){
     console.log(value);
 }
@@ -609,7 +578,7 @@ logMessage('hello');
 logMessage(10);
 ```
 
-3. 유니온 타입의 속성
+-   유니온 타입의 속성
 
 ```javascript
 interface Developer {
@@ -628,8 +597,25 @@ function askSomeone(someone: Developer | Person ){
 }
 ```
 
+-   함수에서 단일 객체 또는 배열을 취하는 것이 하능
 
-4. 인터섹션 타입(Intersection type) : `&`
+```javascript
+
+function formatCommandline(command: string[] | string){
+    let line = '';
+    if( typeof command === 'strig'){
+        line = command.trim();
+    }else{
+        line = command.join('').trim()
+    }
+
+    // do stuff width line: string
+}
+
+```
+
+
+1. 인터섹션 타입(Intersection type) : `&`
 
 ```javascript
 function askSomeone(someone: Developer & Person ){
@@ -639,7 +625,7 @@ function askSomeone(someone: Developer & Person ){
 }
 ```
 
-5. 유니온 타입과 인터섹션 타입의 차이점
+4. 유니온 타입과 인터섹션 타입의 차이점
 
 ```javascript
 // 타입의 선택지가 있음
@@ -675,9 +661,47 @@ function logMessage(value : string | number ){
 ```
 
 
+## 타입별칭(Type Aliases)
+
+특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미
+
+> 새로운 타입 값을 하나 생성하는 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.
+
+```javascript
+// string 타입을 사용할 때
+const name: string = 'bee';
+
+
+// 타입 별칭을 사용할 때
+type User = string;
+const name: User = 'bee';
+
+
+// interface 레벨의 복잡한 타입에도 별칭 부여 가능
+type Developer = {
+  name : string,
+  skill : string,
+}
+
+// 타입별칭에 제네릭 사용
+type User<W> = {
+  name : W
+}
+
+// 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
+type greeting = string;
+var str: greeting = 'hello';
+
+
+type Todo = {id: string; title: string; done: boolean};
+function getTodo(todo: Todo){
+
+}
+```
+
 ## 인터페이스 (Interface)
 
-인터페이스는 상호 간에 정의한 약속 혹은 규칙으로 아래 범주 4개에 대해 약속을 정의하는 것이 가능
+인터페이스는 상호 간에 정의한 약속 혹은 규칙으로 아래 범주 5개에 대해 약속을 정의하는 것이 가능
 
 -   객체의 스펙(속성과 속성의 타입)
 -   함수의 파라미터
@@ -1096,7 +1120,7 @@ var arr = [1, 2, true, '3'];
 -   [이펙티브 타입스크립트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788966263134)
 -   [MDN : TypeScript](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_TypeScript)
 -   [TypeScript Types: The First 500 Years (tsconf 2021 talk)](https://www.youtube.com/watch?v=uN1zuV4DGRY&t=4s)
--   [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
+-   [joshua, 타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
 -   [타입스크립트 설정 파일 옵셥](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 -   [타입스크립트 Playground](https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA)
 -   [바벨](https://babeljs.io/)
