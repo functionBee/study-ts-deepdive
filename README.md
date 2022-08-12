@@ -564,6 +564,7 @@ function infiniteLoop(): never {
 1. 유티온 타입 (Union Type) :  `|`
 
 -   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+-   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
 
 ```javascript
 // 형태 예제
@@ -577,6 +578,7 @@ function logMessage(value : string | number ){
 logMessage('hello');
 logMessage(10);
 ```
+
 
 -   유니온 타입의 속성
 
@@ -597,22 +599,7 @@ function askSomeone(someone: Developer | Person ){
 }
 ```
 
--   함수에서 단일 객체 또는 배열을 취하는 것이 하능
-
-```javascript
-
-function formatCommandline(command: string[] | string){
-    let line = '';
-    if( typeof command === 'strig'){
-        line = command.trim();
-    }else{
-        line = command.join('').trim()
-    }
-
-    // do stuff width line: string
-}
-
-```
+> [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
 
 
 1. 인터섹션 타입(Intersection type) : `&`

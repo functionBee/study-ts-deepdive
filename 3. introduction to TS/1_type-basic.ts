@@ -247,6 +247,26 @@ function formatCommandline(command: string[] | string){
 
 // https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions
 
+// https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html
+function start(
+    arg: string | string[] | (() => string) | { s: string }
+): string {
+    // JavaScript에서 아주 일반적입니다
+    if (typeof arg === "string") {
+        return commonCase(arg);
+    } else if (Array.isArray(arg)) {
+        return arg.map(commonCase).join(",");
+    } else if (typeof arg === "function") {
+        return commonCase(arg());
+    } else {
+        return commonCase(arg.s);
+    }
+    function commonCase(s: string): string {
+        // 마지막으로, 다른 문자열로 변환합니다
+        return s;
+    }
+}
+
 
 // https://yamoo9.gitbook.io/typescript/types/function-union-void#union
 function first(o) {
