@@ -9,24 +9,22 @@ let hex: number = 0x41; // 16진수 리터럴
 let notANumber: number = NaN;
 let underscoreNum: number = 1_000_000_000;
 
-console.log(binnary) // 65
-console.log(octal) // 484
-console.log(hex) // 65
-console.log(binnary === octal) // true
-console.log(octal === hex) // true
+console.log(binnary); // 65
+console.log(octal); // 484
+console.log(hex); // 65
+console.log(binnary === octal); // true
+console.log(octal === hex); // true
 
 // Data Types: string type
 let userName: string = 'bee';
-console.log(userName) // bee
-console.log(typeof userName) // string
+console.log(userName); // bee
+console.log(typeof userName); // string
 
 // Template String(ES6)
 let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
-console.log(typeof sentence) // string
-
-
+console.log(typeof sentence); // string
 
 // 4. null
 let dataNull: null = null; //dataNull is a variable of type null
@@ -95,12 +93,9 @@ const arr2: Array<string> = ['red', 'orange', 'yellow'];
 console.log(arr2.length); // 3
 console.log(typeof arr2); // object
 
-
-
 // 9. tuple
+const person: [first, second];
 let address: [string, number] = ['mapo', 100];
-// 디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)
-const [first, second] = person;
 
 // 10. any
 let todoItems: any;
@@ -177,7 +172,6 @@ function infiniteLoop(): never {
     while (true) {}
 }
 
-
 // ** 연산자를 이용한 타입 **
 // 1. 유니온 타입(union type)
 
@@ -192,7 +186,7 @@ type Name = 'Lee' | 'Kim';
 type Num = 1 | 2 | 3 | 4 | 5;
 
 // 객체 리터럴 유니온 타입으로 타입 지정
-type Obj = {a: 1} | {b: 2};
+type Obj = { a: 1 } | { b: 2 };
 
 // 함수 유니온 타입으로 타입 지정
 type Func = (() => string) | (() => void);
@@ -217,29 +211,27 @@ console.log(c); // x
 type Shape = Square | Rectangle | Circle;
 
 // https://radlohead.gitbook.io/typescript-deep-dive/type-system#union-type
-function formatCommandline(command: string[] | string){
+function formatCommandline(command: string[] | string) {
     let line = '';
-    if( typeof command === 'strig'){
+    if (typeof command === 'strig') {
         line = command.trim();
-    }else{
-        line = command.join('').trim()
+    } else {
+        line = command.join('').trim();
     }
-    
+
     // do stuff width line: string
 }
 
 // https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions
 
 // https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html
-function start(
-    arg: string | string[] | (() => string) | { s: string }
-): string {
+function start(arg: string | string[] | (() => string) | { s: string }): string {
     // JavaScript에서 아주 일반적입니다
-    if (typeof arg === "string") {
+    if (typeof arg === 'string') {
         return commonCase(arg);
     } else if (Array.isArray(arg)) {
-        return arg.map(commonCase).join(",");
-    } else if (typeof arg === "function") {
+        return arg.map(commonCase).join(',');
+    } else if (typeof arg === 'function') {
         return commonCase(arg());
     } else {
         return commonCase(arg.s);
@@ -249,7 +241,6 @@ function start(
         return s;
     }
 }
-
 
 // https://yamoo9.gitbook.io/typescript/types/function-union-void#union
 function first(o) {
@@ -264,14 +255,9 @@ function last(o) {
     return o[o.length - 1];
 }
 
-const numbers:any[] = [
-    'one',
-    'double',
-    3,
-    () => console.log('라스트 넘버')
-];
+const numbers: any[] = ['one', 'double', 3, () => console.log('라스트 넘버')];
 
-const messages:string = `사건의 핵심 '시그니처'를 파악하라`;
+const messages: string = `사건의 핵심 '시그니처'를 파악하라`;
 
 console.log(first(messages));
 console.log(nth(numbers, 2));
@@ -303,5 +289,3 @@ function identity(user: string): string {
 
 // 2-1. 화살표 함수의 타입 선언
 const sum: (a: number, b: number) => number = (a, b) => a + b;
-
-
