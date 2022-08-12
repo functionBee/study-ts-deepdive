@@ -77,14 +77,13 @@ $ tsc --version
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
 
 ```javascript
-
 // 1. 변수의 타입 선언
 let [Indentifier]: [type] = [value];
 var [Indentifier]: [type] = [value];
 const [Indentifier]: [type] = [value];
 const obj: {
-    lat: number;
-    lon: number;
+    lat: number,
+    lon: number,
 } = {
     lat: 37.5,
     lon: 127.5,
@@ -103,7 +102,6 @@ function identity(user: string): string {
 
 // 2-1. 화살표 함수의 타입 정의
 const sum: (a: number, b: number) => number = (a, b) => a + b;
-
 ```
 
 <br>
@@ -138,40 +136,32 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 |                     | tuple     |     | 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현                                                                                                                                                                                    |
 |                     | enum      |     | 열거형. 숫자값 집합에 이름을 지정한 것                                                                                                                                                                                                 |
 
-
 타입스크립트는 소문자 형태의 기본형(예: string) 과 래퍼 객체(wrapper obejct) 타입(예: String)을 별도로 모델링합니다.
 
 ```javascript
-
 // 10-2
 // string을 String으로입력하는 실수를 하더라도 처음에는 잘 동작하는 것 처럼 보임 ㅜㅜ
 function getStringLen(foo: String) {
-  return foo.length;
+    return foo.length;
 }
 
-getStringLen("hello");  // OK
-getStringLen(new String("hello"));  // OK
-
+getStringLen('hello'); // OK
+getStringLen(new String('hello')); // OK
 ```
 
 <br>
 
 ```javascript
-
 // 10-3
 // string을 매개변수로 받는 메서드에 String 객체를 전달할 경우
 function isGreeting(phrase: String) {
-    return [
-        'hello',
-        'good day'
-    ].includes(phrase);
+    return ['hello', 'good day'].includes(phrase);
     // ~~~~~~
     // Argument of type 'String' is not assignable to parameter
     // of type 'string'.
     // 'string' is a primitive, but 'String' is a wrapper object;
     // prefer using 'string' when possible
 }
-
 ```
 
 string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 없습니다.<br>
@@ -181,7 +171,6 @@ string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 
 > **Effective Typescript**<br>
 > Item 10 : Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt)
 
-
 <br>
 
 1. number
@@ -190,7 +179,6 @@ TypeScript는 JavaScript와 동일하게 ECMASCript 사양에 따르며 숫자�
 모든 수를 실수로 처리하며, 정수만 표기하기 위한 데이터 타입(integer type)이 별도로 존재하지 않습니다.
 
 ```javascript
-
 let integer: number = 65; // 정수
 let double: number = 65; // 실수
 let negative: number = -65; // 음의 정수
@@ -201,13 +189,13 @@ let hex: number = 0x41; // 16진수 리터럴
 let notANumber: number = NaN;
 let underscoreNum: number = 1_000_000_000;
 
-console.log(binnary) // 65
-console.log(octal) // 484
-console.log(hex) // 65
-console.log(binnary === octal) // true
-console.log(octal === hex) // true
-
+console.log(binnary); // 65
+console.log(octal); // 484
+console.log(hex); // 65
+console.log(binnary === octal); // true
+console.log(octal === hex); // true
 ```
+
 > (참고) 모던 자바스크립트 Deep Dive: 자바스크립트의 기본 개념과 동작원리
 
 <br>
@@ -219,21 +207,20 @@ TypeScript에서도 문자열은 원시(primitive) 타입이며, 변경 불가�
 
 ```javascript
 let userName: string = 'bee';
-console.log(userName) // bee
-console.log(typeof userName) // string
+console.log(userName); // bee
+console.log(typeof userName); // string
 
 // Template String(ES6)
 let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
-console.log(typeof sentence) // string
-
+console.log(typeof sentence); // string
 ```
 
 <br>
 
 3. boolean
-   
+
 가장 기본적인 데이터 타입 중 하나인 `boolean`은 참(true)과 거짓(false) 두가지 값을 가집니다.
 
 ```javascript
@@ -241,7 +228,7 @@ let isSaved: boolean = false;
 isSaved = true;
 
 console.log(typeof isSaved); //boolean
-console.log(isSaved) // true
+console.log(isSaved); // true
 ```
 
 <br>
@@ -435,22 +422,25 @@ console.log(typeof arr2); // object
 
 <br>
 
-9. tuple
+9. tuple<br>
+   튜플은 배열의 길이가 고정되고 각 요소의 타입이 고정되어 있는 배열<br>
+   (단, 요소들의 타입이 모두 같을 필요는 없다)
 
 ```javascript
-// 모든 인덱스에 타입을 정하는 배열
-let address: [string, number] = ['mapo', 100];
+let address: [string, number] = ['seoul', 100];
 
-// 디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)
-const [first, second] = person;
+// 정해진 인덱스에 위치한 요소에 접근하면 해당 타입이 표시
+console.log(address[0].substring(1)); // seoul
+// 정해진 인덱스 외에 다른 인덱스에 있는 요소에 접근하면, 오류가 발생
+console.log(address[5].toString());
+//Executed JavaScript Failed: Cannot read properties of undefined (reading 'toString')
 ```
 
 <br>
 
-10. any
-
--   모든 타입을 할당 받을 수 있는 타입
--   string, number등의 모든 타입을 통칭
+10. any<br>
+    모든 타입을 할당 받을 수 있는 타입<br>
+    string, number등의 모든 타입을 통칭
 
 ```javascript
 let todoItems: any;
@@ -562,7 +552,7 @@ const f3: voidFunc = function () {
 
 <br>
 
-14.  never
+14. never
 
 발생하지 않는 경우에 대한 타입
 
@@ -585,35 +575,30 @@ function infiniteLoop(): never {
 
 [toast, never타입 완벽가이드](https://ui.toast.com/posts/ko_20220323)
 
-
 <br>
 
 ## 연산자를 이용한 타입
 
-1. 유티온 타입 (Union Type) :  `|`
+1. 유티온 타입 (Union Type) : `|`
 
 -   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
 -   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
 
 ```javascript
-
 //  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
 //  문자열 리터럴 타입 유니언은 이 패턴을 따라감니다.
-declare function pad(s: string, n: number, direction: "left" | "right"): string;
-pad("hi", 10, "left");
+declare function pad(s: string, n: number, direction: 'left' | 'right'): string;
+pad('hi', 10, 'left');
 
-// 
-
-
+//
 ```
-
 
 -   유니온 타입의 속성
 
 ```javascript
 interface Developer {
     name: string;
-    skill : string;
+    skill: string;
 }
 
 interface Person {
@@ -621,7 +606,7 @@ interface Person {
     age: number;
 }
 
-function askSomeone(someone: Developer | Person ){
+function askSomeone(someone: Developer | Person) {
     // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
     someone.name;
 }
@@ -629,11 +614,10 @@ function askSomeone(someone: Developer | Person ){
 
 > [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
 
-
 1. 인터섹션 타입(Intersection type) : `&`
 
 ```javascript
-function askSomeone(someone: Developer & Person ){
+function askSomeone(someone: Developer & Person) {
     someone.age;
     someone.skill;
     someone.name;
@@ -644,37 +628,36 @@ function askSomeone(someone: Developer & Person ){
 
 ```javascript
 // 타입의 선택지가 있음
-function askSomeone(someone: Developer | Person ){
+function askSomeone(someone: Developer | Person) {
     someone.name;
 }
 
-askSomeone({ name : 'developer', skill: 'web dev'});
-askSomeone({ name : 'bee', age: 333 });
+askSomeone({ name: 'developer', skill: 'web dev' });
+askSomeone({ name: 'bee', age: 333 });
 
 // 새로운 타입을 생성
-function askSomeone(someone: Developer & Person ){
+function askSomeone(someone: Developer & Person) {
     someone.age;
     someone.skill;
     someone.name;
 }
 
-askSomeone({ name : 'developer', skill: 'web dev', age: 333});
+askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
 ```
 
 ## 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
 
 ```javascript
-function logMessage(value : string | number ){
-    if( typeof value === 'number'){
+function logMessage(value: string | number) {
+    if (typeof value === 'number') {
         value.toLocaleString();
     }
-    if( typeof value === 'string'){
+    if (typeof value === 'string') {
         value.toString();
     }
     throw new TypeError('value muste be string or number');
 }
 ```
-
 
 ## 타입별칭(Type Aliases)
 
@@ -686,32 +669,27 @@ function logMessage(value : string | number ){
 // string 타입을 사용할 때
 const name: string = 'bee';
 
-
 // 타입 별칭을 사용할 때
 type User = string;
 const name: User = 'bee';
 
-
 // interface 레벨의 복잡한 타입에도 별칭 부여 가능
 type Developer = {
-  name : string,
-  skill : string,
-}
+    name: string,
+    skill: string,
+};
 
 // 타입별칭에 제네릭 사용
 type User<W> = {
-  name : W
-}
+    name: W,
+};
 
 // 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
 type greeting = string;
 var str: greeting = 'hello';
 
-
-type Todo = {id: string; title: string; done: boolean};
-function getTodo(todo: Todo){
-
-}
+type Todo = { id: string, title: string, done: boolean };
+function getTodo(todo: Todo) {}
 ```
 
 ## 인터페이스 (Interface)
@@ -809,14 +787,13 @@ interface Person {
 }
 
 function greeter(person: Person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
+    return 'Hello, ' + person.firstName + ' ' + person.lastName;
 }
 
-let user = { firstName: "Jane", lastName: "User" };
+let user = { firstName: 'Jane', lastName: 'User' };
 
 document.body.textContent = greeter(user);
 ```
-
 
 **타입과 인터페이스의 차이점**
 : 타입의 확장 가능 여부
@@ -824,7 +801,6 @@ document.body.textContent = greeter(user);
 > 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
 
 -   참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
-
 
 ## 타입스크립트의 함수 타입
 

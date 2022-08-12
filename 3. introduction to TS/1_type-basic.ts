@@ -94,8 +94,11 @@ console.log(arr2.length); // 3
 console.log(typeof arr2); // object
 
 // 9. tuple
-const person: [first, second];
-let address: [string, number] = ['mapo', 100];
+let address: [string, number] = ['seoul', 100];
+
+// 정해진 인덱스에 위치한 요소에 접근하면 해당 타입이 표시
+console.log(address[0].substring(1)); // seoul
+// console.log(address[5].toString()); //Executed JavaScript Failed: Cannot read properties of undefined (reading 'toString')
 
 // 10. any
 let todoItems: any;
