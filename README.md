@@ -556,39 +556,121 @@ function infiniteLoop(): never {
 
 <br>
 
-## 타입스크립트의 함수 타입
+## 타입별칭(Type Aliases)
 
-1. 함수의 파라미터에 타입을 정의하는 방식
+타입별칭 : 특정 타입이나 인터페이스를 참조할 수 잇는 타입변수
+
+> 새로운 타입 값을 하나 생성한느 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.
 
 ```
-function Sum (a:number, b:number){
-    return a + b
+// string 타입을 사용할 때
+const name: string = 'bee';
+
+
+// 타입 별칭을 사용할 때
+type User = string;
+const name: User = 'bee';
+
+
+// interface 레벨의 복잡한 타입에도 별칭 부여 가능
+type Developer = {
+  name : string,
+  skill : string,
+}
+
+// 타입별칭에 제네릭 사용
+type User<W> = {
+  name : W
+}
+
+// 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
+type greeting = string;
+var str: greeting = 'hello';
+
+
+type Todo = {id: string; title: string; done: boolean};
+function getTodo(todo: Todo){
+
 }
 ```
 
-2. 함수의 반환 값에 타입을 정의하는 방식
+## 연산자를 이용한 타입 정의
+
+1. 유티온 타입 (Union Type) : |
+
+-   or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
 
 ```
-function Add(): number{
-    return 10;
+function logMessage(value : string | number ){
+    console.log(value);
+}
+
+logMessage('hello');
+logMessage(10);
+```
+
+2. 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
+
+```
+function logMessage(value : string | number ){
+    if( typeof value === 'number'){
+        value.toLocaleString();
+    }
+    if( typeof value === 'string'){
+        value.toString();
+    }
+    throw new TypeError('value muste be string or number');
 }
 ```
 
-3. 함수의 타입을 정의하는 방식
+3. 유니온 타입의 속성
 
 ```
-function Total (a:number, b:number):number{
-    return a + b
+interface Developer {
+    name: string;
+    skill : string;
+}
+
+interface Person {
+    name: string;
+    age: number;
+}
+
+function askSomeone(someone: Developer | Person ){
+    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
+    someone.name;
 }
 ```
 
-4. 함수의 옵셔널 파라미너
+4. 인터섹션 타입(Intersection type) : &
 
 ```
-function log(a: string, b?: string, c?: string){
-    // 특정 파라미터의 선택적 사용을 위해서 ? 선언
+function askSomeone(someone: Developer & Person ){
+    someone.age;
+    someone.skill;
+    someone.name;
 }
-log('hello ts', 'abc')
+```
+
+5. 유니온 타입과 인터섹션 타입의 차이점
+
+```
+// 타입의 선택지가 있음
+function askSomeone(someone: Developer | Person ){
+    someone.name;
+}
+
+askSomeone({ name : 'developer', skill: 'web dev'});
+askSomeone({ name : 'bee', age: 333 });
+
+// 새로운 타입을 생성
+function askSomeone(someone: Developer & Person ){
+    someone.age;
+    someone.skill;
+    someone.name;
+}
+
+askSomeone({ name : 'developer', skill: 'web dev', age: 333});
 ```
 
 ## 인터페이스 (Interface)
@@ -675,44 +757,6 @@ var hola: Developer = {
 }
 ```
 
-## 타입별칭(Type Aliases)
-
-타입별칭 : 특정 타입이나 인터페이스를 참조할 수 잇는 타입변수
-
-> 새로운 타입 값을 하나 생성한느 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.
-
-```
-// string 타입을 사용할 때
-const name: string = 'bee';
-
-
-// 타입 별칭을 사용할 때
-type User = string;
-const name: User = 'bee';
-
-
-// interface 레벨의 복잡한 타입에도 별칭 부여 가능
-type Developer = {
-  name : string,
-  skill : string,
-}
-
-// 타입별칭에 제네릭 사용
-type User<W> = {
-  name : W
-}
-
-// 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
-type greeting = string;
-var str: greeting = 'hello';
-
-
-type Todo = {id: string; title: string; done: boolean};
-function getTodo(todo: Todo){
-
-}
-```
-
 **타입과 인터페이스의 차이점**
 : 타입의 확장 가능 여부
 
@@ -720,83 +764,39 @@ function getTodo(todo: Todo){
 
 -   참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
 
-## 연산자를 이용한 타입 정의
+## 타입스크립트의 함수 타입
 
-1. 유티온 타입 (Union Type) : |
-
--   or를 의미하는 연산자(|)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+1. 함수의 파라미터에 타입을 정의하는 방식
 
 ```
-function logMessage(value : string | number ){
-    console.log(value);
-}
-
-logMessage('hello');
-logMessage(10);
-```
-
-2. 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
-
-```
-function logMessage(value : string | number ){
-    if( typeof value === 'number'){
-        value.toLocaleString();
-    }
-    if( typeof value === 'string'){
-        value.toString();
-    }
-    throw new TypeError('value muste be string or number');
+function Sum (a:number, b:number){
+    return a + b
 }
 ```
 
-3. 유니온 타입의 속성
+2. 함수의 반환 값에 타입을 정의하는 방식
 
 ```
-interface Developer {
-    name: string;
-    skill : string;
-}
-
-interface Person {
-    name: string;
-    age: number;
-}
-
-function askSomeone(someone: Developer | Person ){
-    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
-    someone.name;
+function Add(): number{
+    return 10;
 }
 ```
 
-4. 인터섹션 타입(Intersection type) : &
+3. 함수의 타입을 정의하는 방식
 
 ```
-function askSomeone(someone: Developer & Person ){
-    someone.age;
-    someone.skill;
-    someone.name;
+function Total (a:number, b:number):number{
+    return a + b
 }
 ```
 
-5. 유니온 타입과 인터섹션 타입의 차이점
+4. 함수의 옵셔널 파라미너
 
 ```
-// 타입의 선택지가 있음
-function askSomeone(someone: Developer | Person ){
-    someone.name;
+function log(a: string, b?: string, c?: string){
+    // 특정 파라미터의 선택적 사용을 위해서 ? 선언
 }
-
-askSomeone({ name : 'developer', skill: 'web dev'});
-askSomeone({ name : 'bee', age: 333 });
-
-// 새로운 타입을 생성
-function askSomeone(someone: Developer & Person ){
-    someone.age;
-    someone.skill;
-    someone.name;
-}
-
-askSomeone({ name : 'developer', skill: 'web dev', age: 333});
+log('hello ts', 'abc')
 ```
 
 ## 이넘(Enums)
