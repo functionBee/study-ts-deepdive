@@ -567,16 +567,15 @@ function infiniteLoop(): never {
 -   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
 
 ```javascript
-// 형태 예제
-// Dog와 Cat 클래스가 정의된다고 가정하면, Pet 유형을 다음과 같이 정의할 경우.
-type Pet = cat | dog;
 
-function logMessage(value : string | number ){
-    console.log(value);
-}
+//  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
+//  문자열 리터럴 타입 유니언은 이 패턴을 따라감니다.
+declare function pad(s: string, n: number, direction: "left" | "right"): string;
+pad("hi", 10, "left");
 
-logMessage('hello');
-logMessage(10);
+// 
+
+
 ```
 
 
@@ -770,12 +769,33 @@ var hola: Developer = {
 }
 ```
 
+firstName 및 lastName 필드를 갖고 있는 객체를 나타내는 인터페이스를 사용합니다. <br>
+TypeScript에서, 내부 구조가 호환되는 두 타입은 서로 호환 됩니다. <br>
+그래서 명시적인 implements 절 없이, 인터페이스가 요구하는 형태를 사용하는 것만으로도 인터페이스를 구현할 수 있습니다.<br>
+
+```javascript
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+
+function greeter(person: Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let user = { firstName: "Jane", lastName: "User" };
+
+document.body.textContent = greeter(user);
+```
+
+
 **타입과 인터페이스의 차이점**
 : 타입의 확장 가능 여부
 
 > 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
 
 -   참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
+
 
 ## 타입스크립트의 함수 타입
 
