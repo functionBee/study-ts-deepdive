@@ -423,9 +423,14 @@ function printName(obj: { first: string; last?: string }) {
 8. array
 
 ```javascript
-let arr: Array<number> = [1, 2, 3]; // 배열 선언방식 1
-let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk'];
-let items: number[] = [3, 4, 5]; // 배열 선언방식 2
+// 배열 선언 방법 1
+const arr1: string[] = ['red', 'orange', 'yellow'];
+console.log(arr1.length); // 3
+console.log(typeof arr1); // object
+// 배열 선언 방법 2
+const arr2: Array<string> = ['red', 'orange', 'yellow'];
+console.log(arr2.length); // 3
+console.log(typeof arr2); // object
 ```
 
 <br>

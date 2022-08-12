@@ -86,14 +86,19 @@ function printCoord(pt: { x: number; y: number }) {
 printCoord({ x: 3, y: 7 });
 
 // 8. array
-let arr: Array<number> = [1, 2, 3]; // 배열 선언방식 1
-let heroes: Array<string> = ['Captin America', 'Thor', 'Hulk'];
-let items: number[] = [3, 4, 5]; // 배열 선언방식 2
+// 배열 선언 방법 1
+const arr1: string[] = ['red', 'orange', 'yellow'];
+console.log(arr1.length); // 3
+console.log(typeof arr1); // object
+// 배열 선언 방법 2
+const arr2: Array<string> = ['red', 'orange', 'yellow'];
+console.log(arr2.length); // 3
+console.log(typeof arr2); // object
+
+
 
 // 9. tuple
-// 모든 인덱스에 타입을 정하는 배열
 let address: [string, number] = ['mapo', 100];
-
 // 디스트럭처링 할당(destructuring assignmen; 구조 분해 할당)
 const [first, second] = person;
 
