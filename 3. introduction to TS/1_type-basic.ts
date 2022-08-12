@@ -141,6 +141,25 @@ console.log(typeof Weekdays); //object
 console.log(typeof holiday); //number
 
 // 13. void
+function warnUser(): void {
+    console.log('There is no return');
+
+    return;
+}
+
+let nothing: void = undefined;
+nothing = null; // 성공  `--strictNullChecks` 을 사용하지 않을때만
+
+function factorial(n: number): number {
+    if (n < 0) {
+        return 0;
+    }
+    if (n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
 // The inferred return type is void
 function loop() {
     return;

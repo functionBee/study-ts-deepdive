@@ -475,10 +475,8 @@ if (isFunction(variable)) {
 
 <br>
 
-12. enum
-
-명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
-Enums allow a developer to define a set of named constants
+12. enum<br>
+    명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 
 ```javascript
 
@@ -527,13 +525,20 @@ console.log(Weekdays["1"])           //Tuesday
 <br>
 
 13. void
-
-값을 반환하지 않는 함수의 return type을 지정할 때 사용
+    값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
+    보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
+    명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
 
 ```javascript
+function warnUser(): void {
+    console.log('There is return');
+
+    return;
+}
+
 // The inferred return type is void
 function noop() {
-    return;
+    return: undefined;
 }
 
 // Return type void
@@ -548,6 +553,14 @@ const f2: voidFunc = () => true;
 const f3: voidFunc = function () {
     return true;
 };
+```
+
+void를 타입 변수를 선언하는 것은 유용하지 않은데,
+왜냐하면 그 변수에는 null(--strictNullChecks을 사용하지 않을 때만 해당) 또는 undefined 만 할당할 수 있기 때문입니다
+
+```javascript
+let nothing: void = undefined;
+nothing = null; // 성공  `--strictNullChecks` 을 사용하지 않을때만
 ```
 
 <br>
