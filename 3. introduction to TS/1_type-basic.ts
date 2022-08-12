@@ -90,7 +90,7 @@ printCoord({ x: 3, y: 7 });
 const arr1: string[] = ['red', 'orange', 'yellow'];
 console.log(arr1.length); // 3
 console.log(typeof arr1); // object
-// 배열 선언 방법 2
+// 배열 선언 방법 2 : 제네릭 배열 타입(Array<elemType>:)
 const arr2: Array<string> = ['red', 'orange', 'yellow'];
 console.log(arr2.length); // 3
 console.log(typeof arr2); // object
