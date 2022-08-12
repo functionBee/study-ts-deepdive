@@ -16,6 +16,8 @@
 -   📝 Item 4: 구조적 타이핑에 익숙해지기(Get Comfortable with Structural Typing)
 -   📝 Item 5: any 타입 지양하기(Limit Use of the any Type)
 
+<br>
+
 ## Chapter 02: 타입스크립트의 타입시스템(TypeScript’s Type System)
 
 -   📝 Item 6: 편집기를 사용하여 타입 시스템 탐색하기
@@ -34,19 +36,21 @@
 
 <br>
 
-3장 타입 추론
+## Chapter 03: 타입 추론(Type Inference)
 
--   📝 Item 19: 추론 가능한 타입을 사용해 장황한 코드 방지하기
--   📝 Item 20: 다른 타입에는 다른 변수 사용하기
--   📝 Item 21: 타입 넓히기
--   📝 Item 22: 타입 좁히기
--   📝 Item 23: 한꺼번에 객체 생성하기
--   📝 Item 24: 일관성 있는 별칭 사용하기
--   📝 Item 25: 비동기 코드에는 콜백 대신 async 함수 사용하기
--   📝 Item 26: 타입 추론에 문맥이 어떻게 사용되는지 이해하기
--   📝 Item 27: 함수형 기법과 라이브러리로 타입 흐름 유지하기
+-   📝 Item 19: 추론 가능한 타입을 사용해 장황한 코드 방지하기(Avoid Cluttering Your Code with Inferable Types)
+-   📝 Item 20: 다른 타입에는 다른 변수 사용하기(Use Different Variables for Different Types)
+-   📝 Item 21: 타입 넓히기(Understand Type Widening)
+-   📝 Item 22: 타입 좁히기(Understand Type Narrowing)
+-   📝 Item 23: 한꺼번에 객체 생성하기(Create Objects All at Once)
+-   📝 Item 24: 일관성 있는 별칭 사용하기(Be Consistent in Your Use of Aliases)
+-   📝 Item 25: 비동기 코드에는 콜백 대신 async 함수 사용하기(Use async Functions Instead of Callbacks for Asynchronous Code)
+-   📝 Item 26: 타입 추론에 문맥이 어떻게 사용되는지 이해하기(Understand How Context Is Used in Type Inference)
+-   📝 Item 27: 함수형 기법과 라이브러리로 타입 흐름 유지하기(Use Functional Constructs and Libraries to Help Types Flow)
 
-4장 타입 설계
+<br>
+
+## Chapter 04: 타입 설계(Type Design)
 
 -   📝 Item 28: 유효한 상태만 표현하는 타입을 지향하기
 -   📝 Item 29: 사용할 때는 너그럽게, 생성할 때는 엄격하게
@@ -59,7 +63,9 @@
 -   📝 Item 36: 해당 분야의 용어로 타입 이름 짓기
 -   📝 Item 37: 공식 명칭에는 상표를 붙이기
 
-5장 any 다루기
+<br>
+
+## Chapter 05: any 다루기
 
 -   📝 Item 38: any 타입은 가능한 한 좁은 범위에서만 사용하기
 -   📝 Item 39: any를 구체적으로 변형해서 사용하기
@@ -69,7 +75,9 @@
 -   📝 Item 43: 몽키 패치보다는 안전한 타입을 사용하기
 -   📝 Item 44: 타입 커버리지를 추적하여 타입 안전성 유지하기
 
-6장 타입 선언과 @types
+<br>
+
+## Chapter 06: 타입 선언과 @types
 
 -   📝 Item 45: devDependencies에 typescript와 @types 추가하기
 -   📝 Item 46: 타입 선언과 관련된 세 가지 버전 이해하기
@@ -80,7 +88,9 @@
 -   📝 Item 51: 의존성 분리를 위해 미러 타입을 사용하기
 -   📝 Item 52: 테스팅 타입의 함정에 주의하기
 
-7장 코드를 작성하고 실행하기
+<br>
+
+## Chapter 07: 코드를 작성하고 실행하기
 
 -   📝 Item 53: 타입스크립트 기능보다는 ECMAScript 기능을 사용하기
 -   📝 Item 54: 객체를 순회하는 노하우
@@ -88,13 +98,17 @@
 -   📝 Item 56: 정보를 감추는 목적으로 private 사용하지 않기
 -   📝 Item 57: 소스맵을 사용하여 타입스크립트 디버깅하기
 
-8장 타입스크립트로 마이그레이션하기
+<br>
+
+## Chapter 08: 타입스크립트로 마이그레이션하기
 
 -   📝 Item 58: 모던 자바스크립트로 작성하기
 -   📝 Item 59: 타입스크립트 도입 전에 @ts-check와 JSDoc으로 시험해 보기
 -   📝 Item 60: allowJs로 타입스크립트와 자바스크립트 같이 사용하기
 -   📝 Item 61: 의존성 관계에 따라 모듈 단위로 전환하기
 -   📝 Item 62: 마이그레이션의 완성을 위해 noImplicitAny 설정하기
+
+<br>
 
 ## Reference
 
