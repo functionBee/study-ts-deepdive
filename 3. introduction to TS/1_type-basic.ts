@@ -1,33 +1,4 @@
-// ** 타입 선언 **
-// 1. 변수의 타입 선언
-let [Indentifier]: [type] = [value];
-var [Indentifier]: [type] = [value];
-const [Indentifier]: [type] = [value];
-const obj: {
-    lat: number;
-    lon: number;
-} = {
-    lat: 37.5,
-    lon: 127.5,
-};
-
-// 2. 함수의 타입 선언
-// 2-1. 함수의 기본적인 타입 선언
-function sum(a: number, b: number) {
-    return a + b;
-}
-// 함수의 파라미터 그리고 리턴값에는 타입 annotation이 필요합니다
-var user: string = 'Bee';
-function identity(user: string): string {
-    return user;
-}
-
-// 2-1. 화살표 함수의 타입 선언
-const sum: (a: number, b: number) => number = (a, b) => a + b;
-
-
-// ** Data Types ** 
-// 1. number
+// Data Types: number type
 let integer: number = 65; // 정수
 let double: number = 65; // 실수
 let negative: number = -65; // 음의 정수
@@ -44,8 +15,9 @@ console.log(hex) // 65
 console.log(binnary === octal) // true
 console.log(octal === hex) // true
 
-// 2. string
+// Data Types: string type
 let userName: string = 'bee';
+
 
 // Template String(ES6)
 let language: string = 'spanish';
@@ -58,6 +30,15 @@ isSaved = true;
 
 console.log(typeof isSaved); //boolean
 console.log(isSaved) // true
+
+let userName: string = 'bee';
+
+// Template String(ES6)
+let language: string = 'spanish';
+let sentence: string = `(${language}) hola, ${userName}.`;
+console.log(sentence); // (spanish) hola, bee.
+console.log(typeof sentence) // string
+
 
 // 4. null
 let dataNull: null = null; //dataNull is a variable of type null
@@ -302,3 +283,32 @@ const messages:string = `사건의 핵심 '시그니처'를 파악하라`;
 console.log(first(messages));
 console.log(nth(numbers, 2));
 console.log(last(numbers)());
+
+// ** 타입 선언 **
+// 1. 변수의 타입 선언
+let [Indentifier]: [type] = [value];
+var [Indentifier]: [type] = [value];
+const [Indentifier]: [type] = [value];
+const obj: {
+    lat: number;
+    lon: number;
+} = {
+    lat: 37.5,
+    lon: 127.5,
+};
+
+// 2. 함수의 타입 선언
+// 2-1. 함수의 기본적인 타입 선언
+function sum(a: number, b: number) {
+    return a + b;
+}
+// 함수의 파라미터 그리고 리턴값에는 타입 annotation이 필요합니다
+var user: string = 'Bee';
+function identity(user: string): string {
+    return user;
+}
+
+// 2-1. 화살표 함수의 타입 선언
+const sum: (a: number, b: number) => number = (a, b) => a + b;
+
+

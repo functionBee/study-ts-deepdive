@@ -90,8 +90,8 @@ const obj: {
     lon: 127.5,
 };
 
-// 2. 함수의 타입 선언
-// 2-1. 함수의 기본적인 타입 선언
+// 2. 함수의 타입 정의
+// 2-1. 함수의 기본적인 타입 정의
 function sum(a: number, b: number) {
     return a + b;
 }
@@ -101,7 +101,7 @@ function identity(user: string): string {
     return user;
 }
 
-// 2-1. 화살표 함수의 타입 선언
+// 2-1. 화살표 함수의 타입 정의
 const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 ```
@@ -212,15 +212,27 @@ console.log(octal === hex) // true
 
 <br>
 
-1. string
+2. string
+
+문자열(string) 타입은 자바스크립트와 마찬가지로 작은 타옴표(''), 큰 따옴표(""), 백틱(``)으로 텍스트를 감싼다.
+TypeScript에서도 문자열은 원시(primitive) 타입이며, 변경 불가능한 값(immutable value)이다.
 
 ```javascript
+
+let isSaved: boolean = false;
+isSaved = true;
+
+console.log(typeof isSaved); //boolean
+console.log(isSaved) // true
+
 let userName: string = 'bee';
 
 // Template String(ES6)
 let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
+console.log(typeof sentence) // string
+
 ```
 
 <br>
