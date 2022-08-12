@@ -17,27 +17,15 @@ console.log(octal === hex) // true
 
 // Data Types: string type
 let userName: string = 'bee';
-
-
-// Template String(ES6)
-let language: string = 'spanish';
-let sentence: string = `(${language}) hola, ${userName}.`;
-console.log(sentence); // (spanish) hola, bee.
-
-// 3. boolean
-let isSaved: boolean = false;
-isSaved = true;
-
-console.log(typeof isSaved); //boolean
-console.log(isSaved) // true
-
-let userName: string = 'bee';
+console.log(userName) // bee
+console.log(typeof userName) // string
 
 // Template String(ES6)
 let language: string = 'spanish';
 let sentence: string = `(${language}) hola, ${userName}.`;
 console.log(sentence); // (spanish) hola, bee.
 console.log(typeof sentence) // string
+
 
 
 // 4. null

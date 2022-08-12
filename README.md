@@ -218,14 +218,9 @@ console.log(octal === hex) // true
 TypeScript에서도 문자열은 원시(primitive) 타입이며, 변경 불가능한 값(immutable value)이다.
 
 ```javascript
-
-let isSaved: boolean = false;
-isSaved = true;
-
-console.log(typeof isSaved); //boolean
-console.log(isSaved) // true
-
 let userName: string = 'bee';
+console.log(userName) // bee
+console.log(typeof userName) // string
 
 // Template String(ES6)
 let language: string = 'spanish';
