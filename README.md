@@ -186,19 +186,33 @@ string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 
 
 1. number
 
+TypeScript는 JavaScript와 동일하게 ECMASCript 사양에 따르며 숫자타입의 값은 배정밀도 64비트의 부동 소수점 형식을 따릅니다.
+모든 수를 실수로 처리하며, 정수만 표기하기 위한 데이터 타입(integer type)이 별도로 존재하지 않습니다.
+
 ```javascript
-let num: number = 10;
+
+let integer: number = 65; // 정수
+let double: number = 65; // 실수
+let negative: number = -65; // 음의 정수
 let decimal: number = 100; // 10진수 리터럴
-let hex: number = 0xf00d; // 16진수 리터럴
-let binnary: number = 0b1010; // 2진수 리터럴
-let octal: number = 0o744; // 8진수 리터럴
+let binnary: number = 0b01000001; // 2진수 리터럴
+let octal: number = 0o101; // 8진수 리터럴
+let hex: number = 0x41; // 16진수 리터럴
 let notANumber: number = NaN;
 let underscoreNum: number = 1_000_000_000;
+
+console.log(binnary) // 65
+console.log(octal) // 484
+console.log(hex) // 65
+console.log(binnary === octal) // true
+console.log(octal === hex) // true
+
 ```
+> (참고) 모던 자바스크립트 Deep Dive: 자바스크립트의 기본 개념과 동작원리
 
 <br>
 
-2. string
+1. string
 
 ```javascript
 let userName: string = 'bee';
@@ -211,13 +225,16 @@ console.log(sentence); // (spanish) hola, bee.
 
 <br>
 
-1. boolean
+3. boolean
+   
+가장 기본적인 데이터 타입 중 하나인 `boolean`은 참(true)과 거짓(false) 두가지 값을 가집니다.
 
 ```javascript
 let isSaved: boolean = false;
 isSaved = true;
 
 console.log(typeof isSaved); //boolean
+console.log(isSaved) // true
 ```
 
 <br>
