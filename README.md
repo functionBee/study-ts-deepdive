@@ -79,7 +79,9 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 
 <img width="500" src="https://www.tektutorialshub.com/wp-content/uploads/2019/08/Declaring-the-Variable-in-Typescript.png" alt="Example of Type Annotations">
 
-타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
+```
+⬆️ 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
+```
 
 > [(참고) Type Annotations in TypeScript ](https://www.tektutorialshub.com/typescript/type-annotation-in-typescript/)
 
