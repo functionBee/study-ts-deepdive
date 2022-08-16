@@ -595,8 +595,6 @@ function infiniteLoop(): never {
 
 ### 유티온 타입 (Union Types) : `|`
 
-
-**유니온 타입(Union Type) 정의**
    -   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
    -   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
 
@@ -612,6 +610,31 @@ printI("1000"); /// Your ID is: 1000
 // { myID: 2000 } 는 'string | number' 타입의 매개 변수에 할당할 수 없습니다.
 printId({ myID: 2000 }); // Your ID is: [object Object]
 ```
+
+**유니온 타입(Union Type)의 장점**
+
+```javascript
+// any를 사용하는 경우
+function getAge(age: any) {
+  age.toFixe(); // 에러 발생, age의 타입이 any로 추론되기 때문에 숫자 관련된 API를 작성할 때 코드가 자동 완성되지 않는다.
+  return age;
+}
+
+// 유니온 타입을 사용하는 경우
+function getAge(age: number | string) {
+  if (typeof age === 'number') {
+    age.toFixed(); // 정상 동작, age의 타입이 `number`로 추론되기 때문에 숫자 관련된 API를 쉽게 자동완성 할 수 있다.
+    return age;
+  }
+  if (typeof age === 'string') {
+    return age;
+  }
+  return new TypeError('age must be number or string');
+}
+```
+이처럼 any를 사용하는 경우 마치 자바스크립트로 작성하는 것처럼 동작을 하고 유니온 타입을 사용하면 타입스크립트의 이점을 살리면서 코딩할 수 있습니다.
+
+<br>
 
 ```javascript
 //  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
