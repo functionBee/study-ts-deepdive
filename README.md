@@ -12,7 +12,7 @@ TypeScript는 트렌스 파일러(tsc) JavaScript로 변환되며 JavaScript가 
 
 <br>
 
-## 타입 스크립트 실행 환경 설치
+## 타입 스크립트 개발 환경 구성
 
 ```bash
 
