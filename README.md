@@ -591,15 +591,11 @@ function infiniteLoop(): never {
 <br>
 
 
-----
+## 다양한 연산자를 사용하여 새로운 타입 정의
 
 <br>
 
-타입 스크립트의 타입 시스템을 사용하면 다양한 연산자를 사용하여 기존 타입에서 새로운 타입을 만들 수 있습니다.
-
-<br>
-
-## 유티온 타입 (Union Types) : `|`
+### 유티온 타입 (Union Types) : `|`
 
 
 **유니온 타입(Union Type) 정의**
@@ -650,7 +646,7 @@ function askSomeone(someone: Developer | Person) {
 
 <br>
 
-## 인터섹션 타입(Intersection type) : `&`
+### 인터섹션 타입(Intersection type) : `&`
 
 ```javascript
 function askSomeone(someone: Developer & Person) {
