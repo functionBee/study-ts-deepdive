@@ -595,8 +595,8 @@ function infiniteLoop(): never {
 
 ### 유티온 타입 (Union Types) : `|`
 
-   -   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
-   -   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
+`or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능<br>
+유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입<br>
 
 ```javascript
 function printId(id: number | string) {
@@ -632,50 +632,35 @@ function getAge(age: number | string) {
   return new TypeError('age must be number or string');
 }
 ```
+
 이처럼 any를 사용하는 경우 마치 자바스크립트로 작성하는 것처럼 동작을 하고 유니온 타입을 사용하면 타입스크립트의 이점을 살리면서 코딩할 수 있습니다.
-
 <br>
-
-```javascript
-//  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
-//  문자열 리터럴 타입 유니언은 이 패턴을 따라감니다.
-declare function pad(s: string, n: number, direction: 'left' | 'right'): string;
-pad('hi', 10, 'left');
-
-//
-```
-
--   유니온 타입의 속성
-
-```javascript
-interface Developer {
-    name: string;
-    skill: string;
-}
-
-interface Person {
-    name: string;
-    age: number;
-}
-
-function askSomeone(someone: Developer | Person) {
-    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
-    someone.name;
-}
-```
 
 > [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
 
 <br>
 
-### 인터섹션 타입(Intersection type) : `&`
+### 인터섹션 타입(Intersection Type) : `&`
+여러 타입을 모두 만족하는 하나의 타입<br>
 
 ```javascript
-function askSomeone(someone: Developer & Person) {
-    someone.age;
-    someone.skill;
-    someone.name;
+interface Colorful {
+  color: string;
 }
+interface Circle {
+  radius: number;
+}
+ 
+type ColorfulCircle = Colorful & Circle;
+
+function draw(circle: Colorful & Circle) {
+  console.log(`Color was ${circle.color}`);
+  console.log(`Radius was ${circle.radius}`);
+}
+
+// okay
+draw({ color: "blue", radius: 42 }); // Color was blue Radius was 42
+draw({ color: "red", radius: 42 }); // Color was red Radius was 42
 ```
 
 **유니온 타입과 인터섹션 타입의 차이점**
