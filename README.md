@@ -596,6 +596,10 @@ function infiniteLoop(): never {
 
 <br>
 
+## 타입 단언 (Type assertions)
+
+<br>
+
 ## 연산자를 이용한 타입
 
 1. 유티온 타입 (Union Type) : `|`
@@ -1134,10 +1138,9 @@ let x = [0, 1, null];
 
 ```
 
+2. 복잡한 구조에서의 타입 추론 방식
 
-1. 복잡한 구조에서의 타입 추론 방식
-
-```
+```javascript
 interface Dropdown<T>{
     value: T;
     title: string;
@@ -1162,13 +1165,13 @@ var detailedItem: DetailedDropdown<string> = {
 }
 ```
 
-4. 문맥상의 타이핑(Contextual Typing)
-    > 표현식을 이용하여 가장 근접한 타입을 추론하는 것을 [Best Common Type](https://www.typescriptlang.org/docs/handbook/type-inference.html)이라고 지칭한다.
+3. 문맥상의 타이핑(Contextual Typing)
 
-```
+```javascript
 var arr = [1, 2, true, '3'];
 // var arr:(string | number | boolean)
 ```
+
 
 ---
 
