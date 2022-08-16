@@ -628,6 +628,7 @@ function askSomeone(someone: Developer | Person) {
 
 > [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
 
+<br>
 
 ## 인터섹션 타입(Intersection type) : `&`
 
