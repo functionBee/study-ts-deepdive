@@ -76,7 +76,7 @@ $ tsc --version
 
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
 
-```javascript
+```javascript 
 // 1. 변수의 타입 선언
 let [Indentifier]: [type] = [value];
 var [Indentifier]: [type] = [value];
