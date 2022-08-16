@@ -611,6 +611,7 @@ printId('holabee'); // "Your ID is: holabee"
 // OK 
 printI("1000"); /// Your ID is: 1000
 // Error
+// { myID: 2000 } 는 'string | number' 타입의 매개 변수에 할당할 수 없습니다.
 printId({ myID: 2000 }); // Your ID is: [object Object]
 ```
 
