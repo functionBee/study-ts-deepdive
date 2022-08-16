@@ -594,9 +594,21 @@ function infiniteLoop(): never {
 타입 스크립트의 타입 시스템을 사용하면 다양한 연산자를 사용하여 기존 타입에서 새로운 타입을 만들 수 있습니다.
 
 
--  유니온 타입(Union Type) 정의  
+**유니온 타입(Union Type) 정의**
    -   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
    -   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
+
+```javascript
+function printId(id: number | string) {
+  console.log("Your ID is: " + id);
+}
+// OK
+printId('holabee'); // "Your ID is: holabee"
+// OK 
+printI("1000"); /// Your ID is: 1000
+// Error
+printId({ myID: 2000 }); // Your ID is: [object Object]
+```
 
 ```javascript
 //  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
