@@ -593,8 +593,6 @@ function infiniteLoop(): never {
 
 ## 다양한 연산자를 사용하여 새로운 타입 정의
 
-<br>
-
 ### 유티온 타입 (Union Types) : `|`
 
 
