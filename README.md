@@ -1,4 +1,4 @@
-# 타입스크립트(TypeScript)
+# 타입스크립트(TypeScript) 👀
 
 자바스크립트의 상위 집합(A superset of JavaScript)<br>
 마이크로소프트가 쓰고 관리하는 오픈 소스 언어<br>
@@ -72,9 +72,16 @@ $ tsc --version
 
 <br>
 
-## ✅ 타입 표기(Type annotation)
+## ✅ 변수 선언 및 함수의 정의
 
+```
+📌 Type annotation :
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
+```
+
+<br>
+
+### ✔️ 변수 선언
 
 ```javascript
 // 1. 변수의 타입 선언
@@ -88,7 +95,13 @@ const obj: {
     lat: 37.5,
     lon: 127.5,
 };
+```
 
+<br>
+
+### ✔️ 함수 정의
+
+```javascript
 // 2. 함수의 타입 정의
 // 함수의 파라미터에 타입을 정의하는 방식
 // 2-1. 함수의 기본적인 타입 정의
@@ -118,8 +131,16 @@ function identity(user: string): string {
     return user;
 }
 
-// 2-1. 화살표 함수의 타입 정의
+// 2-2. 화살표 함수의 타입 정의
 const sum: (a: number, b: number) => number = (a, b) => a + b;
+```
+
+<br>
+
+```
+📌 선언(declaration)과 정의(definition) :
+ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.
+이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.
 ```
 
 <br>
