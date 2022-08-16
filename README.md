@@ -80,7 +80,6 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 <img width="500" src="https://www.tektutorialshub.com/wp-content/uploads/2019/08/Declaring-the-Variable-in-Typescript.png" alt="Example of Type Annotations">
 
 ```
-⬆️ 표기 :
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태
 ```
 
@@ -89,8 +88,6 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 <br>
 
 ## ✅ 변수 선언 및 함수의 정의
-
-<br>
 
 ### ✔️ 변수 선언
 
@@ -107,8 +104,6 @@ const obj: {
     lon: 127.5,
 };
 ```
-
-<br>
 
 ### ✔️ 함수 정의
 
@@ -223,7 +218,7 @@ string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 
 
 <br>
 
-1. number
+### ✔️ number
 
 TypeScript는 JavaScript와 동일하게 ECMASCript 사양에 따르며 숫자타입의 값은 배정밀도 64비트의 부동 소수점 형식을 따릅니다.
 모든 수를 실수로 처리하며, 정수만 표기하기 위한 데이터 타입(integer type)이 별도로 존재하지 않습니다.
@@ -248,9 +243,7 @@ console.log(octal === hex); // true
 
 > (참고) 모던 자바스크립트 Deep Dive: 자바스크립트의 기본 개념과 동작원리
 
-<br>
-
-2. string
+### ✔️ string
 
 문자열(string) 타입은 자바스크립트와 마찬가지로 작은 타옴표(''), 큰 따옴표(""), 백틱(``)으로 텍스트를 감싼다.
 TypeScript에서도 문자열은 원시(primitive) 타입이며, 변경 불가능한 값(immutable value)이다.
@@ -267,9 +260,7 @@ console.log(sentence); // (spanish) hola, bee.
 console.log(typeof sentence); // string
 ```
 
-<br>
-
-3. boolean
+### ✔️ boolean
 
 가장 기본적인 데이터 타입 중 하나인 `boolean`은 참(true)과 거짓(false) 두가지 값을 가집니다.
 
@@ -281,9 +272,7 @@ console.log(typeof isSaved); //boolean
 console.log(isSaved); // true
 ```
 
-<br>
-
-4. null
+### ✔️ null
 
 ```javascript
 let dataNull: null = null; //dataNull is a variable of type null
@@ -292,9 +281,7 @@ console.log(typeof dataNull); //object
 
 > [`null` 변수가 `object`는 자바스크립트 버그](https://2ality.com/2013/10/typeof-null.html)
 
-<br>
-
-5. undefined
+### ✔️ undefined
 
 ```javascript
 let dataUndefined: undefined; //dataUndefined is a variable of type undefined
@@ -310,7 +297,7 @@ TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
 
 <br>
 
-** 🚩 null 과 undefined 차이점**<br>
+**🚩 null 과 undefined 차이점**<br>
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
 
 ```javascript
@@ -371,9 +358,7 @@ console.log(name2); // null
 
 [(영상): 더글락스 크록포드, null을 사용하지 말아야할 이유](https://www.youtube.com/watch?v=PSGEjv3Tqo0&feature=youtu.be&t=9m21s)
 
-<br>
-
-6. symbol(Less Common Primitives as bigint)
+### ✔️ symbol(Less Common Primitives as bigint)
 
 ```javascript
 // 타입일 경우 (소문자) symbol 지정 가능
@@ -396,9 +381,7 @@ let sym2 = Symbol('key');
 sym1 === sym2; // false, symbols are unique
 ```
 
-<br>
-
-7. object
+### ✔️ object
 
 ```javascript
 let obj: object = {};
@@ -455,9 +438,7 @@ function printName(obj: { first: string; last?: string }) {
 }
 ```
 
-<br>
-
-8. array
+### ✔️ array
 
 ```javascript
 // 배열 선언 방법 1
@@ -470,11 +451,10 @@ console.log(arr2.length); // 3
 console.log(typeof arr2); // object
 ```
 
-<br>
+### ✔️ tuple
 
-9. tuple<br>
-   튜플은 배열의 길이가 고정되고 각 요소의 타입이 고정되어 있는 배열<br>
-   (단, 요소들의 타입이 모두 같을 필요는 없다)
+튜플은 배열의 길이가 고정되고 각 요소의 타입이 고정되어 있는 배열<br>
+(단, 요소들의 타입이 모두 같을 필요는 없다)
 
 ```javascript
 let address: [string, number] = ['seoul', 100];
@@ -486,9 +466,8 @@ console.log(address[5].toString());
 //Executed JavaScript Failed: Cannot read properties of undefined (reading 'toString')
 ```
 
-<br>
+### ✔️ any
 
-10. any<br>
     모든 타입을 할당 받을 수 있는 타입<br>
     string, number등의 모든 타입을 통칭
 
@@ -496,9 +475,7 @@ console.log(address[5].toString());
 let todoItems: any;
 ```
 
-<br>
-
-11. unknown
+### ✔️ unknown
 
 ```javascript
 
@@ -523,9 +500,8 @@ if (isFunction(variable)) {
 -   `any`를 제외한 다른 타입으로 선언된 변수에 할당 될 수 없음
 -   `unknown`타입으로 선언된 변수는 프로퍼티에 접근할 수 없으며, 메소드를 호출할 수 없으며, 인스턴스를 생성할 수 없다. (단, Type Guard 와 함께라면 가능하다.)
 
-<br>
+### ✔️ enum
 
-12. enum<br>
     명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
 
 ```javascript
@@ -572,9 +548,8 @@ console.log(Weekdays["1"])           //Tuesday
 
 ```
 
-<br>
+### ✔️ void
 
-13. void<br>
     값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
     보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
     명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
@@ -613,9 +588,7 @@ let nothing: void = undefined;
 nothing = null; // 성공  `--strictNullChecks` 을 사용하지 않을때만
 ```
 
-<br>
-
-14. never
+### ✔️ never
 
 발생하지 않는 경우에 대한 타입
 
@@ -642,7 +615,7 @@ function infiniteLoop(): never {
 
 ## ✅ 다양한 연산자를 사용하여 새로운 타입 정의
 
-### 유티온 타입 (Union Types) : `|`
+### ✔️ 유티온 타입 (Union Types) : `|`
 
 `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능<br>
 유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입<br>
@@ -720,9 +693,7 @@ function compareValues(a: string | number, b: string | number) {
 
 > [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
 
-<br>
-
-### 인터섹션 타입(Intersection Type) : `&`
+### ✔️ 인터섹션 타입(Intersection Type) : `&`
 
 여러 타입을 모두 만족하는 하나의 타입<br>
 
