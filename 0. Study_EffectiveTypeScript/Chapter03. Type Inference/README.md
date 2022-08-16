@@ -179,7 +179,47 @@ const ts =  {
 complain(ts);
 ```
 
+<br>
+
 -   콜백 사용 시 주의점
+
+```javascript
+function callWithRandomNumbers(fn: (n1: number, n2: number) => void) {
+    fn(Math.random(), Math.random());
+}
+
+callWithRandomNumbers((a, b) => {
+    a; // Type is number
+    b; // Type is number
+    console.log(a + b);
+});
+```
+
+<br>
+
+```javascript
+function callWithRandomNumbers(fn: (n1: number, n2: number) => void) {
+    fn(Math.random(), Math.random());
+}
+const fn = (a, b) => {
+    // ~    Parameter 'a' implicitly has an 'any' type
+    //    ~ Parameter 'b' implicitly has an 'any' type
+    console.log(a + b);
+};
+callWithRandomNumbers(fn);
+```
+
+<br>
+
+```javascript
+function callWithRandomNumbers(fn: (n1: number, n2: number) => void) {
+    fn(Math.random(), Math.random());
+}
+const fn = (a: number, b: number) => {
+    console.log(a + b);
+};
+callWithRandomNumbers(fn);
+```
 
 <br>
 
