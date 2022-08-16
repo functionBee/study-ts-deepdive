@@ -590,10 +590,13 @@ function infiniteLoop(): never {
 
 <br>
 
-## 유티온 타입 (Union Type) : `|`
+## 유티온 타입 (Union Types) : `|`
+타입 스크립트의 타입 시스템을 사용하면 다양한 연산자를 사용하여 기존 타입에서 새로운 타입을 만들 수 있습니다.
 
--   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
--   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
+
+-  유니온 타입(Union Type) 정의  
+   -   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+   -   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
 
 ```javascript
 //  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
@@ -624,6 +627,42 @@ function askSomeone(someone: Developer | Person) {
 ```
 
 > [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
+
+
+## 인터섹션 타입(Intersection type) : `&`
+
+```javascript
+function askSomeone(someone: Developer & Person) {
+    someone.age;
+    someone.skill;
+    someone.name;
+}
+```
+
+**유니온 타입과 인터섹션 타입의 차이점**
+<br>
+<img src="https://i.stack.imgur.com/fY4gL.png" >
+<br>
+
+```javascript
+// 타입의 선택지가 있음
+function askSomeone(someone: Developer | Person) {
+    someone.name;
+}
+
+askSomeone({ name: 'developer', skill: 'web dev' });
+askSomeone({ name: 'bee', age: 333 });
+
+// 새로운 타입을 생성
+function askSomeone(someone: Developer & Person) {
+    someone.age;
+    someone.skill;
+    someone.name;
+}
+
+askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
+```
+
 
 <br>
 
@@ -660,6 +699,7 @@ type Todo = { id: string, title: string, done: boolean };
 function getTodo(todo: Todo) {}
 ```
 
+<br>
 
 ## 인터페이스 (Interface)
 
@@ -794,38 +834,6 @@ let strLength: number = (someValue as string).length;
 
 <br>
 
-## 연산자를 이용한 타입
-
-1. 인터섹션 타입(Intersection type) : `&`
-
-```javascript
-function askSomeone(someone: Developer & Person) {
-    someone.age;
-    someone.skill;
-    someone.name;
-}
-```
-
-4. 유니온 타입과 인터섹션 타입의 차이점
-
-```javascript
-// 타입의 선택지가 있음
-function askSomeone(someone: Developer | Person) {
-    someone.name;
-}
-
-askSomeone({ name: 'developer', skill: 'web dev' });
-askSomeone({ name: 'bee', age: 333 });
-
-// 새로운 타입을 생성
-function askSomeone(someone: Developer & Person) {
-    someone.age;
-    someone.skill;
-    someone.name;
-}
-
-askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
-```
 
 ## 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
 
