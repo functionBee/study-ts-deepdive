@@ -18,7 +18,7 @@
 
 ### 문맥의 손실로 인해 오류가 발생하는 경우와 해결 방법
 
--   튜플 사용 시 주의점
+-   **튜플 사용 시 주의점**
 
 ```javascript
 type Language = 'JavaScript' | 'TypeScript' | 'Python';
@@ -42,36 +42,34 @@ panTo(loc);
 
 -   any를 사용하지 않고 오류를 고칠 수 있는 방법
 
-1. 타입스크립트가 의도를 정확히 파악할 수 있도록 타입 선언을 제공하는 방법
+    -   타입스크립트가 의도를 정확히 파악할 수 있도록 타입 선언을 제공하는 방법
 
-```javascript
-type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        ```javascript
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        function setLanguage(language: Language) {
+            /_ ... _/;
+        }
+        // Parameter is a (latitude, longitude) pair.
+        function panTo(where: [number, number]) {
+            /_ ... _/;
+        }
+        const loc: [number, number] = [10, 20];
+        panTo(loc); // OK
+        ```
 
-function setLanguage(language: Language) {
-    /_ ... _/;
-}
-// Parameter is a (latitude, longitude) pair.
-function panTo(where: [number, number]) {
-    /_ ... _/;
-}
-const loc: [number, number] = [10, 20];
-panTo(loc); // OK
-```
+    -   상수 문맥을 제공<br>
+        : `const`는 단지 값이 가리키는 참조가 변하지 않는 얕은(shallow)상수인 반면,<br>
+        `as const`는 그 값이 내부까지(deeply) 상수라는 사실을 타입스크립트에게 알려줍니다.<br>
 
-2. 상수 문맥을 제공<br>
-   : `const`는 단지 값이 가리키는 참조가 변하지 않는 얕은(shallow)상수인 반면,<br>
-   `as const`는 그 값이 내부까지(deeply) 상수라는 사실을 타입스크립트에게 알려줍니다.<br>
+        ```javascript
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        function setLanguage(language: Language) { /_ ... _/ }
 
-```javascript
-type Language = 'JavaScript' | 'TypeScript' | 'Python';
-function setLanguage(language: Language) { /_ ... _/ }
-
-// Parameter is a (latitude, longitude) pair.
-function panTo(where: readonly [number, number]) { /_ ... _/ }
-const loc: [number, number] = [10, 20];
-panTo(loc); // OK
-
-```
+        // Parameter is a (latitude, longitude) pair.
+        function panTo(where: readonly [number, number]) { /_ ... _/ }
+        const loc: [number, number] = [10, 20];
+        panTo(loc); // OK
+        ```
 
 <br>
 
@@ -109,7 +107,7 @@ panTo(loc);
 
 <br>
 
--   객체 사용 시 주의점<br>
+-   **객체 사용 시 주의점**<br>
     문맥에서 값을 분리하는 문제는 문자열 리터럴이나 튜플을 포함하는 큰 객채에서도 상수를 뽑아 낼 때도 발생합니다.<br>
 
 ```javascript
