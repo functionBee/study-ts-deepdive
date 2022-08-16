@@ -76,7 +76,7 @@ $ tsc --version
 
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
 
-```javascript 
+```javascript
 // 1. 변수의 타입 선언
 let [Indentifier]: [type] = [value];
 var [Indentifier]: [type] = [value];
@@ -97,20 +97,20 @@ function sum(a: number, b: number) {
 }
 
 // 함수의 반환 값에 타입을 정의하는 방식
-function Add(): number{
+function Add(): number {
     return 10;
 }
 
 // 함수의 타입을 정의하는 방식
-function Total (a:number, b:number):number{
-    return a + b
+function Total(a: number, b: number): number {
+    return a + b;
 }
 
 // 함수의 옵셔널 파라미너
-function log(a: string, b?: string, c?: string){
+function log(a: string, b?: string, c?: string) {
     // 특정 파라미터의 선택적 사용을 위해서 ? 선언
 }
-log('hello ts', 'abc')
+log('hello ts', 'abc');
 
 // 함수의 파라미터 그리고 리턴값에는 타입 annotation이 필요합니다
 var user: string = 'Bee';
@@ -543,9 +543,9 @@ console.log(Weekdays["1"])           //Tuesday
 <br>
 
 13. void<br>
-값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
-보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
-명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
+    값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
+    보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
+    명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
 
 ```javascript
 function warnUser(): void {
@@ -608,7 +608,6 @@ function infiniteLoop(): never {
 
 <br>
 
-
 ## 다양한 연산자를 사용하여 새로운 타입 정의
 
 ### 유티온 타입 (Union Types) : `|`
@@ -618,12 +617,12 @@ function infiniteLoop(): never {
 
 ```javascript
 function printId(id: number | string) {
-  console.log("Your ID is: " + id);
+    console.log('Your ID is: ' + id);
 }
 // OK
 printId('holabee'); // "Your ID is: holabee"
-// OK 
-printI("1000"); /// Your ID is: 1000
+// OK
+printI('1000'); /// Your ID is: 1000
 // Error
 // { myID: 2000 } 는 'string | number' 타입의 매개 변수에 할당할 수 없습니다.
 printId({ myID: 2000 }); // Your ID is: [object Object]
@@ -634,24 +633,57 @@ printId({ myID: 2000 }); // Your ID is: [object Object]
 ```javascript
 // any를 사용하는 경우
 function getAge(age: any) {
-  age.toFixe(); // 에러 발생, age의 타입이 any로 추론되기 때문에 숫자 관련된 API를 작성할 때 코드가 자동 완성되지 않는다.
-  return age;
+    age.toFixe(); // 에러 발생, age의 타입이 any로 추론되기 때문에 숫자 관련된 API를 작성할 때 코드가 자동 완성되지 않는다.
+    return age;
 }
 
 // 유니온 타입을 사용하는 경우
 function getAge(age: number | string) {
-  if (typeof age === 'number') {
-    age.toFixed(); // 정상 동작, age의 타입이 `number`로 추론되기 때문에 숫자 관련된 API를 쉽게 자동완성 할 수 있다.
-    return age;
-  }
-  if (typeof age === 'string') {
-    return age;
-  }
-  return new TypeError('age must be number or string');
+    if (typeof age === 'number') {
+        age.toFixed(); // 정상 동작, age의 타입이 `number`로 추론되기 때문에 숫자 관련된 API를 쉽게 자동완성 할 수 있다.
+        return age;
+    }
+    if (typeof age === 'string') {
+        return age;
+    }
+    return new TypeError('age must be number or string');
 }
 ```
 
 이처럼 any를 사용하는 경우 마치 자바스크립트로 작성하는 것처럼 동작을 하고 유니온 타입을 사용하면 타입스크립트의 이점을 살리면서 코딩할 수 있습니다.
+
+<br>
+
+**타입 가드** <br>
+
+: 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
+
+<br>
+
+```javascript
+// 타입 가드 예제1
+function logMessage(value: string | number) {
+    if (typeof value === 'number') {
+        value.toLocaleString();
+    }
+    if (typeof value === 'string') {
+        value.toString();
+    }
+    throw new TypeError('value muste be string or number');
+}
+
+// 타입 가드 예제2
+function compareValues(a: string | number, b: string | number) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a === b ? 0 : a < b ? -1 : 1;
+    }
+
+    if (typeof a === 'string' && typeof b === 'string') {
+        return a.localeCompare(b);
+    }
+}
+```
+
 <br>
 
 > [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
@@ -659,26 +691,27 @@ function getAge(age: number | string) {
 <br>
 
 ### 인터섹션 타입(Intersection Type) : `&`
+
 여러 타입을 모두 만족하는 하나의 타입<br>
 
 ```javascript
 interface Colorful {
-  color: string;
+    color: string;
 }
 interface Circle {
-  radius: number;
+    radius: number;
 }
- 
+
 type ColorfulCircle = Colorful & Circle;
 
 function draw(circle: Colorful & Circle) {
-  console.log(`Color was ${circle.color}`);
-  console.log(`Radius was ${circle.radius}`);
+    console.log(`Color was ${circle.color}`);
+    console.log(`Radius was ${circle.radius}`);
 }
 
 // okay
-draw({ color: "blue", radius: 42 }); // Color was blue Radius was 42
-draw({ color: "red", radius: 42 }); // Color was red Radius was 42
+draw({ color: 'blue', radius: 42 }); // Color was blue Radius was 42
+draw({ color: 'red', radius: 42 }); // Color was red Radius was 42
 ```
 
 **유니온 타입과 인터섹션 타입의 차이점**
@@ -705,10 +738,9 @@ function askSomeone(someone: Developer & Person) {
 askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
 ```
 
-
 <br>
 
-----
+---
 
 <br>
 
@@ -864,6 +896,7 @@ document.body.textContent = greeter(user);
 <br>
 
 ## 타입 단언 (Type assertions)
+
 개발자가 해당 타입에 대해 TypeScript보다 더 잘 알고 있을 때 사용하는 타입 지정 방식<br>
 타입 단언은 다른 언어의 타입 변환(형 변환)과 유사하지만, 다른 특별한 검사를 하거나 데이터를 재구성하지는 않습니다.<br>
 이는 런타임에 영향을 미치지 않으며, 온전히 컴파일러만 이를 사용합니다.<br>
@@ -877,25 +910,11 @@ let strLength: number = (<string>someValue).length;
 let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
+
 > 두 방법 모두 결과는 동일합니다. <br>
 > 하지만 JSX와 함께 사용하는 경우에는 as 문법만 허용됩니다.
 
 <br>
-
-
-## 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
-
-```javascript
-function logMessage(value: string | number) {
-    if (typeof value === 'number') {
-        value.toLocaleString();
-    }
-    if (typeof value === 'string') {
-        value.toString();
-    }
-    throw new TypeError('value muste be string or number');
-}
-```
 
 ## 이넘(Enums)
 
@@ -1131,54 +1150,49 @@ fetchItems();
 : 타입스크립트가 어디서, 어떻게 타입을 추론하는지에 대한 동작을 의미
 
 1. 타입 추론
-타입 표기가 없는 경우 타입 정보를 제공하기 위해 타입을 추론
+   타입 표기가 없는 경우 타입 정보를 제공하기 위해 타입을 추론
 
 ```javascript
-
 // 예제
 let x = 3;
 // x에 대한  타입을 따로 지정하지 않더라도 일단 x는 number로 간주하는것을 확인할 수 있습니다.
 // 이처럼 만약 타입 선언을 생략하면 할당되는 과정에서 동적으로 타입이 결정됩니다.
 // 변수를 선언하거나 초기화하고, 변수, 속성, 인자의 기본 값, 함수의 반환 값 등을 매개 변수의 기본값을 설정할 때 타입 추론이 일어납니다
-
 ```
+
 > 동적 타입 언어는 타입 추론에 의해 변수의 타입이 결정된 후에도 같은 변수에 여러 타입의 값을 교차하여 할당할 수 있다.<br>
 > 하지만 정적 타입 언어는 타입이 결정된 후에는 타입을 변경할 수 없다. <br>
-> TypeScript는 정적 타입 언어이므로 타입 추론으로 타입이 결정된 이후, 다른 타입의 값을 할당하면 에러가 발생한다. <br>
-> [poimweb, 타이핑 - 3. 타입추론](https://poiemaweb.com/typescript-typing#3-%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0)
+> TypeScript는 정적 타입 언어이므로 타입 추론으로 타입이 결정된 이후, 다른 타입의 값을 할당하면 에러가 발생한다. <br> > [poimweb, 타이핑 - 3. 타입추론](https://poiemaweb.com/typescript-typing#3-%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0)
 
 <br>
 
 ```javascript
 // 인터페이스에서 타입을 받아서 내부적으로 사용할 수 있는 제네릭 문법 정의
-interface Dropdown<T>{
+interface Dropdown<T> {
     value: T;
     title: string;
 }
 
 var shoppingItem: Dropdown<string> = {
     value: 'abc',
-    title: 'hello'
-}
+    title: 'hello',
+};
 ```
 
 1. [가장 적절한 타입 (Best common type)](https://www.typescriptlang.org/docs/handbook/type-inference.html#best-common-type)
 
 > 타입은 보통 몇 개의 표현식(코드)을 바탕으로 타입을 추론합니다.<br>
 > 그리고 그 표현식을 이용하여 가장 근접한 타입을 추론하게 되는데 이 가장 근접한 타입을 Best Common Type이라고 합니다.<br>
-> Best Common Type 알고리즘으로 다른 타입들과 가장 잘 호환되는 타입을 선정합니다.<br>
-> [joshua, 타입스크립트 핸드북](https://joshua1988.github.io/ts/guide/type-inference.html#%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0%EC%9D%98-%EA%B8%B0%EB%B3%B8)
+> Best Common Type 알고리즘으로 다른 타입들과 가장 잘 호환되는 타입을 선정합니다.<br> > [joshua, 타입스크립트 핸드북](https://joshua1988.github.io/ts/guide/type-inference.html#%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0%EC%9D%98-%EA%B8%B0%EB%B3%B8)
 
 ```javascript
-
 let x = [0, 1, null];
-
 ```
 
 2. 복잡한 구조에서의 타입 추론 방식
 
 ```javascript
-interface Dropdown<T>{
+interface Dropdown<T> {
     value: T;
     title: string;
 }
@@ -1198,8 +1212,8 @@ var detailedItem: DetailedDropdown<string> = {
     title: 'abc',
     description: 'ab',
     value: 'a',
-    tag: 'b'
-}
+    tag: 'b',
+};
 ```
 
 3. 문맥상의 타이핑(Contextual Typing)
@@ -1208,7 +1222,6 @@ var detailedItem: DetailedDropdown<string> = {
 var arr = [1, 2, true, '3'];
 // var arr:(string | number | boolean)
 ```
-
 
 ---
 
