@@ -74,9 +74,11 @@ $ tsc --version
 
 ## ✅ Type annotation
 
-<img width="250" src="https://www.tektutorialshub.com/wp-content/uploads/2019/08/Declaring-the-Variable-in-Typescript.png" alt="Example of Type Annotations">
+<img width="500" src="https://www.tektutorialshub.com/wp-content/uploads/2019/08/Declaring-the-Variable-in-Typescript.png" alt="Example of Type Annotations">
 
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
+
+<br>
 
 ## ✅ 변수 선언 및 함수의 정의
 
