@@ -525,9 +525,9 @@ console.log(Weekdays["1"])           //Tuesday
 <br>
 
 13. void<br>
-    값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
-    보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
-    명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
+값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
+보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
+명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
 
 ```javascript
 function warnUser(): void {
@@ -598,8 +598,6 @@ function infiniteLoop(): never {
 타입 스크립트의 타입 시스템을 사용하면 다양한 연산자를 사용하여 기존 타입에서 새로운 타입을 만들 수 있습니다.
 
 <br>
-
-----
 
 ## 유티온 타입 (Union Types) : `|`
 
@@ -686,6 +684,10 @@ function askSomeone(someone: Developer & Person) {
 askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
 ```
 
+
+<br>
+
+----
 
 <br>
 
