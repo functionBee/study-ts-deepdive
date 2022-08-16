@@ -106,12 +106,6 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-## 타입 선언(Type Assertion)
-<u>트렌스파일러에게 '이 타입인 특적 타입임을 단언' 하는 것 과 같다.</u>
-
-
-<br>
-
 ## TS와 JS 차이점(Difference between TypeScript and JavaScript)
 
 |                            |            **TypeScript**             |           **JavaScript**            |
