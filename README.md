@@ -1097,9 +1097,18 @@ fetchItems();
 // 예제
 let x = 3;
 // x에 대한  타입을 따로 지정하지 않더라도 일단 x는 number로 간주하는것을 확인할 수 있습니다.
+// 이처럼 만약 타입 선언을 생략하면 할당되는 과정에서 동적으로 타입이 결정됩니다.
 // 변수를 선언하거나 초기화하고, 변수, 속성, 인자의 기본 값, 함수의 반환 값 등을 매개 변수의 기본값을 설정할 때 타입 추론이 일어납니다
 
+```
+> 동적 타입 언어는 타입 추론에 의해 변수의 타입이 결정된 후에도 같은 변수에 여러 타입의 값을 교차하여 할당할 수 있다.<br>
+> 하지만 정적 타입 언어는 타입이 결정된 후에는 타입을 변경할 수 없다. <br>
+> TypeScript는 정적 타입 언어이므로 타입 추론으로 타입이 결정된 이후, 다른 타입의 값을 할당하면 에러가 발생한다. <br>
+> [poimweb, 타이핑 - 3. 타입추론](https://poiemaweb.com/typescript-typing#3-%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0)
 
+<br>
+
+```javascript
 // 인터페이스에서 타입을 받아서 내부적으로 사용할 수 있는 제네릭 문법 정의
 interface Dropdown<T>{
     value: T;
@@ -1112,15 +1121,21 @@ var shoppingItem: Dropdown<string> = {
 }
 ```
 
-2. [가장 적절한 타입 (Best common type)](https://www.typescriptlang.org/docs/handbook/type-inference.html#best-common-type)
+1. [가장 적절한 타입 (Best common type)](https://www.typescriptlang.org/docs/handbook/type-inference.html#best-common-type)
+
+> 타입은 보통 몇 개의 표현식(코드)을 바탕으로 타입을 추론합니다.<br>
+> 그리고 그 표현식을 이용하여 가장 근접한 타입을 추론하게 되는데 이 가장 근접한 타입을 Best Common Type이라고 합니다.<br>
+> Best Common Type 알고리즘으로 다른 타입들과 가장 잘 호환되는 타입을 선정합니다.<br>
+> [joshua, 타입스크립트 핸드북](https://joshua1988.github.io/ts/guide/type-inference.html#%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0%EC%9D%98-%EA%B8%B0%EB%B3%B8)
 
 ```javascript
 
+let x = [0, 1, null];
 
 ```
 
 
-3. 복잡한 구조에서의 타입 추론 방식
+1. 복잡한 구조에서의 타입 추론 방식
 
 ```
 interface Dropdown<T>{
