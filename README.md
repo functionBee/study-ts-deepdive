@@ -72,7 +72,10 @@ $ tsc --version
 
 <br>
 
-## ✅ Type annotation
+## ✅ Type Annotation
+
+TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반환 값의 데이터 Type을 지정합니다.<br>
+특정 Type의 식별자에 Type Annotation을 사용하면 해당 Type으로만 사용할 수 있습니다.<br>
 
 <img width="500" src="https://www.tektutorialshub.com/wp-content/uploads/2019/08/Declaring-the-Variable-in-Typescript.png" alt="Example of Type Annotations">
 
