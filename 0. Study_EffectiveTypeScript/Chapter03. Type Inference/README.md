@@ -16,9 +16,87 @@
 
 ## 📝 Item 26: 타입 추론에 문맥이 어떻게 사용되는지 이해하기(Understand How Context Is Used in Type Inference)
 
-### 문맥의 소실로 인해 오류가 발생하는 경우와 해결 방법
+### 문맥의 손실로 인해 오류가 발생하는 경우와 해결 방법
 
 -   튜플 사용 시 주의점
+
+```javascript
+type Language = 'JavaScript' | 'TypeScript' | 'Python';
+function setLanguage(language: Language) {
+    /* ... */
+}
+// Parameter is a (latitude, longitude) pair.
+function panTo(where: [number, number]) {
+    /* ... */
+}
+
+panTo([10, 20]); // OK
+
+const loc = [10, 20];
+panTo(loc);
+//    ~~~ Argument of type 'number[]' is not assignable to
+//        parameter of type '[number, number]'
+```
+
+<br>
+
+    - any를 사용하지 않고 오류를 고칠 수 있는 방법
+        1) 타입스크립트가 의도를 정확히 파악할 수 있도록 타입 선언을 제공하는 방법
+
+        ```javascript
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+
+        function setLanguage(language: Language) { /_ ... _/ }
+        // Parameter is a (latitude, longitude) pair.
+        function panTo(where: [number, number]) { /_ ... _/ }
+        const loc: [number, number] = [10, 20];
+        panTo(loc); // OK
+
+        ```
+
+        2) 상수 문맥을 제공<br>
+        : `const`는 단지 값이 가리키는 참조가 변하지 않는 얕은(shallow)상수인 반면, `as const`는 그 값이 내부까지(deeply) 상수라는 사실을 타입스크립트에게 알려줍니다.
+
+        ```javascript
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        function setLanguage(language: Language) { /_ ... _/ }
+
+        // Parameter is a (latitude, longitude) pair.
+        function panTo(where: readonly [number, number]) { /_ ... _/ }
+        const loc: [number, number] = [10, 20];
+        panTo(loc); // OK
+
+        ```
+
+        <br>
+
+        ```javascript
+        // 다른 방법
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        function setLanguage(language: Language) { /_ ... _/ }
+
+        // Parameter is a (latitude, longitude) pair.
+        type Pan = [number, number]
+        function panTo(where: Pan) { /_ ... _/ }
+        const loc: Pan = [10, 20];
+        panTo(loc); // OK
+
+        ```
+            - 타입 시그니처를 수정할 수 없는 경우라면 타입 구문을 사용해야 합니다.<br>as const는 문맥 손실과 관련된 문제를 깔끔하게 해결할 수 있지만, 한가지 단점을 가지고 있습니다. 만약 타입 정의에 실수가 있다면 오류는 타입 정의가 아니라 호출되는 곳에서 발생한다는 것입니다.<br>특히 여러 겹 중첩된 객체에서 오류가 발생한다면 근본적인 원인을 파악하기 어렵습니다.
+
+        ```javascript
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        function setLanguage(language: Language) { /_ ... _/ }
+        // Parameter is a (latitude, longitude) pair.
+        function panTo(where: [number, number]) { /_ ... _/ }
+        const loc = [10, 20] as const;
+        panTo(loc);
+        // ~~~ Type 'readonly [10, 20]' is 'readonly'
+        // and cannot be assigned to the mutable type '[number, number]'
+        ```
+
+<br>
+
 -   객체 사용 시 주의점
 -   콜백 사용 시 주의점
 
@@ -33,3 +111,7 @@
 <br>
 
 ## 📝 Item 27: 함수형 기법과 라이브러리로 타입 흐름 유지하기(Use Functional Constructs and Libraries to Help Types Flow)
+
+```
+
+```
