@@ -1085,14 +1085,20 @@ function fetchItems(): Promise<string[]>{
 fetchItems();
 ```
 
-## 타입 추론(Type reference)
+## 타입 추론(Type Inference)
 
-: 타입스크립트가 어떻게 타입을 추론하는지에 대한 동작을 의미
+: 타입스크립트가 어디서, 어떻게 타입을 추론하는지에 대한 동작을 의미
 
-1. 타입 추론의 기본
+1. 타입 추론
+타입 표기가 없는 경우 타입 정보를 제공하기 위해 타입을 추론
 
-```
+```javascript
+
+// 예제
 let x = 3;
+// x에 대한  타입을 따로 지정하지 않더라도 일단 x는 number로 간주하는것을 확인할 수 있습니다.
+// 변수를 선언하거나 초기화하고, 변수, 속성, 인자의 기본 값, 함수의 반환 값 등을 매개 변수의 기본값을 설정할 때 타입 추론이 일어납니다
+
 
 // 인터페이스에서 타입을 받아서 내부적으로 사용할 수 있는 제네릭 문법 정의
 interface Dropdown<T>{
@@ -1106,9 +1112,15 @@ var shoppingItem: Dropdown<string> = {
 }
 ```
 
-> x에 대한 타입을 따로 지정하지 않더라도 일단 x가 number 타입임을 간주할 수 있는데 이렇게 변수를 선언하거나 초기화 할 때 타입을 추론할 수 있다. 그 외에도 변수, 속성, 인자의 기본 값등을 설정할 때 타입 추론이 발생한다.
+2. [가장 적절한 타입 (Best common type)](https://www.typescriptlang.org/docs/handbook/type-inference.html#best-common-type)
 
-2. 복잡한 구조에서의 타입 추론 방식
+```javascript
+
+
+```
+
+
+3. 복잡한 구조에서의 타입 추론 방식
 
 ```
 interface Dropdown<T>{
@@ -1135,7 +1147,7 @@ var detailedItem: DetailedDropdown<string> = {
 }
 ```
 
-3. 문맥상의 타이핑(Contextual Typing)
+4. 문맥상의 타이핑(Contextual Typing)
     > 표현식을 이용하여 가장 근접한 타입을 추론하는 것을 [Best Common Type](https://www.typescriptlang.org/docs/handbook/type-inference.html)이라고 지칭한다.
 
 ```
