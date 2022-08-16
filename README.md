@@ -78,6 +78,8 @@ $ tsc --version
 
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
 
+> [(참고) Type Annotations in TypeScript ](https://www.tektutorialshub.com/typescript/type-annotation-in-typescript/)
+
 <br>
 
 ## ✅ 변수 선언 및 함수의 정의
