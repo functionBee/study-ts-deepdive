@@ -181,7 +181,7 @@ complain(ts);
 
 <br>
 
--   콜백 사용 시 주의점
+-   **콜백 사용 시 주의점**
 
 ```javascript
 function callWithRandomNumbers(fn: (n1: number, n2: number) => void) {
