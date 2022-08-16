@@ -590,6 +590,43 @@ function infiniteLoop(): never {
 
 <br>
 
+## 유티온 타입 (Union Type) : `|`
+
+-   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+-   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
+
+```javascript
+//  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
+//  문자열 리터럴 타입 유니언은 이 패턴을 따라감니다.
+declare function pad(s: string, n: number, direction: 'left' | 'right'): string;
+pad('hi', 10, 'left');
+
+//
+```
+
+-   유니온 타입의 속성
+
+```javascript
+interface Developer {
+    name: string;
+    skill: string;
+}
+
+interface Person {
+    name: string;
+    age: number;
+}
+
+function askSomeone(someone: Developer | Person) {
+    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
+    someone.name;
+}
+```
+
+> [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
+
+<br>
+
 ## 타입별칭(Type Aliases)
 
 특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미
@@ -758,41 +795,6 @@ let strLength: number = (someValue as string).length;
 <br>
 
 ## 연산자를 이용한 타입
-
-1. 유티온 타입 (Union Type) : `|`
-
--   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
--   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
-
-```javascript
-//  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
-//  문자열 리터럴 타입 유니언은 이 패턴을 따라감니다.
-declare function pad(s: string, n: number, direction: 'left' | 'right'): string;
-pad('hi', 10, 'left');
-
-//
-```
-
--   유니온 타입의 속성
-
-```javascript
-interface Developer {
-    name: string;
-    skill: string;
-}
-
-interface Person {
-    name: string;
-    age: number;
-}
-
-function askSomeone(someone: Developer | Person) {
-    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
-    someone.name;
-}
-```
-
-> [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
 
 1. 인터섹션 타입(Intersection type) : `&`
 
