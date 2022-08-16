@@ -6,13 +6,13 @@ TypeScript는 트렌스 파일러(tsc) JavaScript로 변환되며 JavaScript가 
 
 <br>
 
-## [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
+## ✅ [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
 : 이펙티브 타입스크립트 도서를 포함허여 타입 스크립트 관련 내용 상세 정리
 
 <br>
 
-## 타입 스크립트 개발 환경 구성
+## ✅ 타입 스크립트 개발 환경 구성
 
 ```bash
 
@@ -72,7 +72,7 @@ $ tsc --version
 
 <br>
 
-## 타입 표기(Type annotation)
+## ✅ 타입 표기(Type annotation)
 
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태로 표기
 
@@ -124,7 +124,7 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-## TS와 JS 차이점(Difference between TypeScript and JavaScript)
+## ✅ TS와 JS 차이점(Difference between TypeScript and JavaScript)
 
 |                            |            **TypeScript**             |           **JavaScript**            |
 | -------------------------- | :-----------------------------------: | :---------------------------------: |
@@ -134,7 +134,7 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-## 데이터 타입(Data Types)
+## ✅ 데이터 타입(Data Types)
 
 |                     | Type      | JS  | Description                                                                                                                                                                                                                            |
 | ------------------- | --------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -278,7 +278,7 @@ TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
 
 <br>
 
-**null 과 undefined 차이점**<br>
+** 🚩 null 과 undefined 차이점**<br>
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
 
 ```javascript
@@ -392,7 +392,7 @@ printCoord({ x: 3, y: 7 });
 
 <br>
 
-**Optional Properties**
+**🚩Optional Properties**
 
 ```javascript
 function printName(obj: { first: string, last?: string }) {
@@ -608,7 +608,7 @@ function infiniteLoop(): never {
 
 <br>
 
-## 다양한 연산자를 사용하여 새로운 타입 정의
+## ✅ 다양한 연산자를 사용하여 새로운 타입 정의
 
 ### 유티온 타입 (Union Types) : `|`
 
@@ -744,7 +744,7 @@ askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
 
 <br>
 
-## 타입별칭(Type Aliases)
+## ✅ 타입별칭(Type Aliases)
 
 특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미
 
@@ -779,7 +779,7 @@ function getTodo(todo: Todo) {}
 
 <br>
 
-## 인터페이스 (Interface)
+## ✅ 인터페이스 (Interface)
 
 인터페이스는 상호 간에 정의한 약속 혹은 규칙으로 아래 범주 5개에 대해 약속을 정의하는 것이 가능
 
@@ -895,7 +895,7 @@ document.body.textContent = greeter(user);
 
 <br>
 
-## 타입 단언 (Type assertions)
+## ✅ 타입 단언 (Type assertions)
 
 개발자가 해당 타입에 대해 TypeScript보다 더 잘 알고 있을 때 사용하는 타입 지정 방식<br>
 타입 단언은 다른 언어의 타입 변환(형 변환)과 유사하지만, 다른 특별한 검사를 하거나 데이터를 재구성하지는 않습니다.<br>
@@ -963,7 +963,7 @@ function askQuestion(answer: string){
 console.log(Answer.Yes); // Y
 ```
 
-## 클래스
+## ✅ 클래스
 
 ```
 class Person{
@@ -978,7 +978,7 @@ class Person{
 }
 ```
 
-## 제네릭(Generics)
+## ✅ 제네릭(Generics)
 
 재사용성이 높은 컴포넌트를 만들때 자주 활용되는 특징
 
@@ -1145,7 +1145,7 @@ function fetchItems(): Promise<string[]>{
 fetchItems();
 ```
 
-## 타입 추론(Type Inference)
+## ✅ 타입 추론(Type Inference)
 
 : 타입스크립트가 어디서, 어떻게 타입을 추론하는지에 대한 동작을 의미
 
