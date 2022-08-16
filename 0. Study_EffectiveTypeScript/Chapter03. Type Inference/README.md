@@ -215,11 +215,14 @@ callWithRandomNumbers(fn);
 function callWithRandomNumbers(fn: (n1: number, n2: number) => void) {
     fn(Math.random(), Math.random());
 }
+// 매개 변수에 타입 구문을 추가해서 해결 할 수 있음
 const fn = (a: number, b: number) => {
     console.log(a + b);
 };
 callWithRandomNumbers(fn);
 ```
+
+또는 가능한 경우 전체 함수 표현식에 타입 선언을 적용하여 해결 할 수 있습니다.
 
 <br>
 
