@@ -590,8 +590,18 @@ function infiniteLoop(): never {
 
 <br>
 
-## 유티온 타입 (Union Types) : `|`
+
+----
+
+<br>
+
 타입 스크립트의 타입 시스템을 사용하면 다양한 연산자를 사용하여 기존 타입에서 새로운 타입을 만들 수 있습니다.
+
+<br>
+
+----
+
+## 유티온 타입 (Union Types) : `|`
 
 
 **유니온 타입(Union Type) 정의**
