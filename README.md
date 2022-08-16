@@ -590,106 +590,6 @@ function infiniteLoop(): never {
 
 <br>
 
-## 타입 캐스팅()
-## 타입 단언 (Type assertions)
-개발자가 해당 타입에 대해 TypeScript보다 더 잘 알고 있을 때 사용하는 타입 지정 방식<br>
-타입 단언은 다른 언어의 타입 변환(형 변환)과 유사하지만, 다른 특별한 검사를 하거나 데이터를 재구성하지는 않습니다.<br>
-이는 런타임에 영향을 미치지 않으며, 온전히 컴파일러만 이를 사용합니다.<br>
-타입 스크립트는 개발자가 필요한 어떤 특정 검사를 수행했다고 인지합니다.
-
-```javscript
-let someValue: any = "this is a string";
-let strLength: number = (<string>someValue).length;
-
-// 또는 as 문법
-let someValue: any = "this is a string";
-let strLength: number = (someValue as string).length;
-```
-
-<br>
-
-## 연산자를 이용한 타입
-
-1. 유티온 타입 (Union Type) : `|`
-
--   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
--   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
-
-```javascript
-//  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
-//  문자열 리터럴 타입 유니언은 이 패턴을 따라감니다.
-declare function pad(s: string, n: number, direction: 'left' | 'right'): string;
-pad('hi', 10, 'left');
-
-//
-```
-
--   유니온 타입의 속성
-
-```javascript
-interface Developer {
-    name: string;
-    skill: string;
-}
-
-interface Person {
-    name: string;
-    age: number;
-}
-
-function askSomeone(someone: Developer | Person) {
-    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
-    someone.name;
-}
-```
-
-> [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
-
-1. 인터섹션 타입(Intersection type) : `&`
-
-```javascript
-function askSomeone(someone: Developer & Person) {
-    someone.age;
-    someone.skill;
-    someone.name;
-}
-```
-
-4. 유니온 타입과 인터섹션 타입의 차이점
-
-```javascript
-// 타입의 선택지가 있음
-function askSomeone(someone: Developer | Person) {
-    someone.name;
-}
-
-askSomeone({ name: 'developer', skill: 'web dev' });
-askSomeone({ name: 'bee', age: 333 });
-
-// 새로운 타입을 생성
-function askSomeone(someone: Developer & Person) {
-    someone.age;
-    someone.skill;
-    someone.name;
-}
-
-askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
-```
-
-## 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
-
-```javascript
-function logMessage(value: string | number) {
-    if (typeof value === 'number') {
-        value.toLocaleString();
-    }
-    if (typeof value === 'string') {
-        value.toString();
-    }
-    throw new TypeError('value muste be string or number');
-}
-```
-
 ## 타입별칭(Type Aliases)
 
 특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미
@@ -722,6 +622,7 @@ var str: greeting = 'hello';
 type Todo = { id: string, title: string, done: boolean };
 function getTodo(todo: Todo) {}
 ```
+
 
 ## 인터페이스 (Interface)
 
@@ -832,6 +733,111 @@ document.body.textContent = greeter(user);
 > 인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하므로 가능한한 type 보다는 interface로 선언해서 사용하는 것을 추천
 
 -   참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
+
+<br>
+
+## 타입 캐스팅()
+
+<br>
+
+## 타입 단언 (Type assertions)
+개발자가 해당 타입에 대해 TypeScript보다 더 잘 알고 있을 때 사용하는 타입 지정 방식<br>
+타입 단언은 다른 언어의 타입 변환(형 변환)과 유사하지만, 다른 특별한 검사를 하거나 데이터를 재구성하지는 않습니다.<br>
+이는 런타임에 영향을 미치지 않으며, 온전히 컴파일러만 이를 사용합니다.<br>
+타입 스크립트는 개발자가 필요한 어떤 특정 검사를 수행했다고 인지합니다.
+
+```javscript
+let someValue: any = "this is a string";
+let strLength: number = (<string>someValue).length;
+
+// 또는 as 문법
+let someValue: any = "this is a string";
+let strLength: number = (someValue as string).length;
+```
+
+<br>
+
+## 연산자를 이용한 타입
+
+1. 유티온 타입 (Union Type) : `|`
+
+-   `or`를 의미하는 연산자(`|`)를 이용하여 하나 이상의 타입을 인자로 사용하는 것이 가능
+-   유니언 타입은 정확히 하나의 원시 값을 포함하고 있는 원시 타입의 서브타입
+
+```javascript
+//  JavaScript는 내장된 enum이 없기 때문에 잘 알려진 문자열 세트 흔하게 사용
+//  문자열 리터럴 타입 유니언은 이 패턴을 따라감니다.
+declare function pad(s: string, n: number, direction: 'left' | 'right'): string;
+pad('hi', 10, 'left');
+
+//
+```
+
+-   유니온 타입의 속성
+
+```javascript
+interface Developer {
+    name: string;
+    skill: string;
+}
+
+interface Person {
+    name: string;
+    age: number;
+}
+
+function askSomeone(someone: Developer | Person) {
+    // 여러개의 인터페이스의 공통된 속성에만 접근이 가능하다.
+    someone.name;
+}
+```
+
+> [(참고) Unions](https://typescript-kr.github.io/pages/tutorials/ts-for-functional-programmers.html)
+
+1. 인터섹션 타입(Intersection type) : `&`
+
+```javascript
+function askSomeone(someone: Developer & Person) {
+    someone.age;
+    someone.skill;
+    someone.name;
+}
+```
+
+4. 유니온 타입과 인터섹션 타입의 차이점
+
+```javascript
+// 타입의 선택지가 있음
+function askSomeone(someone: Developer | Person) {
+    someone.name;
+}
+
+askSomeone({ name: 'developer', skill: 'web dev' });
+askSomeone({ name: 'bee', age: 333 });
+
+// 새로운 타입을 생성
+function askSomeone(someone: Developer & Person) {
+    someone.age;
+    someone.skill;
+    someone.name;
+}
+
+askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
+```
+
+## 타입 가드 : 특정 타입을 타입의 범위를 좁혀나가는(필터링 하는) 과정
+
+```javascript
+function logMessage(value: string | number) {
+    if (typeof value === 'number') {
+        value.toLocaleString();
+    }
+    if (typeof value === 'string') {
+        value.toString();
+    }
+    throw new TypeError('value muste be string or number');
+}
+```
 
 ## 타입스크립트의 함수 타입
 
