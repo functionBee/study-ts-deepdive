@@ -71,39 +71,39 @@ panTo(loc);
         panTo(loc); // OK
         ```
 
-<br>
+        <br>
 
-```javascript
-// 다른 방법
-type Language = 'JavaScript' | 'TypeScript' | 'Python';
-function setLanguage(language: Language) {
-    /_ ... _/;
-}
+        ```javascript
+        // 다른 방법
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        function setLanguage(language: Language) {
+            /_ ... _/;
+        }
 
-// Parameter is a (latitude, longitude) pair.
-type Pan = [number, number];
-function panTo(where: Pan) {
-    /_ ... _/;
-}
-const loc: Pan = [10, 20];
-panTo(loc); // OK
-```
+        // Parameter is a (latitude, longitude) pair.
+        type Pan = [number, number];
+        function panTo(where: Pan) {
+            /_ ... _/;
+        }
+        const loc: Pan = [10, 20];
+        panTo(loc); // OK
+        ```
 
-타입 시그니처를 수정할 수 없는 경우라면 타입 구문을 사용해야 합니다.<br>
-`as const`는 문맥 손실과 관련된 문제를 깔끔하게 해결할 수 있지만, 한가지 단점을 가지고 있습니다.<br>
-만약 타입 정의에 실수가 있다면 오류는 타입 정의가 아니라 호출되는 곳에서 발생한다는 것입니다.<br>
-특히 여러 겹 중첩된 객체에서 오류가 발생한다면 근본적인 원인을 파악하기 어렵습니다.<br>
+        타입 시그니처를 수정할 수 없는 경우라면 타입 구문을 사용해야 합니다.<br>
+        `as const`는 문맥 손실과 관련된 문제를 깔끔하게 해결할 수 있지만, 한가지 단점을 가지고 있습니다.<br>
+        만약 타입 정의에 실수가 있다면 오류는 타입 정의가 아니라 호출되는 곳에서 발생한다는 것입니다.<br>
+        특히 여러 겹 중첩된 객체에서 오류가 발생한다면 근본적인 원인을 파악하기 어렵습니다.<br>
 
-```javascript
-type Language = 'JavaScript' | 'TypeScript' | 'Python';
-function setLanguage(language: Language) { /_ ... _/ }
-// Parameter is a (latitude, longitude) pair.
-function panTo(where: [number, number]) { /_ ... _/ }
-const loc = [10, 20] as const;
-panTo(loc);
-// ~~~ Type 'readonly [10, 20]' is 'readonly'
-// and cannot be assigned to the mutable type '[number, number]'
-```
+        ```javascript
+        type Language = 'JavaScript' | 'TypeScript' | 'Python';
+        function setLanguage(language: Language) { /_ ... _/ }
+        // Parameter is a (latitude, longitude) pair.
+        function panTo(where: [number, number]) { /_ ... _/ }
+        const loc = [10, 20] as const;
+        panTo(loc);
+        // ~~~ Type 'readonly [10, 20]' is 'readonly'
+        // and cannot be assigned to the mutable type '[number, number]'
+        ```
 
 <br>
 
