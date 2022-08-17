@@ -155,7 +155,7 @@ let strLength: number = (someValue as string).length;
 
 <br>
 
-### 😶 JavaScript : 타입 캐스팅(Type Casting) 
+#### 😶 타입 캐스팅(Type Casting) :
 
 개발자간 의도적으로 값의 타입을 변환하는 것을 명시적 타입 변환(Explicit coercion)이라고도 합니다.
 
@@ -193,7 +193,7 @@ const obj: {
 
 TypeScript를 사용하면 함수(Functions)의 입력값과 출력값의 타입(Type)을 모두 지정할 수 있습니다.
 
-- **파라미터에 타입을 표기하는 방식(Parameter type annotation)**<br>
+- **파라미터에 타입을 표기하는 방식(Parameter type annotation)** : <br>
     함수를 선언할 때 각 매개변수 뒤에 타입 표기(Type Annotation)을 추가하여<br>
     함수가 허용하는 매개변수 타입을 선언할 수 있습니다.<br>
     매개 변수 타입 표기(Type Annotation)은 매개 변수 이름 뒤에옵니다<br>
@@ -215,7 +215,11 @@ function sum(a: number, b: number) {
 ```
 
 - **함수의 반환 값에 타입을 정의하는 방식(Return Type Annotations)**<br>
-
+Much like variable type annotations, you usually don’t need a return type annotation<br>
+because TypeScript will infer the function’s return type based on its return statements.<br>
+The type annotation in the above example doesn’t change anything.<br>
+Some codebases will explicitly specify a return type for documentation purposes, to prevent accidental changes, or just for personal preference.<br>
+> [(참고) 공식문서](https://devdocs.io/typescript/2/everyday-types#functions)
 
 ```javascript
 // 예제1
@@ -244,6 +248,16 @@ function identity(user: string): string {
 ```
 
 - **익명 함수(Anonymous Functions)의 타입 정의**<br>
+Anonymous functions are a little bit different from function declarations.<br>
+When a function appears in a place where TypeScript can determine how it’s going to be called,<br>
+the parameters of that function are automatically given types.<br>
+Even though the parameter s didn’t have a type annotation,<br>
+TypeScript used the types of the forEach function, along with the inferred type of the array, to determine the type s will have.<br>
+This process is called contextual typing because the context that the function occurred within informs what type it should have.<br>
+Similar to the inference rules, you don’t need to explicitly learn how this happens,<br>
+but understanding that it does happen can help you notice when type annotations aren’t needed.<br>
+Later, we’ll see more examples of how the context that a value occurs in can affect its type.<br>
+> [(참고) 공식문서](https://devdocs.io/typescript/2/everyday-types#functions)
 
 ```javascript
 // No type annotations here, but TypeScript can spot the bug
@@ -280,7 +294,7 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-#### 😶  선언(declaration)과 정의(definition) :
+#### 😶 선언(declaration)과 정의(definition) :
 ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.<br>
 이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.<br>
 > (참고) 모던 자바스크립트 Deep Dive: 자바스크립트의 기본 개념과 동작원리
