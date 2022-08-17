@@ -72,6 +72,16 @@ $ tsc --version
 
 <br>
 
+## ✅ TS와 JS 차이점(Difference between TypeScript and JavaScript)
+
+|                            |            **TypeScript**             |           **JavaScript**            |
+| -------------------------- | :-----------------------------------: | :---------------------------------: |
+| Highlighted the errors     | Static Types (set during development) | Dynamic Types (resolved at runtime) |
+|                            |         Compiled(Transpiled)          |             Interpreted             |
+| Support optional parameter |                   O                   |                  X                  |
+
+<br>
+
 ## ✅ 타입 표기(Type Annotation)
 
 TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반환 값의 데이터 Type을 지정합니다.<br>
@@ -207,13 +217,9 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-## ✅ TS와 JS 차이점(Difference between TypeScript and JavaScript)
+## ✅ 타입 표기(Type Annotation)와 타입단언(Type Assertion)의 차이점
 
-|                            |            **TypeScript**             |           **JavaScript**            |
-| -------------------------- | :-----------------------------------: | :---------------------------------: |
-| Highlighted the errors     | Static Types (set during development) | Dynamic Types (resolved at runtime) |
-|                            |         Compiled(Transpiled)          |             Interpreted             |
-| Support optional parameter |                   O                   |                  X                  |
+> [(참고) Type Annotation vs Assertion in Typescript — one important difference](https://medium.com/@bsalwiczek/type-annotation-vs-assertion-in-typescript-one-important-difference-4f4df715b5fe)
 
 <br>
 
