@@ -805,45 +805,6 @@ askSomeone({ name: 'developer', skill: 'web dev', age: 333 });
 
 <br>
 
----
-
-<br>
-
-## ✅ 타입별칭(Type Aliases)
-
-특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미
-
-> 새로운 타입 값을 하나 생성하는 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.
-
-```javascript
-// string 타입을 사용할 때
-const name: string = 'bee';
-
-// 타입 별칭을 사용할 때
-type User = string;
-const name: User = 'bee';
-
-// interface 레벨의 복잡한 타입에도 별칭 부여 가능
-type Developer = {
-    name: string,
-    skill: string,
-};
-
-// 타입별칭에 제네릭 사용
-type User<W> = {
-    name: W,
-};
-
-// 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
-type greeting = string;
-var str: greeting = 'hello';
-
-type Todo = { id: string, title: string, done: boolean };
-function getTodo(todo: Todo) {}
-```
-
-<br>
-
 ## ✅ 인터페이스 (Interface)
 
 인터페이스는 상호 간에 정의한 약속 혹은 규칙으로 아래 범주 5개에 대해 약속을 정의하는 것이 가능
@@ -955,6 +916,42 @@ document.body.textContent = greeter(user);
 -   참고 : [좋은 소프트웨어는 확장이 용이해야 한다는 원칙의 위키 피디아 글](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
 
 <br>
+
+## ✅ 타입별칭(Type Aliases)
+
+특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미
+
+> 새로운 타입 값을 하나 생성하는 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.
+
+```javascript
+// string 타입을 사용할 때
+const name: string = 'bee';
+
+// 타입 별칭을 사용할 때
+type User = string;
+const name: User = 'bee';
+
+// interface 레벨의 복잡한 타입에도 별칭 부여 가능
+type Developer = {
+    name: string,
+    skill: string,
+};
+
+// 타입별칭에 제네릭 사용
+type User<W> = {
+    name: W,
+};
+
+// 타입을 정의할 수 있는 모든 곳에 별칭 부여 가능
+type greeting = string;
+var str: greeting = 'hello';
+
+type Todo = { id: string, title: string, done: boolean };
+function getTodo(todo: Todo) {}
+```
+
+<br>
+
 
 ## 이넘(Enums)
 
