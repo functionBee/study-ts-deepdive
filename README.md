@@ -190,13 +190,16 @@ const obj: {
 
 ### ✔️ 함수 정의
 
-TypeScript를 사용하면 함수(Functions)의 입력값과 출력값의 유형을 모두 지정할 수 있습니다.
+TypeScript를 사용하면 함수(Functions)의 입력값과 출력값의 타입(Type)을 모두 지정할 수 있습니다.
+
+- **파라미터에 타입을 표기하는 방식(Parameter type annotation)**<br>
+
+함수를 선언할 때 각 매개변수 뒤에 타입 표기(Type Annotation)을 추가하여<br>
+함수가 허용하는 매개변수 타입을 선언할 수 있습니다.<br>
+매개 변수 타입 표기(Type Annotation)은 매개 변수 이름 뒤에옵니다<br>
 
 ```javascript
-// 2-0. 파라미터에 타입을 표기하는 방식(Parameter type annotation)
-// 함수를 선언할 때 각 매개변수 뒤에 타입 표기(Type Annotation)을 추가하여 
-// 함수가 허용하는 매개변수 타입을 선언할 수 있습니다. 
-// 매개 변수 타입 표기(Type Annotation)은 매개 변수 이름 뒤에옵니다
+// 예제1
 function greet(name: string) {
   console.log("Hello, " + name.toUpperCase() + "!!");
 }
@@ -204,24 +207,29 @@ function greet(name: string) {
 // Would be a runtime error if executed!
 greet(42);
 // 매개 변수에 입 표기(Type Annotation)이 없는 경우에도 TypeScript는 올바른 수의 인수가 전달했는지 확인합니다.
-```
 
-```javascript
-// 2-1. 함수의 기본적인 타입 정의
+// 예제2
 function sum(a: number, b: number) {
     return a + b;
 }
+```
 
-// 함수의 반환 값에 타입을 정의하는 방식
+- **함수의 반환 값에 타입을 정의하는 방식(Return Type Annotations)**<br>
+
+
+```javascript
+// 예제1
 function Add(): number {
     return 10;
 }
 
+// 예제2
 // 함수의 타입을 정의하는 방식
 function Total(a: number, b: number): number {
     return a + b;
 }
 
+// 예제3
 // 함수의 옵셔널 파라미너
 function log(a: string, b?: string, c?: string) {
     // 특정 파라미터의 선택적 사용을 위해서 ? 선언
@@ -233,8 +241,28 @@ var user: string = 'Bee';
 function identity(user: string): string {
     return user;
 }
+```
 
-// 2-2. 화살표 함수의 타입 정의
+- **익명 함수(Anonymous Functions)의 타입 정의**<br>
+
+```javascript
+// No type annotations here, but TypeScript can spot the bug
+const names = ["Alice", "Bob", "Eve"];
+ 
+// Contextual typing for function
+names.forEach(function (s) {
+  console.log(s.toUppercase());
+});
+ 
+// Contextual typing also applies to arrow functions
+names.forEach((s) => {
+  console.log(s.toUppercase());
+});
+```
+
+- **화살표 함수의 타입 정의**<br>
+
+```javascript
 const sum: (a: number, b: number) => number = (a, b) => a + b;
 ```
 
