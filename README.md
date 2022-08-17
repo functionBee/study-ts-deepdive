@@ -233,7 +233,7 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-### ✔️ 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
+#### ✔️ 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
 
 
 > [(참고) 공식문서, type-assertions](https://devdocs.io/typescript/2/everyday-types#type-assertions)<br>
@@ -381,8 +381,6 @@ console.log(typeof dataUndefined); //undefined
 TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
 
 > (참고) [Basic Types, jBee](https://jbee.io/typescript/TS-1-Basic-Types/)
-
-<br>
 
 #### 😶 `null` 과 `undefined` 차이점
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
