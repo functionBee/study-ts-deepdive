@@ -85,6 +85,14 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 
 > [(참고) Type Annotations in TypeScript](https://www.tektutorialshub.com/typescript/type-annotation-in-typescript/)
 
+
+<br>
+
+
+> **📌 타입을 부여하는 방법 ?**<br>
+> TypeScript에서 변수의 값을 할당하고 타입을 부여하는 방법에는 타입 단언(Type Assertions)과 타입 선언(Type Declaration)이 있습니다.
+> [파랑, 이펙티브 타입스크립트 스터디 1회차 요약본]()
+
 <br>
 
 ## ✅ 타입 단언(Type Assertions)
