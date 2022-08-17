@@ -112,6 +112,12 @@ let strLength: number = (someValue as string).length;
 
 <br>
 
+### 😈 이펙티브 타입스크립트 > Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
+> [(참고)basarat, assertion consideredharmful](https://basarat.gitbook.io/typescript/type-system/type-assertion#assertion-considered-harmful)
+> [(참고)basarat, double assertion](https://basarat.gitbook.io/typescript/type-system/type-assertion#double-assertion)
+
+<br>
+
 > **🚩 What is the difference between 타입 캐스팅(Type Casting) and 타입 단언(Type Assertions)?**<br>
 > 올바른 용어는 타입 단언(Type Assertions)입니다.<br>
 > 대게 캐스팅(Casting)이란 말은 실행 시간(runtime)에 어떤 동작이 일어날 것임을 내포하기 때문입니다.<br>
