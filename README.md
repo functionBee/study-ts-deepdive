@@ -88,13 +88,6 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 
 <br>
 
-
-> **📌 타입을 부여하는 방법 ?**<br>
-> TypeScript에서 변수의 값을 할당하고 타입을 부여하는 방법에는 타입 단언(Type Assertions)과 타입 선언(Type Declaration)이 있습니다.
-> [파랑, 이펙티브 타입스크립트 스터디 1회차 요약본]()
-
-<br>
-
 ## ✅ 타입 단언(Type Assertions)
 
 개발자가 해당 타입에 대해 TypeScript보다 더 잘 알고 있을 때 사용하는 타입 지정 방식으로,<br>
@@ -103,16 +96,19 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 타입 스크립트는 개발자가 필요한 어떤 특정 검사를 수행했다고 인지합니다.
 
 ```javascript
+// 형태1) "angle-bracket" 문법
 let someValue: any = "this is a string";
 let strLength: number = (<string>someValue).length;
+```
 
-/* 또는 as 문법 */
+<br>
+
+```javascript
+//  형태2) as 문법 
+//  TypeScript를 JSX와 함께 사용할 때는, as-스타일의 단언만 허용됩니다.
 let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
-
-> 두 방법 모두 결과는 동일합니다. <br>
-> 하지만 JSX와 함께 사용하는 경우에는 as 문법만 허용됩니다.
 
 <br>
 
@@ -175,7 +171,8 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 > **📌 선언(declaration)과 정의(definition) :**<br>
 > ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.<br>
-> 이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.
+> 이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.<br>
+> (참고) 모던 자바스크립트 Deep Dive: 자바스크립트의 기본 개념과 동작원리
 
 
 <br>
