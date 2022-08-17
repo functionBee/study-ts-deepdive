@@ -72,7 +72,7 @@ $ tsc --version
 
 <br>
 
-## ✅ Type Annotation
+## ✅ 타입 표기(Type Annotation)
 
 TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반환 값의 데이터 Type을 지정합니다.<br>
 특정 Type의 식별자에 Type Annotation을 사용하면 해당 Type으로만 사용할 수 있습니다.<br>
@@ -83,11 +83,32 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태
 ```
 
-> [(참고) Type Annotations in TypeScript ](https://www.tektutorialshub.com/typescript/type-annotation-in-typescript/)
+> [(참고) Type Annotations in TypeScript](https://www.tektutorialshub.com/typescript/type-annotation-in-typescript/)
 
 <br>
 
-## ✅ 변수 선언 및 함수의 정의
+## ✅ 타입 단언(Type Assertions)
+
+개발자가 해당 타입에 대해 TypeScript보다 더 잘 알고 있을 때 사용하는 타입 지정 방식으로,<br>
+타입 단언은 다른 언어의 타입 변환(형 변환)과 유사하지만, 다른 특별한 검사를 하거나 데이터를 재구성하지는 않습니다.<br>
+타입 단언은 런타임에 영향을 미치지 않으며, 온전히 트렌스파일러에서만 사용됩니다.<br>
+타입 스크립트는 개발자가 필요한 어떤 특정 검사를 수행했다고 인지합니다.
+
+```javascript
+let someValue: any = "this is a string";
+let strLength: number = (<string>someValue).length;
+
+/* 또는 as 문법 */
+let someValue: any = "this is a string";
+let strLength: number = (someValue as string).length;
+```
+
+> 두 방법 모두 결과는 동일합니다. <br>
+> 하지만 JSX와 함께 사용하는 경우에는 as 문법만 허용됩니다.
+
+<br>
+
+## ✅ 타입 선언(Type Declaration)
 
 ### ✔️ 변수 선언
 
@@ -142,6 +163,14 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 ```
 
 <br>
+
+
+> **📌 선언(declaration)과 정의(definition) :**<br>
+> ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.<br>
+> 이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.
+
+<br>
+
 
 ```
 📌 선언(declaration)과 정의(definition) :
@@ -895,27 +924,6 @@ document.body.textContent = greeter(user);
 <br>
 
 ## 타입 캐스팅()
-
-<br>
-
-## ✅ 타입 단언 (Type assertions)
-
-개발자가 해당 타입에 대해 TypeScript보다 더 잘 알고 있을 때 사용하는 타입 지정 방식<br>
-타입 단언은 다른 언어의 타입 변환(형 변환)과 유사하지만, 다른 특별한 검사를 하거나 데이터를 재구성하지는 않습니다.<br>
-이는 런타임에 영향을 미치지 않으며, 온전히 컴파일러만 이를 사용합니다.<br>
-타입 스크립트는 개발자가 필요한 어떤 특정 검사를 수행했다고 인지합니다.
-
-```javscript
-let someValue: any = "this is a string";
-let strLength: number = (<string>someValue).length;
-
-// 또는 as 문법
-let someValue: any = "this is a string";
-let strLength: number = (someValue as string).length;
-```
-
-> 두 방법 모두 결과는 동일합니다. <br>
-> 하지만 JSX와 함께 사용하는 경우에는 as 문법만 허용됩니다.
 
 <br>
 
