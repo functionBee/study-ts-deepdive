@@ -112,8 +112,9 @@ let strLength: number = (someValue as string).length;
 
 <br>
 
-### 😈 이펙티브 타입스크립트 > Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
-> [(참고)basarat, assertion consideredharmful](https://basarat.gitbook.io/typescript/type-system/type-assertion#assertion-considered-harmful)
+**😈 Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)**<br>
+> [(참고) 공식문서, type-assertions](https://devdocs.io/typescript/2/everyday-types#type-assertions)<br>
+> [(참고)basarat, assertion consideredharmful](https://basarat.gitbook.io/typescript/type-system/type-assertion#assertion-considered-harmful)<br>
 > [(참고)basarat, double assertion](https://basarat.gitbook.io/typescript/type-system/type-assertion#double-assertion)
 
 <br>
