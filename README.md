@@ -173,14 +173,6 @@ console.log(parseInt(decimal)) // (number type) 100
 ## ✅ 타입 선언(Type Declaration)
 
 
-> **📌 선언(declaration)과 정의(definition) :**<br>
-> ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.<br>
-> 이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.<br>
-> (참고) 모던 자바스크립트 Deep Dive: 자바스크립트의 기본 개념과 동작원리
-
-
-<br>
-
 ### ✔️ 변수 선언
 
 ```javascript
@@ -288,6 +280,15 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 #### 😶 타입 표기(Type Annotation)와 타입단언(Type Assertion)의 차이점
 
 > [(참고) Type Annotation vs Assertion in Typescript — one important difference](https://medium.com/@bsalwiczek/type-annotation-vs-assertion-in-typescript-one-important-difference-4f4df715b5fe)
+
+<br>
+
+
+> **📌 선언(declaration)과 정의(definition) :**<br>
+> ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.<br>
+> 이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.<br>
+> (참고) 모던 자바스크립트 Deep Dive: 자바스크립트의 기본 개념과 동작원리
+
 
 <br>
 
