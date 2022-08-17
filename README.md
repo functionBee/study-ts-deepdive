@@ -190,9 +190,23 @@ const obj: {
 
 ### ✔️ 함수 정의
 
+TypeScript를 사용하면 함수(Functions)의 입력값과 출력값의 유형을 모두 지정할 수 있습니다.
+
 ```javascript
-// 2. 함수의 타입 정의
-// 함수의 파라미터에 타입을 정의하는 방식
+// 2-0. 파라미터에 타입을 표기하는 방식(Parameter type annotation)
+// 함수를 선언할 때 각 매개변수 뒤에 타입 표기(Type Annotation)을 추가하여 
+// 함수가 허용하는 매개변수 타입을 선언할 수 있습니다. 
+// 매개 변수 타입 표기(Type Annotation)은 매개 변수 이름 뒤에옵니다
+function greet(name: string) {
+  console.log("Hello, " + name.toUpperCase() + "!!");
+}
+// 매개 변수에 타입 표기(Type Annotation)이 있으면 해당 함수에 대한 인수가 검사됩니다
+// Would be a runtime error if executed!
+greet(42);
+// 매개 변수에 입 표기(Type Annotation)이 없는 경우에도 TypeScript는 올바른 수의 인수가 전달했는지 확인합니다.
+```
+
+```javascript
 // 2-1. 함수의 기본적인 타입 정의
 function sum(a: number, b: number) {
     return a + b;
