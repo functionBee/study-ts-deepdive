@@ -112,6 +112,15 @@ let strLength: number = (someValue as string).length;
 
 <br>
 
+> **🚩 What is the difference between 타입 캐스팅(Type Casting) and 타입 단언(Type Assertion)?**<br>
+> 올바른 용어는 타입 단언(Type Assertions)입니다.<br>
+> The reason why it's not called "type casting" is that casting generally implies some sort of runtime support.<br>
+> However, type assertions are purely a compile time construct and a way for you to provide hints to the compiler on how you want your code to be analyzed.
+> [(참고) basarat, Typescript DeepDive](https://basarat.gitbook.io/typescript/type-system/type-assertion)
+> [(참고) reddit, What is the difference between type casting and type assertion?](https://www.reddit.com/r/typescript/comments/l0fvd0/what_is_the_difference_between_type_casting_and/)<br>
+
+<br>
+
 ## ✅ 타입 선언(Type Declaration)
 
 ### ✔️ 변수 선언
