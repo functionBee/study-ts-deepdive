@@ -105,6 +105,17 @@ let num:number = 100;
 
 ```
 
+```javascript
+
+let num = 10;
+let user: string = "bee";
+
+console.log(num === user)
+// errors :
+// This condition will always return 'false' since the types 'number' and 'string' have no overlap.
+
+```
+
 > [(참고) Type Annotations in TypeScript](https://www.tektutorialshub.com/typescript/type-annotation-in-typescript/)
 
 

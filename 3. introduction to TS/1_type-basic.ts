@@ -311,3 +311,16 @@ function identity(user: string): string {
 
 // 2-1. 화살표 함수의 타입 선언
 const sum: (a: number, b: number) => number = (a, b) => a + b;
+
+let num:number = 100;
+// 위의 예제에서 
+// 변수 num이 Number Type임을 명시하였지만
+// num이 Number Type임을 선언하지 않앟아도
+// 타입스크립트는 Number Type으로 인지한다.
+
+let size = 10;
+let userAccount: string = "bee";
+
+console.log(size === userAccount)
+// errors :
+// This condition will always return 'false' since the types 'number' and 'string' have no overlap.
