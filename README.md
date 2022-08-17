@@ -1,4 +1,4 @@
-# 타입스크립트(TypeScript) 👀
+# 타입스크립트(TypeScript) 👀✨
 
 자바스크립트의 상위 집합(A superset of JavaScript)<br>
 마이크로소프트가 쓰고 관리하는 오픈 소스 언어<br>
@@ -169,14 +169,6 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 > ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.<br>
 > 이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.
 
-<br>
-
-
-```
-📌 선언(declaration)과 정의(definition) :
-ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.
-이에 ECMAScript사양에서 사용하는 용어를 최대한 반영하여 변수는 선언, 함수는 정의한다고 표현하고자 합니다.
-```
 
 <br>
 
