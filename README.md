@@ -145,13 +145,15 @@ let strLength: number = (someValue as string).length;
 
 <br>
 
-> **🚩 What is the difference between Type Casting and Type Assertions?**<br>
-> 올바른 용어는 타입 단언(Type Assertions)입니다.<br>
-> 대게 캐스팅(Casting)이란 말은 실행 시간(runtime)에 어떤 동작이 일어날 것임을 내포하기 때문입니다.<br>
-> 하지만 타입 단언(type assertions)은 순수하게 컴파일 시간 구성물이고 코드가 어떤 식으로 분석되길 원하는지 컴파일러에게 힌트를 제공하는 수단입니다.(However, type assertions are purely a compile time construct and a way for you to provide hints to the compiler on how you want your code to be analyzed.)<br>
+#### 🚩 What is the difference between Type Casting and Type Assertions?
+올바른 용어는 타입 단언(Type Assertions)입니다.<br>
+대게 캐스팅(Casting)이란 말은 실행 시간(runtime)에 어떤 동작이 일어날 것임을 내포하기 때문입니다.<br>
+하지만 타입 단언(type assertions)은 순수하게 컴파일 시간 구성물이고 코드가 어떤 식으로 분석되길 원하는지 컴파일러에게 힌트를 제공하는 수단입니다.(However, type assertions are purely a compile time construct and a way for you to provide hints to the compiler on how you want your code to be analyzed.)<br>
 > [(참고) basarat, Typescript DeepDive](https://basarat.gitbook.io/typescript/type-system/type-assertion)<br>
 > [(참고) reddit, What is the difference between type casting and type assertion?](https://www.reddit.com/r/typescript/comments/l0fvd0/what_is_the_difference_between_type_casting_and/)
 
+
+<br>
 
 ### 😶 JavaScript : 타입 캐스팅(Type Casting) 
 
@@ -233,7 +235,7 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-#### ✔️ 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
+#### 😶 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
 
 
 > [(참고) 공식문서, type-assertions](https://devdocs.io/typescript/2/everyday-types#type-assertions)<br>
@@ -242,7 +244,7 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-## ✅ 타입 표기(Type Annotation)와 타입단언(Type Assertion)의 차이점
+#### 😶 타입 표기(Type Annotation)와 타입단언(Type Assertion)의 차이점
 
 > [(참고) Type Annotation vs Assertion in Typescript — one important difference](https://medium.com/@bsalwiczek/type-annotation-vs-assertion-in-typescript-one-important-difference-4f4df715b5fe)
 
@@ -492,7 +494,7 @@ printCoord({ x: 3, y: 7 });
 
 <br>
 
-**🚩Optional Properties**
+#### 😶 Optional Properties
 
 ```javascript
 function printName(obj: { first: string, last?: string }) {
@@ -635,9 +637,9 @@ console.log(Weekdays["1"])           //Tuesday
 
 ### ✔️ void
 
-    값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
-    보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
-    명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
+값을 반환하지 않는 함수의 return type을 지정할 때 사용합니다<br>
+보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 쓰이는 것을 볼 수 있습니다<br>
+명시적으로 반환 값을 설정하지 않는 함수는 undefined를 반환하기에 TypeScript에서는 void를 명시합니다.
 
 ```javascript
 function warnUser(): void {
