@@ -587,10 +587,60 @@ if (isFunction(variable)) {
 
 ### ✔️ enum
 
-    명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
+명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
+
+<br>
+
+## 이넘(Enums)
+
+: 특정 값들의 집합을 의미하는 자료형
+
+> 타입스크립트에서는 문자형 이넘과 숫자형 이넘을 지원
+
+1. 숫자형 이넘
 
 ```javascript
+enum Shoes{
+    Nike,
+    Addidas,
+}
 
+var myShoes =  Shoes.Addidas;
+console.log(myShoes); //1
+```
+
+2. 문자형 이넘
+
+```javascript
+enum Shoes {
+    Nike = '나이키',
+    Addidas = '아디다스',
+}
+
+var myShoes =  Shoes.Addidas;
+console.log(myShoes); //아디다스
+```
+
+3. 이넘의 활용 사례
+
+```javascript
+// 예제1
+function askQuestion(answer: string){
+    if( answer === Answer.Yes){
+        console.log('정답입니다.');
+    }else{
+        console.log('오답입니다.');
+
+    }
+}
+// console.log(askQuestion('yes'));
+// console.log(askQuestion('y'));
+
+console.log(Answer.Yes); // Y
+```
+
+```javascript
+// 예제2
 enum Weekdays {
   Monday = 1,
   Tuesday = 2,
@@ -616,7 +666,7 @@ console.log(typeof holiday)          //number
 값을 생략하면 typescript는 0부터 시작하는 값으로 초기화
 
 ```javascript
-
+// 예제2-1
 enum Weekdays {
   Monday,          //Initialized with zero
   Tuesday,
@@ -977,55 +1027,7 @@ function getTodo(todo: Todo) {}
 
 기존 타입을 가져와 선택적 프로퍼티로 만드는 것
 
-
 <br>
-
-## 이넘(Enums)
-
-: 특정 값들의 집합을 의미하는 자료형
-
-> 타입스크립트에서는 문자형 이넘과 숫자형 이넘을 지원
-
-1. 숫자형 이넘
-
-```
-enum Shoes{
-    Nike,
-    Addidas,
-}
-
-var myShoes =  Shoes.Addidas;
-console.log(myShoes); //1
-```
-
-2. 문자형 이넘
-
-```
-enum Shoes {
-    Nike = '나이키',
-    Addidas = '아디다스',
-}
-
-var myShoes =  Shoes.Addidas;
-console.log(myShoes); //아디다스
-```
-
-3. 이넘의 활용 사례
-
-```
-function askQuestion(answer: string){
-    if( answer === Answer.Yes){
-        console.log('정답입니다.');
-    }else{
-        console.log('오답입니다.');
-
-    }
-}
-// console.log(askQuestion('yes'));
-// console.log(askQuestion('y'));
-
-console.log(Answer.Yes); // Y
-```
 
 ## ✅ 클래스
 
