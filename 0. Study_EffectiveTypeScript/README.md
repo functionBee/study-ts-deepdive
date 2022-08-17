@@ -8,7 +8,7 @@
 
 <br>
 
-## Chapter 01: 타입스크립트 알아보기(Getting to Know TypeScript)
+## [Chapter 01: 타입스크립트 알아보기(Getting to Know TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript/Chapter01.%20Intro)
 
 -   📝 Item 1: TS와 JS의 관계 이해하기(Understand the Relationship Between TypeScript and JavaScript)
 -   📝 Item 2: TS 설정 이해하기(Know Which TypeScript Options You’re Using)
@@ -18,7 +18,7 @@
 
 <br>
 
-## Chapter 02: 타입스크립트의 타입시스템(TypeScript’s Type System)
+## [Chapter 02: 타입스크립트의 타입시스템(TypeScript’s Type System)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript/Chapter02.%20Type%20System)
 
 -   📝 Item 6: 편집기를 사용하여 타입 시스템 탐색하기
 -   📝 Item 7: 타입이 값들의 집합이라고 생각하기(Think of Types as Sets of Values)
@@ -36,7 +36,7 @@
 
 <br>
 
-## Chapter 03: 타입 추론(Type Inference)
+## [Chapter 03: 타입 추론(Type Inference)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript/Chapter03.%20Type%20Inference)
 
 -   📝 Item 19: 추론 가능한 타입을 사용해 장황한 코드 방지하기(Avoid Cluttering Your Code with Inferable Types)
 -   📝 Item 20: 다른 타입에는 다른 변수 사용하기(Use Different Variables for Different Types)
