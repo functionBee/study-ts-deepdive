@@ -34,6 +34,22 @@ type Twelve = 12;
 
 ## 📝 Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
 
+타입 선언은 할당된느 값이 인터페이스를 만족하는지 검사합니다.<br>
+그러나 타입다언은 검사하지 않습니다.
+<br>
+DOM을 제어하는 경우, 개발자는 타입스크립트가 알지 못하는 정보가 있으므로 타입 단언문을 사용해도 좋습니다.<br>
+unknown은 전체 집합으로 모든 타입은 unknown의 서브타입이라 해당 단언문은 항상 동작합니다.
+
+<br>
+
+### 요약
+
+- 화살표 함수의 반환 타입을 명시하는 요령을 익혀주세요.
+- 타입스크립트보다 타입에 대한 정보가 많은 경우 타입 단언과 non-null 단언문을 사용해도 됩니다.
+
+<br>
+
+
 ## 📝 Item 10: 객체 래퍼 타입 피하기(Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt))
 
 ```javascript
