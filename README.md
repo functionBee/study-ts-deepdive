@@ -122,7 +122,7 @@ let strLength: number = (someValue as string).length;
 
 ### 😶 JavaScript : 타입 캐스팅(Type Casting) 
 
-개발자간 의도적으로 값의 타입을 변환하는 것으로 명시적 타입 변환(Explicit coercion)이라고도 한다.
+개발자간 의도적으로 값의 타입을 변환하는 것을 명시적 타입 변환(Explicit coercion)이라고도 합니다.
 
 ```javascript
 
