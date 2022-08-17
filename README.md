@@ -665,7 +665,7 @@ function infiniteLoop(): never {
 }
 ```
 
-[toast, never타입 완벽가이드](https://ui.toast.com/posts/ko_20220323)
+> [(참고) toast, never타입 완벽가이드](https://ui.toast.com/posts/ko_20220323)
 
 <br>
 
