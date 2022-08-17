@@ -587,13 +587,9 @@ if (isFunction(variable)) {
 
 ### ✔️ enum
 
+> **특정 값들의 집합을 의미하는 자료형**
+
 명명된 숫자 상수(named numeric constant)의 집합으로 열거형(enumerated type)이라고 부른다.
-
-<br>
-
-## 이넘(Enums)
-
-: 특정 값들의 집합을 의미하는 자료형
 
 > 타입스크립트에서는 문자형 이넘과 숫자형 이넘을 지원
 
