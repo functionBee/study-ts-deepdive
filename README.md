@@ -492,8 +492,6 @@ function printCoord(pt: { x: number, y: number }) {
 printCoord({ x: 3, y: 7 });
 ```
 
-<br>
-
 #### 😶 Optional Properties
 
 ```javascript
