@@ -268,21 +268,17 @@ const sum: (a: number, b: number) => number = (a, b) => a + b;
 
 <br>
 
-#### 😶 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
-
-
+> **😶 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)**<br>
 > [(참고) 공식문서, type-assertions](https://devdocs.io/typescript/2/everyday-types#type-assertions)<br>
 > [(참고)basarat, assertion consideredharmful](https://basarat.gitbook.io/typescript/type-system/type-assertion#assertion-considered-harmful)<br>
 > [(참고)basarat, double assertion](https://basarat.gitbook.io/typescript/type-system/type-assertion#double-assertion)
 
 <br>
 
-#### 😶 타입 표기(Type Annotation)와 타입단언(Type Assertion)의 차이점
-
+>  **😶 타입 표기(Type Annotation)와 타입단언(Type Assertion)의 차이점**<br>
 > [(참고) Type Annotation vs Assertion in Typescript — one important difference](https://medium.com/@bsalwiczek/type-annotation-vs-assertion-in-typescript-one-important-difference-4f4df715b5fe)
 
 <br>
-
 
 > **📌 선언(declaration)과 정의(definition) :**<br>
 > ECMAScript사양에서 변수는 '선언한다'라고 표현하고, 함수는 '정의한다'라고 표현하였습니다.<br>
