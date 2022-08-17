@@ -112,12 +112,27 @@ let strLength: number = (someValue as string).length;
 
 <br>
 
-> **🚩 What is the difference between 타입 캐스팅(Type Casting) and 타입 단언(Type Assertion)?**<br>
+> **🚩 What is the difference between 타입 캐스팅(Type Casting) and 타입 단언(Type Assertions)?**<br>
 > 올바른 용어는 타입 단언(Type Assertions)입니다.<br>
 > The reason why it's not called "type casting" is that casting generally implies some sort of runtime support.<br>
 > However, type assertions are purely a compile time construct and a way for you to provide hints to the compiler on how you want your code to be analyzed.<br>
 > [(참고) basarat, Typescript DeepDive](https://basarat.gitbook.io/typescript/type-system/type-assertion)<br>
 > [(참고) reddit, What is the difference between type casting and type assertion?](https://www.reddit.com/r/typescript/comments/l0fvd0/what_is_the_difference_between_type_casting_and/)
+
+<br>
+
+### 😶 JavaScript : 타입 캐스팅(Type Casting) 
+
+개발자간 의도적으로 값의 타입을 변환하는 것으로 명시적 타입 변환(Explicit coercion)이라고도 한다.
+
+```javascript
+
+var decimal = '100';
+
+// 명시적 타입 변환
+// 문자를 숫자로 타입 캐스팅 할 경우
+console.log(parseInt(decimal)) // (number type) 100
+```
 
 <br>
 
