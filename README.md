@@ -384,7 +384,7 @@ TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
 
 <br>
 
-## 😶 `null` 과 `undefined` 차이점
+#### 😶 `null` 과 `undefined` 차이점
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
 
 ```javascript
