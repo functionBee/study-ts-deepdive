@@ -332,7 +332,7 @@ console.log(octal === hex); // true
 
 ### ✔️ string
 
-문자열(string) 타입은 자바스크립트와 마찬가지로 작은 타옴표(''), 큰 따옴표(""), 백틱(``)으로 텍스트를 감싼다.
+문자열(string) 타입은 자바스크립트와 마찬가지로 작은 타옴표(`'`), 큰 따옴표(`"`), 백틱(`` `)으로 텍스트를 감싼다.
 TypeScript에서도 문자열은 원시(primitive) 타입이며, 변경 불가능한 값(immutable value)이다.
 
 ```javascript
@@ -384,7 +384,7 @@ TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
 
 <br>
 
-**🚩 null 과 undefined 차이점**<br>
+## 😶 `null` 과 `undefined` 차이점
 null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
 
 ```javascript
@@ -977,6 +977,12 @@ function getTodo(todo: Todo) {}
 
 <br>
 
+## ✅  매핑 타입 (Mapped types)
+
+기존 타입을 가져와 선택적 프로퍼티로 만드는 것
+
+
+<br>
 
 ## 이넘(Enums)
 
