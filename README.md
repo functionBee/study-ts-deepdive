@@ -93,6 +93,18 @@ TypeScript는 Type Annotation을 사용하여 변수, 함수 또는 함수 반�
 타입스크립트 코드에서 어떤 변수 또는 값의 타입을 표기 시 식별자 또는 값 뒤에 콜론(:)을 붙여 value: type 의 형태
 ```
 
+<br>
+
+```javascript
+
+let num:number = 100;
+// 위의 예제에서 
+// 변수 num이 Number Type임을 명시하였지만
+// num이 Number Type임을 선언하지 않앟아도
+// 타입스크립트는 Number Type으로 인지한다.
+
+```
+
 > [(참고) Type Annotations in TypeScript](https://www.tektutorialshub.com/typescript/type-annotation-in-typescript/)
 
 
@@ -120,16 +132,16 @@ let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
 
-<br>
+### 😈 Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)
 
-**😈 Item 9: 타입 단언보다는 타입 선언을 사용하기(Prefer Type Declarations to Type Assertions)**<br>
+
 > [(참고) 공식문서, type-assertions](https://devdocs.io/typescript/2/everyday-types#type-assertions)<br>
 > [(참고)basarat, assertion consideredharmful](https://basarat.gitbook.io/typescript/type-system/type-assertion#assertion-considered-harmful)<br>
 > [(참고)basarat, double assertion](https://basarat.gitbook.io/typescript/type-system/type-assertion#double-assertion)
 
 <br>
 
-> **🚩 What is the difference between 타입 캐스팅(Type Casting) and 타입 단언(Type Assertions)?**<br>
+> **🚩 What is the difference between Type Casting and Type Assertions?**<br>
 > 올바른 용어는 타입 단언(Type Assertions)입니다.<br>
 > 대게 캐스팅(Casting)이란 말은 실행 시간(runtime)에 어떤 동작이 일어날 것임을 내포하기 때문입니다.<br>
 > 하지만 타입 단언(type assertions)은 순수하게 컴파일 시간 구성물이고 코드가 어떤 식으로 분석되길 원하는지 컴파일러에게 힌트를 제공하는 수단입니다.(However, type assertions are purely a compile time construct and a way for you to provide hints to the compiler on how you want your code to be analyzed.)<br>
