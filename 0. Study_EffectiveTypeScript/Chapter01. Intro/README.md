@@ -29,6 +29,20 @@ TypeScript 파일(.ts)은 브라우저에서 동작하지 않으므로 트랜스
 
 ## 📝 Item 3: 코드 생성과 타입이 관계 없음을 이해하기(Understand That Code Generation Is Independent of Types)
 
+<br>
+
+### 요약
+
+- 타입 오류가 존재해도 코드 생성(컴파일)은 가능합니다.
+- 타입스크립트 타입은 런타인에 사용할 수 없습니다.
+- 런타임에 타입을 지정하려면 타입 정보 유지를 위한 별도의 방법을 설정해 주어야합니다.
+  - 태그된 유니온
+  - 속성체크
+  - 클래스와 같이 타입스크립트 타입과 런타임 값 둘 다 제공하기
+
+<br>
+
+
 ## 📝 Item 4: 구조적 타이핑에 익숙해지기(Get Comfortable with Structural Typing)
 
 ## 📝 Item 5: any 타입 지양하기(Limit Use of the any Type)
