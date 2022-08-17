@@ -115,10 +115,10 @@ let strLength: number = (someValue as string).length;
 > **🚩 What is the difference between 타입 캐스팅(Type Casting) and 타입 단언(Type Assertions)?**<br>
 > 올바른 용어는 타입 단언(Type Assertions)입니다.<br>
 > 대게 캐스팅(Casting)이란 말은 실행 시간(runtime)에 어떤 동작이 일어날 것임을 내포하기 때문입니다.<br>
-> 하지만 타입 단언(type assertions)은 순수하게 컴파일 시간 구성물이고 당신의 코드가 어떤 식으로 분석되길 원하는지 컴파일러에게 힌트를 제공하는 수단입니다<br>
-> However, type assertions are purely a compile time construct and a way for you to provide hints to the compiler on how you want your code to be analyzed.<br>
+> 하지만 타입 단언(type assertions)은 순수하게 컴파일 시간 구성물이고 코드가 어떤 식으로 분석되길 원하는지 컴파일러에게 힌트를 제공하는 수단입니다.(However, type assertions are purely a compile time construct and a way for you to provide hints to the compiler on how you want your code to be analyzed.)<br>
 > [(참고) basarat, Typescript DeepDive](https://basarat.gitbook.io/typescript/type-system/type-assertion)<br>
 > [(참고) reddit, What is the difference between type casting and type assertion?](https://www.reddit.com/r/typescript/comments/l0fvd0/what_is_the_difference_between_type_casting_and/)
+
 
 ### 😶 JavaScript : 타입 캐스팅(Type Casting) 
 
