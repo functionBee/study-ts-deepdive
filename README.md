@@ -3,6 +3,7 @@
 자바스크립트의 상위 집합(A superset of JavaScript)<br>
 마이크로소프트가 쓰고 관리하는 오픈 소스 언어<br>
 TypeScript는 트렌스 파일러(tsc) JavaScript로 변환되며 JavaScript가 실행하는 모든 환경에서 실행 가능<br>
+[덕 타이핑(duck typing)](https://vallista.kr/%EB%8D%95-%ED%83%80%EC%9D%B4%ED%95%91%EA%B3%BC-%EA%B5%AC%EC%A1%B0%EC%A0%81-%ED%83%80%EC%9D%B4%ED%95%91/)
 
 <br>
 
@@ -195,7 +196,7 @@ TypeScript를 사용하면 함수(Functions)의 입력값과 출력값의 타입
 - **파라미터에 타입을 표기하는 방식(Parameter type annotation)** : <br>
     함수를 선언할 때 각 매개변수 뒤에 타입 표기(Type Annotation)을 추가하여<br>
     함수가 허용하는 매개변수 타입을 선언할 수 있습니다.<br>
-    매개 변수 타입 표기(Type Annotation)은 매개 변수 이름 뒤에옵니다<br>
+    매개 변수 타입 표기(Type Annotation)은 매개 변수 이름 뒤에 옵니다<br>
 
 ```javascript
 // 예제1
@@ -349,9 +350,9 @@ function isGreeting(phrase: String) {
 }
 ```
 
-string 은 string에 할당 할 수 있지만 String은 string에 할당 할수 없습니다.<br>
-타입스크립트는 기본형 타입을 래퍼 객체에 할당하는 것을 허용합니다. <br>
-그러나 레퍼 객체에 할당하는 구문은 오해하기 쉽고, 굳이 그렇게 할 필요가 없습니다.
+`string` 은 `String`에 할당 할 수 있지만 `String`은 `string`에 할당 할수 없습니다.<br>
+이는 타입스크립트가 기본형 타입을 래퍼 객체에 할당하는 것을 허용하기 때문입니다. <br>
+그러나 레퍼 객체에 할당하는 구문은 오해하기 .
 
 > **Effective Typescript**<br>
 > Item 10 : Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt)
@@ -429,14 +430,15 @@ console.log(typeof dataUndefined); //undefined
 ```
 
 기본적으로 `null`과 `undefined`는 모든 타입들의 서브타입이라고 할 수 있습니다.<br>
-즉 다른 타입으로 지정된 변수에도 `null`과 `undefined`를 할당할 수 있습니다.<br>
-`--strictNullChecks` flag를 사용하게 되면 `null`과 `undefined`는 `void 타입`의 변수에만 할당할 수 있습니다.<br>
+즉 다른 타입으로 지정된 변수에도 `null`과 `undefined`를 할당할 수 있음을 의미합니다.<br>
+에러 방지를 위해 `--strictNullChecks` 를 사용할 경우 `null`과 `undefined`는 any와 각자 자신들 타입에만 할당 가능합니다. (예외적으로 undefined는 void에 할당 가능합니다)<br>
+또 `string` 또는 `null` 또는 `undefined`의 형태로 타입을 지정하고 싶은 경우 유니언 타입인 `string | null | undefined` 형태로 타입을 전달 수 있습니다.
 TypeScript에서는 해당 flag사용을 권장하고 있습니다.<br>
 
 > (참고) [Basic Types, jBee](https://jbee.io/typescript/TS-1-Basic-Types/)
 
 #### 😶 `null` 과 `undefined` 차이점
-null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있다.
+null 과 undefined 모두 값이 없음(no value)을 의미, always falsy를 나타낸다 점에서 동일하나 미묘한 차이가 있습니다.
 
 ```javascript
 // 타입 스크립트에서 null과 undefined 모두 falsy value
