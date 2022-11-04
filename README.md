@@ -1078,7 +1078,7 @@ function getTodo(todo: Todo) {}
 
 ## ✅ 클래스
 
-```
+```javascript
 class Person{
     private name : string;
     public age : number;
@@ -1097,7 +1097,7 @@ class Person{
 
 -   한가지 타입보다 여러 가지 타입에서 동작하는 컴포넌트를 생성하는 데 사용
 
-```
+```javascript
 function logText<T>(text: T): T{
     console.log(text);
     return text;
@@ -1108,7 +1108,7 @@ logText<string>('hi');
 
 1. 기존 타입 정의 방식과 제네릭의 차이점 - 함수 중복 선언의 단점
 
-```
+```javascript
 // 기존 함수의 경우 여러 타입을 받을 수 있음
 // function logText(text){
 //     console.log(text);
@@ -1141,7 +1141,7 @@ console.log(logNumber(10));
 
 2. 기본 타입 정의 방식과 제네릭의 차이점 - 유니온 타입을 이용한 선언 방식의 문제점
 
-```
+```javascript
 function logText(text: string | number){
     console.log(text);
     // text.
@@ -1157,7 +1157,7 @@ a.split('');
 
 3. 제네릭의 장점과 타입추론에서의 이점
 
-```
+```javascript
 function logText<T>(text: T):T { // 인자와 반환값이 동일하도록 제네릭을 이용
     console.log(text);
     return text;
@@ -1181,7 +1181,7 @@ const login = logText<boolean>(true);
 
 5. 인터페이스에 제네릭을 선언하는 방법
 
-```
+```javascript
 interface Dropdown{
     value: string;
     selected : boolean;
@@ -1201,7 +1201,7 @@ const object: Dropdown<string> = { value: 'sw', selected :  false };
 
 6. 제네릭의 타입 제한
 
-```
+```javascript
 // 정의된 타입이 아닌 경우
 function logTextLength<T>(text: T[]): T[] {
     text.forEach(function(text){
@@ -1247,7 +1247,7 @@ getShoppingOption('name')
 
 ## Promise를 이용한 API 함수 타입 정의
 
-```
+```javascript
 function fetchItems(): Promise<string[]>{
     var items:string[] = ['a', 'b', 'c'];
     return new Promise(function(resolve){
@@ -1257,6 +1257,13 @@ function fetchItems(): Promise<string[]>{
 
 fetchItems();
 ```
+
+<br>
+
+## ✅ 타입 호환성(Type Compatibility)
+
+
+<br>
 
 ## ✅ 타입 추론(Type Inference)
 
