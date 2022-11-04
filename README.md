@@ -9,7 +9,7 @@ TypeScript는 트렌스 파일러(tsc) JavaScript로 변환되며 JavaScript가 
 
 ## ✅ [이펙티브 타입스크립트(Effective TypeScript)](https://github.com/holabee/LearnTypeScript/tree/main/0.%20Study_EffectiveTypeScript)
 
-: 이펙티브 타입스크립트 도서를 포함허여 타입 스크립트 관련 내용 상세 정리
+: 이펙티브 타입스크립트 도서내용 상세 정리
 
 <br>
 
