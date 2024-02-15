@@ -11,6 +11,7 @@
   - [2.2.1 타입 애너테이션(Type Annotation) 방식](#221-타입-애너테이션type-annotation-방식)
   - [2.2.2 구조적 타이핑(Structural Typing)](#222-구조적-타이핑structural-typing)
   - [2.2.3 구조적 서브 타이핑(Structural Subtyping)](#223-구조적-서브-타이핑structural-subtyping)
+  - [**구조타이핑과 구조적 서브타이핑의 차이점**](#구조타이핑과-구조적-서브타이핑의-차이점)
   - [2.2.4 자바스크립트를 닮은 타입 스크립트](#224-자바스크립트를-닮은-타입-스크립트)
   - [2.2.5 구조적 타이핑의 결과](#225-구조적-타이핑의-결과)
   - [2.2.6 타입스크립트의 점진적 타입 확인](#226-타입스크립트의-점진적-타입-확인)
@@ -242,6 +243,64 @@ let killerWhale: KillerWhale = new KillerWhale();
 
 - 객체가 가지고 있는 프로퍼티를 바탕으로 타입을 결정하기 때문에, `Whale` 타입은 `KillerWhale` 타입을 포함하고 있기 때문에 `Whale` 타입에 `KillerWhale` 타입을 할당할 수 있다.
 - 하지만, `KillerWhale` 타입은 `Whale` 타입을 포함하고 있지 않기 때문에 `KillerWhale` 타입에 `Whale` 타입을 할당할 수 없다.
+
+### **구조타이핑과 구조적 서브타이핑의 차이점**
+
+**구조 타이핑(Structural Typing)**
+
+구조 타이핑은 객체의 타입이 그 객체가 실제로 가지고 있는 구조, 즉 속성과 메서드의 존재와 그 타입에 의해 결정되는 타이핑 방식을 말합니다. 이는 두 객체가 서로 다른 명명된 타입을 가지고 있더라도, 그 구조가 같다면 호환 가능하다는 것을 의미합니다. 구조 타이핑은 주로 동적 타이핑 언어나 일부 정적 타이핑 언어에서 볼 수 있으며, TypeScript와 같은 언어에서 흔히 볼 수 있는 특징입니다.
+
+예를 들어, TypeScript에서는 다음과 같은 코드가 가능합니다.
+
+```typescript
+interface Point {
+  x: number;
+  y: number;
+}
+
+function logPoint(p: Point) {
+  console.log(`${p.x}, ${p.y}`);
+}
+
+// 이 객체는 Point 인터페이스의 구조와 호환됩니다.
+const point = { x: 12, y: 26 };
+logPoint(point); // 에러 없이 작동합니다.
+```
+
+`point` 객체는 명시적으로 `Point` 인터페이스를 구현하고 있지 않지만, `Point`의 구조와 호환되기 때문에 `logPoint` 함수에 전달할 수 있습니다.
+
+**구조적 서브타이핑(Structural Subtyping)**
+
+구조적 서브타이핑은 한 타입이 다른 타입의 모든 속성과 메서드를 포함하는 관계를 말하며, 이를 통해 상위 타입(부모 타입)과 호환될 수 있다는 개념입니다. 즉, 하위 타입(subtype)은 상위 타입(supertype)의 모든 요구 사항을 만족하면서도 추가적인 속성이나 메서드를 가질 수 있습니다. 이는 Liskov 치환 원칙(LSP)과 관련이 깊으며, 이 원칙에 따르면 서브타입은 언제나 슈퍼타입으로 대체될 수 있어야 합니다.
+
+구조적 서브타이핑 예시:
+
+```typescript
+interface Shape {
+  draw(): void;
+}
+
+interface ColoredShape extends Shape {
+  color: string;
+}
+
+function drawShape(shape: Shape) {
+  shape.draw();
+}
+
+const coloredShape: ColoredShape = {
+  draw: () => console.log("Drawing a colored shape"),
+  color: "blue",
+};
+
+drawShape(coloredShape); // ColoredShape는 Shape의 서브타입입니다.
+```
+
+여기서 `ColoredShape` 인터페이스는 `Shape` 인터페이스의 모든 메서드를 포함하므로 `Shape`의 서브타입으로 간주됩니다. 따라서 `drawShape` 함수에 `ColoredShape` 객체를 전달할 수 있습니다.
+
+**차이점**
+
+구조 타이핑은 객체 간의 호환성을 구조 기반으로 판단하는 반면, 구조적 서브타이핑은 상속 관계에서 하위 타입이 상위 타입의 요구 사항을 만족하는지를 판단하는 개념입니다. 구조적 서브타이핑은 구조 타이핑 개념을 포함하며, 상속 계층 내에서 더 엄격한 규칙을 적용합니다.
 
 ### 2.2.4 자바스크립트를 닮은 타입 스크립트
 
