@@ -9,7 +9,7 @@
     - [3.1.5 `Array` 타입](#315-array-타입)
     - [3.1.6 `enum` 타입](#316-enum-타입)
   - [3.2 타입 조합](#32-타입-조합)
-    - [3.2.1 교차 타입(`Intersection Type`) 정의](#321-교차-타입intersection-type-정의)
+    - [3.2.1 교차 타입(`Intersection Type`)](#321-교차-타입intersection-type)
     - [3.2.2 유니온 타입(Union Type)](#322-유니온-타입union-type)
     - [3.2.3 인덱스 시그니처(Index Signature)](#323-인덱스-시그니처index-signature)
     - [3.2.4 인덱스 엑세스(Index Access)](#324-인덱스-엑세스index-access)
@@ -374,7 +374,7 @@ let direction = Direction.Up;
 
 ## 3.2 타입 조합
 
-### 3.2.1 교차 타입(`Intersection Type`) 정의
+### 3.2.1 교차 타입(`Intersection Type`)
 
 - TypeScript의 교차 타입(Intersection Type)은 여러 타입을 하나로 결합하여, 모든 타입의 기능을 가진 단일 타입을 생성합니다. 
 - 교차 타입을 사용하면, 기존 타입들을 조합하여 새로운 타입을 만들 수 있으며, 이는 타입의 재사용성을 높이고, 복잡한 타입 관계를 표현하는 데 유용합니다.
