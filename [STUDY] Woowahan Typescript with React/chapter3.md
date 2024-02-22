@@ -17,8 +17,9 @@
     - [3.2.5 맵드(Mapped Type)](#325-맵드mapped-type)
     - [TypeScript에서 매핑된 타입(Mapped Types) 정의](#typescript에서-매핑된-타입mapped-types-정의)
     - [3.2.6 템플릿 리터럴 타입(Template Literal Type)](#326-템플릿-리터럴-타입template-literal-type)
+    - [TypeScript에서 템플릿 리터럴 타입 정의](#typescript에서-템플릿-리터럴-타입-정의)
     - [3.2.7 제네릭 타입(Generic Type)](#327-제네릭-타입generic-type)
-  - [3.3 제네릭 사용법](#33-제네릭-사용법)
+  - [3.3 제네릭(Generic) 사용법](#33-제네릭generic-사용법)
     - [3.3.1 함수의 제네릭](#331-함수의-제네릭)
     - [3.3.2 호출 시그니처(Calling Signature)의 제네릭](#332-호출-시그니처calling-signature의-제네릭)
     - [3.3.3 클래스의 제네릭](#333-클래스의-제네릭)
@@ -26,6 +27,7 @@
     - [3.3.5 확장된 제네릭](#335-확장된-제네릭)
     - [3.3.6 제네릭 예](#336-제네릭-예)
   - [Keywrods](#keywrods)
+  - [References](#references)
 
 <br>
 
@@ -658,17 +660,59 @@ type MappedType<ExistingType> = {
 
 ### 3.2.6 템플릿 리터럴 타입(Template Literal Type)
 
-- 템플릿 리터럴 타입은 문자열 리터럴 타입을 조합하여 새로운 타입을 생성하는 타입이다.
+### TypeScript에서 템플릿 리터럴 타입 정의
+
+- TypeScript의 템플릿 리터럴 타입(Template Literal Types)은 TypeScript 4.1 버전에서 소개된 기능으로, 문자열 리터럴 타입을 더욱 풍부하게 만들어 줍니다.
+- 이를 통해 문자열 리터럴 타입에 표현식을 포함시켜, 복합적인 문자열 패턴을 타입으로 정의할 수 있습니다. 템플릿 리터럴 타입은 ES2015의 템플릿 리터럴 문법을 기반으로 합니다.
+
+**[템플릿 리터럴 타입의 기본 사용법]**
+
+템플릿 리터럴 타입은 백틱(``)을 사용하여 정의되며, `${}` 안에 표현식을 넣어 다양한 문자열 타입을 생성할 수 있습니다. 이 표현식은 주로 유니언 타입이나 리터럴 타입과 결합하여 사용됩니다.
 
 ```typescript
-type A = "a" | "b" | "c";
-
-type B = `${A}-type`;
-
-let b: B = "a-type";
-b = "b-type";
-b = "c-type";
+type World = "world";
+type Greeting = `hello ${World}`;
 ```
+
+위 예제에서 `Greeting` 타입은 `"hello world"` 문자열 리터럴 타입이 됩니다.
+
+**[템플릿 리터럴 타입의 활용]**
+
+템플릿 리터럴 타입은 API 경로, 이벤트 이름, 객체 속성 접근 등 다양한 상황에서 유용하게 활용될 수 있습니다.
+
+- **조건부 문자열 생성**: 유니언 타입과 결합하여 조건에 따른 다양한 문자열 패턴을 생성할 수 있습니다.
+
+  ```typescript
+  type HTTPMethod = "GET" | "POST" | "PUT" | "DELETE";
+  type APIEndpoint = `/api/${HTTPMethod}`;
+  ```
+
+- **이벤트 리스너 타입**: 이벤트 이름과 관련된 타입을 정의할 때 유용합니다.
+
+  ```typescript
+  type MouseEvent = `mouse${'Enter' | 'Leave'}`;
+  const addMouseEventListener = (event: MouseEvent, handler: Function) => {
+    // 함수 구현
+  };
+  ```
+
+- **객체 속성 타입**: 객체의 속성 이름 패턴을 정의하는 데 사용할 수 있습니다.
+
+  ```typescript
+  type ObjectKeys = `prop${number}`;
+  const obj: Record<ObjectKeys, any> = {
+    prop1: "value1",
+    prop2: "value2",
+    // prop3: 100, // 타입 에러: 타입 'number'를 타입 'string'에 할당할 수 없음
+  };
+  ```
+
+**[템플릿 리터럴 타입의 장점]**
+
+- **타입 안전성**: 더욱 구체적인 문자열 패턴을 타입으로 정의할 수 있어, 프로그램의 타입 안전성을 높일 수 있습니다.
+- **자동완성과 타입 검사 지원**: 개발자가 예상하는 문자열 형태를 더 명확하게 지정할 수 있으며, 이를 통해 개발 환경에서의 자동완성과 타입 검사 기능이 개선됩니다.
+- **코드의 가독성 향상**: 문자열 패턴이 명시적으로 타입에 표현되므로, 코드를 읽고 이해하기가 더 쉬워집니다.
+
 
 ### 3.2.7 제네릭 타입(Generic Type)
 
@@ -685,7 +729,69 @@ let b: A<string> = { value: "hello" };
 
 <br>
 
-## 3.3 제네릭 사용법
+## 3.3 제네릭(Generic) 사용법
+
+- TypeScript의 제네릭은 코드 재사용성, 타입 안전성, 그리고 유연성을 향상시키는 강력한 타입 시스템 기능입니다.
+- 함수, 인터페이스, 클래스 등에서 제네릭을 적절히 활용함으로써, 다양한 타입에 대해 동작하는 타입-안전한 코드를 작성할 수 있으며, 이는 개발 과정에서의 복잡성을 줄이고 코드의 가독성을 높여줍니다.
+
+**[제네릭의 주요 특징]**
+- **타입 안전성 보장**: 제네릭을 사용하면, 다양한 타입으로 작업하면서도 타입의 일관성을 유지할 수 있습니다. 이는 런타임에 타입 관련 에러를 줄여줍니다.
+- **코드 재사용성 향상**: 하나의 함수나 클래스를 여러 타입에 대해 사용할 수 있기 때문에, 코드 중복을 줄이고 재사용성을 높일 수 있습니다.
+- **유연성 증가**: 제네릭을 사용하면, 한 가지 타입에 국한되지 않고 여러 타입에서 사용할 수 있는 유연한 코드를 작성할 수 있습니다.
+
+
+**[제네릭의 기본 사용법]**
+
+제네릭은 꺾쇠괄호(`<>`)와 함께 타입 매개변수를 지정하여 사용합니다. 이 타입 매개변수는 함수나 클래스 내에서 일반적인 타입처럼 사용될 수 있습니다.
+
+- **제네릭 함수**:
+
+  ```typescript
+  function identity<T>(arg: T): T {
+      return arg;
+  }
+  ```
+
+- **제네릭 인터페이스**:
+
+  ```typescript
+  interface GenericIdentityFn<T> {
+      (arg: T): T;
+  }
+  ```
+
+- **제네릭 클래스**:
+
+  ```typescript
+  class GenericNumber<T> {
+      zeroValue: T;
+      add: (x: T, y: T) => T;
+  }
+  ```
+
+**[제네릭 타입 매개변수]**
+
+제네릭에서 사용되는 타입 매개변수는 함수나 클래스가 호출될 때 결정됩니다. 타입 매개변수를 통해, 제네릭은 다양한 타입에 대해 유연하게 동작할 수 있습니다.
+
+**[제네릭의 고급 사용법]**
+
+- **제네릭 제약조건**: 제네릭 타입에 특정 속성이 포함되어 있음을 요구할 수 있습니다.
+
+  ```typescript
+  function loggingIdentity<T extends { length: number }>(arg: T): T {
+      console.log(arg.length);
+      return arg;
+  }
+  ```
+
+- **타입 매개변수의 기본값 설정**: 제네릭 타입 매개변수에 기본값을 설정할 수 있습니다.
+
+  ```typescript
+  function createArray<T = string>(length: number, value: T): T[] {
+      return new Array<T>(length).fill(value);
+  }
+  ```
+
 
 ### 3.3.1 함수의 제네릭
 
@@ -830,6 +936,14 @@ let a: B<number> = { value: 10, value2: 20 };
 | #   | Keyword | Description |
 | --- | ------- | ----------- |
 
-```
 
-```
+<br>
+
+## References
+
+- [타입스크립트 핸드북](https://typescript-kr.github.io/)
+
+<br>
+
+
+[⬆ Back to Top](#table-of-contents)
