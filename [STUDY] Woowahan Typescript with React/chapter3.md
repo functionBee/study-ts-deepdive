@@ -15,6 +15,7 @@
     - [3.2.3 인덱스 시그니처(Index Signature)](#323-인덱스-시그니처index-signature)
     - [3.2.4 인덱스 엑세스(Index Access)](#324-인덱스-엑세스index-access)
     - [3.2.5 맵드(Mapped Type)](#325-맵드mapped-type)
+    - [TypeScript에서 매핑된 타입(Mapped Types) 정의](#typescript에서-매핑된-타입mapped-types-정의)
     - [3.2.6 템플릿 리터럴 타입(Template Literal Type)](#326-템플릿-리터럴-타입template-literal-type)
     - [3.2.7 제네릭 타입(Generic Type)](#327-제네릭-타입generic-type)
   - [3.3 제네릭 사용법](#33-제네릭-사용법)
@@ -606,25 +607,54 @@ let d: number = a["c"];
 
 ### 3.2.5 맵드(Mapped Type)
 
-- 맵드 타입은 기존 타입을 변환하여 새로운 타입을 생성하는 타입이다.
+### TypeScript에서 매핑된 타입(Mapped Types) 정의
+
+- TypeScript의 매핑된 타입(Mapped Types)은 기존의 타입을 기반으로 새로운 타입을 생성하는 강력한 방법을 제공합니다. 이 기능을 사용하여, 기존 타입의 모든 속성을 반복하여, 각 속성을 변형시키거나 수정된 새로운 타입을 생성할 수 있습니다.
+
+**[매핑된 타입의 기본 구조]**
 
 ```typescript
-type A = {
-  a: string;
-  b: string;
-  c: string;
-};
-
-type B = {
-  [K in keyof A]: number;
-};
-
-let b: B = {
-  a: 1,
-  b: 2,
-  c: 3,
+type MappedType<ExistingType> = {
+  [Property in keyof ExistingType]: Transform<ExistingType[Property]>;
 };
 ```
+
+여기서 `ExistingType`은 변형할 기존의 타입이며, `Transform`은 각 속성에 적용할 변형 로직을 나타냅니다.
+
+**[주요특징]**
+- **유연성**: 기존 타입의 속성을 유지하면서, 각 속성의 타입을 변경하거나, 추가적인 제약을 적용할 수 있습니다.
+- **재사용성**: 기존 타입을 재사용하여 다양한 변형된 타입을 쉽게 생성할 수 있어, 코드 중복을 줄이고 타입 정의의 재사용성을 높일 수 있습니다.
+- **조건부 타입과의 결합**: 매핑된 타입은 조건부 타입과 결합하여 더 복잡한 타입 변형을 표현할 수 있습니다.
+
+**[매핑된 타입의 사용 사례]**
+
+1. **읽기 전용 타입 생성**:
+   모든 속성을 읽기 전용으로 만들어, 불변성을 강제하는 타입을 생성할 수 있습니다.
+
+   ```typescript
+   type Readonly<Type> = {
+     readonly [Property in keyof Type]: Type[Property];
+   };
+   ```
+
+2. **옵셔널 속성 타입 생성**:
+   모든 속성을 선택적으로 만드는 타입을 생성할 수 있습니다.
+
+   ```typescript
+   type Partial<Type> = {
+     [Property in keyof Type]?: Type[Property];
+   };
+   ```
+
+3. **특정 속성만 추출하는 타입 생성**:
+   기존 타입에서 특정 속성만을 추출하여 새로운 타입을 생성할 수 있습니다.
+
+   ```typescript
+   type Pick<Type, Keys extends keyof Type> = {
+     [Property in Keys]: Type[Property];
+   };
+   ```
+
 
 ### 3.2.6 템플릿 리터럴 타입(Template Literal Type)
 
