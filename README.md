@@ -9,7 +9,7 @@
 - [Deep Dive into TypeScript 🐳](#deep-dive-into-typescript-)
   - [📖 도서](#-도서)
       - [우아한 타입스크립트 with React](#우아한-타입스크립트-with-react)
-  - [Concepts](#concepts)
+  - [✨ Practice](#-practice)
     - [1. 타입스크립트란?](#1-타입스크립트란)
     - [2. 데이터 타입:](#2-데이터-타입)
       - [2-1. 기본 타입:](#2-1-기본-타입)
@@ -41,20 +41,21 @@
 : [우아한 타입스크립트 with React](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=258394491) 책을 기반으로 학습한 내용을 정리해놓은 문서입니다.
 
 **목차**
-[Chapter 1](./ElegantTypeScriptWithReact/chapter1.md)
-[Chapter 2](./ElegantTypeScriptWithReact/chapter2.md)
-[Chapter 3](./ElegantTypeScriptWithReact/chapter3.md)
-[Chapter 4](./ElegantTypeScriptWithReact/chapter4.md)
+- [Chapter 1](./ElegantTypeScriptWithReact/chapter1.md)
+- [Chapter 2](./ElegantTypeScriptWithReact/chapter2.md)
+- [Chapter 3](./ElegantTypeScriptWithReact/chapter3.md)
+- [Chapter 4](./ElegantTypeScriptWithReact/chapter4.md)
 
 
 <br>
 
-## Concepts
+## ✨ Practice
 
 ### 1. 타입스크립트란?
 타입스크립트는 자바스크립트의 슈퍼셋으로, 정적 타입을 지원하는 언어입니다.
 
 ### 2. 데이터 타입:
+
 #### 2-1. 기본 타입: 
 
 | # | 제목 | 링크 |
