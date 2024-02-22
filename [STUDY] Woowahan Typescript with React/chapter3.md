@@ -29,7 +29,7 @@
 
 ## 3.1 타입스크립트만의 독자적 타입 시스템
 
-**타입스크립트의 타입 계층 구조**
+**[타입스크립트의 타입 계층 구조]**
 ![타입스크립트의 타입 계층 구조](https://velog.velcdn.com/images/pung8146/post/609a48d1-877b-49a5-b4b0-b0de806cb0ce/image.png)
 
 ### 3.1.1 `any` 타입
@@ -156,7 +156,7 @@ logMessage("Hello, TypeScript!"); // 출력: "Hello, TypeScript!"
 - 특히 `void` 타입과 함께 사용할 때, 이 옵션은 함수가 값을 반환하지 않는다는 것을 명확하게 하고, `null`과 `undefined`의 사용에 대해 더 엄격한 규칙을 적용하여 코드의 신뢰성을 높일 수 있습니다.
 
 
-**`strictNullChecks` 옵션이란?**
+**[`strictNullChecks` 옵션이란?]**
 - **목적**: 코드 내에서 `null`과 `undefined` 사용을 더 엄격하게 관리하여, 런타임 오류를 줄이고 타입 안전성을 향상시키는 것입니다.
 - **기능**: 이 옵션을 활성화하면, `null`과 `undefined`는 오직 `any` 또는 각각의 타입(`null`, `undefined`)에만 할당할 수 있습니다. 다른 모든 타입에 `null`이나 `undefined`를 할당하려고 하면 컴파일러 오류가 발생합니다.
 
