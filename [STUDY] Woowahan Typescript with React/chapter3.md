@@ -150,6 +150,37 @@ logMessage("Hello, TypeScript!"); // 출력: "Hello, TypeScript!"
 | **할당 가능한 값** | `undefined`, `null` (strict null checks가 비활성화된 경우) | `undefined`                                          |
 | **용도**     | 함수가 반환값 없이 종료됨을 명시적으로 나타냄             | 변수가 아직 값이 할당되지 않았음을 나타냄               |
 
+**[`tsconfig.json`에서 `strictNullChecks` 옵션]**
+
+- TypeScript의 `tsconfig.json` 파일에서 `strictNullChecks` 옵션은 타입 안전성을 강화하기 위해 사용됩니다. 이 옵션을 활성화하면, TypeScript는 `null`과 `undefined`를 모든 타입에서 엄격하게 구분하고 체크합니다.
+- 특히 `void` 타입과 함께 사용할 때, 이 옵션은 함수가 값을 반환하지 않는다는 것을 명확하게 하고, `null`과 `undefined`의 사용에 대해 더 엄격한 규칙을 적용하여 코드의 신뢰성을 높일 수 있습니다.
+
+
+**`strictNullChecks` 옵션이란?**
+- **목적**: 코드 내에서 `null`과 `undefined` 사용을 더 엄격하게 관리하여, 런타임 오류를 줄이고 타입 안전성을 향상시키는 것입니다.
+- **기능**: 이 옵션을 활성화하면, `null`과 `undefined`는 오직 `any` 또는 각각의 타입(`null`, `undefined`)에만 할당할 수 있습니다. 다른 모든 타입에 `null`이나 `undefined`를 할당하려고 하면 컴파일러 오류가 발생합니다.
+
+**[`void` 타입과 `strictNullChecks`]**
+
+- **`strictNullChecks` 비활성화**: `strictNullChecks`가 비활성화되어 있으면, `void` 타입의 변수에 `undefined` 또는 `null`을 할당할 수 있습니다. 이는 `void` 타입이 함수에서 어떤 값도 반환하지 않음을 나타내기 위해 주로 사용되기 때문입니다.
+- **`strictNullChecks` 활성화**: `strictNullChecks`가 활성화되어 있으면, `void` 타입의 변수에는 `undefined`만 할당할 수 있습니다. `null`을 할당하려고 시도하면 오류가 발생합니다. 이는 TypeScript가 `null`과 `undefined`를 엄격하게 구분하기 때문입니다.
+
+**[`strictNullChecks` 활성화의 장점]**
+
+- **타입 안전성 향상**: `null`과 `undefined`를 명확히 구분하여 사용함으로써, 예기치 않은 `null` 참조 오류를 줄일 수 있습니다.
+- **버그 예방**: 함수에서 반환값이 없을 때 명시적으로 `void`를 사용하고, `strictNullChecks`를 활성화함으로써, 개발자는 반환값을 실수로 사용하는 것을 방지할 수 있습니다.
+- **코드 명확성**: `strictNullChecks` 옵션은 코드의 명확성을 높여, 다른 개발자가 코드를 이해하기 쉽게 만듭니다.
+
+**[`tsconfig.json` 파일에서 `strictNullChecks`를 활성화하는 방법]**
+
+```json
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    ...
+  }
+}
+```
 
 ### 3.1.4 never 타입
 
