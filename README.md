@@ -1,7 +1,7 @@
-# Deepdive into TypeScript
+# Deep Dive into TypeScript
 
 ## Introduction
-이 레포지토리는 TypeScript에 대한 심층적인 학습을 위한 레포지토리입니다. TypeScript에 대한 기본적인 내용은 생략하고, 심층적인 내용에 대해서만 다룹니다.
+이 레포지토리는 TypeScript에 대한 깊은 이해를 목표로 학습한 내용을 정리해놓은 문서입니다.
 
 <br>
 
@@ -15,8 +15,6 @@
 3. [Chapter 3](./ElegantTypeScriptWithReact/chapter3.md)
 4. [Chapter 4](./ElegantTypeScriptWithReact/chapter4.md)
 
-
-### 이펙티브 타입스크립트
 
 <br>
 
