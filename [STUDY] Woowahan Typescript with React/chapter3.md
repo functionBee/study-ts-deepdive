@@ -14,9 +14,7 @@
     - [3.2.3 인덱스 시그니처(Index Signature)](#323-인덱스-시그니처index-signature)
     - [3.2.4 인덱스 엑세스(Index Access)](#324-인덱스-엑세스index-access)
     - [3.2.5 맵드(Mapped Type)](#325-맵드mapped-type)
-    - [TypeScript에서 매핑된 타입(Mapped Types) 정의](#typescript에서-매핑된-타입mapped-types-정의)
     - [3.2.6 템플릿 리터럴 타입(Template Literal Type)](#326-템플릿-리터럴-타입template-literal-type)
-    - [TypeScript에서 템플릿 리터럴 타입 정의](#typescript에서-템플릿-리터럴-타입-정의)
     - [3.2.7 제네릭 타입(Generic Type)](#327-제네릭-타입generic-type)
   - [3.3 제네릭(Generic) 사용법](#33-제네릭generic-사용법)
     - [3.3.1 함수의 제네릭](#331-함수의-제네릭)
@@ -608,8 +606,6 @@ let d: number = a["c"];
 
 ### 3.2.5 맵드(Mapped Type)
 
-### TypeScript에서 매핑된 타입(Mapped Types) 정의
-
 - TypeScript의 매핑된 타입(Mapped Types)은 기존의 타입을 기반으로 새로운 타입을 생성하는 강력한 방법을 제공합니다. 이 기능을 사용하여, 기존 타입의 모든 속성을 반복하여, 각 속성을 변형시키거나 수정된 새로운 타입을 생성할 수 있습니다.
 
 **[매핑된 타입의 기본 구조]**
@@ -658,8 +654,6 @@ type MappedType<ExistingType> = {
 
 
 ### 3.2.6 템플릿 리터럴 타입(Template Literal Type)
-
-### TypeScript에서 템플릿 리터럴 타입 정의
 
 - TypeScript의 템플릿 리터럴 타입(Template Literal Types)은 TypeScript 4.1 버전에서 소개된 기능으로, 문자열 리터럴 타입을 더욱 풍부하게 만들어 줍니다.
 - 이를 통해 문자열 리터럴 타입에 표현식을 포함시켜, 복합적인 문자열 패턴을 타입으로 정의할 수 있습니다. 템플릿 리터럴 타입은 ES2015의 템플릿 리터럴 문법을 기반으로 합니다.
