@@ -35,7 +35,7 @@
 
 | 진행 상태 | 문제 | 키워드 | 경로 |
 |:---:|------|-------------| ------------------- |
-| `✅` | [#](https://github.com/functionBee/study-ts-deepdive/issues/5) | `Null`,`Undefined` | [링크](./fundamentals/01_basic_types/16_null_undefined.ts) |
+| `✅` | [#5](https://github.com/functionBee/study-ts-deepdive/issues/5) | `Null`,`Undefined` | [링크](./fundamentals/01_basic_types/16_null_undefined.ts) |
 
 
 ## References
