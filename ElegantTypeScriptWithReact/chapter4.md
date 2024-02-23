@@ -10,6 +10,9 @@
       - [4.1.2-1 유니온 타입의 사용 예시](#412-1-유니온-타입의-사용-예시)
       - [4.1.2-2 유니온 타입의 주의사항 예시](#412-2-유니온-타입의-주의사항-예시)
     - [4.1.3 교차 타입](#413-교차-타입)
+      - [4.1.3-1 교차 타입의 사용 예시](#413-1-교차-타입의-사용-예시)
+      - [4.1.3-2 교차 타입의 사용 예시](#413-2-교차-타입의-사용-예시)
+      - [4.1.3-3 교차 타입의 사용 예시](#413-3-교차-타입의-사용-예시)
     - [4.1.4 배달의 민족 메뉴 시스템에 타입 확장하기](#414-배달의-민족-메뉴-시스템에-타입-확장하기)
   - [4.2 타입 좁히기 - 타입 가드](#42-타입-좁히기---타입-가드)
     - [4.2.1 타입 가드에 따라 분기 처리하기](#421-타입-가드에-따라-분기-처리하기)
@@ -249,6 +252,134 @@ value = "hello"; // string 타입의 값
 > 위의 코드 예제에서, `NumberOrString` 타입은 `number` 또는 `string` 타입의 값 중 하나가 될 수 있습니다.
 
 ### 4.1.3 교차 타입
+
+**[교차 타입(Intersection Type)]**
+
+교차 타입(Intersection Type)은 여러 타입을 하나로 결합하여, 모든 타입의 속성을 포함하는 새로운 타입을 생성합니다.
+
+**[교차 타입의 사용]**
+
+교차 타입은 `&` 연산자를 사용하여 표현되며, 이 연산자는 "그리고"의 의미를 가지며, 기존의 타입들을 결합하여 새로운 타입을 정의할 때 사용됩니다.
+
+```typescript
+interface Name {
+    name: string;
+}
+
+interface Age {
+    age: number;
+}
+
+type Person = Name & Age;
+
+const john: Person = { name: "John", age: 30 };
+```
+> 위의 코드 예제에서, `Person` 타입은 `Name`과 `Age` 인터페이스를 교차하여 생성되었습니다. 따라서 `Person` 타입은 `name`과 `age` 속성을 모두 가지고 있어야 합니다.
+
+
+#### 4.1.3-1 교차 타입의 사용 예시
+
+```typescript
+interface CookingStep {
+  orderId: string;
+  time: number;
+  price: number;
+}
+
+interface DeliveryStep {
+  orderId: string;
+  time: number;
+  distance: string;
+}
+
+type BaedalProgress = CookingStep & DeliveryStep;
+```
+> 위의 코드 예제에서, `BaedalProgress` 타입은 `CookingStep`과 `DeliveryStep` 인터페이스으로 `orderId`, `time`, `price`, `distance` 속성을 모두 가지고 있어야 합니다. 이를 통해 배달 프로세스의 여러 단계에 걸쳐 필요한 정보를 한 번에 관리할 수 있습니다.
+
+```typescript
+function logBaedalInfo(progress: BaedalProgress) {
+  console.log(`주문 금액: ${progress.price}`); // CookingStep에서 상속받은 속성
+  console.log(`배달 거리: ${progress.distance}`); // DeliveryStep에서 상속받은 속성
+}
+```
+
+> 위의 코드 예제에서, `BaedalProgress`는 교차 타입을 사용하여 정의된 타입으로, `CookingStep`과 `DeliveryStep` 인터페이스의 속성을 모두 포함합니다. 이로 인해 `BaedalProgress` 타입의 객체는 `CookingStep`의 `price` 속성과 `DeliveryStep`의 `distance` 속성에 접근할 수 있습니다.
+
+**[교차 타입의 교집합]**
+
+교차 타입은 두 개 이상의 타입을 & 연산자로 결합하여 새로운 타입을 생성합니다. 이는 각 타입이 나타내는 속성들의 교집합을 생성하는 것과 같습니다.
+
+#### 4.1.3-2 교차 타입의 사용 예시
+
+```typescript
+interface A {
+    a: number;
+    common: string;
+}
+
+interface B {
+    b: string;
+    common: number;
+}
+```
+> 이 예제에서, A와 B 인터페이스는 각각 a, b, 그리고 common 속성을 가지고 있습니다.
+
+여기서 `A & B` 교차 타입을 생성하면, 다음과 같은 새로운 타입 `MyIntersection`이 정의됩니다.
+
+```typescript
+type MyIntersection = A & B;
+```
+> 이 예제에서, `MyIntersection`은 A와 B 둘 다의 속성을 포함하게 됩니다. 즉, a, b, 그리고 common 속성을 모두 가지게 되는데, 여기서 주의할 점은 common 속성이 두 인터페이스에서 서로 다른 타입으로 정의되어 있기 때문에, 실제로는 교차 타입에서 호환되는 공통 타입을 가지게 됩니다. 그러나 `MyIntersection` 타입의 객체는 `common` 속성에 접근할 수 없습니다.
+> 이는 교차 타입에서는 각 타입이 가지고 있는 속성들의 교집합을 생성하기 때문에, 각 속성의 타입이 서로 다르면 교차 타입에서 해당 속성은 사용할 수 없습니다.
+
+```typescript
+let intersection: MyIntersection = { a: 1, b: "2", common: 3 };
+// Type '{ a: number; b: string; common: number; }' is not assignable to type 'MyIntersection'.
+// Types of property 'common' are incompatible.
+// Type 'number' is not assignable to type 'string'.
+```
+> 위의 코드 예제에서, `MyIntersection` 타입의 객체는 `common` 속성에 서로 다른 타입의 값을 할당할 수 없습니다. 이는 교차 타입에서는 각 타입이 가지고 있는 속성들의 교집합을 생성하기 때문에, 각 속성의 타입이 서로 다르면 교차 타입에서 해당 속성은 사용할 수 없습니다.
+
+#### 4.1.3-3 교차 타입의 사용 예시
+
+```typescript
+/* 배달 팁 */
+interface DeliveryTip {
+  tip: string; // 팁
+}
+
+/* 별점 */
+interface StarRating {
+  rate: number; // 평점
+}
+```
+> `DeliveryTip`과 `StarRating`의 경우와 같이 서로 호환되지 않는 속성을 가진 타입을 교차할 때는 `never`가 아닌, 모든 속성을 포함하는 유효한 타입이 생성됩니다.
+> 이는 교차 타입에서는 각 타입이 가지고 있는 속성들의 교집합을 생성하기 때문에, 각 속성의 타입이 서로 다르더라도 교차 타입에서는 모든 속성을 포함하는 유효한 타입이 생성됩니다.
+
+**[공집합(never 타입)이 되는 경우]**
+두 타입이 같은 속성명을 가지고 있지만, 각각의 타입이 호환될 수 없을 때 교차 타입은 공집합(never 타입)이 됩니다.
+
+```typescript
+/* 주문 필터 */
+type Filter = DeliveryTip & StarRating; // 배달 팁과 별점을 결합한 교차 타입
+
+const filter: Filter = {
+  tip: "1000원 이하", // 문자열로 표현된 팁
+  rate: 4, // 숫자로 표현된 평점
+};
+```
+> 위의 코드 예제에서, `Filter` 타입은 공집합(Empty Type)이 아닌 교차 타입으로, `DeliveryTip`과 `StarRating` 인터페이스의 속성을 모두 포함합니다. 따라서 `Filter` 타입의 객체는 `tip` 속성과 `rate` 속성을 모두 가지고 있어야 합니다.
+
+```typescript
+function getFilter(filter: Filter) {
+  console.log(`팁: ${filter.tip}`); // 팁
+  console.log(`평점: ${filter.rate}`); // 평점
+}
+```
+> 위의 코드 예제에서, `getFilter` 함수는 `Filter` 타입의 객체를 매개변수로 받습니다. 이 함수 내에서 `filter` 객체의 `tip` 속성과 `rate` 속성에 접근할 수 있습니다.
+> 이를 통해, `Filter` 타입을 사용하여 배달 팁과 별점을 결합한 정보를 한 번에 관리할 수 있습니다. 
+
+
 
 ### 4.1.4 배달의 민족 메뉴 시스템에 타입 확장하기
 
