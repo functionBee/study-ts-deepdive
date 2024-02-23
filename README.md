@@ -22,7 +22,7 @@
 
 | 진행 상태 | 챕터 | 타이틀 | 정리 내용 확인 경로 |
 |:---:|------|-------------| ------------------- |
-| `✅` | 1 | 들억가며 | [링크](./ElegantTypeScriptWithReact/chapter1.md) |
+| `✅` | 1 | 들어가며 | [링크](./ElegantTypeScriptWithReact/chapter1.md) |
 | `✅` | 2 | 타입 | [링크](./ElegantTypeScriptWithReact/chapter2.md) |
 | `✅` | 3 | 고급 타입 | [링크](./ElegantTypeScriptWithReact/chapter3.md) |
 | `✅` | 4 | 타입 확장하기/좁히기 | [링크](./ElegantTypeScriptWithReact/chapter4.md) |
