@@ -46,7 +46,6 @@
 - [Chapter 3](./ElegantTypeScriptWithReact/chapter3.md)
 - [Chapter 4](./ElegantTypeScriptWithReact/chapter4.md)
 
-
 <br>
 
 ## ✨ Practice
@@ -231,6 +230,7 @@
 ## References
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
+- [우아한 타입스크립트 예제코드](https://github.com/woowa-typescript/woowahan-typescript-with-react-example-code)
 
 <br>
 
