@@ -38,7 +38,7 @@
 ## 📖 도서 
 
 #### 우아한 타입스크립트 with React
-: [우아한 타입스크립트 with React](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=258394491) 책을 기반으로 학습한 내용을 정리해놓은 문서입니다.
+: [우아한 타입스크립트 with React](https://product.kyobobook.co.kr/detail/S000210716282) 책을 기반으로 학습한 내용을 정리해놓은 문서입니다.
 
 **목차**
 - [Chapter 1](./ElegantTypeScriptWithReact/chapter1.md)
