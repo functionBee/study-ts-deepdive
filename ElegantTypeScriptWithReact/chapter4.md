@@ -3,6 +3,9 @@
 - [4장 타입 확장하기·좁히기](#4장-타입-확장하기좁히기)
   - [4.1 타입 확장하기](#41-타입-확장하기)
     - [4.1.1 타입 확장의 장점](#411-타입-확장의-장점)
+    - [4.1.1-1 메뉴 요소 타입](#411-1-메뉴-요소-타입)
+    - [4.1.1-2 Type과 교차 타입(\&)을 사용하여 타입 확장하기](#411-2-type과-교차-타입을-사용하여-타입-확장하기)
+    - [4.1.1-3 수정할 수 있는 장바구니 요소 타입과 이벤트 장바구니 요소 타입](#411-3-수정할-수-있는-장바구니-요소-타입과-이벤트-장바구니-요소-타입)
     - [4.1.2 유니온 타입](#412-유니온-타입)
     - [4.1.3 교차 타입](#413-교차-타입)
     - [4.1.4 배달의 민족 메뉴 시스템에 타입 확장하기](#414-배달의-민족-메뉴-시스템에-타입-확장하기)
@@ -24,7 +27,117 @@
 
 ## 4.1 타입 확장하기
 
+**[타입 확장(Type Extends)]**
+
+타입 확장은 한 타입이 다른 타입의 모든 속성을 포함하고, 추가적으로 더 많은 속성을 가질 수 있도록 하는 타입 관계를 말합니다.
+
+```typescript
+interface Shape {
+    color: string;
+}
+
+interface Square extends Shape {
+    sideLength: number;
+}
+
+let square: Square = { color: "blue", sideLength: 10 };
+```
+> 이 예제에서 `Square` 인터페이스는 `Shape` 인터페이스를 확장하여 `color` 속성뿐만 아니라 `sideLength` 속성도 가집니다.
+
+
 ### 4.1.1 타입 확장의 장점
+
+타입 확장(Type Extends)은 클래스, 인터페이스, 그리고 조건부 타입 등 다양한 방식으로 사용되며, 코드의 재사용성, 유지보수성, 그리고 타입 안전성을 대폭 향상시킵니다.
+
+**[코드 재사용성 향상]**
+
+```typescript
+// 인터페이스 확장
+interface Person {
+    name: string;
+    age: number;
+}
+
+interface Employee extends Person {
+    department: string;
+}
+```
+> 이 예제에서 `Employee` 인터페이스는 `Person`의 모든 속성을 상속받고, 추가적인 `department` 속성을 가집니다.
+
+
+타입스크립트에서 타입 확장을 사용하는 것은 코드의 재사용성을 크게 향상시키는 효과적인 방법입니다.
+책에서는 다양한 상황에서 유연하게 타입을 활용하여 개발할 수 있음을 보여줍니다.
+
+### 4.1.1-1 메뉴 요소 타입
+
+```typescript
+/**
+ * 메뉴 아이템 타입(BaseMenuItem)
+ * 메뉴 이름, 이미지, 할인율, 재고 정보를 담고 있다
+ */
+interface BaseMenuItem {
+  itemName: string | null;
+  itemImageUrl: string | null;
+  itemDiscountAmount: number;
+  stock: number | null;
+}
+
+/**
+ * 장바구니 요소 타입(BaseCartItem)
+ * 메뉴 아이템 타입을 확장하여, 상품의 수량(quantity) 정보를 추가합니다.
+ * 이는 사용자가 선택한 메뉴의 수량을 관리하는 데 필요한 정보를 포함하고 있습니다.
+ */
+interface BaseCartItem extends BaseMenuItem {
+  quantity: number; 
+}
+```
+
+### 4.1.1-2 Type과 교차 타입(&)을 사용하여 타입 확장하기
+
+또는 `type`과 `교차 타입(&)`을 사용하여 같은 구조를 표현할 수 있습니다.
+
+```typescript
+type BaseMenuItem = {
+  itemName: string | null;
+  itemImageUrl: string | null;
+  itemDiscountAmount: number;
+  stock: number | null;
+}
+
+type BaseCartItem = {
+  quantity: number;
+} & BaseMenuItem
+```
+
+### 4.1.1-3 수정할 수 있는 장바구니 요소 타입과 이벤트 장바구니 요소 타입
+
+타입 확장(Type Extends)은 중복 제거, 명시적인 코드 작성 외에도 확장성이란 장점을 가지고 있습니다.
+
+```typescript
+/**
+ * 수정할 수 있는 장바구니 요소 타입
+ * 품절 여부, 수정할 수 있는 옵션 배열 정보가 추가되었다
+ */
+interface EditableCartItem extends BaseCartItem {
+  isSoldOut: boolean;
+  optionGroups: SelectableOptionGroup[]
+}
+```
+> 사용자가 장바구니 내의 아이템을 수정할 때 필요한 정보를 포함하는 `EditableCartItem`은 `BaseCartItem`을 확장합니다
+> 품절 여부(isSoldOut)와 수정 가능한 옵션 그룹(optionGroups)을 추가하여, 사용자가 장바구니 내의 상품을 더 상세하게 조정할 수 있게 합니다.
+
+```typescript 
+/**
+ * 이벤트 장바구니 요소 타입
+ * 주문 가능 여부에 대한 정보가 추가되었다
+ */
+interface EventCartItem extends BaseCartItem {
+  orderable: boolean;
+}
+```
+> 특정 이벤트와 관련된 장바구니 아이템(EventCartItem)은 `BaseCartItem`을 확장하여, 주문 가능 여부(orderable)를 추가합니다.
+> 이는 특정 조건(예: 이벤트 기간, 재고 상황)에 따라 주문 가능한 상품인지를 나타냅니다.
+
 
 ### 4.1.2 유니온 타입
 
