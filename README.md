@@ -38,6 +38,9 @@
 | `✅` | [#5](https://github.com/functionBee/study-ts-deepdive/issues/5) | `Null`,`Undefined` | [링크](./fundamentals/01_basic_types/16_null_undefined.ts) |
 
 
+<br>
+
+
 ## References
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
