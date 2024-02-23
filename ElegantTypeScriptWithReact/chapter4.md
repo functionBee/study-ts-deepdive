@@ -6,7 +6,9 @@
     - [4.1.1-1 메뉴 요소 타입](#411-1-메뉴-요소-타입)
     - [4.1.1-2 Type과 교차 타입(\&)을 사용하여 타입 확장하기](#411-2-type과-교차-타입을-사용하여-타입-확장하기)
     - [4.1.1-3 수정할 수 있는 장바구니 요소 타입과 이벤트 장바구니 요소 타입](#411-3-수정할-수-있는-장바구니-요소-타입과-이벤트-장바구니-요소-타입)
-    - [4.1.2 유니온 타입](#412-유니온-타입)
+    - [4.1.2 유니온 타입(`|`)](#412-유니온-타입)
+    - [4.1.2-1 유니온 타입의 사용 예시](#412-1-유니온-타입의-사용-예시)
+      - [4.1.2-1-1 유니온 타입의 주의사항 예시](#412-1-1-유니온-타입의-주의사항-예시)
     - [4.1.3 교차 타입](#413-교차-타입)
     - [4.1.4 배달의 민족 메뉴 시스템에 타입 확장하기](#414-배달의-민족-메뉴-시스템에-타입-확장하기)
   - [4.2 타입 좁히기 - 타입 가드](#42-타입-좁히기---타입-가드)
@@ -139,7 +141,108 @@ interface EventCartItem extends BaseCartItem {
 > 이는 특정 조건(예: 이벤트 기간, 재고 상황)에 따라 주문 가능한 상품인지를 나타냅니다.
 
 
-### 4.1.2 유니온 타입
+### 4.1.2 유니온 타입(`|`)
+
+**[유니온 타입(Union Type)]**
+
+- 유니온 타입(Union Type)은 여러 타입 중 하나가 될 수 있는 값을 나타내기 위해 사용됩니다.
+- 유니온 타입을 사용하면 변수나 함수 매개변수가 둘 이상의 다른 타입을 가질 수 있게 됩니다.
+
+**[유니온 타입의 사용]**
+유니온 타입은 타입을 `|`기호로 연결하여 정의합니다. 이 기호는 "또는"의 의미를 가지며, 연결된 타입 중 하나에 해당하는 값을 변수가 가질 수 있음을 의미합니다.
+
+### 4.1.2-1 유니온 타입의 사용 예시
+
+```typescript
+type MyUnion = A | B
+```
+> 이 예제에서, `MyUnion` 타입은 `A` 또는 `B` 타입 중 하나가 될 수 있습니다.
+
+```typescript
+interface A {
+    aProperty: string;
+}
+
+interface B {
+    bProperty: number;
+}
+
+type MyUnion = A | B;
+
+function processValue(value: MyUnion) {
+    if ('aProperty' in value) {
+        console.log(value.aProperty); // A 타입으로 처리
+    } else {
+        console.log(value.bProperty); // B 타입으로 처리
+    }
+}
+```
+> 위의 코드 예제에서, `processValue` 함수는 `MyUnion` 타입을 매개변수(value)로 받습니다. 이 함수 내에서 타입 가드(Type Guard)를 사용하여 `value`의 타입을 판별하고, 각 타입에 맞게 처리합니다.
+
+```typescript
+let value: MyUnion = { aProperty: "hello" };
+processValue(value); // "hello" 출력
+
+value = { bProperty: 42 };
+processValue(value); // 42 출력
+```
+> `value` 변수는 `A` 또는 `B` 타입 중 하나가 될 수 있으므로, `processValue` 함수에 매개변수로 전달할 수 있습니다.
+
+**[유니온 타입의 주의사항]**
+유니온 타입을 구성하는 각 타입이 공통으로 가지고 있는 속성이나 메소드에만 접근할 수 있습니다. 
+
+#### 4.1.2-1-1 유니온 타입의 주의사항 예시
+```typescript
+interface CookingStep {
+  orderId: string;
+  price: number;
+}
+
+interface DeliveryStep {
+  orderId: string;
+  time: number;
+  distance: string;
+}
+
+function getDeliveryDistance(step: CookingStep | DeliveryStep) {
+  return step.distance;
+  // Property ‘distance’ does not exist on type ‘CookingStep | DeliveryStep’
+  // Property ‘distance’ does not exist on type ‘CookingStep’
+}
+```
+> 위의 코드 예제에서, `getDeliveryDistance` 함수는 `CookingStep` 또는 `DeliveryStep` 타입의 객체를 매개변수로 받습니다.
+> `step` 매개변수는 `CookingStep` 또는 `DeliveryStep` 타입 중 하나가 될 수 있으므로, `distance` 속성에 접근할 수 없습니다.
+> 그러나 컴파일러는 `CoolingStep`타입에는 `distance` 속성이 없다는 에러를 발생시킵니다.
+
+만약 특정 타입에만 존재하는 속성에 접근하려면, 타입 가드를 사용하여 타입을 좁혀야 합니다.
+
+```typescript
+function getDeliveryDistance(step: CookingStep | DeliveryStep): string | undefined {
+  if ('distance' in step) {
+    return step.distance;
+  }
+  // `distance` 속성은 `DeliveryStep`에만 존재하므로, 여기에 도달했다면 `undefined`를 반환합니다.
+  return undefined;
+}
+```
+> 위의 코드 예제에서, `getDeliveryDistance` 함수는 `step` 매개변수의 타입을 판별하여, `distance` 속성이 존재하는 경우에만 접근할 수 있도록 합니다. 이 방법을 통해 컴파일 시점에 타입 안전성을 보장할 수 있습니다.
+
+**[값의 집합으로서의 타입]**
+타입스크립트에서 각 타입은 특정한 값의 범위를 정의합니다. 예를 들어, `number` 타입은 모든 숫자 값을 포함하고, `string` 타입은 모든 문자열 값을 포함합니다. 이러한 방식으로 각 타입은 가능한 값들의 집합으로 이해할 수 있습니다.
+
+**[유니온 타입의 합집합]**
+유니온 타입은 두 개 이상의 타입을 | 연산자로 결합하여 새로운 타입을 생성합니다. 이는 각 타입이 나타내는 값의 집합을 합치는 것과 같습니다.
+따라서 유니온 타입을 통해 생성된 타입은 각각의 원본 타입이 가질 수 있는 모든 값들을 포함할 수 있게 됩니다.
+
+```typescript
+type NumberOrString = number | string;
+
+let value: NumberOrString;
+
+value = 10; // number 타입의 값
+value = "hello"; // string 타입의 값
+```
+> 위의 코드 예제에서, `NumberOrString` 타입은 `number` 또는 `string` 타입의 값 중 하나가 될 수 있습니다.
 
 ### 4.1.3 교차 타입
 
