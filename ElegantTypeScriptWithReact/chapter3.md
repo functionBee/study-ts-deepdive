@@ -582,6 +582,33 @@ console.log(myStringNumber) // "ONE"
 
 TypeScript에서 문자열 `enum` 값은 `enum`에 선언된 이름 값에 강력(?)하게 입력됩니다. 이는 TypeScript의 강력한 타입 시스템의 일환으로, `enum` 내에서 선언된 값 외에는 다른 값을 입력할 수 없도록 보장합니다. 이를 통해 코드의 가독성과 유지보수성이 향상되며, 잘못된 값이 입력되는 오류를 방지할 수 있습니다.
 
+**[응용]**
+
+```tsx
+enum PostCategory {
+  Tech = "기술",
+  Lifestyle = "라이프스타일",
+  Travel = "여행",
+}
+
+interface BlogPost {
+  title: string;
+  content: string;
+  category: PostCategory;
+}
+```
+
+```tsx
+import { PostCategory } from '../enums';
+
+const blogPosts: BlogPost[] = [
+  { title: '첫 번째 포스트', content: '내용', category: PostCategory.Tech },
+  { title: '두 번째 포스트', content: '내용', category: PostCategory.Lifestyle },
+  { title: '세 번째 포스트', content: '내용', category: PostCategory.Travel },
+];
+
+const techPosts = blogPosts.filter(post => post.category === PostCategory.Tech);
+```
 
 <br>
 
