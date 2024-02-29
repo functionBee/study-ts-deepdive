@@ -76,7 +76,7 @@ type ErrorType = ApiResponse<'error'>; // ErrorResponse 타입
 > `ApiResponse<T>`라는 제네릭 타입을 사용하여 `T`가 `'success'`일 때는 `SuccessResponse`를 반환하고,
 > `'error'`일 때는 `ErrorResponse`를 반환하도록 정의하고 있습니다.
 
-따라서, SuccessType은 ApiResponse<'success'>를 통해 SuccessResponse 타입을, ErrorType은 ApiResponse<'error'>를 통해 ErrorResponse 타입을 갖게 됩니다. 이를 통해 API의 응답에 따라 다른 타입을 정의하고 사용할 수 있습니다.
+따라서, `SuccessType`은 `ApiResponse<'success'>`를 통해 `SuccessResponse` 타입을, `ErrorType`은 `ApiResponse<'error'>`를 통해 `ErrorResponse` 타입을 갖게 됩니다. 이를 통해 API의 응답에 따라 다른 타입을 정의하고 사용할 수 있습니다.
 
 
 
