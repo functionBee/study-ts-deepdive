@@ -44,7 +44,7 @@ type Age = number | null | undefined;
 type NonNullableAge = NonNullable<Age>;
 ```
 
-> 여기서 `NonNullable`은 TypeScript의 표준 유틸리티 타입으로, `널(null)`과 `정의되지 않음(undefined)`을 제거하기 위해 조건부 타입을 사용하여 구현되었습니다.
+> 여기서 `Age`라는 타입을 정의하고 있습니다. `Age` 타입은 `number`, `null`, `undefined` 중 하나를 가질 수 있습니다. 그리고 `NonNullable`이라는 유틸리티 타입을 사용하여 `NonNullableAge`라는 새로운 타입을 정의하고 있습니다. `NonNullableAge` 타입은 `null`과 `undefined`를 제외한 `number` 타입을 가지게 됩니다. 이를 통해 `Age` 타입에서 `null` 또는 `unudefined` 값을 제거할 수 있습니다.
 
 #### 응용
 
