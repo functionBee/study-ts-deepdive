@@ -25,7 +25,7 @@
 | `✅` | 1 | 들어가며 |  | [링크](./ElegantTypeScriptWithReact/chapter1.md) |
 | `✅` | 2 | 타입 |  | [링크](./ElegantTypeScriptWithReact/chapter2.md) |
 | `✅` | 3 | 고급 타입 |  | [링크](./ElegantTypeScriptWithReact/chapter3.md) |
-| `✅` |  |  | `enum` | [링크](https://github.com/functionBee/study-ts-deepdive/blob/main/ElegantTypeScriptWithReact/chapter3.md#316-enum-%ED%83%80%EC%9E%85) |
+| `✅` |  |  | `enum` | [링크](./ElegantTypeScriptWithReact/chapter3.md#316-enum-타입) |
 | `✅` | 4 | 타입 확장하기/좁히기 |  | [링크](./ElegantTypeScriptWithReact/chapter4.md) |
 | ` ` | 5 | 타입 활용하기 |  | [링크](./ElegantTypeScriptWithReact/chapter5.md) |
 | ` ` | 6 | 타입 스크립트 컴파일 |  | [링크](./ElegantTypeScriptWithReact/chapter6.md) |
