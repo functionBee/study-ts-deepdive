@@ -20,14 +20,15 @@
 #### 우아한 타입스크립트 with React
 : [우아한 타입스크립트 with React](https://product.kyobobook.co.kr/detail/S000210716282) 책을 기반으로 학습한 내용을 정리해놓은 문서입니다.
 
-| 진행 상태 | 챕터 | 타이틀 | 정리 내용 확인 경로 |
-|:---:|------|-------------| ------------------- |
-| `✅` | 1 | 들어가며 | [링크](./ElegantTypeScriptWithReact/chapter1.md) |
-| `✅` | 2 | 타입 | [링크](./ElegantTypeScriptWithReact/chapter2.md) |
-| `✅` | 3 | 고급 타입 | [링크](./ElegantTypeScriptWithReact/chapter3.md) |
-| `✅` | 4 | 타입 확장하기/좁히기 | [링크](./ElegantTypeScriptWithReact/chapter4.md) |
-| ` ` | 5 | 타입 활용하기 | [링크](./ElegantTypeScriptWithReact/chapter5.md) |
-| ` ` | 6 | 타입 스크립트 컴파일 | [링크](./ElegantTypeScriptWithReact/chapter6.md) |
+| 진행 상태 | 챕터 | 타이틀 | 부제목 | 정리 내용 확인 경로 |
+|:---:|------|-------------|------| ------------------- |
+| `✅` | 1 | 들어가며 |  | [링크](./ElegantTypeScriptWithReact/chapter1.md) |
+| `✅` | 2 | 타입 |  | [링크](./ElegantTypeScriptWithReact/chapter2.md) |
+| `✅` | 3 | 고급 타입 |  | [링크](./ElegantTypeScriptWithReact/chapter3.md) |
+| `✅` |  |  | `enum` | [링크](https://github.com/functionBee/study-ts-deepdive/blob/main/ElegantTypeScriptWithReact/chapter3.md#316-enum-%ED%83%80%EC%9E%85) |
+| `✅` | 4 | 타입 확장하기/좁히기 |  | [링크](./ElegantTypeScriptWithReact/chapter4.md) |
+| ` ` | 5 | 타입 활용하기 |  | [링크](./ElegantTypeScriptWithReact/chapter5.md) |
+| ` ` | 6 | 타입 스크립트 컴파일 |  | [링크](./ElegantTypeScriptWithReact/chapter6.md) |
 
 <br>
 
