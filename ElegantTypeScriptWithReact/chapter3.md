@@ -27,7 +27,8 @@
     - [3.3.4 제한된 제네릭](#334-제한된-제네릭)
     - [3.3.5 확장된 제네릭](#335-확장된-제네릭)
     - [3.3.6 제네릭 예](#336-제네릭-예)
-  - [Keywrods](#keywrods)
+  - [Keywords](#keywords)
+  - [CheckList](#checklist)
   - [References](#references)
 
 <br>
@@ -347,15 +348,38 @@ enum Season {
     Autumn,
     Winter
 }
-```
 
+console.log(Season.Spring) // 0
+console.log(Season.Summer) // 1
+console.log(Season.Autumn) // 2
+console.log(Season.Winter) // 3
+```
 > 이렇게 정의된 열거형 `Season`은 `Season.Spring`, `Season.Summer` 등과 같이 사용하여 계절을 명확하게 표현할 수 있도록 도와줍니다.
+
+```js
+// 컴파일러를 통해 자바스크립트로 변환하였을 때
+"use strict";
+
+var Season;
+
+(function (Season) {
+    Season[Season["Spring"] = 0] = "Spring";
+    Season[Season["Summer"] = 1] = "Summer";
+    Season[Season["Autumn"] = 2] = "Autumn";
+    Season[Season["Winter"] = 3] = "Winter";
+})(Season || (Season = {}));
+
+console.log(Season.Spring);
+console.log(Season.Summer);
+console.log(Season.Autumn);
+console.log(Season.Winter);
+```
 
 **[열거형의 기본 사용법]**
 
 - **숫자 열거형**: TypeScript에서 열거형을 선언할 때 특정 값을 지정하지 않으면, 기본적으로 숫자 열거형으로 처리되며, 첫 번째 항목은 `0`에서 시작하여 이후 항목은 1씩 증가합니다.
 
-  ```typescript
+  ```ts
   enum Direction {
       Up,
       Down,
@@ -366,7 +390,7 @@ enum Season {
 
 - **문자열 열거형**: 각 멤버를 문자열 리터럴로 초기화할 수 있으며, 문자열 리터럴은 열거형의 각 멤버에 대해 명시적인 값을 제공합니다.
 
-  ```typescript
+  ```ts
   enum Direction {
       Up = "UP",
       Down = "DOWN",
@@ -374,6 +398,7 @@ enum Season {
       Right = "RIGHT",
   }
   ```
+
 
 **[주요특징]**
 
@@ -1045,10 +1070,21 @@ let a: B<number> = { value: 10, value2: 20 };
 
 <br>
 
-## Keywrods
+## Keywords
 
 | #   | Keyword | Description |
 | --- | ------- | ----------- |
+
+
+<br>
+
+## CheckList
+
+- TypeScript에서 `enum`은 무엇을 나타내는가?
+- `enum`을 선언할 때 사용할 수 있는 값은 무엇인가?
+- `enum`의 각 항목은 어떻게 값에 대응되는가?
+- TypeScript에서 `enum`을 사용하는 이유는 무엇인가?
+- `enum`을 사용하여 어떻게 코드를 더 읽기 쉽게 만들 수 있는가?
 
 
 <br>
