@@ -55,7 +55,7 @@
 <br>
 
 ## 1.2 자바스크립트의 한계
-h
+
 ### 1.2.1 동적 타입 언어(dynamic type language)
 
 <u>동적 타입 언어는 변수의 데이터 타입을 프로그램이 실행되는 시점(runtime)에 결정하는 프로그래밍 언어입니다.</u> 개발자는 변수를 선언할 때 데이터 타입을 지정하지 않아도 되며, 변수에 할당되는 값의 타입에 따라 그 변수의 타입이 동적으로 결정됩니다.
@@ -96,71 +96,72 @@ console.log(data);
 
 ### 자바스크립트가 동적 프로그래밍 언어인 이유
 
-1. **타입 추론(Type Inference)**
+**[타입 추론(Type Inference)]**
 
-  자바스크립트는 변수에 특정 타입을 명시하지 않고, 런타임에 타입을 결정합니다. 이는 개발자가 보다 유연하게 코드를 작성할 수 있도록 해줍니다.
+자바스크립트는 변수에 특정 타입을 명시하지 않고, 런타임에 타입을 결정합니다. 이는 개발자가 보다 유연하게 코드를 작성할 수 있도록 해줍니다.
 
-  ```jsx
-  let data; // 타입이 명시되지 않음
-  data = 10; // 숫자 할당
-  data = "문자열 변경"; // 문자열 할당
-  data = function(a, b) { return a + b; }; // 함수 할당
-  console.log(data(5, 3)); // 출력: 8, 함수로서 호출됨
-  ```
+```jsx
+let data; // 타입이 명시되지 않음
+data = 10; // 숫자 할당
+data = "문자열 변경"; // 문자열 할당
+data = function(a, b) { return a + b; }; // 함수 할당
+console.log(data(5, 3)); // 출력: 8, 함수로서 호출됨
+```
 
-2. **타입 변환(Type Coercion)**
+**[타입 변환(Type Coercion)]**
   
-  자바스크립트는 다른 타입의 값을 필요에 따라 자동으로 변환합니다. 이는 유용할 수도 있지만, 때로는 혼란을 주는 결과를 초래할 수도 있습니다.
+자바스크립트는 다른 타입의 값을 필요에 따라 자동으로 변환합니다. 이는 유용할 수도 있지만, 때로는 혼란을 주는 결과를 초래할 수도 있습니다.
 
-  ```jsx
-  let value1 = '5';
-  let value2 = 9;
-  let sum = value1 + value2; // "59", 문자열과 숫자의 덧셈은 문자열 연결을 수행
-  console.log(sum);
+```jsx
+let value1 = '5';
+let value2 = 9;
+let sum = value1 + value2; // "59", 문자열과 숫자의 덧셈은 문자열 연결을 수행
+console.log(sum);
 
-  // 객체와 문자열의 덧셈 시도
-  let object = { valueOf: function() { return 100; } };
-  sum = object + '30'; // "10030", 객체가 문자열로 변환됨
-  console.log(sum);
-  ```
+// 객체와 문자열의 덧셈 시도
+let object = { valueOf: function() { return 100; } };
+sum = object + '30'; // "10030", 객체가 문자열로 변환됨
+console.log(sum);
+```
 
-3. **유연한 변수 할당(Flexible Variable Assignment)**
+**[유연한 변수 할당(Flexible Variable Assignment)]**
   
-  자바스크립트에서는 변수에 서로 다른 타입의 값을 할당할 수 있으며, 이는 동적 타이핑의 한 예입니다.
+자바스크립트에서는 변수에 서로 다른 타입의 값을 할당할 수 있으며, 이는 동적 타이핑의 한 예입니다.
 
-  ```jsx
-  let complexData = { x: 10, y: "초기 문자열" };
-  complexData.y = [1, 2, 3]; // 속성 y를 문자열에서 배열로 변경
-  complexData.z = function(addVal) { this.x += addVal; }; // 새로운 메서드 추가
+```jsx
+let complexData = { x: 10, y: "초기 문자열" };
+complexData.y = [1, 2, 3]; // 속성 y를 문자열에서 배열로 변경
+complexData.z = function(addVal) { this.x += addVal; }; // 새로운 메서드 추가
 
-  console.log(complexData.y); // 출력: [1, 2, 3]
-  complexData.z(5);
-  console.log(complexData.x); // 출력: 15, 메서드에 의해 변경됨
+console.log(complexData.y); // 출력: [1, 2, 3]
+complexData.z(5);
+console.log(complexData.x); // 출력: 15, 메서드에 의해 변경됨
+```
 
-4. **다양한 프로그래밍 패러다임 지원(Multi-Paradigm Support)**
+**[다양한 프로그래밍 패러다임 지원(Multi-Paradigm Support)]**
 
-  자바스크립트는 객체 지향 프로그래밍과 함수형 프로그래밍을 포함하여 다양한 프로그래밍 패러다임을 지원합니다.
+자바스크립트는 객체 지향 프로그래밍과 함수형 프로그래밍을 포함하여 다양한 프로그래밍 패러다임을 지원합니다.
 
-  ```jsx
-  // 객체 지향 스타일
-  class Person {
-    constructor(name) {
-      this.name = name;
-    }
-    
-    greet() {
-      console.log(`안녕하세요, ${this.name}입니다.`);
-    }
+```jsx
+// 객체 지향 스타일
+class Person {
+  constructor(name) {
+    this.name = name;
   }
+  
+  greet() {
+    console.log(`안녕하세요, ${this.name}입니다.`);
+  }
+}
 
-  const person1 = new Person('홍길동');
-  person1.greet(); // 출력: 안녕하세요, 홍길동입니다.
+const person1 = new Person('홍길동');
+person1.greet(); // 출력: 안녕하세요, 홍길동입니다.
 
-  // 함수형 스타일
-  const numbers = [1, 2, 3, 4, 5];
-  const doubledNumbers = numbers.map(number => number * 2); // 배열의 각 요소를 두 배로 만듦
-  console.log(doubledNumbers); // 출력: [2, 4, 6, 8, 10]
-  ```
+// 함수형 스타일
+const numbers = [1, 2, 3, 4, 5];
+const doubledNumbers = numbers.map(number => number * 2); // 배열의 각 요소를 두 배로 만듦
+console.log(doubledNumbers); // 출력: [2, 4, 6, 8, 10]
+```
 
 
 ### 1.2.2 동적 타이핑 시스템의 한계
