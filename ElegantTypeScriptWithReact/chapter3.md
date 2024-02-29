@@ -12,6 +12,11 @@
     - [3.1.4 `never` 타입](#314-never-타입)
     - [3.1.5 `Array` 타입](#315-array-타입)
     - [3.1.6 `enum` 타입](#316-enum-타입)
+      - [정의](#정의)
+      - [`enum` 타입의 기본적인 구조(Syntax)](#enum-타입의-기본적인-구조syntax)
+      - [`enum` 값의 유형](#enum-값의-유형)
+      - [주요특징](#주요특징)
+      - [고려사항](#고려사항)
   - [3.2 타입 조합](#32-타입-조합)
     - [3.2.1 교차 타입(`Intersection Type`)](#321-교차-타입intersection-type)
     - [3.2.2 유니온 타입(Union Type)](#322-유니온-타입union-type)
@@ -27,7 +32,8 @@
     - [3.3.4 제한된 제네릭](#334-제한된-제네릭)
     - [3.3.5 확장된 제네릭](#335-확장된-제네릭)
     - [3.3.6 제네릭 예](#336-제네릭-예)
-  - [Keywrods](#keywrods)
+  - [Keywords](#keywords)
+  - [CheckList](#checklist)
   - [References](#references)
 
 <br>
@@ -324,54 +330,284 @@ let complexArray: [number, string | boolean] = [1, "text"]; // 첫 번째 요소
 
 ### 3.1.6 `enum` 타입
 
+#### 정의
 - TypeScript의 열거형(`enum`) 타입은 명명된 상수의 집합을 정의할 때 사용됩니다.
 - `enum`을 사용하면, 관련된 상수들을 그룹화하여 코드의 가독성과 유지보수성을 향상시킬 수 있습니다. 열거형은 숫자와 문자열 값을 지원합니다.
 
-**[열거형의 기본 사용법]**
+#### `enum` 타입의 기본적인 구조(Syntax)
 
-- **숫자 열거형**: TypeScript에서 열거형을 선언할 때 특정 값을 지정하지 않으면, 기본적으로 숫자 열거형으로 처리되며, 첫 번째 항목은 `0`에서 시작하여 이후 항목은 1씩 증가합니다.
+```ts
+enum TypeName {
+    value1,
+    value2,
+    ...
+}
+```
 
-  ```typescript
+여기서 `enum` 키워드 다음에는 열거형의 이름인 `TypeName`이 오고, 중괄호 `{}` 안에는 열거형이 가질 수 있는 값들인 `value1`, `value2`, ... 등이 쉼표로 구분되어 나열됩니다.
+
+**[예제]**
+
+```ts
+// 예:계절을 나타내는 열거형을 정의할 경우
+enum Season {
+    Spring,
+    Summer,
+    Autumn,
+    Winter
+}
+
+console.log(Season.Spring) // 0
+console.log(Season.Summer) // 1
+console.log(Season.Autumn) // 2
+console.log(Season.Winter) // 3
+```
+> 이렇게 정의된 열거형 `Season`은 `Season.Spring`, `Season.Summer` 등과 같이 사용하여 계절을 명확하게 표현할 수 있도록 도와줍니다.
+
+```js
+// 컴파일러를 통해 자바스크립트로 변환하였을 때
+"use strict";
+
+var Season;
+
+(function (Season) {
+    Season[Season["Spring"] = 0] = "Spring";
+    Season[Season["Summer"] = 1] = "Summer";
+    Season[Season["Autumn"] = 2] = "Autumn";
+    Season[Season["Winter"] = 3] = "Winter";
+})(Season || (Season = {}));
+
+console.log(Season.Spring);
+console.log(Season.Summer);
+console.log(Season.Autumn);
+console.log(Season.Winter);
+```
+
+#### `enum` 값의 유형
+
+- **숫자형**: TypeScript에서 `enum`을 선언할 때 특정 값을 지정하지 않으면, 기본적으로 숫자 `enum`으로 처리되며, 첫 번째 항목은 `0`에서 시작하여 이후 항목은 1씩 증가합니다.
+
+  ```ts
   enum Direction {
-      Up,
-      Down,
-      Left,
-      Right,
+    Up,
+    Down,
+    Left,
+    Right,
   }
+
+  console.log(Direction.Up) // 0
+  console.log(Direction.Down) // 1
+  console.log(Direction.Left) // 2
+  console.log(Direction.Right) // 3
   ```
 
-- **문자열 열거형**: 각 멤버를 문자열 리터럴로 초기화할 수 있으며, 문자열 리터럴은 열거형의 각 멤버에 대해 명시적인 값을 제공합니다.
-
-  ```typescript
-  enum Direction {
-      Up = "UP",
-      Down = "DOWN",
-      Left = "LEFT",
-      Right = "RIGHT",
+  ```ts
+  // 3.1.6-1
+  enum ProgrammingLanguage {
+    Typescript, // 0
+    Javascript, // 1
+    Java, // 2
+    Python, // 3
+    Kotlin, // 4
+    Rust, // 5
+    Go, // 6
   }
+
+  // 각 멤버에게 접근하는 방식은 자바스크립트에서 객체의 속성에 접근하는 방식과 동일하다
+  ProgrammingLanguage.Typescript; // 0
+  ProgrammingLanguage.Rust; // 5
+  ProgrammingLanguage["Go"]; // 6
+
+  // 또한 역방향으로도 접근이 가능하다
+  ProgrammingLanguage[2]; // “Java”
   ```
 
-**[주요특징]**
+- **문자형**: 각 멤버를 문자열 리터럴로 초기화할 수 있으며, 문자열 리터럴은 `enum`의 각 멤버에 대해 명시적인 값을 제공합니다.
+
+  ```ts
+  enum Direction {
+    Up = "UP",
+    Down = "DOWN",
+    Left = "LEFT",
+    Right = "RIGHT",
+  }
+
+  console.log(Direction.Up) // "UP"
+  console.log(Direction.Down) // "DOWN"
+  console.log(Direction.Left) // "LEFT"
+  console.log(Direction.Right) // "RIGHT"
+  ```
+
+  ```ts
+  // 3.1.6-2
+  enum ProgrammingLanguage {
+    Typescript = "Typescript",
+    Javascript = "Javascript",
+    Java = 300,
+    Python = 400,
+    Kotlin,
+    Rust,
+    Go,
+  }
+
+  console.log(ProgrammingLanguage.Typescript) // "Typescript"
+  console.log(ProgrammingLanguage.Java) // 300
+  console.log(ProgrammingLanguage.Go)  // 403
+  ```
+
+#### 주요특징
 
 - **자체 문서화**: 열거형은 코드 내에서 상수의 의미를 명확하게 전달할 수 있도록 돕습니다. 열거형 멤버의 이름으로 코드를 자체 문서화할 수 있습니다.
 - **컴파일 타임 체크**: 열거형을 사용하면, 유효한 값들의 집합을 미리 정의할 수 있으므로, 컴파일 타임에 타입 체킹을 통해 오류를 방지할 수 있습니다.
 - **런타임 객체**: 열거형은 TypeScript에서 런타임에 실제 객체로 존재합니다. 이를 통해 열거형의 값들을 런타임에 조회하거나 반복 처리할 수 있습니다.
 
-**[열거형 사용 시 고려사항]**
+#### 고려사항
 
 - **초기화**: 숫자 열거형에서 첫 번째 멤버는 기본적으로 `0`으로 초기화되지만, 시작 값을 변경하려면 첫 번째 멤버에 다른 숫자를 할당할 수 있습니다. 문자열 열거형의 경우 모든 멤버를 명시적으로 초기화해야 합니다.
 - **역매핑**: 숫자 열거형은 역매핑 기능을 제공하여, 멤버의 값으로부터 그 이름을 찾을 수 있습니다. 문자열 열거형은 이 기능을 제공하지 않습니다.
-- **const 열거형**: 성능 최적화를 위해, `const` 키워드를 사용하여 컴파일 시 열거형을 상수로 변환할 수 있습니다. `const enum`은 런타임에 객체를 생성하지 않고, 사용된 곳에 인라인으로 값을 삽입합니다.
+- **`const` 열거형**: 성능 최적화를 위해, `const` 키워드를 사용하여 컴파일 시 열거형을 상수로 변환할 수 있습니다. `const enum`은 런타임에 객체를 생성하지 않고, 사용된 곳에 인라인으로 값을 삽입합니다.
 
-```typescript
-const enum Direction {
-    Up = 1,
-    Down,
-    Left,
-    Right,
+**[책 예제]**
+
+```ts
+// 3.1.6-3
+enum ItemStatusType {
+  DELIVERY_HOLD = "DELIVERY_HOLD", // 배송 보류
+  DELIVERY_READY = "DELIVERY_READY", // 배송 준비 중
+  DELIVERING = "DELIVERING", // 배송 중 
+  DELIVERED = "DELIVERED", // 배송 완료
 }
 
-let direction = Direction.Up;
+const checkItemAvailable = (itemStatus: ItemStatusType) => {
+  switch (itemStatus) {
+    case ItemStatusType.DELIVERY_HOLD:
+    case ItemStatusType.DELIVERY_READY:
+    case ItemStatusType.DELIVERING:
+      return false;
+    case ItemStatusType.DELIVERED:
+    default:
+      return true;
+  }
+};
+
+console.log(ItemStatusType);
+console.log(checkItemAvailable(ItemStatusType.DELIVERED))
+console.log(checkItemAvailable(ItemStatusType.DELIVERY_HOLD))
+```
+
+```ts
+// 3.1.6-4
+enum ProgrammingLanguage {
+  Typescript = "Typescript",
+  Javascript = "Javascript",
+  Java = 300,
+  Python = 400,
+  Kotlin,
+  Rust,
+  Go,
+}
+
+ProgrammingLanguage[200]; // undefined를 출력하지만 별다른 에러를 발생시키지 않는다
+const myLanguage = ProgrammingLanguage.Java; // 이렇게 enum 값을 안전하게 사용할 수 있습니다
+```
+> `enum` 타입을 사용할 때 주의할 점은, `enum` 값에 대한 접근 시 숫자 값이 아닌 문자열 값으로 접근해야 한다는 것입니다. 만약 숫자 값으로 접근하게 되면 `undefined`가 반환되지만 에러는 발생하지 않습니다. 이러한 문제를 방지하기 위해 `const enum`을 사용하여 `enum`을 선언할 수도 있습니다. 이를 통해 `enum` 값에 대한 안전한 접근을 보장할 수 있습니다.
+
+```ts
+// 3.1.6-4
+const enum ProgrammingLanguage {
+  Typescript = "Typescript",
+  Javascript = "Javascript",
+  Java = 300,
+  Python = 400,
+  Kotlin = 500,
+  Rust = 600,
+  Go = 700,
+}
+
+ProgrammingLanguage[Java]; // 에러 발생: ProgrammingLanguage이 정의되지 않았습니다
+```
+
+```ts
+// 3.1.6-4
+// 다음과 같이 선언하면 위와 같은 문제를 방지할 수 있다
+const enum ProgrammingLanguage {
+  Typescript = "Typescript",
+  Javascript = "Javascript",
+  Java = 300,
+  Python = 400,
+  Kotlin = 500,
+  Rust = 600,
+  Go = 700,
+}
+
+const myLanguage = ProgrammingLanguage.Java; // 이렇게 enum 값을 안전하게 사용할 수 있습니다
+console.log(myLanguage)
+```
+
+```ts
+// 3.1.6-5
+const enum NUMBER {
+  ONE = 1,
+  TWO = 2,
+}
+const myNumber: NUMBER = 100; // NUMBER enum에서 100을 관리하고 있지 않지만 이는 에러를 발생시키지 않습니다
+
+const enum STRING_NUMBER {
+  ONE = "ONE",
+  TWO = "TWO",
+}
+const myStringNumber: STRING_NUMBER = "THREE"; // 에러 발생
+```
+
+```ts
+const enum NUMBER {
+  ONE = 1,
+  TWO = 2,
+}
+const myNumber: NUMBER = NUMBER.ONE; // 올바른 enum 값으로 수정
+console.log(myNumber) // 1
+
+const enum STRING_NUMBER {
+  ONE = "ONE",
+  TWO = "TWO",
+}
+const myStringNumber: STRING_NUMBER = STRING_NUMBER.ONE; // 올바른 enum 값으로 수정
+console.log(myStringNumber) // "ONE"
+```
+
+**[추가]**
+> [발췌](https://learntypescript.dev/04/l1-enum#summary)
+> 
+> String enum values are strongly-typed to the named values declared in the enum.
+
+TypeScript에서 문자열 `enum` 값은 `enum`에 선언된 이름 값에 강력(?)하게 입력됩니다. 이는 TypeScript의 강력한 타입 시스템의 일환으로, `enum` 내에서 선언된 값 외에는 다른 값을 입력할 수 없도록 보장합니다. 이를 통해 코드의 가독성과 유지보수성이 향상되며, 잘못된 값이 입력되는 오류를 방지할 수 있습니다.
+
+**[응용]**
+
+```tsx
+enum PostCategory {
+  Tech = "기술",
+  Lifestyle = "라이프스타일",
+  Travel = "여행",
+}
+
+interface BlogPost {
+  title: string;
+  content: string;
+  category: PostCategory;
+}
+```
+
+```tsx
+import { PostCategory } from '../enums';
+
+const blogPosts: BlogPost[] = [
+  { title: '첫 번째 포스트', content: '내용', category: PostCategory.Tech },
+  { title: '두 번째 포스트', content: '내용', category: PostCategory.Lifestyle },
+  { title: '세 번째 포스트', content: '내용', category: PostCategory.Travel },
+];
+
+const techPosts = blogPosts.filter(post => post.category === PostCategory.Tech);
 ```
 
 <br>
@@ -1021,10 +1257,21 @@ let a: B<number> = { value: 10, value2: 20 };
 
 <br>
 
-## Keywrods
+## Keywords
 
 | #   | Keyword | Description |
 | --- | ------- | ----------- |
+
+
+<br>
+
+## CheckList
+
+- TypeScript에서 `enum`은 무엇을 나타내는가?
+- `enum`을 선언할 때 사용할 수 있는 값은 무엇인가?
+- `enum`의 각 항목은 어떻게 값에 대응되는가?
+- TypeScript에서 `enum`을 사용하는 이유는 무엇인가?
+- `enum`을 사용하여 어떻게 코드를 더 읽기 쉽게 만들 수 있는가?
 
 
 <br>
