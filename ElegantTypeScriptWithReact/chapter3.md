@@ -381,24 +381,71 @@ console.log(Season.Winter);
 
   ```ts
   enum Direction {
-      Up,
-      Down,
-      Left,
-      Right,
+    Up,
+    Down,
+    Left,
+    Right,
   }
+
+  console.log(Direction.Up) // 0
+  console.log(Direction.Down) // 1
+  console.log(Direction.Left) // 2
+  console.log(Direction.Right) // 3
+  ```
+
+  ```ts
+  // 3.1.6-1
+  enum ProgrammingLanguage {
+    Typescript, // 0
+    Javascript, // 1
+    Java, // 2
+    Python, // 3
+    Kotlin, // 4
+    Rust, // 5
+    Go, // 6
+  }
+
+  // 각 멤버에게 접근하는 방식은 자바스크립트에서 객체의 속성에 접근하는 방식과 동일하다
+  ProgrammingLanguage.Typescript; // 0
+  ProgrammingLanguage.Rust; // 5
+  ProgrammingLanguage["Go"]; // 6
+
+  // 또한 역방향으로도 접근이 가능하다
+  ProgrammingLanguage[2]; // “Java”
   ```
 
 - **문자열 열거형**: 각 멤버를 문자열 리터럴로 초기화할 수 있으며, 문자열 리터럴은 열거형의 각 멤버에 대해 명시적인 값을 제공합니다.
 
   ```ts
   enum Direction {
-      Up = "UP",
-      Down = "DOWN",
-      Left = "LEFT",
-      Right = "RIGHT",
+    Up = "UP",
+    Down = "DOWN",
+    Left = "LEFT",
+    Right = "RIGHT",
   }
+
+  console.log(Direction.Up) // "UP"
+  console.log(Direction.Down) // "DOWN"
+  console.log(Direction.Left) // "LEFT"
+  console.log(Direction.Right) // "RIGHT"
   ```
 
+  ```ts
+  // 3.1.6-2
+  enum ProgrammingLanguage {
+    Typescript = "Typescript",
+    Javascript = "Javascript",
+    Java = 300,
+    Python = 400,
+    Kotlin,
+    Rust,
+    Go,
+  }
+
+  console.log(ProgrammingLanguage.Typescript) // "Typescript"
+  console.log(ProgrammingLanguage.Java) // 300
+  console.log(ProgrammingLanguage.Go)  // 403
+  ```
 
 **[주요특징]**
 
@@ -412,16 +459,118 @@ console.log(Season.Winter);
 - **역매핑**: 숫자 열거형은 역매핑 기능을 제공하여, 멤버의 값으로부터 그 이름을 찾을 수 있습니다. 문자열 열거형은 이 기능을 제공하지 않습니다.
 - **const 열거형**: 성능 최적화를 위해, `const` 키워드를 사용하여 컴파일 시 열거형을 상수로 변환할 수 있습니다. `const enum`은 런타임에 객체를 생성하지 않고, 사용된 곳에 인라인으로 값을 삽입합니다.
 
-```typescript
-const enum Direction {
-    Up = 1,
-    Down,
-    Left,
-    Right,
+```ts
+// 3.1.6-3
+enum ItemStatusType {
+  DELIVERY_HOLD = "DELIVERY_HOLD", // 배송 보류
+  DELIVERY_READY = "DELIVERY_READY", // 배송 준비 중
+  DELIVERING = "DELIVERING", // 배송 중 
+  DELIVERED = "DELIVERED", // 배송 완료
 }
 
-let direction = Direction.Up;
+const checkItemAvailable = (itemStatus: ItemStatusType) => {
+  switch (itemStatus) {
+    case ItemStatusType.DELIVERY_HOLD:
+    case ItemStatusType.DELIVERY_READY:
+    case ItemStatusType.DELIVERING:
+      return false;
+    case ItemStatusType.DELIVERED:
+    default:
+      return true;
+  }
+};
+
+console.log(ItemStatusType);
+console.log(checkItemAvailable(ItemStatusType.DELIVERED))
+console.log(checkItemAvailable(ItemStatusType.DELIVERY_HOLD))
 ```
+
+```ts
+// 3.1.6-4
+enum ProgrammingLanguage {
+  Typescript = "Typescript",
+  Javascript = "Javascript",
+  Java = 300,
+  Python = 400,
+  Kotlin,
+  Rust,
+  Go,
+}
+
+ProgrammingLanguage[200]; // undefined를 출력하지만 별다른 에러를 발생시키지 않는다
+const myLanguage = ProgrammingLanguage.Java; // 이렇게 enum 값을 안전하게 사용할 수 있습니다
+```
+> `enum` 타입을 사용할 때 주의할 점은, `enum` 값에 대한 접근 시 숫자 값이 아닌 문자열 값으로 접근해야 한다는 것입니다. 만약 숫자 값으로 접근하게 되면 `undefined`가 반환되지만 에러는 발생하지 않습니다. 이러한 문제를 방지하기 위해 `const enum`을 사용하여 `enum`을 선언할 수도 있습니다. 이를 통해 `enum` 값에 대한 안전한 접근을 보장할 수 있습니다.
+
+```ts
+// 3.1.6-4
+const enum ProgrammingLanguage {
+  Typescript = "Typescript",
+  Javascript = "Javascript",
+  Java = 300,
+  Python = 400,
+  Kotlin = 500,
+  Rust = 600,
+  Go = 700,
+}
+
+ProgrammingLanguage[Java]; // 에러 발생: ProgrammingLanguage이 정의되지 않았습니다
+```
+
+```ts
+// 3.1.6-4
+// 다음과 같이 선언하면 위와 같은 문제를 방지할 수 있다
+const enum ProgrammingLanguage {
+  Typescript = "Typescript",
+  Javascript = "Javascript",
+  Java = 300,
+  Python = 400,
+  Kotlin = 500,
+  Rust = 600,
+  Go = 700,
+}
+
+const myLanguage = ProgrammingLanguage.Java; // 이렇게 enum 값을 안전하게 사용할 수 있습니다
+console.log(myLanguage)
+```
+
+```ts
+// 3.1.6-5
+const enum NUMBER {
+  ONE = 1,
+  TWO = 2,
+}
+const myNumber: NUMBER = 100; // NUMBER enum에서 100을 관리하고 있지 않지만 이는 에러를 발생시키지 않습니다
+
+const enum STRING_NUMBER {
+  ONE = "ONE",
+  TWO = "TWO",
+}
+const myStringNumber: STRING_NUMBER = "THREE"; // 에러 발생
+```
+
+```ts
+const enum NUMBER {
+  ONE = 1,
+  TWO = 2,
+}
+const myNumber: NUMBER = NUMBER.ONE; // 올바른 enum 값으로 수정
+console.log(myNumber) // 1
+
+const enum STRING_NUMBER {
+  ONE = "ONE",
+  TWO = "TWO",
+}
+const myStringNumber: STRING_NUMBER = STRING_NUMBER.ONE; // 올바른 enum 값으로 수정
+console.log(myStringNumber) // "ONE"
+```
+
+**[추가]**
+> [발췌](https://learntypescript.dev/04/l1-enum#summary)
+> String enum values are strongly-typed to the named values declared in the enum.
+
+TypeScript에서 문자열 `enum` 값은 `enum`에 선언된 이름 값에 강력(?)하게 입력됩니다.이는 TypeScript의 강력한 타입 시스템의 일환으로, `enum` 내에서 선언된 값 외에는 다른 값을 입력할 수 없도록 보장합니다. 이를 통해 코드의 가독성과 유지보수성이 향상되며, 잘못된 값이 입력되는 오류를 방지할 수 있습니다.
+
 
 <br>
 
