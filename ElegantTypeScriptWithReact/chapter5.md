@@ -8,6 +8,7 @@
       - [응용](#응용)
     - [5-1-1. `extends`와 제네릭을 활용한 조건부 타입](#5-1-1-extends와-제네릭을-활용한-조건부-타입)
       - [조건부 타입의 구조(Syntax)](#조건부-타입의-구조syntax)
+    - [조건부 타입의 활용](#조건부-타입의-활용)
       - [제네릭과 함께 사용하기](#제네릭과-함께-사용하기)
     - [5-1-2. 조건부 타입을 사용하지 않았을 때의 문제점](#5-1-2-조건부-타입을-사용하지-않았을-때의-문제점)
       - [`react-query` 를 활용한 예](#react-query-를-활용한-예)
@@ -118,6 +119,19 @@ type Example1 = Person extends {} ? string : number;
 ```
 > 여기서 `Person` 타입은 빈 객체 `{}` 타입에 확장 가능하기 때문에, 조건이 참이 되어 `Example1`은 `string` 타입으로 결정됩니다.
 
+### 조건부 타입의 활용
+
+조건부 타입 자체로는 그리 유용하지 않을 수 있지만, 제네릭 타입과 결합될 때 매우 강력합니다. 한 가지 일반적인 사용 사례는 조건부 타입과 `never` 타입을 사용하여 타입에서 특정 값을 제외하는 것입니다. 이는 특정 조건을 만족하지 않는 타입 멤버를 "잘라내는" 데 유용합니다.
+
+예를 들어, 특정 타입에서 `null` 값을 제거하고 싶다면 다음과 같이 조건부 타입을 사용할 수 있습니다.
+
+```ts
+type NonNull<T> = T extends null ? never : T;
+
+type NonNullableString = NonNull<string | null>; // string
+```
+
+> 여기서 `NonNull<T>` 타입은 제네릭 타입 `T`가 `null`인지 확인하고, `null`이라면 `never`를 반환하여 해당 타입을 결과 타입에서 제외합니다. 그 결과, `NonNullableString`은 `null`이 제거된 `string` 타입이 됩니다.
 
 #### 제네릭과 함께 사용하기
 
@@ -159,6 +173,7 @@ type ExcludeString<T> = T extends string ? never : T;
 type Result = ExcludeString<string | number | boolean>; // number | boolean
 ```
 > 여기서 `ExcludeString` 타입은 제네릭 타입 `T`가 `string` 타입과 일치하면 `never`를 반환하고, 그렇지 않으면 `T`를 그대로 반환합니다. 따라서, `Result` 타입은 `string` 타입을 제외한 `number | boolean` 타입이 됩니다.
+
 
 ### 5-1-2. 조건부 타입을 사용하지 않았을 때의 문제점
 
